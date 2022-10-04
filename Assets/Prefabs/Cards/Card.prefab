@@ -150,9 +150,7 @@ MonoBehaviour:
   descText: {fileID: 8208743478737881403}
   artworkImage: {fileID: 0}
   cost: {fileID: 7809715442825672457}
-  parent: {fileID: 0}
-  velocity: {x: 0.5, y: 0.5, z: 0.5}
-  index: 0
+  siblingIndex: 0
 --- !u!114 &5765449157304301212
 MonoBehaviour:
   m_ObjectHideFlags: 0

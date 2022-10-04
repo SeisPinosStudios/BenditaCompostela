@@ -8,11 +8,13 @@ public class Card : MonoBehaviour
 
     public void Start()
     {
-        cardData = gameObject.GetComponent<CardDisplay>().cardData;
+        
     }
 
     public void UseCard()
     {
+        cardData = gameObject.GetComponent<CardDisplay>().cardData;
+
         switch (cardData.effect)
         {
             case 0:

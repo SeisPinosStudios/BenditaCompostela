@@ -36,14 +36,14 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         Debug.Log("Ha entrado en carta" + name);
         transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 100, -2.0f);
+        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 250, -2.0f);
         DisableHandPanel();
         transform.SetAsLastSibling();
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
         transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 100, 0.0f);
+        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
         EnableHandPanel();
     }
     #endregion

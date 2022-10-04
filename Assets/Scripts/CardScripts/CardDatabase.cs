@@ -8,6 +8,5 @@ public class CardDatabase : MonoBehaviour
     void Start()
     {
         foreach (CardData card in Resources.LoadAll<CardData>("Cards")) cards.Add(card);
-        gameObject.GetComponent<Deck>().GenerateDeck();
     }
 }

@@ -9,6 +9,6 @@ public class PlayerCombatScript : MonoBehaviour
     public int hp;
     public int totalSpeed;
     public int currentSpeed;
-    public List<Card> playerDeck = new List<Card>();
+    public List<CardData> playerDeck = new List<CardData>();
     #endregion
 }
