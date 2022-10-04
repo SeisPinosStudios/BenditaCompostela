@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: []
+  cardsDatabase: []
   hand: {fileID: 1504785916}
   card: {fileID: 6344285022213485672, guid: b2f3be45166e6dd458ed65547b135076, type: 3}
 --- !u!114 &1117395798
@@ -583,7 +584,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -1250
+  m_Spacing: -1000
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

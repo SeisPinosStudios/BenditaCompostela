@@ -5,25 +5,17 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
-    public Queue<Card> deck = new Queue<Card>();
-    public List<Card> cards = new List<Card>();
+    public Queue<CardData> deck = new Queue<CardData>();
+    public List<CardData> cards = new List<CardData>();
+    public List<CardData> cardsDatabase;
     public GameObject hand;
     public GameObject card;
     
-    private void Start()
+    private void Awake()
     {
-        List<Card> cardsDatabase = gameObject.GetComponent<CardDatabase>().cards;
+        cardsDatabase = gameObject.GetComponent<CardDatabase>().cards;
 
-        /* Debug zone */
-
-        for (int i = 0; i < 20; i++)
-        {
-            deck.Enqueue(cardsDatabase[Random.Range(0, cardsDatabase.Count)]);
-        }
-
-        CopyDeckOnList();
-
-        /* End of debug zone */
+        
 
         gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
     }
@@ -31,7 +23,7 @@ public class Deck : MonoBehaviour
     public void DrawCard()
     {
         Debug.Log("Deck clicked.");
-        card.GetComponent<CardDisplay>().card = deck.Dequeue();
+        card.GetComponent<CardDisplay>().cardData = deck.Dequeue();
         Instantiate(card, hand.transform);
         CopyDeckOnList();
     }
@@ -40,6 +32,20 @@ public class Deck : MonoBehaviour
     public void CopyDeckOnList()
     {
         cards.Clear();
-        foreach (Card card in deck) cards.Add(card);
+        foreach (CardData card in deck) cards.Add(card);
+    }
+
+    public void GenerateDeck()
+    {
+        /* Debug zone */
+
+        for (int i = 0; i < 20; i++)
+        {
+            deck.Enqueue(cardsDatabase[Random.Range(0, cardsDatabase.Count-1)]);
+        }
+
+        CopyDeckOnList();
+
+        /* End of debug zone */
     }
 }

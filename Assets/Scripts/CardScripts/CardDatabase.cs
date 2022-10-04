@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CardDatabase : MonoBehaviour
 {
-    public List<Card> cards = new List<Card>();
-    Card[] cards_deck = new Card[0];
+    public List<CardData> cards = new List<CardData>();
     void Start()
     {
-        foreach (Card card in Resources.LoadAll<Card>("Cards")) cards.Add(card);
+        foreach (CardData card in Resources.LoadAll<CardData>("Cards")) cards.Add(card);
+        gameObject.GetComponent<Deck>().GenerateDeck();
     }
 }

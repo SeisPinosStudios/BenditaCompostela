@@ -2,15 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "New weapon card", menuName = "Card/Weapon")]
-public class Card : ScriptableObject
+public class Card : MonoBehaviour
 {
-    public new string name;
-    public string description;
-    public Sprite artwork;
-    public int effect = 0;
-    public int cost;
-    public int value;
-    public int weapon_id;
+    public CardData cardData;
+
+    public void Start()
+    {
+        cardData = gameObject.GetComponent<CardDisplay>().cardData;
+    }
+
+    public void UseCard()
+    {
+        switch (cardData.effect)
+        {
+            case 0:
+                Debug.Log(cardData.name + " equiped.");
+                break;
+            case 1:
+                Debug.Log(cardData.value + " damage dealt.");
+                break;
+            default:
+                Debug.Log("This should not appear, report this bug to the developer team.");
+                break;
+        }
+
+        gameObject.GetComponent<CardDisplay>().EnableHandPanel();
+        Destroy(gameObject);
+    }
 }
