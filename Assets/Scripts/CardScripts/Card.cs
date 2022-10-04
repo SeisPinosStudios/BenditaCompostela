@@ -19,7 +19,7 @@ public class Card : MonoBehaviour
                 Debug.Log(cardData.name + " equiped.");
                 break;
             case 1:
-                Debug.Log(cardData.value + " damage dealt.");
+                Debug.Log(cardData.attackDamage + " damage dealt.");
                 break;
             default:
                 Debug.Log("This should not appear, report this bug to the developer team.");

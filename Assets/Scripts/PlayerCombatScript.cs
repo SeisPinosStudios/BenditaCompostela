@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerCombatScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #region Player variables
+    public int weapon;
+    public int hp;
+    public int totalSpeed;
+    public int currentSpeed;
+    public List<Card> playerDeck = new List<Card>();
+    #endregion
 }

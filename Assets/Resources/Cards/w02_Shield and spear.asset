@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e66455158c8eb654395272cecf6256de, type: 3}
-  m_Name: spear
+  m_Name: w02_Shield and spear
   m_EditorClassIdentifier: 
-  name: Spear
-  description: Spear for spearing things
+  name: Shield and spear
+  description: Shield with a spear
   artwork: {fileID: 0}
-  effect: 0
-  cost: 4
-  value: 0
-  weapon_id: 0
+  type: 0
+  effect: -1
+  effectValue: -1
+  cost: 2
+  weaponId: 2
+  attackDamage: -1

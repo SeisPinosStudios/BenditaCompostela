@@ -1,0 +1,37 @@
+Type list
+
+-1: Just for debugging, should not exist
+0: Weapon card
+1: Attack card
+2: Object card
+3: Special card
+
+Effect list
+
+-1: Card does not apply altered effect
+0: Applies bleed
+1: Applies poison
+2: Applies burn
+3: Applies vulnerable
+4: Applies en garde
+5: Applies invulnerable
+
+Weapon list
+
+-1: Card is not weapon 
+0: Sword
+1: Dagger
+2: Shield and spear
+3: Hammer
+4: Staff
+
+
+Variables:
+
+-type: defines the type of the card
+-effect: defines the effect the card applies
+-effectValue: defines the value of the effect applied, for example, 3 stacks of poison
+-weaponId: defines the weapon id
+-attackDamage: defines the damage dealt in case it is an attack card
+
+
