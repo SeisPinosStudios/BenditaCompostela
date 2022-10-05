@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AttackDeck : MonoBehaviour
+{
+    public GameObject player;
+    public GameObject hand;
+    public GameObject card;
+
+    public void Awake()
+    {
+        gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
+    }
+
+    public void DrawCard()
+    {
+        Debug.Log("Attack deck clicked.");
+        Weapon weapon = player.GetComponent<PlayerScript>().weapon;
+        card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
+        Instantiate(card, hand.transform);
+    }
+}

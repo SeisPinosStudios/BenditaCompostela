@@ -16,7 +16,7 @@ public class DefaultDeck : MonoBehaviour
     {
         gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
 
-        playerDeck = player.GetComponent<PlayerCombatScript>().playerDeck;
+        playerDeck = player.GetComponent<PlayerScript>().playerDeck;
         Shuffle();
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
         Debug.Log(deckQueue.Peek());

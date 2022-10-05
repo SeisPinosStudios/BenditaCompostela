@@ -18,6 +18,6 @@ public class Card : MonoBehaviour
     public void EquipWeapon()
     {
         Weapon weapon = (Weapon)gameObject.GetComponent<CardDisplay>().cardData;
-        GameObject.FindGameObjectWithTag("PlayerObject").GetComponent<PlayerCombatScript>().weapon = weapon.weaponId;
+        GameObject.FindGameObjectWithTag("PlayerObject").GetComponent<PlayerScript>().weapon = weapon;
     }
 }

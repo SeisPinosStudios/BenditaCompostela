@@ -6,5 +6,5 @@ public class Attack : CardData
 {
     public int[] effect;
     public int[] effectValue;
-    public int[] damage;
+    public int damage;
 }

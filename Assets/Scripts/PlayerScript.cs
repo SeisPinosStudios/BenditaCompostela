@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombatScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     #region Player variables
-    public int weapon;
+    public Weapon weapon;
     public int hp;
     public int totalSpeed;
     public int currentSpeed;
