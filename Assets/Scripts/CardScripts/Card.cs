@@ -4,31 +4,20 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public CardData cardData;
-
     public void Start()
     {
         
     }
 
+    
     public void UseCard()
     {
-        cardData = gameObject.GetComponent<CardDisplay>().cardData;
+        if (gameObject.GetComponent<CardDisplay>().cardData.GetType() == typeof(Weapon)) EquipWeapon();
+    }
 
-        switch (cardData.effect)
-        {
-            case 0:
-                Debug.Log(cardData.name + " equiped.");
-                break;
-            case 1:
-                Debug.Log(cardData.attackDamage + " damage dealt.");
-                break;
-            default:
-                Debug.Log("This should not appear, report this bug to the developer team.");
-                break;
-        }
-
-        gameObject.GetComponent<CardDisplay>().EnableHandPanel();
-        Destroy(gameObject);
+    public void EquipWeapon()
+    {
+        Weapon weapon = (Weapon)gameObject.GetComponent<CardDisplay>().cardData;
+        GameObject.FindGameObjectWithTag("PlayerObject").GetComponent<PlayerCombatScript>().weapon = weapon.weaponId;
     }
 }

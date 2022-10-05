@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 327742872}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: PlayerObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,10 +173,8 @@ MonoBehaviour:
   currentSpeed: 0
   playerDeck:
   - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 553adaf9f8bbb874c9bc3c6d0f01c9cf, type: 2}
-  - {fileID: 11400000, guid: 9b2525160dc7b524cbf56546f743960c, type: 2}
-  - {fileID: 11400000, guid: 7696040628e080b47b036bf524955b42, type: 2}
-  - {fileID: 11400000, guid: 9086ce301385e844fa55dbfcbf9dae1c, type: 2}
+  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
+  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
 --- !u!1 &378120923
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 824, y: 0}
+  m_AnchoredPosition: {x: 824, y: -400}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117395793
