@@ -7,5 +7,8 @@ public class TurnSystemScript : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
 
-
+    public void Awake()
+    {
+        
+    }
 }
