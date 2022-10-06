@@ -30,6 +30,17 @@ public class DefaultDeck : MonoBehaviour
         Instantiate(card, hand.transform);
     }
 
+    public void DrawCard(int cardsToDraw)
+    {
+        for (int i = 0; i < cardsToDraw; i++)
+        {
+            if (deckQueue.Count <= 0) return;
+            Debug.Log("Deck clicked.");
+            card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
+            Instantiate(card, hand.transform);
+        }
+    }
+
     public void Shuffle()
     { 
         for(int i = 0; i < playerDeck.Count; i++)

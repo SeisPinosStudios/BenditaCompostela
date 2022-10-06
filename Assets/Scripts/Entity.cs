@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New attack card", menuName = "Card/New attack")]
-public class Attack : CardData
+public class Entity : MonoBehaviour
 {
+    public int HP;
+    public int currentHP;
+    public int energy;
+    public int currentEnergy;
+
     public int[] effect;
     public int[] effectValue;
-    public int damage;
 }
