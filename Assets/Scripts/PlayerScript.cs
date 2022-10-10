@@ -11,7 +11,7 @@ public class PlayerScript : Entity
 
     public void Awake()
     {
-        DeactivateCombatControl();
+        //DeactivateCombatControl();
     }
 
     #endregion
