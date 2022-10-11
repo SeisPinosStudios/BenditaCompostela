@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New weapon card", menuName = "Card/New card")]
 public class CardData : ScriptableObject
 {
     #region General variables
@@ -11,5 +10,7 @@ public class CardData : ScriptableObject
     public string description;
     public Sprite artwork;
     public int cost;
+    public enum TEffect 
+        {BLEED, POISON, BURN, VULNERABLE, GUARDED, INVULNERABLE, CONFUSED, DISARMED}
     #endregion
 }
