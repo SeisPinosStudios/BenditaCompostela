@@ -281,13 +281,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378120923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622821380
 GameObject:
@@ -388,7 +388,7 @@ RectTransform:
   - {fileID: 986698539}
   - {fileID: 1165586883}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -490,7 +490,7 @@ MonoBehaviour:
   currentEnergy: 0
   effects: 
   effectValue: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 60ffab9ddc5805049ba925ff17b6f51b, type: 2}
 --- !u!1 &1117395791
 GameObject:
   m_ObjectHideFlags: 0
