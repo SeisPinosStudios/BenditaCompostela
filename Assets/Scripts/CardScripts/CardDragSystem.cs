@@ -28,6 +28,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else
         {
             gameObject.GetComponent<Card>().UseCard();
+            Destroy(gameObject);
         }
     }
 }

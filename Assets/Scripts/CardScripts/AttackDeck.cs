@@ -14,6 +14,12 @@ public class AttackDeck : MonoBehaviour
         gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
     }
 
+    public void Update()
+    {
+        if(player.GetComponent<PlayerScript>().weapon == null) gameObject.GetComponent<Button>().enabled = false;
+        else gameObject.GetComponent<Button>().enabled = true;
+    }
+
     public void DrawCard()
     {
         Debug.Log("Attack deck clicked.");

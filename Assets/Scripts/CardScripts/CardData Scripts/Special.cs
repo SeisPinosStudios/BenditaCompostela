@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New spacial card", menuName = "Card/New special card")]
+[CreateAssetMenu(fileName = "New spacial card", menuName = "BenditaCompostela/New special card")]
 public class Special : CardData
 {
-    public TEffect[] effect;
-    public int[] effectValue;
+    public int damage;
+    public TAlteredEffects[] alteredEffects;
+    public int[] aEffectValues;
+    public TEffects[] effects;
+    public int[] eValues;
 }

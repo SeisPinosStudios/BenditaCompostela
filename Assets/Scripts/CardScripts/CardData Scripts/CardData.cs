@@ -10,7 +10,10 @@ public class CardData : ScriptableObject
     public string description;
     public Sprite artwork;
     public int cost;
-    public enum TEffect 
+    public enum TAlteredEffects 
         {BLEED, POISON, BURN, VULNERABLE, GUARDED, INVULNERABLE, CONFUSED, DISARMED}
+
+    public enum TEffects
+        {rHEALTH, rENERGY, DRAW, DISCARD, CLEANSE}
     #endregion
 }

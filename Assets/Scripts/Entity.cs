@@ -9,11 +9,17 @@ public class Entity : MonoBehaviour
     public int energy;
     public int currentEnergy;
 
-    public CardData.TEffect[] effects;
-    public int[] effectValue;
+    public List<CardData.TAlteredEffects> effects;
+    public List<int> effectValue;
 
     public void RestoreEnergy(int energyRestored)
     {
+        if (energyRestored == -1)
+        {
+            this.currentEnergy = this.energy;
+            return;
+        }
+
         this.currentEnergy += energyRestored;
     }
 
@@ -36,6 +42,12 @@ public class Entity : MonoBehaviour
 
     public void RestoreHealth(int healthRestored)
     {
+        if(CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED) != -1) 
+        {
+            this.currentHP = Mathf.Clamp(this.currentHP + (healthRestored / 2), 0, HP);
+            return;
+        }
+      
         this.currentHP = Mathf.Clamp(this.currentHP + healthRestored, 0, HP);
     }
 
@@ -46,12 +58,34 @@ public class Entity : MonoBehaviour
     }
 
     /* Effect methods. This methods are used to check if the Entity suffers from various effects */
-    public int CheckIfSufferingEffect(CardData.TEffect checkingEffect)
+    public int CheckIfSufferingEffect(CardData.TAlteredEffects checkingEffect)
     {
-        for(int i = 0; i < this.effects.Length; i++)
-        {
-            if (this.effects[i] == checkingEffect) return this.effectValue[i];
-        }
+        if(effects.Contains(checkingEffect)) return effects.IndexOf(checkingEffect);
         return -1;
+    }
+
+    public void ApplyEffect(CardData.TAlteredEffects effect, int value)
+    {
+        if(CheckIfSufferingEffect(effect) >= 0)
+        {
+            effectValue[CheckIfSufferingEffect(effect)] += value;
+            return;
+        }
+
+        effects.Add(effect);
+        effectValue.Add(value);
+    }
+
+    public void RemoveEffect(CardData.TAlteredEffects effect)
+    {
+        if (CheckIfSufferingEffect(effect) < 0) return;
+        effectValue.Remove(CheckIfSufferingEffect(effect));
+        effects.Remove(effect);
+    } 
+
+    public void RemoveEffect()
+    {
+        effects.Clear();
+        effectValue.Clear();
     }
 }

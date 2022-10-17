@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyScript : Entity
 {
+    public Enemy enemyData;
+    GameObject attack;
+
+    public void Awake()
+    {
+        HP = enemyData.HP;
+        energy = enemyData.energy;
+    }
     public void OnTurnBegin()
     {
         Debug.Log("Turno del enemigo.");
@@ -13,8 +21,9 @@ public class EnemyScript : Entity
 
     IEnumerator EnemyTurn()
     {
-        Debug.Log("Se ha usado un movimiento.");
+        attack.GetComponent<CardDisplay>().cardData = enemyData.enemyAttacks[Random.Range(0, enemyData.enemyAttacks.Count - 1)];
+        GameObject attackCard = Instantiate(attack);
+        attackCard.GetComponent<Card>().UseCard();
         yield return new WaitForSeconds(2.0f);
-        Debug.Log("No soy feliz.");
     }
 }

@@ -158,13 +158,11 @@ MonoBehaviour:
   currentHP: 0
   energy: 0
   currentEnergy: 0
-  effect: 
+  effects: 
   effectValue: 
   weapon: {fileID: 0}
   playerDeck:
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
+  - {fileID: 11400000, guid: 553adaf9f8bbb874c9bc3c6d0f01c9cf, type: 2}
 --- !u!224 &327742873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -488,10 +486,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 0
   currentHP: 0
-  energy: 3
+  energy: 0
   currentEnergy: 0
-  effect: 
+  effects: 
   effectValue: 
+  enemyData: {fileID: 0}
 --- !u!1 &1117395791
 GameObject:
   m_ObjectHideFlags: 0
