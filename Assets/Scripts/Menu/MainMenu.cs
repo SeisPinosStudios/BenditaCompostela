@@ -47,7 +47,16 @@ public class MainMenu : MonoBehaviour
     // Rutas
     public void ruta1() 
     {
-        SceneManager.LoadScene(3);
+        fade.FadeOut();
+        slideAn.SetBool("isRuta1", true);
+        Invoke("ruta1LoadScene",1.5f);
+        
     }
+
+    void ruta1LoadScene() {
+        SceneManager.LoadScene(1);
+    }
+
+
 
 }

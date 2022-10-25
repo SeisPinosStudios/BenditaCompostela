@@ -8,4 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 5736944a1306ad34187470fb9e13a10d
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Cinematic_1.unity
+    guid: b32beae8f41753b4894d5879ab30de36
+  - enabled: 1
+    path: Assets/Scenes/Ruta1.unity
+    guid: 22ac3d7e8c92c6041a573c57cefc4fc4
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 32151475671a40a4da59a5a8d142d350, type: 2}
