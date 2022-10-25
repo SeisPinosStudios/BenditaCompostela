@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Entity : MonoBehaviour
 {
     public int HP;
@@ -9,9 +9,13 @@ public class Entity : MonoBehaviour
     public int energy;
     public int currentEnergy;
 
-    public List<CardData.TAlteredEffects> effects;
-    public List<int> effectValue;
+    public List<CardData.TAlteredEffects> alteredEffects;
+    public List<int> aEffectsValue;
 
+    public GameObject alteredEffectsDisplayPrefab;
+    public Sprite[] alteredEffectsImages;
+
+    #region Logic Methods
     public void RestoreEnergy(int energyRestored)
     {
         if (energyRestored == -1)
@@ -37,6 +41,9 @@ public class Entity : MonoBehaviour
 
     public void SufferDamage(int damage)
     {
+        damage = Vulnerable(damage);
+        damage = Guarded(damage);
+        damage =
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
     }
 
@@ -60,32 +67,141 @@ public class Entity : MonoBehaviour
     /* Effect methods. This methods are used to check if the Entity suffers from various effects */
     public int CheckIfSufferingEffect(CardData.TAlteredEffects checkingEffect)
     {
-        if(effects.Contains(checkingEffect)) return effects.IndexOf(checkingEffect);
+        if(alteredEffects.Contains(checkingEffect)) return alteredEffects.IndexOf(checkingEffect);
         return -1;
     }
 
-    public void ApplyEffect(CardData.TAlteredEffects effect, int value)
+    public void ApplyAlteredEffect(CardData.TAlteredEffects alteredEffect, int value)
     {
-        if(CheckIfSufferingEffect(effect) >= 0)
+        if(CheckIfSufferingEffect(alteredEffect) >= 0)
         {
-            effectValue[CheckIfSufferingEffect(effect)] += value;
+            aEffectsValue[CheckIfSufferingEffect(alteredEffect)] += value;
             return;
         }
 
-        effects.Add(effect);
-        effectValue.Add(value);
+        alteredEffects.Add(alteredEffect);
+        aEffectsValue.Add(value);
+
+        UpdateEffectsDisplay();
     }
 
-    public void RemoveEffect(CardData.TAlteredEffects effect)
+    public void RemoveAlteredEffect(CardData.TAlteredEffects alteredEffect)
     {
-        if (CheckIfSufferingEffect(effect) < 0) return;
-        effectValue.Remove(CheckIfSufferingEffect(effect));
-        effects.Remove(effect);
+        if (CheckIfSufferingEffect(alteredEffect) < 0) return;
+        aEffectsValue.Remove(CheckIfSufferingEffect(alteredEffect));
+        alteredEffects.Remove(alteredEffect);
+
+        UpdateEffectsDisplay();
     } 
 
-    public void RemoveEffect()
+    public void RemoveAlteredEffect()
     {
-        effects.Clear();
-        effectValue.Clear();
+        alteredEffects.Clear();
+        aEffectsValue.Clear();
+
+        UpdateEffectsDisplay();
     }
+
+    public void Bleeding()
+    {
+        if (CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED) < 0) return;
+
+        this.SufferDamage(1);
+        this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED)]--;
+
+        if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED)] <= 0) 
+            RemoveAlteredEffect(CardData.TAlteredEffects.BLEED);
+
+        UpdateEffectsDisplay();
+    }
+
+    public void Poison()
+    {
+        if (CheckIfSufferingEffect(CardData.TAlteredEffects.POISON) < 0) return;
+
+        this.SufferDamage(1);
+        this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.POISON)]--;
+
+        if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.POISON)] <= 0) 
+            RemoveAlteredEffect(CardData.TAlteredEffects.POISON);
+
+        UpdateEffectsDisplay();
+    }
+
+    public void Burn()
+    {
+        if (CheckIfSufferingEffect(CardData.TAlteredEffects.BURN) < 0) return;
+
+        this.SufferDamage(aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.BURN)]);
+
+        RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
+
+        UpdateEffectsDisplay();
+    }
+
+    public int Vulnerable(int damage)
+    {
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE) <= 0) return damage;
+
+        this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE)]--;
+
+        if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE)] <= 0) 
+            RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
+
+        UpdateEffectsDisplay();
+
+        return damage += (damage / 2);
+    }
+
+    public int Guarded(int damage)
+    {
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED) <= 0) return damage;
+
+        this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED)]--;
+
+        if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED)] <= 0)
+            RemoveAlteredEffect(CardData.TAlteredEffects.GUARDED);
+
+        UpdateEffectsDisplay();
+
+        return damage -= (damage / 2);
+    }
+
+    public int Invulnerable(int damage)
+    {
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE) <= 0) return damage;
+
+        this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE)]--;
+
+        if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE)] <= 0)
+            RemoveAlteredEffect(CardData.TAlteredEffects.INVULNERABLE);
+
+        UpdateEffectsDisplay();
+
+        return 0;
+    }
+    #endregion
+
+    #region Display Methods
+    public void Update()
+    {
+        float healthBar = (float)((float)currentHP / (float)HP) * 100;
+        GetComponentInChildren<Slider>().value = healthBar;
+    }
+
+    public void UpdateEffectsDisplay()
+    {
+        while (transform.GetChild(1).childCount > 0)
+        {
+            Destroy(transform.GetChild(1).GetChild(0));
+        }
+
+        foreach (CardData.TAlteredEffects effect in alteredEffects)
+        {
+            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(1));
+            //newImage.GetComponentInChildren<Image>().sprite = alteredEffectsImages[(int)effect];
+            newImage.GetComponentInChildren<Text>().text = aEffectsValue[CheckIfSufferingEffect(effect)].ToString();
+        }
+    }
+    #endregion
 }

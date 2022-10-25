@@ -6,19 +6,24 @@ public class Card : MonoBehaviour
 {
     Entity enemy;
     Entity self;
+    CardData cardData;
 
     public void Awake()
     {
         self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
         enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
     }
-    public void UseCard()
+    public bool UseCard()
     {
-        Debug.Log("Se ha usado la carta: " + gameObject.GetComponent<CardDisplay>().name);
+        cardData = gameObject.GetComponent<CardDisplay>().cardData;
 
-        self.ConsumeEnergy(gameObject.GetComponent<CardDisplay>().cardData.cost);
+        if (!self.ConsumeEnergy(cardData.cost)) return false; /* If the card costs more than the remaining energy, it wont get used */
 
-        switch (gameObject.GetComponent<CardDisplay>().cardData.GetType().ToString())
+        self.ConsumeEnergy(cardData.cost);
+
+        self.Bleeding();
+
+        switch (cardData.GetType().ToString())
         {
             case "Weapon":
                 EquipWeapon();
@@ -29,42 +34,47 @@ public class Card : MonoBehaviour
             case "Special":
                 Special();
                 break;
-            case "Object":
+            case "ObjectCard":
                 Object();
                 break;
             default:
                 break;
         }
-    }
 
+        Destroy(gameObject);
+        return true;
+    }
     public void EquipWeapon()
     {
-        Weapon weapon = (Weapon)gameObject.GetComponent<CardDisplay>().cardData;
-        GameObject.FindObjectOfType<PlayerScript>().weapon = weapon;
-    }
+        Weapon weapon = (Weapon)cardData;
 
+        foreach(Transform card in GameObject.Find("HandPanel").transform)
+        {
+            if (card.GetComponent<CardDisplay>().cardData.GetType().ToString() == "Attack") Destroy(card.gameObject);
+        }
+
+        GameObject.Find("Player").GetComponent<PlayerScript>().weapon = weapon;
+    }
     public void Attack()
     {
-        Attack attack = (Attack)gameObject.GetComponent<CardDisplay>().cardData;
+        Attack attack = (Attack)cardData;
 
         enemy.SufferDamage(attack.damage);
 
         if (attack.alteredEffects.Length != 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)
-                enemy.ApplyEffect(attack.alteredEffects[i], attack.aEffectValues[i]);
+                enemy.ApplyAlteredEffect(attack.alteredEffects[i], attack.aEffectValues[i]);
     }
-
     public void Special()
     {
-        Special special = (Special)gameObject.GetComponent<CardDisplay>().cardData;
-
+        Special special = (Special)cardData;
         if (special.alteredEffects.Length != 0)
             for (int i = 0; i < special.alteredEffects.Length; i++)
             {
                 if (special.alteredEffects[i] == CardData.TAlteredEffects.INVULNERABLE || special.alteredEffects[i] == CardData.TAlteredEffects.GUARDED)
-                    self.ApplyEffect(special.alteredEffects[i], special.aEffectValues[i]);
+                    self.ApplyAlteredEffect(special.alteredEffects[i], special.aEffectValues[i]);
                 else
-                    enemy.ApplyEffect(special.alteredEffects[i], special.aEffectValues[i]);
+                    enemy.ApplyAlteredEffect(special.alteredEffects[i], special.aEffectValues[i]);
             }
 
         if (special.damage > 0) enemy.SufferDamage(special.damage);
@@ -73,68 +83,47 @@ public class Card : MonoBehaviour
         if (special.effects.Length != 0)
             for (int i = 0; i < special.effects.Length; i++)
             {
-                switch (special.effects[i])
-                {
-                    case CardData.TEffects.rHEALTH:
-                        self.RestoreHealth(special.eValues[i]);
-                        break;
-                    case CardData.TEffects.rENERGY:
-                        self.RestoreEnergy(special.eValues[i]);
-                        break;
-                    case CardData.TEffects.DRAW:
-                        StartCoroutine(DrawCardCorroutine(i, special.eValues[i]));
-                        break;
-                    case CardData.TEffects.CLEANSE:
-                        self.RemoveEffect();
-                        break;
-                }
+                ComputeEffect(special.effects[i], special.eValues[i]);
             }
     }
-
     public void Object()
     {
-        ObjectCard objectCard = (ObjectCard)gameObject.GetComponent<CardDisplay>().cardData;
+        ObjectCard objectCard = (ObjectCard)cardData;
 
         if(objectCard.alteredEffects.Length != 0)
             for(int i = 0; i < objectCard.alteredEffects.Length; i++) 
             {
                 if (objectCard.alteredEffects[i] == CardData.TAlteredEffects.INVULNERABLE || objectCard.alteredEffects[i] == CardData.TAlteredEffects.GUARDED)
-                    self.ApplyEffect(objectCard.alteredEffects[i], objectCard.aEffectValues[i]);
+                    self.ApplyAlteredEffect(objectCard.alteredEffects[i], objectCard.aEffectValues[i]);
                 else
-                    enemy.ApplyEffect(objectCard.alteredEffects[i], objectCard.aEffectValues[i]);
+                    enemy.ApplyAlteredEffect(objectCard.alteredEffects[i], objectCard.aEffectValues[i]);
             }
-                
 
         if(objectCard.effects.Length != 0)
             for(int i = 0; i < objectCard.effects.Length; i++)
             {
-                switch (objectCard.effects[i])
-                {
-                    case CardData.TEffects.rHEALTH:
-                        enemy = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
-                        enemy.RestoreHealth(objectCard.eValues[i]);
-                        break;
-                    case CardData.TEffects.rENERGY:
-                        enemy = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
-                        enemy.RestoreEnergy(objectCard.eValues[i]);
-                        break;
-                    case CardData.TEffects.DRAW:
-                        StartCoroutine(DrawCardCorroutine(i, objectCard.eValues[i]));
-                        break;
-                    case CardData.TEffects.CLEANSE:
-                        enemy = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
-                        enemy.RemoveEffect();
-                        break;
-                }
+                ComputeEffect(objectCard.effects[i], objectCard.eValues[i]);
             }
     }
-
-    IEnumerator DrawCardCorroutine(int i, int drawnCards)
+    public void ComputeEffect(CardData.TEffects effect, int value)
     {
-        for (int j = 0; i < drawnCards; j++) 
-        { 
-            FindObjectOfType<DefaultDeck>().DrawCard();
-            yield return new WaitForSeconds(1);
-        }     
+        switch (effect)
+        {
+            case CardData.TEffects.rHEALTH:
+                self.RestoreHealth(value);
+                break;
+            case CardData.TEffects.rENERGY:
+                self.RestoreEnergy(value);
+                break;
+            case CardData.TEffects.DRAW:
+                StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(value));
+                break;
+            case CardData.TEffects.CLEANSE:
+                self.RemoveAlteredEffect();
+                break;
+            default:
+                Debug.Log("Default.");
+                break;
+        }
     }
 }

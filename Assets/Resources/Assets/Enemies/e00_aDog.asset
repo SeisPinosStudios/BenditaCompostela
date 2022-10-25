@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Podenco andaluz
   sprite: {fileID: 0}
   HP: 10
-  energy: 3
+  energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: a94e9b42dc94068498b2bcc402eaaac8, type: 2}

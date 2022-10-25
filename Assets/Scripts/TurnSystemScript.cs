@@ -7,17 +7,19 @@ public class TurnSystemScript : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
-    public GameObject turnButton;
 
     public GameObject current;
     public GameObject next;
 
+    public GameObject handPannel;
+    public GameObject DefaultDeck;
+    
+
     public void Awake()
     {
-        current = player;
-        next = enemy;
-
-        turnButton.GetComponent<Button>().onClick.AddListener(Turn);
+        current = enemy;
+        next = player;
+        Turn();
     }
 
     public void Turn()
@@ -28,7 +30,10 @@ public class TurnSystemScript : MonoBehaviour
 
         Debug.Log("Turno de " + current);
 
-        if (current == player) player.GetComponent<PlayerScript>().OnTurnBegin();
-        else enemy.GetComponent<EnemyScript>().OnTurnBegin();
+        if (current == player)
+        {
+            StartCoroutine(player.GetComponent<PlayerScript>().OnTurnBegin());
+        }
+        else enemy.GetComponent<EnemyScript>().OnTurnBegin(); 
     }
 }
