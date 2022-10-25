@@ -2,41 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
-public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardDisplay : MonoBehaviour
 {
-    public Card card;
-    public Text nameText;
-    public Text descText;
-    public Image artworkImage;
+    #region Card information variables
+    /* Printable information of the card. */
+    public CardData cardData;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descText;
+    public Image sprite;
     public Text cost;
-
-    public Transform parent;
+    #endregion
 
     void Start()
     {
-        nameText.text = card.name;
-        descText.text = card.description;
-        //artworkImage.sprite = card.artwork;
-        cost.text = card.cost.ToString();
-
-        parent = gameObject.GetComponentInParent<Transform>();
-    }
-
-    public void OnPointerEnter(PointerEventData pointerEvent)
-    {
-        Debug.Log("Ha entrado en carta" + name);
-        transform.localScale = new Vector3(2f, 2f, 2f);
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 100, -2.0f);
-        transform.DetachChildren();
-    }
-
-    public void OnPointerExit(PointerEventData pointerEvent)
-    {
-        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 100, 0.0f);
-        transform.parent = parent;
+        nameText.text = cardData.name;
+        descText.text = cardData.description;
+        sprite.sprite = cardData.artwork;
+        if(cardData.cost != 0) cost.text = cardData.cost.ToString();
     }
 }
