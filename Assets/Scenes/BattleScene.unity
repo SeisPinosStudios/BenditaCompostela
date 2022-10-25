@@ -716,6 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504785917}
   - component: {fileID: 1504785918}
+  - component: {fileID: 1504785919}
   m_Layer: 5
   m_Name: HandPanel
   m_TagString: Untagged
@@ -769,6 +770,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1504785919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504785916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c4aa83d01a0db42b4f6e63d42b6e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards: []
 --- !u!1 &1711512101
 GameObject:
   m_ObjectHideFlags: 0

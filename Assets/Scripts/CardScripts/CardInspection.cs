@@ -9,6 +9,8 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     #region Other Variables
     /* Functionality variables. */
     public int siblingIndex;
+    public float scaleMultiplier = 3.0f;
+    Vector3 originalScale;
     #endregion
 
     #region Inspection methods
@@ -19,7 +21,8 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (SystemInfo.deviceType == DeviceType.Handheld) return;
 
-        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        originalScale = transform.localScale;
+        transform.localScale = (transform.localScale)*scaleMultiplier;
         transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 200, 0.0f);
         DisableHandPanel();
         transform.SetAsLastSibling();
@@ -28,7 +31,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (SystemInfo.deviceType == DeviceType.Handheld) return;
 
-        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        transform.localScale = originalScale;
         transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 200, 0.0f);
         EnableHandPanel();
     } 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class CardDatabase : MonoBehaviour
 {
     public List<CardData> cards = new List<CardData>();
-    void Start()
+    void Awake()
     {
-        foreach (CardData card in Resources.LoadAll<CardData>("Cards")) cards.Add(card);
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets")) cards.Add(card);
     }
 }
