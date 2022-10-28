@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -24,7 +25,10 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         originalScale = transform.localScale;
         transform.localScale = (transform.localScale)*scaleMultiplier;
         transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 200, 0.0f);
-        DisableHandPanel();
+        if (SceneManager.GetActiveScene().name=="BattleScene") {
+            DisableHandPanel();
+        }
+
         transform.SetAsLastSibling();
     }
     public void OnPointerExit(PointerEventData pointerEvent)
@@ -33,7 +37,10 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         transform.localScale = originalScale;
         transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 200, 0.0f);
-        EnableHandPanel();
+        if (SceneManager.GetActiveScene().name == "BattleScene") {
+            EnableHandPanel();
+        }
+            
     } 
     #endregion
 

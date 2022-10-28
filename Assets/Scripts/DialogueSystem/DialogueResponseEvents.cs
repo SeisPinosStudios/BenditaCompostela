@@ -12,15 +12,30 @@ public class DialogueResponseEvents : MonoBehaviour
 
     public void OnValidate()
     {
-        if (dialogueObject == null) return;
-        if (dialogueObject.Responses == null) return;
-        if (events != null && events.Length == dialogueObject.Responses.Length) return;
+        if (dialogueObject == null) {
+            Debug.Log("DialogueObject es NULL");
+            return;
+        }
+
+        if (dialogueObject.Responses == null)
+        {
+            Debug.Log("DialogueObject.Responses es NULL");
+            return;
+        }
+        /*if (events != null && events.Length == dialogueObject.Responses.Length)
+        {
+            Debug.Log(events.Length + " |||| " + dialogueObject.Responses.Length);
+            Debug.Log("Hay una cantidad de eventos igual a las respuestas del dialogo");
+            return;
+        }*/
 
         if (events == null)
         {
+            Debug.Log("events es NULL");
             events = new ResponseEvent[dialogueObject.Responses.Length];
         } else
         {
+            Debug.Log("events no es NULL");
             Array.Resize(ref events, dialogueObject.Responses.Length);
         }
 
