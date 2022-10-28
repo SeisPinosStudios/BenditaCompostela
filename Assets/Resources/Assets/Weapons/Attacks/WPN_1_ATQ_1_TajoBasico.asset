@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: ea00_bite
+  m_Script: {fileID: 11500000, guid: d6ccf39c6279f6a47958cf71147685b6, type: 3}
+  m_Name: WPN_1_ATQ_1_TajoBasico
   m_EditorClassIdentifier: 
-  name: Mordisco
-  description: 
-  artwork: {fileID: 0}
+  name: "Tajo b\xE1sico"
+  description: "Realiza <b>2</b> puntos de da\xF1o."
+  artwork: {fileID: 21300000, guid: aded962e26cb59b44a0925c6971492b5, type: 3}
   cost: 1
   damage: 2
-  alteredEffects: 00000000
-  aEffectValues: 01000000
-  effects: 
-  eValues: 
+  alteredEffects: 
+  aEffectValues: 

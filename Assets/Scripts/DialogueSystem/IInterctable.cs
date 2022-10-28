@@ -1,5 +1,5 @@
 
 public interface IInterctable 
 {
-    void Interact(PlayerScript player);
+    void Interact(DialogTriggerScript dialogTriggerScript);
 }

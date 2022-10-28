@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour
     public GameObject alteredEffectsDisplayPrefab;
     public Sprite[] alteredEffectsImages;
 
-    #region Logic Methods
+    #region Basic Entity Logic Methods
     public void RestoreEnergy(int energyRestored)
     {
         if (energyRestored == -1)
@@ -31,6 +31,7 @@ public class Entity : MonoBehaviour
     {
         if (this.currentEnergy < energyConsumed) return false;
         this.currentEnergy -= energyConsumed;
+        Debug.Log(currentEnergy);
         return true;
     }
 
@@ -43,8 +44,10 @@ public class Entity : MonoBehaviour
     {
         damage = Vulnerable(damage);
         damage = Guarded(damage);
-        damage =
+        damage = Invulnerable(damage);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+
+        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().GameEnd(gameObject.GetComponent<Entity>());
     }
 
     public void RestoreHealth(int healthRestored)
@@ -63,7 +66,9 @@ public class Entity : MonoBehaviour
         if (this.currentHP <= 0) return true;
         else return false;
     }
+    #endregion
 
+    #region Altered Effect Logic
     /* Effect methods. This methods are used to check if the Entity suffers from various effects */
     public int CheckIfSufferingEffect(CardData.TAlteredEffects checkingEffect)
     {
@@ -141,21 +146,21 @@ public class Entity : MonoBehaviour
 
     public int Vulnerable(int damage)
     {
-        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE) <= 0) return damage;
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE) < 0) return damage;
 
         this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE)]--;
 
         if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE)] <= 0) 
             RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
-        UpdateEffectsDisplay();
+        //UpdateEffectsDisplay();
 
         return damage += (damage / 2);
     }
 
     public int Guarded(int damage)
     {
-        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED) <= 0) return damage;
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED) < 0) return damage;
 
         this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED)]--;
 
@@ -169,13 +174,13 @@ public class Entity : MonoBehaviour
 
     public int Invulnerable(int damage)
     {
-        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE) <= 0) return damage;
+        if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE) < 0) return damage;
 
         this.aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE)]--;
 
         if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE)] <= 0)
             RemoveAlteredEffect(CardData.TAlteredEffects.INVULNERABLE);
-
+        
         UpdateEffectsDisplay();
 
         return 0;
@@ -186,14 +191,17 @@ public class Entity : MonoBehaviour
     public void Update()
     {
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
-        GetComponentInChildren<Slider>().value = healthBar;
+        float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
+        gameObject.transform.GetChild(0).GetComponent<Slider>().value = healthBar;
+        if (this.GetType() == typeof(PlayerScript))
+            gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
     }
 
     public void UpdateEffectsDisplay()
     {
-        while (transform.GetChild(1).childCount > 0)
+        foreach(Transform child in transform.GetChild(1).GetComponentInChildren<Transform>())
         {
-            Destroy(transform.GetChild(1).GetChild(0));
+            Destroy(child.gameObject);
         }
 
         foreach (CardData.TAlteredEffects effect in alteredEffects)

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
-  m_Name: MAR_1_MartilloDelHerrero
+  m_Name: WPN_2_MartilloDelHerrero
   m_EditorClassIdentifier: 
   name: Hammer
   description: 

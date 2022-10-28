@@ -10,9 +10,18 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     #region Other Variables
     /* Functionality variables. */
     public int siblingIndex;
-    public float scaleMultiplier = 3.0f;
+    public float scaleMultiplier = 1.5f;
     Vector3 originalScale;
+    private bool inspecting = false;
     #endregion
+
+    public void Awake()
+    {
+        if(SceneManager.GetActiveScene().name != "BattleScene")
+        {
+            this.gameObject.transform.localScale = (this.transform.localScale * 2) / 3;
+        }
+    }
 
     #region Inspection methods
     /* This methods control the inspection functionality of the cards. When
@@ -24,9 +33,11 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         originalScale = transform.localScale;
         transform.localScale = (transform.localScale)*scaleMultiplier;
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 200, 0.0f);
-        if (SceneManager.GetActiveScene().name=="BattleScene") {
-            DisableHandPanel();
+
+        if (SceneManager.GetActiveScene().name == "BattleScene") 
+        {
+            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 250, 0.0f);
+            DisableHandPanel(); 
         }
 
         transform.SetAsLastSibling();
@@ -36,13 +47,48 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (SystemInfo.deviceType == DeviceType.Handheld) return;
 
         transform.localScale = originalScale;
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 200, 0.0f);
-        if (SceneManager.GetActiveScene().name == "BattleScene") {
-            EnableHandPanel();
+
+        if (SceneManager.GetActiveScene().name == "BattleScene") 
+        {
+            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
+            EnableHandPanel(); 
         }
-            
+
+        
     } 
     #endregion
+    void Update()
+    {
+        if(SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == false)
+            {
+                originalScale = transform.localScale;
+                transform.localScale = (transform.localScale) * scaleMultiplier;
+
+                if (SceneManager.GetActiveScene().name == "BattleScene")
+                {
+                    transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 250, 0.0f);
+                    DisableHandPanel();
+                }
+
+                transform.SetAsLastSibling();
+                inspecting = !inspecting;
+            }
+            else if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == true)
+            {
+                transform.localScale = originalScale;
+
+                if (SceneManager.GetActiveScene().name == "BattleScene")
+                {
+                    transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
+                    EnableHandPanel();
+                }
+
+                inspecting = !inspecting;
+            }
+        }
+    }
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime
@@ -56,7 +102,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void EnableHandPanel()
     {
         transform.SetSiblingIndex(siblingIndex);
-        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = false;
+        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
     #endregion
 }

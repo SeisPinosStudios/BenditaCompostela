@@ -10,22 +10,20 @@ public class DefaultDeck : MonoBehaviour
 
     public GameObject hand;
     public GameObject card;
-    public GameObject player;
+    public PlayerScript player;
     
-    private void Awake()
+    private void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
 
-        playerDeck = player.GetComponent<PlayerScript>().playerDeck;
+        CopyDeck();
         Shuffle();
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
-        Debug.Log(deckQueue.Peek());
     }
 
     public void DrawCard()
     {
         if (deckQueue.Count <= 0) return;
-        Debug.Log("Deck clicked.");
         card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
         Instantiate(card, hand.transform);
     }
@@ -43,6 +41,10 @@ public class DefaultDeck : MonoBehaviour
             playerDeck[i] = playerDeck[randomPos];
             playerDeck[randomPos] = temporalValue;
         }
+    }
+    public void CopyDeck()
+    {
+        foreach(CardData card in GameManager.playerData.playerDeck) playerDeck.Add(card);
     }
     public IEnumerator DrawCardCorroutine(int drawnCards)
     {

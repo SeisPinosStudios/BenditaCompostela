@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ccf39c6279f6a47958cf71147685b6, type: 3}
-  m_Name: MAR_ATQ_3_PisotonDeElefante
+  m_Name: WPN_1_ATQ_3_DanzaPeregrina
   m_EditorClassIdentifier: 
-  name: Rayo expiador
-  description: 
-  artwork: {fileID: 21300000, guid: ff0ee640003f3d24d9939448399c1983, type: 3}
-  cost: 7
-  damage: 10
+  name: Danza peregrina
+  description: "Realiza <b>7</b> puntos de da\xF1o y aplica <b>Vulnerablex1</b>."
+  artwork: {fileID: 21300000, guid: 6901d72390e0bb54eb83dbdb74cb8068, type: 3}
+  cost: 5
+  damage: 7
   alteredEffects: 03000000
   aEffectValues: 01000000

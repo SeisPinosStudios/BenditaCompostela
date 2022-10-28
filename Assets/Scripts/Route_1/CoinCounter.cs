@@ -6,15 +6,17 @@ using TMPro;
 public class CoinCounter : MonoBehaviour
 {
     [SerializeField] private TMP_Text coinText;
-    [SerializeField] private PlayerScript player;
     private void Start()
     {
-        updateCoinCounter(player.getPlayerCoins().ToString());        
+        updateCoinCounter(GameManager.playerData.coins.ToString());        
     }
 
     public void updateCoinCounter(string newCoins) {
-        coinText.text = newCoins;
+        coinText.text = GameManager.playerData.coins.ToString();
     }
 
-
+    public void Update()
+    {
+        coinText.text = GameManager.playerData.coins.ToString();
+    }
 }

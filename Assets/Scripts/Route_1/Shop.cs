@@ -16,8 +16,6 @@ public class Shop : MonoBehaviour
             GameObject go = Instantiate(cardPrefab, cardPivots[i]);
             CardDisplay cardDisplay = go.GetComponent<CardDisplay>();
             go.GetComponent<CardInspection>().scaleMultiplier = 1.5f;
-            go.GetComponent<CardDragSystem>().enabled = false;
-            go.AddComponent<BuyCardSystem>();
             
             cardDisplay.cardData = GetComponent<CardDatabase>().cards[Random.Range(1, 40)];
         }
