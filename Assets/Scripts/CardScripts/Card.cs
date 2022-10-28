@@ -10,8 +10,10 @@ public class Card : MonoBehaviour
 
     public void Awake()
     {
-        self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
-        enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+        if (PlayerScript.OnCombat) {
+            self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
+            enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+        }
     }
     public bool UseCard()
     {
