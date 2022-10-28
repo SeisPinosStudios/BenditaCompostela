@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public static Enemy nextEnemy;
     public static Scene ActualRoute;
-    public GameObject BattleCompletedUI;
+    public GameObject[] BattleCompletedUI = new GameObject[2];
     public Player player;
     public static Player playerData;
 
@@ -26,31 +26,24 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            playerData = player.copy();
         }
         else
         {
             Destroy(gameObject);
         }
-
-        playerData = player.copy();
     }
 
     public void GameEnd(Entity loser)
     {
-        GameObject BattleCompleted = Instantiate(BattleCompletedUI, GameObject.Find("====CANVAS====").transform);
-
-        if (loser.GetType() == typeof(EnemyScript))
+        switch (loser.GetType().ToString())
         {
-            PlayerWin(BattleCompleted);
+            case "PlayerScript":
+                Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
+                break;
+            case "EnemyScript":
+                Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
+                break;
         }
-    }
-
-    public void PlayerWin(GameObject BattleCompleted)
-    {
-        BattleCompleted.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "¡Enhorabuena, has vencido!";
-        BattleCompleted.GetComponent<Transform>().GetChild(1).GetComponent<TextMeshProUGUI>().text 
-            = "Has logrado derrotar a tu enemigo, vuelve al mapa para seguir avanzando por la ruta.";
-        BattleCompleted.GetComponent<Transform>().GetChild(2).GetComponent<Button>().enabled = true;
-        BattleCompleted.GetComponent<Transform>().GetChild(3).GetComponent<Button>().enabled = false;
     }
 }

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resultado de la batalla
+  m_text: "\xA1Has sido derrotado!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Has o no has derrotado a tu enemigo
+  m_text: "\xA1Menuda paliza!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 7801811126854394663}
   - component: {fileID: 7801811126854394660}
   m_Layer: 5
-  m_Name: BattleCompletedUI
+  m_Name: BattleLostUI 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 7801811127333594921}
   - component: {fileID: 7801811127333594926}
   - component: {fileID: 7801811127333594927}
+  - component: {fileID: 5196117290127065898}
   m_Layer: 5
   m_Name: GoToRouteButton
   m_TagString: Untagged
@@ -888,3 +889,16 @@ MonoBehaviour:
           m_StringArgument: '"Ruta1"'
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5196117290127065898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801811127333594925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7611d291556e6b342b6a9cdcb785ef63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: Ruta1

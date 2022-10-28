@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Entity : MonoBehaviour
 {
     public int HP;
@@ -193,8 +194,12 @@ public class Entity : MonoBehaviour
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
         float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
         gameObject.transform.GetChild(0).GetComponent<Slider>().value = healthBar;
+        gameObject.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
         if (this.GetType() == typeof(PlayerScript))
+        {
             gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
+            gameObject.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
+        }
     }
 
     public void UpdateEffectsDisplay()

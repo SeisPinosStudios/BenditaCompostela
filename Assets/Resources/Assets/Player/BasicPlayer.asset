@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad1997706825450438a524aa958cdc23, type: 2}
   - {fileID: 11400000, guid: 09d5151d49e0caf4a858f5ffecbf6b86, type: 2}
   - {fileID: 11400000, guid: f740c02bf91aa1b46a78dd9e2b536907, type: 2}
-  - {fileID: 11400000, guid: 3d912b2814213a3429d58630664b440a, type: 2}
+  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
   coins: 10

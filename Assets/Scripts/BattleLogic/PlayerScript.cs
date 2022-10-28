@@ -21,7 +21,6 @@ public class PlayerScript : Entity
             GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));
         }
     }
-    
     public IEnumerator OnTurnBegin()
     {
         DeactivateCombatControl();
