@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s13_sheeperding
   m_EditorClassIdentifier: 
   name: Pastoreo
-  description: 
+  description: "Realiza 3 puntos de da\xF1o y aplica Vulnerablex2."
   artwork: {fileID: 0}
   cost: 6
   damage: 3

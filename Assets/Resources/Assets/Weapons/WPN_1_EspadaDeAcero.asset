@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
   m_Name: WPN_1_EspadaDeAcero
   m_EditorClassIdentifier: 
-  name: Sword
+  name: Espada de acero
   description: 
   artwork: {fileID: 21300000, guid: 2ba3114c96a7d0140922ec98a3b876d2, type: 3}
   cost: 0

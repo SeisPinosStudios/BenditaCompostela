@@ -9,7 +9,7 @@ public class EnemyScript : Entity
 
     public void Awake()
     {
-        //enemyData = GameManager.nextEnemy;
+        enemyData = GameManager.nextEnemy;
 
         HP = enemyData.HP;
         energy = enemyData.energy;

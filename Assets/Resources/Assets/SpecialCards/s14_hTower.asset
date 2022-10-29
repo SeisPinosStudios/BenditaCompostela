@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s14_hTower
   m_EditorClassIdentifier: 
   name: "Torre de h\xE9rcules"
-  description: 
+  description: Aplica Quemadurax5.
   artwork: {fileID: 0}
   cost: 8
   damage: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ea00_Mordisco
   m_EditorClassIdentifier: 
   name: Mordisco
-  description: 
+  description: "Realiza 2 puntos de da\xF1o y aplica Sangradox2."
   artwork: {fileID: 0}
   cost: 0
   damage: 2

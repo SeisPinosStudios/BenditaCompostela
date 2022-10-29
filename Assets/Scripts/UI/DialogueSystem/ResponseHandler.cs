@@ -65,7 +65,5 @@ public class ResponseHandler : MonoBehaviour
         {
             dialogueUI.CloseDialogBox();
         }
-
-          
     }
 }

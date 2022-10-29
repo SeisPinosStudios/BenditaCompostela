@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
   m_Name: ea05_Mordisco
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  name: Mordisco
+  description: "Realiza 2 puntos de da\xF1o y aplica Venenox1"
   artwork: {fileID: 0}
   cost: 0
   damage: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ea01_Taconazo
   m_EditorClassIdentifier: 
   name: Taconazo
-  description: 
+  description: "Realiza 3 puntos de da\xF1o."
   artwork: {fileID: 0}
   cost: 0
   damage: 3

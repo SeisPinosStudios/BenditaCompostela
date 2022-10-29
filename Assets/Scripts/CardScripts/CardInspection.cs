@@ -12,15 +12,13 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public int siblingIndex;
     public float scaleMultiplier = 1.5f;
     Vector3 originalScale;
+    Vector3 originalPosition;
     private bool inspecting = false;
     #endregion
 
     public void Awake()
     {
-        if(SceneManager.GetActiveScene().name != "BattleScene")
-        {
-            this.gameObject.transform.localScale = (this.transform.localScale * 2) / 3;
-        }
+
     }
 
     #region Inspection methods
@@ -29,32 +27,35 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
      * easier inspection */
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld) return;
-
-        originalScale = transform.localScale;
-        transform.localScale = (transform.localScale)*scaleMultiplier;
-
-        if (SceneManager.GetActiveScene().name == "BattleScene") 
+        if (SystemInfo.deviceType != DeviceType.Handheld)
         {
-            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 250, 0.0f);
-            DisableHandPanel(); 
-        }
+            originalScale = transform.localScale;
+            originalPosition = transform.localPosition;
+            transform.localScale = (transform.localScale) * scaleMultiplier;
 
-        transform.SetAsLastSibling();
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 0.0f);
+                DisableHandPanel();
+            }
+
+            if(siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+        }
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld) return;
-
-        transform.localScale = originalScale;
-
-        if (SceneManager.GetActiveScene().name == "BattleScene") 
+        if (SystemInfo.deviceType != DeviceType.Handheld)
         {
-            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
-            EnableHandPanel(); 
-        }
+            transform.localScale = originalScale;
+            
 
-        
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = originalPosition;
+                //transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
+                EnableHandPanel();
+            }
+        } 
     } 
     #endregion
     void Update()

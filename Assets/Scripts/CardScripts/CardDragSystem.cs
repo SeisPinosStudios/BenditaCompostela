@@ -9,7 +9,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     Vector3 originalPosition;
     public void OnBeginDrag(PointerEventData pointerEvent)
     {
-        originalPosition = gameObject.transform.position;
+        originalPosition = gameObject.transform.localPosition;
     }
 
     public void OnDrag(PointerEventData pointerEvent)
@@ -19,7 +19,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData pointerEvent)
     {
-        if (pointerEvent.position.y <= 170)
+        if (pointerEvent.position.y <= 200)
         {
             Debug.Log(originalPosition.y.ToString());
             gameObject.transform.position = originalPosition;

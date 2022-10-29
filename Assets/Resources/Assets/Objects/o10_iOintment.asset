@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o10_iOintment
   m_EditorClassIdentifier: 
   name: "Ung\xFCento improvisado"
-  description: 
+  description: Restaura 4 puntos de vida.
   artwork: {fileID: 0}
   cost: 1
   alteredEffects: 

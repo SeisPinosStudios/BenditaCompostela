@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s00_dBell
   m_EditorClassIdentifier: 
   name: Campana de espantaperros
-  description: 
+  description: Aplica Vulnerablex1.
   artwork: {fileID: 0}
   cost: 2
   damage: 0

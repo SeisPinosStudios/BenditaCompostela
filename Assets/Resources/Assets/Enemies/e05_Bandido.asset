@@ -16,4 +16,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   HP: 28
   energy: 0
-  enemyAttacks: []
+  enemyAttacks:
+  - {fileID: 11400000, guid: 4110a75f16ab25543aa3c12d8234c08c, type: 2}
+  - {fileID: 11400000, guid: af17c8293462ca74f85ba6c6ff8e3ce8, type: 2}

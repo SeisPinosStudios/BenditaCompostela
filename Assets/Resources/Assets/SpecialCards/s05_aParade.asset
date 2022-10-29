@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s05_aParade
   m_EditorClassIdentifier: 
   name: "Procesi\xF3n a la antigua"
-  description: 
+  description: "Realiza 1 punto de da\xF1o y aplica Vulnerablex1."
   artwork: {fileID: 0}
   cost: 2
   damage: 1

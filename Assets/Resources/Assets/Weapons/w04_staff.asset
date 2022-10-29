@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
   m_Name: w04_staff
   m_EditorClassIdentifier: 
-  name: Staff
-  description: 
+  name: Cetro de mago
+  description: (no implementado)
   artwork: {fileID: 0}
   cost: 0
   weaponId: 0

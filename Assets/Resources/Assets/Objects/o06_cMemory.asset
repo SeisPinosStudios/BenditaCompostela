@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o06_cMemory
   m_EditorClassIdentifier: 
   name: Recuerdo de infancia
-  description: 
+  description: Aplica En Guardiax2
   artwork: {fileID: 0}
   cost: 3
   alteredEffects: 04000000

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s02_dFall
   m_EditorClassIdentifier: 
   name: "Ca\xEDda de Dystilo"
-  description: 
+  description: "Realiza 7 puntos de da\xF1o."
   artwork: {fileID: 0}
   cost: 5
   damage: 7

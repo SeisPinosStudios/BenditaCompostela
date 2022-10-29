@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ccf39c6279f6a47958cf71147685b6, type: 3}
   m_Name: aSpear02_bPosture
   m_EditorClassIdentifier: 
-  name: Postura de escerabajo
-  description: 
+  name: Postura de escarabajo
+  description: Aplica Invulnerablex2.
   artwork: {fileID: 0}
   cost: 4
   damage: 0

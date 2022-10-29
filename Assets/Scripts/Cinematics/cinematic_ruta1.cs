@@ -10,6 +10,8 @@ public class cinematic_ruta1 : MonoBehaviour
     [SerializeField] DialogueUI dialogueUI;
 
     public bool VideoHasEnded;
+
+
     void Start()
     {
         VideoHasEnded = false;

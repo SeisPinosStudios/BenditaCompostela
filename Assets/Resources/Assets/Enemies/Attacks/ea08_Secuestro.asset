@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ea08_Secuestro
   m_EditorClassIdentifier: 
   name: Secuestro
-  description: 
+  description: "Realiza 10 puntos de da\xF1o."
   artwork: {fileID: 0}
   cost: 0
   damage: 10

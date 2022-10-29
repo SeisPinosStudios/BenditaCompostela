@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s12_aPat
   m_EditorClassIdentifier: 
   name: Caricia de apalpador
-  description: 
+  description: "Realiza 5 puntos de da\xF1o."
   artwork: {fileID: 0}
   cost: 4
   damage: 5

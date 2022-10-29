@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ea04_GolpeAbrasador
   m_EditorClassIdentifier: 
   name: Golpe abrasador
-  description: 
+  description: "Realiza 5 puntos de da\xF1o y aplica Quemadurax1."
   artwork: {fileID: 0}
   cost: 0
   damage: 5

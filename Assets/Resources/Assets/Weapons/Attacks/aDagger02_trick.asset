@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ccf39c6279f6a47958cf71147685b6, type: 3}
   m_Name: aDagger02_trick
   m_EditorClassIdentifier: 
-  name: Filthy trick
-  description: 
+  name: Truco sucio.
+  description: "Realiza 3 puntos de da\xF1o y aplica Venenox1."
   artwork: {fileID: 0}
   cost: 2
   damage: 3
-  effect: 01000000
-  effectValue: 01000000
+  alteredEffects: 
+  aEffectValues: 

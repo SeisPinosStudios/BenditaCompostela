@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s18_gShroom
   m_EditorClassIdentifier: 
   name: Seta con regalo
-  description: 
+  description: Aplica Venenox2.
   artwork: {fileID: 0}
   cost: 3
   damage: 0

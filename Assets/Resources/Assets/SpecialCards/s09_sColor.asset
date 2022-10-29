@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s09_sColor
   m_EditorClassIdentifier: 
   name: Color especial
-  description: 
+  description: "Realiza 8 puntos de da\xF1o y aplica Quemadurax4."
   artwork: {fileID: 0}
   cost: 8
   damage: 8

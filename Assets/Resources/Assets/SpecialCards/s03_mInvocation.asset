@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s03_mInvocation
   m_EditorClassIdentifier: 
   name: "Invocaci\xF3n de mast\xEDn"
-  description: 
+  description: "Realiza 4 puntos de da\xF1o y aplica Sangradox2."
   artwork: {fileID: 0}
   cost: 6
   damage: 4

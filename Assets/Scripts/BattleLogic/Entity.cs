@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
         damage = Invulnerable(damage);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
-        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().GameEnd(gameObject.GetComponent<Entity>());
+        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
 
     public void RestoreHealth(int healthRestored)

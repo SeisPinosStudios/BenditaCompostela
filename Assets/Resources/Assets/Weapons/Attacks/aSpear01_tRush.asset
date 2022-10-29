@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: aSpear01_tRush
   m_EditorClassIdentifier: 
   name: "Carrer\xF3n de puntera"
-  description: 
+  description: "Realiza 5 puntos de da\xF1o y aplica Vulnerablex1."
   artwork: {fileID: 0}
   cost: 8
   damage: 5

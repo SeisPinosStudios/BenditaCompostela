@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameEnd(Entity loser)
+    public void BattleEnd(Entity loser)
     {
         switch (loser.GetType().ToString())
         {

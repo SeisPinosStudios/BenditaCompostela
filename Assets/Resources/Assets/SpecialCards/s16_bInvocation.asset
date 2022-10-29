@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s16_bInvocation
   m_EditorClassIdentifier: 
   name: "Invocaci\xF3n de oso"
-  description: 
+  description: "Realiza 6 puntos de da\xF1o y aplica Sangradox1."
   artwork: {fileID: 0}
   cost: 6
   damage: 6

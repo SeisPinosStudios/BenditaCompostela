@@ -14,7 +14,7 @@ public class DefaultDeck : MonoBehaviour
     
     private void Start()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
+        //gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
 
         CopyDeck();
         Shuffle();

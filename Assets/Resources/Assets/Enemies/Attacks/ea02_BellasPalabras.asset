@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ea02_BellasPalabras
   m_EditorClassIdentifier: 
   name: BellasPalabras
-  description: 
+  description: Restaura 3 puntos de vida.
   artwork: {fileID: 0}
   cost: 0
   damage: 0

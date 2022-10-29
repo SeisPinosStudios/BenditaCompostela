@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: aSpear00_sAttack
   m_EditorClassIdentifier: 
   name: Ataque seguro
-  description: 
+  description: "Realiza 2 puntos de da\xF1o y aplica En Guardiax1."
   artwork: {fileID: 0}
   cost: 2
   damage: 2

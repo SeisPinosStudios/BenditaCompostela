@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
   m_Name: w02_spear
   m_EditorClassIdentifier: 
-  name: Shield and spear
+  name: Lanza con escudo
   description: 
   artwork: {fileID: 0}
   cost: 0

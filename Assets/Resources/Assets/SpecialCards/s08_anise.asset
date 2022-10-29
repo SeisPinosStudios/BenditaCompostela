@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s08_anise
   m_EditorClassIdentifier: 
   name: "Chupitazo de an\xEDs"
-  description: 
+  description: Aplica Venenox3 y Quemadurax3.
   artwork: {fileID: 0}
   cost: 6
   damage: 0

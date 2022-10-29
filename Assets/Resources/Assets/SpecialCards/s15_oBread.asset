@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s15_oBread
   m_EditorClassIdentifier: 
   name: Pan de vieja
-  description: 
+  description: Limpia todos los efectos de estado.
   artwork: {fileID: 0}
   cost: 4
   damage: 0
