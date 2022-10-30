@@ -22,12 +22,12 @@ public class DialogueResponseEvents : MonoBehaviour
             Debug.Log("DialogueObject.Responses es NULL");
             return;
         }
-        /*if (events != null && events.Length == dialogueObject.Responses.Length)
+        if (events != null && events.Length == dialogueObject.Responses.Length)
         {
             Debug.Log(events.Length + " |||| " + dialogueObject.Responses.Length);
             Debug.Log("Hay una cantidad de eventos igual a las respuestas del dialogo");
             return;
-        }*/
+        }
 
         if (events == null)
         {
