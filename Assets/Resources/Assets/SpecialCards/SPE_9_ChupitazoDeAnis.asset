@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: Esp_12_InvocacionDePulpo
+  m_Name: SPE_9_ChupitazoDeAnis
   m_EditorClassIdentifier: 
-  name: "Invocaci\xF3n de pulpo"
-  description: Aplica Vulnerablex2.
-  artwork: {fileID: 21300000, guid: ddb14a3a18c49ea4fae87412eb75368e, type: 3}
-  cost: 3
+  name: "Chupitazo de an\xEDs"
+  description: Aplica Venenox3 y Quemadurax3.
+  artwork: {fileID: 0}
+  cost: 6
   damage: 0
-  alteredEffects: 03000000
-  aEffectValues: 02000000
+  alteredEffects: 0100000002000000
+  aEffectValues: 0300000003000000
   effects: 
   eValues: 

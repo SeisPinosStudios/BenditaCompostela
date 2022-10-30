@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
-  m_Name: WPN_2_MartilloDelHerrero
+  m_Name: WPN_2_Daga
   m_EditorClassIdentifier: 
-  name: Martillo
+  name: Daga
   description: 
-  artwork: {fileID: 21300000, guid: 9cd34140196dd26428e5a6b9fc2c6d20, type: 3}
+  artwork: {fileID: 0}
   cost: 0
   weaponId: 0
   attackList:
-  - {fileID: 11400000, guid: 89778da8cddee994aa5d25a75e80fe91, type: 2}
-  - {fileID: 11400000, guid: b0b74fcece2aa5248a39c1683df82eb1, type: 2}
-  - {fileID: 11400000, guid: 2a969f1d1b1f3ed45a0f8d3ffdb73303, type: 2}
+  - {fileID: 11400000, guid: e57c568be7a90ae439d4dbe06ecda033, type: 2}
+  - {fileID: 11400000, guid: 74085af2e162aea42bb9de152dc334c9, type: 2}
+  - {fileID: 11400000, guid: f1cc881123de97045935b8c7c10d00e6, type: 2}
+  - {fileID: 11400000, guid: 33b3244cc283c8648ab48e143d0475c9, type: 2}

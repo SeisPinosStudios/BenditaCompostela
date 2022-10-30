@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: e05_Bandido
   m_EditorClassIdentifier: 
   name: Bandido
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 3f6a6c89dcb866843ba9782ad42ad8f5, type: 3}
   HP: 28
   energy: 0
   enemyAttacks:

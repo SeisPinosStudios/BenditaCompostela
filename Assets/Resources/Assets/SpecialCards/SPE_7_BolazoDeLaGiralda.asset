@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
-  m_Name: w04_staff
+  m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
+  m_Name: SPE_7_BolazoDeLaGiralda
   m_EditorClassIdentifier: 
-  name: Cetro de mago
-  description: (no implementado)
+  name: Bolazo de la giralda
+  description: "Realiza 4 puntos de da\xF1o."
   artwork: {fileID: 0}
-  cost: 0
-  weaponId: 0
-  attackList: []
+  cost: 3
+  damage: 4
+  alteredEffects: 
+  aEffectValues: 
+  effects: 
+  eValues: 

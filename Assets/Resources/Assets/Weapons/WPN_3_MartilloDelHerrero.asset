@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
-  m_Name: w02_spear
+  m_Name: WPN_3_MartilloDelHerrero
   m_EditorClassIdentifier: 
-  name: Lanza con escudo
+  name: Martillo
   description: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 4d58609d930448f49be1c3cfcb226721, type: 3}
   cost: 0
   weaponId: 0
   attackList:
-  - {fileID: 11400000, guid: ebe4042a2b9b01041977866f71ef138f, type: 2}
-  - {fileID: 11400000, guid: 0a55981c4f28dfc40af3aaed9c60c0d0, type: 2}
-  - {fileID: 11400000, guid: 55aa67b566e32c54b8dead31ec0af71c, type: 2}
+  - {fileID: 11400000, guid: 89778da8cddee994aa5d25a75e80fe91, type: 2}
+  - {fileID: 11400000, guid: b0b74fcece2aa5248a39c1683df82eb1, type: 2}
+  - {fileID: 11400000, guid: 2a969f1d1b1f3ed45a0f8d3ffdb73303, type: 2}

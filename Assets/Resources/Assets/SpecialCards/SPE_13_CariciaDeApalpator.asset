@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: s01_aPower
+  m_Name: SPE_13_CariciaDeApalpator
   m_EditorClassIdentifier: 
-  name: Poder de bellota
-  description: Aplica Invulnerablex1.
+  name: Caricia de apalpador
+  description: "Realiza 5 puntos de da\xF1o."
   artwork: {fileID: 0}
-  cost: 3
-  damage: 0
-  alteredEffects: 05000000
-  aEffectValues: 01000000
+  cost: 4
+  damage: 5
+  alteredEffects: 
+  aEffectValues: 
   effects: 
   eValues: 

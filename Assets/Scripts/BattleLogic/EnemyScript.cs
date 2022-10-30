@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyScript : Entity
 {
@@ -14,6 +15,7 @@ public class EnemyScript : Entity
         HP = enemyData.HP;
         energy = enemyData.energy;
         currentHP = HP;
+        gameObject.GetComponent<Image>().sprite = enemyData.sprite;
 
         attack.GetComponent<CardDragSystem>().enabled = true;
         attack.GetComponent<CardInspection>().enabled = true;

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: s09_sColor
+  m_Name: SPE_16_PanDeVieja
   m_EditorClassIdentifier: 
-  name: Color especial
-  description: "Realiza 8 puntos de da\xF1o y aplica Quemadurax4."
-  artwork: {fileID: 0}
-  cost: 8
-  damage: 8
-  alteredEffects: 02000000
-  aEffectValues: 04000000
-  effects: 
-  eValues: 
+  name: Pan de vieja
+  description: Limpia todos los efectos de estado.
+  artwork: {fileID: 21300000, guid: e609ad2dd32074344b30abd937ea2978, type: 3}
+  cost: 4
+  damage: 0
+  alteredEffects: 
+  aEffectValues: 
+  effects: 04000000
+  eValues: 00000000

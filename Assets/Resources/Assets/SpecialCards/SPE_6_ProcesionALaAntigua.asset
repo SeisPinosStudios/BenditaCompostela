@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: s02_dFall
+  m_Name: SPE_6_ProcesionALaAntigua
   m_EditorClassIdentifier: 
-  name: "Ca\xEDda de Dystilo"
-  description: "Realiza 7 puntos de da\xF1o."
+  name: "Procesi\xF3n a la antigua"
+  description: "Realiza 1 punto de da\xF1o y aplica Vulnerablex1."
   artwork: {fileID: 0}
-  cost: 5
-  damage: 7
-  alteredEffects: 
-  aEffectValues: 
+  cost: 2
+  damage: 1
+  alteredEffects: 03000000
+  aEffectValues: 01000000
   effects: 
   eValues: 

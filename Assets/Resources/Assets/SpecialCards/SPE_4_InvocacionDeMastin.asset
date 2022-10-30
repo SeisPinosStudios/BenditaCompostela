@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: s16_bInvocation
+  m_Name: SPE_4_InvocacionDeMastin
   m_EditorClassIdentifier: 
-  name: "Invocaci\xF3n de oso"
-  description: "Realiza 6 puntos de da\xF1o y aplica Sangradox1."
+  name: "Invocaci\xF3n de mast\xEDn"
+  description: "Realiza 4 puntos de da\xF1o y aplica Sangradox2."
   artwork: {fileID: 0}
   cost: 6
-  damage: 6
+  damage: 4
   alteredEffects: 00000000
-  aEffectValues: 01000000
+  aEffectValues: 02000000
   effects: 
   eValues: 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -27,7 +28,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
      * easier inspection */
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType != DeviceType.Handheld)
+        if (!isMobile() || (isMobile() && !inspecting))
         {
             originalScale = transform.localScale;
             originalPosition = transform.localPosition;
@@ -35,16 +36,30 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 0.0f);
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
                 DisableHandPanel();
             }
 
             if(siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+            inspecting = !inspecting;
+        }
+
+        if(isMobile() && inspecting)
+        {
+            transform.localScale = originalScale;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
+                EnableHandPanel();
+            }
+
+            inspecting = !inspecting;
         }
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType != DeviceType.Handheld)
+        if (!isMobile())
         {
             transform.localScale = originalScale;
             
@@ -52,15 +67,15 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
                 transform.localPosition = originalPosition;
-                //transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
                 EnableHandPanel();
             }
         } 
     } 
     #endregion
+    /*
     void Update()
     {
-        if(SystemInfo.deviceType == DeviceType.Handheld)
+        if(isMobile())
         {
             if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == false)
             {
@@ -74,22 +89,14 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 }
 
                 transform.SetAsLastSibling();
-                inspecting = !inspecting;
+                
             }
             else if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == true)
             {
-                transform.localScale = originalScale;
-
-                if (SceneManager.GetActiveScene().name == "BattleScene")
-                {
-                    transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
-                    EnableHandPanel();
-                }
-
-                inspecting = !inspecting;
+                
             }
         }
-    }
+    }*/
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime
@@ -106,4 +113,15 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
     #endregion
+
+    [DllImport("__Internal")]
+    private static extern bool IsMobile();
+
+    public bool isMobile()
+    {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+            return IsMobile();
+        #endif
+        return false;
+    }
 }

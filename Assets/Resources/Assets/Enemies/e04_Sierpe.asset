@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: e04_Sierpe
   m_EditorClassIdentifier: 
   name: Sierpe
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0d529833d7eef324c8112c46bf9301c2, type: 3}
   HP: 70
   energy: 99
   enemyAttacks:

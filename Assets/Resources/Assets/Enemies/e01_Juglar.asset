@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: e01_Juglar
   m_EditorClassIdentifier: 
   name: Juglar
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0eae9e1012ed40042b2aa28af2475e6e, type: 3}
   HP: 32
   energy: 99
   enemyAttacks:

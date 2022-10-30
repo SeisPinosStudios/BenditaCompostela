@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
-  m_Name: s15_oBread
+  m_Name: SPE_17_InvocacionDeOso
   m_EditorClassIdentifier: 
-  name: Pan de vieja
-  description: Limpia todos los efectos de estado.
-  artwork: {fileID: 0}
-  cost: 4
-  damage: 0
-  alteredEffects: 
-  aEffectValues: 
-  effects: 04000000
-  eValues: 00000000
+  name: "Invocaci\xF3n de oso"
+  description: "Realiza 6 puntos de da\xF1o y aplica Sangradox1."
+  artwork: {fileID: 21300000, guid: a4c22f543235796419618bd03856472a, type: 3}
+  cost: 6
+  damage: 6
+  alteredEffects: 00000000
+  aEffectValues: 01000000
+  effects: 
+  eValues: 
