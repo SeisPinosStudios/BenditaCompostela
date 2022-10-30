@@ -28,7 +28,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
      * easier inspection */
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
-        if (!isMobile() || (isMobile() && !inspecting))
+        if (!isMobile())
         {
             originalScale = transform.localScale;
             originalPosition = transform.localPosition;
@@ -50,11 +50,28 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 250, 0.0f);
+                transform.localPosition = originalPosition;
                 EnableHandPanel();
             }
 
             inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
+        }
+        else if(isMobile() && !inspecting)
+        {
+            originalScale = transform.localScale;
+            originalPosition = transform.localPosition;
+            transform.localScale = (transform.localScale) * scaleMultiplier;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
+                DisableHandPanel();
+            }
+
+            if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+            inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
         }
     }
     public void OnPointerExit(PointerEventData pointerEvent)
@@ -72,31 +89,6 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         } 
     } 
     #endregion
-    /*
-    void Update()
-    {
-        if(isMobile())
-        {
-            if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == false)
-            {
-                originalScale = transform.localScale;
-                transform.localScale = (transform.localScale) * scaleMultiplier;
-
-                if (SceneManager.GetActiveScene().name == "BattleScene")
-                {
-                    transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 250, 0.0f);
-                    DisableHandPanel();
-                }
-
-                transform.SetAsLastSibling();
-                
-            }
-            else if(Input.GetTouch(0).phase == TouchPhase.Ended && inspecting == true)
-            {
-                
-            }
-        }
-    }*/
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime
@@ -114,6 +106,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     #endregion
 
+    #region Mobile Detection
     [DllImport("__Internal")]
     private static extern bool IsMobile();
 
@@ -124,4 +117,5 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         #endif
         return false;
     }
+    #endregion
 }

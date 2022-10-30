@@ -689,11 +689,11 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: file://C:/Users/Usuario/Desktop/BenditaCompostela/Assets/Cinematics/cinematica_ruta1.mp4
+  m_Url: https://seispinosstudios.github.io/BenditaCompostela_art/cinematica_ruta1.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
