@@ -15,7 +15,7 @@ public class TurnSystemScript : MonoBehaviour
     public GameObject DefaultDeck;
     
 
-    public void Awake()
+    public void Start()
     {
         current = enemy;
         next = player;

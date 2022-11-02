@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s17_eEvasion
   m_EditorClassIdentifier: 
   name: "Evasi\xF3n de duende"
-  description: 
+  description: Aplica Invulnerablex1.
   artwork: {fileID: 0}
   cost: 2
   damage: 0

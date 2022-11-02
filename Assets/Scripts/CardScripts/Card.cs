@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Card : MonoBehaviour
 {
@@ -10,16 +11,19 @@ public class Card : MonoBehaviour
 
     public void Awake()
     {
-        self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
-        enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+        if (SceneManager.GetActiveScene().name == "BattleScene") {
+            self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
+            enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+        }
     }
-    public bool UseCard()
+    public void UseCard()
     {
         cardData = gameObject.GetComponent<CardDisplay>().cardData;
+        Debug.Log("Carta jugada.");
 
-        if (!self.ConsumeEnergy(cardData.cost)) return false; /* If the card costs more than the remaining energy, it wont get used */
-
-        self.ConsumeEnergy(cardData.cost);
+        if (!self.ConsumeEnergy(cardData.cost)) return; /* If the card costs more than the remaining energy, it wont get used */
+        Debug.Log(cardData.cost);
+        //self.ConsumeEnergy(cardData.cost);
 
         self.Bleeding();
 
@@ -42,7 +46,6 @@ public class Card : MonoBehaviour
         }
 
         Destroy(gameObject);
-        return true;
     }
     public void EquipWeapon()
     {
@@ -68,6 +71,8 @@ public class Card : MonoBehaviour
     public void Special()
     {
         Special special = (Special)cardData;
+        if (special.damage > 0) enemy.SufferDamage(special.damage);
+
         if (special.alteredEffects.Length != 0)
             for (int i = 0; i < special.alteredEffects.Length; i++)
             {
@@ -76,9 +81,7 @@ public class Card : MonoBehaviour
                 else
                     enemy.ApplyAlteredEffect(special.alteredEffects[i], special.aEffectValues[i]);
             }
-
-        if (special.damage > 0) enemy.SufferDamage(special.damage);
-
+ 
         //Pending modification
         if (special.effects.Length != 0)
             for (int i = 0; i < special.effects.Length; i++)

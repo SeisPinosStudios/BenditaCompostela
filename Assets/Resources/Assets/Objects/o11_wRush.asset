@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o11_wRush
   m_EditorClassIdentifier: 
   name: "Menudo subid\xF3n"
-  description: 
+  description: "Concede 8 puntos de energ\xEDa."
   artwork: {fileID: 0}
   cost: 2
   alteredEffects: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o17_dLuck
   m_EditorClassIdentifier: 
   name: Suerte divina
-  description: 
+  description: Aplica Invulnerablex1 y Vulnerablex2.
   artwork: {fileID: 0}
   cost: 8
   alteredEffects: 0500000003000000

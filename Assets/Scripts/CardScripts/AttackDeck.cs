@@ -25,6 +25,6 @@ public class AttackDeck : MonoBehaviour
         Debug.Log("Attack deck clicked.");
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
-        Instantiate(card, hand.transform);
+        if (player.GetComponent<PlayerScript>().ConsumeEnergy(1)) Instantiate(card, hand.transform); ;    
     }
 }

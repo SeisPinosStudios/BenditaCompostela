@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o19_dBite
   m_EditorClassIdentifier: 
   name: Mordisco desesperado
-  description: 
+  description: Aplica Sangradox1.
   artwork: {fileID: 0}
   cost: 2
   alteredEffects: 00000000

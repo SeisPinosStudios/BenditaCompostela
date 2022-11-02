@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descText;
     public Image sprite;
-    public Text cost;
+    public TextMeshProUGUI cost;
     #endregion
 
     void Start()

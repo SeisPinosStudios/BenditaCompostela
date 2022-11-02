@@ -9,7 +9,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     Vector3 originalPosition;
     public void OnBeginDrag(PointerEventData pointerEvent)
     {
-        originalPosition = gameObject.transform.position;
+        originalPosition = gameObject.transform.localPosition;
     }
 
     public void OnDrag(PointerEventData pointerEvent)
@@ -19,14 +19,16 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData pointerEvent)
     {
-        if (pointerEvent.position.y <= 320)
+        if (pointerEvent.position.y <= 200)
         {
+            Debug.Log(originalPosition.y.ToString());
             gameObject.transform.position = originalPosition;
         }
         else
         {
-            if(gameObject.GetComponent<Card>().UseCard()) gameObject.GetComponent<Card>().UseCard();
-            GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
+            gameObject.GetComponent<Card>().UseCard();
         }
+
+        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
 }

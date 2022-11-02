@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Obj_7_Lentejas
   m_EditorClassIdentifier: 
   name: Lentejas
-  description: 
+  description: Limpia todos los efectos de estado que sufras.
   artwork: {fileID: 21300000, guid: 19619e2d1360d804291aa157762e7776, type: 3}
   cost: 3
   alteredEffects: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: o03_bStone
   m_EditorClassIdentifier: 
   name: Pedrada
-  description: 
+  description: Aplica Vulnerablex2
   artwork: {fileID: 0}
   cost: 3
   alteredEffects: 03000000

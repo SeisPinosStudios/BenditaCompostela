@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "MAT\xCDAS\n\xBFMadre? Ya he vuelto a casa \xBFC\xF3mo os encontr\xE1is hoy? "
+  - "ELVIRA \r\nMat\xEDas, hijo m\xEDo... "
+  - "MARCOS \r\n\r\xA1Muchacho! Te veo radiante \xA1has crecido! Y se te nota sano
+    y fuerte, como un roble..."
+  - "MAT\xCDAS \r\n\rSe\xF1or, me dice eso cada vez que viene por casa. Solo pas\xF3
+    una semana."
+  - "MARCOS \r\n\r\xBFQu\xE9 puedo decir muchacho? Soy m\xE9dico, y como tal, aprecio
+    la buena salud de una persona. "
+  - "MARCOS \r\nEn cuanto a tu madre... "
+  - "ELVIRA \r\n\rMat\xEDas, no debes asustarte por lo que diga... "
+  - "MARCOS \r\n\rLa enfermedad ha avanzado mucho, los cuidados que la preparo no
+    son suficientes desde hace un tiempo."
+  - "MARCOS\nSu cuerpo est\xE1 muy degradado y d\xE9bil. "
+  - "MAT\xCDAS \r\n\r\xA1Pero Madre! \xBFC\xF3mo no me voy a preocupar con esto? "
+  - "MAT\xCDAS\nNo se preocupe, yo estar\xE9 aqu\xED para usted el tiempo que haga
+    falta. "
+  - "ELVIRA \r\n\rNo digas eso. No puedes pensar as\xED."
+  - "ELVIRA\nYa te lo dije, lo que tienes que hacer es ayudar a tu padre con la casa,
+    y con suerte, salir de aqu\xED."
+  - "MAT\xCDAS \r\n\rSe\xF1or, por favor, tiene que haber algo que se pueda hacer.
+    Alg\xFAn remedio debe haber que la pueda ayudar. "
+  - "MARCOS \r\n\rCr\xE9eme muchacho si te digo, que he probado todos los remedios
+    con tu madre."
+  - "MARCOS \r\n\rTodos los tratamientos a mi alcance. Habidos y por haber. Lo siento
+    mucho. "
+  - "MAT\xCDAS \r\nNo puede ser... "
+  - "MARCOS \r\n\rPero como he mencionado antes, he probado todos los que est\xE1n
+    a mi alcance..."
+  - "MARCOS\n...lo que significa que los que no lo est\xE1n, a\xFAn podr\xEDan ofrecer
+    una soluci\xF3n."
+  - "MARCOS\nEfectivamente, hay una soluci\xF3n infalible, que, por desgracia, yo
+    no puedo alcanzar. "
+  - "MAT\xCDAS \r\n\xBFY cu\xE1l es? "
+  - "MARCOS \r\n\rLa bendici\xF3n de un santo, muchacho. "
+  - "ELVIRA \r\n\r\xA1Eso es una majader\xEDa! "
+  - "MAT\xCDAS \r\n\r\xBFY de qu\xE9 santo deber\xEDa ser la bendici\xF3n? "
+  - "ELVIRA \r\n\r\xA1Mat\xEDas! No creas lo que dice, ha perdido completamente el
+    juicio. "
+  - "MARCOS \r\n\rElvira, por favor, me ofende que dude de mis conocimientos.  "
+  - "MARCOS \r\n\rSoy un hombre de ciencia, s\xE9 perfectamente de lo que hablo.   "
+  - "MARCOS \r\n\rSi quieres que tu madre sane, debes conseguir una bendici\xF3n. "
+  - "MARCOS \r\n\rPero no vale la bendici\xF3n de cualquier santo, tienes que acudir
+    a un santo reconocido."
+  - "MARCOS \r\nMi opini\xF3n es que la bendici\xF3n del ap\xF3stol Santiago ser\xE1
+    suficiente. "
+  - "MAT\xCDAS \r\n\rPero se\xF1or, ya solo en esta ciudad hay muchos templos a los
+    que acudir \xBFpor qu\xE9 habr\xEDa que ir hasta Santiago? "
+  - "MARCOS\n\rPocas figuras m\xE1s cercanas a la religi\xF3n que un ap\xF3stol existen."
+  - "MARCOS \r\nFue un haz de luz celestial lo que ayud\xF3 a encontrar el sepulcro
+    del santo."
+  - "MARCOS \r\nFue un milagro, el mism\xEDsimo Se\xF1or quiso que Santiago fuese
+    encontrado. "
+  - "MARCOS \r\nPero bueno, solo es la opini\xF3n de un m\xE9dico como pod\xE9is
+    ver."
+  - "MARCOS \r\nMuy bien Elvira, vendr\xE9 a visitarla la semana que viene, como
+    es costumbre."
+  - "MARCOS \r\nSiga tomando este mejunje como le dije. Tenga buen d\xEDa. Hasta
+    la vista muchacho. "
+  - "ELVIRA \r\n\rEste se\xF1or ha perdido la cabeza. "
+  responses: []

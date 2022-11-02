@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     #region Other Variables
     /* Functionality variables. */
     public int siblingIndex;
-    public float scaleMultiplier = 3.0f;
+    public float scaleMultiplier = 1.5f;
     Vector3 originalScale;
+    Vector3 originalPosition;
+    private bool inspecting = false;
     #endregion
+
+    public void Awake()
+    {
+
+    }
 
     #region Inspection methods
     /* This methods control the inspection functionality of the cards. When
@@ -19,21 +28,65 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
      * easier inspection */
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld) return;
+        if (!isMobile())
+        {
+            originalScale = transform.localScale;
+            originalPosition = transform.localPosition;
+            transform.localScale = (transform.localScale) * scaleMultiplier;
 
-        originalScale = transform.localScale;
-        transform.localScale = (transform.localScale)*scaleMultiplier;
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 200, 0.0f);
-        DisableHandPanel();
-        transform.SetAsLastSibling();
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
+                DisableHandPanel();
+            }
+
+            if(siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+            inspecting = !inspecting;
+        }
+
+        if(isMobile() && inspecting)
+        {
+            transform.localScale = originalScale;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = originalPosition;
+                EnableHandPanel();
+            }
+
+            inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
+        }
+        else if(isMobile() && !inspecting)
+        {
+            originalScale = transform.localScale;
+            originalPosition = transform.localPosition;
+            transform.localScale = (transform.localScale) * scaleMultiplier;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
+                DisableHandPanel();
+            }
+
+            if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+            inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
+        }
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld) return;
+        if (!isMobile())
+        {
+            transform.localScale = originalScale;
+            
 
-        transform.localScale = originalScale;
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y - 200, 0.0f);
-        EnableHandPanel();
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = originalPosition;
+                EnableHandPanel();
+            }
+        } 
     } 
     #endregion
 
@@ -49,7 +102,20 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void EnableHandPanel()
     {
         transform.SetSiblingIndex(siblingIndex);
-        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = false;
+        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
+    }
+    #endregion
+
+    #region Mobile Detection
+    [DllImport("__Internal")]
+    private static extern bool IsMobile();
+
+    public bool isMobile()
+    {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+            return IsMobile();
+        #endif
+        return false;
     }
     #endregion
 }

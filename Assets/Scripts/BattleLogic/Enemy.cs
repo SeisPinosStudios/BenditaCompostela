@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New enemy asset", menuName = "BenditaCompostela/New enemy")]
 public class Enemy : ScriptableObject

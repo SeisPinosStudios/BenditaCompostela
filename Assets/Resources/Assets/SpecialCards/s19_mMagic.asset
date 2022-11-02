@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: s19_mMagic
   m_EditorClassIdentifier: 
   name: Magia de meira
-  description: 
+  description: "Realiza 5 puntos de da\xF1o y aplica Quemadurax2."
   artwork: {fileID: 0}
   cost: 8
   damage: 5

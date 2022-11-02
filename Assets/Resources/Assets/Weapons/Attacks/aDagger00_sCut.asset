@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ccf39c6279f6a47958cf71147685b6, type: 3}
   m_Name: aDagger00_sCut
   m_EditorClassIdentifier: 
-  name: Shy cut
-  description: 
+  name: "Corte t\xEDmido"
+  description: "Realiza 1 punto de da\xF1o."
   artwork: {fileID: 0}
   cost: 0
   damage: 1
-  effect: 
-  effectValue: 
+  alteredEffects: 
+  aEffectValues: 
