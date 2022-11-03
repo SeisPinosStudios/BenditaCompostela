@@ -124,6 +124,9 @@ public class Card : MonoBehaviour
             case CardData.TEffects.CLEANSE:
                 self.RemoveAlteredEffect();
                 break;
+            case CardData.TEffects.DRAWATTACK:
+                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCorroutine(value));
+                break;
             default:
                 Debug.Log("Default.");
                 break;

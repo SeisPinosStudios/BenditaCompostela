@@ -28,10 +28,29 @@ public class DefaultDeck : MonoBehaviour
         Instantiate(card, hand.transform);
     }
 
-    public void DrawCard(int drawnCards)
+    public IEnumerator DrawCardCorroutine(int drawnCards)
     {
-        StartCoroutine(DrawCardCorroutine(drawnCards));
+        for (int j = 0; j < drawnCards; j++)
+        {
+            DrawCard();
+            yield return new WaitForSeconds(0.2f);
+            if (deckQueue.Count <= 0) break;
+        }
     }
+
+    public IEnumerator DiscardCorroutine()
+    {
+        while (hand.transform.childCount > 0)
+        {
+            if(hand.transform.GetChild(0).GetComponent<CardData>().GetType() != typeof(Attack)) 
+                deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
+            Destroy(hand.transform.GetChild(0).gameObject);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Debug.Log("Salió del bucle");
+    }
+
     public void Shuffle()
     { 
         for(int i = 0; i < playerDeck.Count; i++)
@@ -45,25 +64,5 @@ public class DefaultDeck : MonoBehaviour
     public void CopyDeck()
     {
         foreach(CardData card in GameManager.playerData.playerDeck) playerDeck.Add(card);
-    }
-    public IEnumerator DrawCardCorroutine(int drawnCards)
-    {
-        for (int j = 0; j < drawnCards; j++)
-        {
-            DrawCard();
-            yield return new WaitForSeconds(0.2f);
-            if (deckQueue.Count <= 0) break;
-        }
-    }
-    public IEnumerator DiscardCorroutine()
-    {
-        while(hand.transform.childCount > 0)
-        {
-            deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
-            Destroy(hand.transform.GetChild(0).gameObject);
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        Debug.Log("Salió del bucle");
-    }
+    }  
 }

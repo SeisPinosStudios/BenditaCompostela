@@ -14,6 +14,6 @@ public class CardData : ScriptableObject
         {BLEED, POISON, BURN, VULNERABLE, GUARDED, INVULNERABLE, CONFUSED, DISARMED}
 
     public enum TEffects
-        {rHEALTH, rENERGY, DRAW, DISCARD, CLEANSE}
+        {rHEALTH, rENERGY, DRAW, DRAWATTACK, DISCARD, CLEANSE}
     #endregion
 }

@@ -6,10 +6,18 @@ using System.Linq;
 [CreateAssetMenu(fileName = "New player configuration", menuName = "BenditaCompostela/New player")]
 public class Player : ScriptableObject
 {
+    /* Statistic variables for 
+     * the player entity */
     public int HP;
     public int energy;
-    public List<CardData> playerDeck;
     public int coins;
+
+    /* Player deck and inventory
+     * this two lists control the 
+     * cards a player has equiped
+     * and avalible */
+    public List<CardData> playerDeck;
+    public List<CardData> inventory;
 
     public bool CoinDecrease(int cost)
     {

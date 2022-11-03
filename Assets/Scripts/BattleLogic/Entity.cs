@@ -82,6 +82,7 @@ public class Entity : MonoBehaviour
         if(CheckIfSufferingEffect(alteredEffect) >= 0)
         {
             aEffectsValue[CheckIfSufferingEffect(alteredEffect)] += value;
+            UpdateEffectsDisplay();
             return;
         }
 
@@ -94,6 +95,7 @@ public class Entity : MonoBehaviour
     public void RemoveAlteredEffect(CardData.TAlteredEffects alteredEffect)
     {
         if (CheckIfSufferingEffect(alteredEffect) < 0) return;
+
         aEffectsValue.Remove(CheckIfSufferingEffect(alteredEffect));
         alteredEffects.Remove(alteredEffect);
 
@@ -156,7 +158,7 @@ public class Entity : MonoBehaviour
 
         //UpdateEffectsDisplay();
 
-        return damage += (damage / 2);
+        return damage += (int)Mathf.Round((float)damage / 2);
     }
 
     public int Guarded(int damage)
@@ -170,7 +172,7 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
 
-        return damage -= (damage / 2);
+        return damage -= (int)Mathf.Round((float)damage / 2);
     }
 
     public int Invulnerable(int damage)

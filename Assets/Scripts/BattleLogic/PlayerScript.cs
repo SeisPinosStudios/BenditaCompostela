@@ -26,8 +26,7 @@ public class PlayerScript : Entity
         DeactivateCombatControl();
         currentEnergy = energy;
         yield return new WaitForSeconds(0.2f);
-        GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCard(5);
-        yield return new WaitForSeconds(3.0f);
+        yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(5));
         this.Poison();
         ActivateCombatControl();
     }
