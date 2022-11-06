@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public static int gameProgressContext = 0;
     #endregion
 
+    #region Card Database
+    public List<CardData> cardsList;
+
     public static Enemy nextEnemy;
     public static Scene ActualRoute;
     public GameObject[] BattleCompletedUI = new GameObject[2];
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets")) cardsList.Add(card);
     }
 
     public void BattleEnd(Entity loser)

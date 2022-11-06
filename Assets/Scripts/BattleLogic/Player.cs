@@ -33,6 +33,7 @@ public class Player : ScriptableObject
         player.energy = energy;
         player.coins = coins;
         player.playerDeck = playerDeck.Select((card) => Instantiate(card)).ToList();
+        player.inventory = inventory.Select((card) => Instantiate(card)).ToList();
         return player;
     }
 }

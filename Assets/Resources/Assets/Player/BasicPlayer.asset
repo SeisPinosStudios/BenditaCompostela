@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 35
   energy: 10
-  playerDeck:
+  coins: 10
+  playerDeck: []
+  inventory:
+  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
+  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
   - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
   - {fileID: 11400000, guid: 91bd69417fc4794458425cb91fc6aae3, type: 2}
-  - {fileID: 11400000, guid: 9e721383584198f40af99f5ce551435d, type: 2}
+  - {fileID: 11400000, guid: 8ffbe4a1bec204a4c9f58804f5bd99b3, type: 2}
   - {fileID: 11400000, guid: 3d912b2814213a3429d58630664b440a, type: 2}
-  - {fileID: 11400000, guid: 45b869c0a8648844d995498d103a32fe, type: 2}
-  - {fileID: 11400000, guid: ad1997706825450438a524aa958cdc23, type: 2}
-  - {fileID: 11400000, guid: 09d5151d49e0caf4a858f5ffecbf6b86, type: 2}
+  - {fileID: 11400000, guid: 9e721383584198f40af99f5ce551435d, type: 2}
+  - {fileID: 11400000, guid: 348e904085a60304e8d86a8891ea8d1a, type: 2}
+  - {fileID: 11400000, guid: a4ccef38288e9174abbbf7ac5f1b410c, type: 2}
+  - {fileID: 11400000, guid: 4c7fa1ecb00b9504fb5db4c04a18fbd4, type: 2}
+  - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
   - {fileID: 11400000, guid: f740c02bf91aa1b46a78dd9e2b536907, type: 2}
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  coins: 10
