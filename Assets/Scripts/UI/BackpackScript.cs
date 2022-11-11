@@ -55,9 +55,6 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
             #endregion
 
             timeElapsed += Time.deltaTime;
-
-            
-            Debug.Log((separation / Mathf.Cos(Mathf.PI / 4)));
             yield return null;
         }
         

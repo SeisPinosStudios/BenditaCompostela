@@ -42,7 +42,7 @@ public class DefaultDeck : MonoBehaviour
     {
         while (hand.transform.childCount > 0)
         {
-            if(hand.transform.GetChild(0).GetComponent<CardData>().GetType() != typeof(Attack)) 
+            if(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData.GetType() != typeof(Attack)) 
                 deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
             Destroy(hand.transform.GetChild(0).gameObject);
             yield return new WaitForSeconds(0.5f);

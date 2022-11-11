@@ -6,8 +6,14 @@ using UnityEngine;
 public class Armor : CardData
 {
     public int defenseValue;
-    public List<Weapon> synergies;
+    public int damageBonus;
+    public int extraDefence;
+    public Weapon synergyWeapon;
     public TArmor armorType;
+    public TSynergy synergy;
     public enum TArmor 
         { CHEST, FEET}
+
+    public enum TSynergy
+        { DAMAGE, DEFENCE, HEALING, rCOST, xVULNERABLE, xGUARDED}
 }

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Martillo
   description: 
-  artwork: {fileID: 21300000, guid: 4d58609d930448f49be1c3cfcb226721, type: 3}
+  artwork: {fileID: 21300000, guid: feb33372435708341926d69e844e7b42, type: 3}
   cost: 0
+  type: 0
   weaponId: 0
   attackList:
   - {fileID: 11400000, guid: 89778da8cddee994aa5d25a75e80fe91, type: 2}

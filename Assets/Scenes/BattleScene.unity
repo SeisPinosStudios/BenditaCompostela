@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 1278960271}
   - component: {fileID: 1278960270}
   - component: {fileID: 1278960269}
+  - component: {fileID: 1278960272}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -850,6 +851,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278960272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278960268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 920
+  m_RefResolutionY: 540
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1402624029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619147, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619147, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_RootOrder
@@ -1340,11 +1361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619147, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -400
+      value: -330
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619147, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: -78
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619147, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1400,7 +1421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0.0000000055879354
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_RootOrder
@@ -1424,11 +1445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 288
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1460,11 +1481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: -78
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1482,6 +1503,10 @@ PrefabInstance:
       propertyPath: enemyData
       value: 
       objectReference: {fileID: 11400000, guid: 60ffab9ddc5805049ba925ff17b6f51b, type: 2}
+    - target: {fileID: 5649096037912232974, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d529833d7eef324c8112c46bf9301c2, type: 3}
     - target: {fileID: 8221055514057442586, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_SortingOrder
       value: 1

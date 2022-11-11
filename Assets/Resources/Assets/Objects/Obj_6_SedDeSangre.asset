@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 580270e59629f9f408e871ca53a21ba8, type: 3}
-  m_Name: Obj_6_SedDeSangre
+  m_Name: OBJ_6_SedDeSangre
   m_EditorClassIdentifier: 
   name: Sed de sangre
   description: 

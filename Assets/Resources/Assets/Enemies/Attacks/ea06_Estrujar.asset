@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Estrujar
   description: "Realiza 3 puntos de da\xF1o y aplica Aturdidox1."
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
   cost: 0
+  type: 0
   damage: 3
   alteredEffects: 06000000
   aEffectValues: 01000000

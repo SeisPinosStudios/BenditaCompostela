@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Espada de acero
   description: 
-  artwork: {fileID: 21300000, guid: 2ba3114c96a7d0140922ec98a3b876d2, type: 3}
+  artwork: {fileID: 21300000, guid: bd14bf5c36b0b55429e542999672654e, type: 3}
   cost: 0
+  type: 0
   weaponId: 0
   attackList:
   - {fileID: 11400000, guid: 18c256f215a836d449590b4fbc4fe895, type: 2}

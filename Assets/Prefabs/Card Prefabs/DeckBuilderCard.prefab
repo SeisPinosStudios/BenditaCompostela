@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4427796431494452217
 CanvasRenderer:
@@ -62,12 +62,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 15, y: 5, z: 15, w: 17}
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a82af1bd7c52c3542b4904279c174df7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d4e9fec59f1ffc4c82364d0dc7a6b2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -127,7 +127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.865, y: -62.739}
+  m_AnchoredPosition: {x: 27, y: -45}
   m_SizeDelta: {x: 15, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &785565817162067820
@@ -262,8 +262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -18}
-  m_SizeDelta: {x: 49.2945, y: 13.2203}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 66.7417, y: 13.2203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5579296296517733447
 CanvasRenderer:
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NAME
+  m_text: Puchero de la abuela
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.65
+  m_fontSize: 7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -398,7 +398,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 81.4294, y: 56.5719}
+  m_SizeDelta: {x: 70.8176, y: 47.3522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5999746146121932594
 CanvasRenderer:
@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 3076082610870456730}
   - component: {fileID: 1665306654735381444}
   - component: {fileID: 1841533911571328099}
+  - component: {fileID: 1747252007776359500}
   m_Layer: 5
   m_Name: DeckBuilderCard
   m_TagString: Untagged
@@ -524,7 +525,7 @@ RectTransform:
   m_GameObject: {fileID: 6344285022213485672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4771223180250144548}
@@ -537,7 +538,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128, y: 176}
+  m_SizeDelta: {x: 102, y: 155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665306654735381444
 MonoBehaviour:
@@ -568,3 +569,15 @@ MonoBehaviour:
   descText: {fileID: 6545579742089875006}
   sprite: {fileID: 7560168526375386494}
   cost: {fileID: 2621845945428465234}
+--- !u!114 &1747252007776359500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344285022213485672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f9aa7ac64440b42a6b1831bb5b01bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -18,6 +18,8 @@ public class Player : ScriptableObject
      * and avalible */
     public List<CardData> playerDeck;
     public List<CardData> inventory;
+    public Armor chestArmor;
+    public Armor feetArmor;
 
     public bool CoinDecrease(int cost)
     {
@@ -34,6 +36,8 @@ public class Player : ScriptableObject
         player.coins = coins;
         player.playerDeck = playerDeck.Select((card) => Instantiate(card)).ToList();
         player.inventory = inventory.Select((card) => Instantiate(card)).ToList();
+        player.chestArmor = Instantiate(chestArmor);
+        player.feetArmor = Instantiate(feetArmor);
         return player;
     }
 }

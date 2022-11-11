@@ -16,6 +16,12 @@ public class Entity : MonoBehaviour
     public GameObject alteredEffectsDisplayPrefab;
     public Sprite[] alteredEffectsImages;
 
+    #region Synergy Variables
+    public int damageBoost = 0;
+    public int defence = 0;
+    public int extraHealing = 0;
+    #endregion
+
     #region Basic Entity Logic Methods
     public void RestoreEnergy(int energyRestored)
     {
@@ -27,7 +33,6 @@ public class Entity : MonoBehaviour
 
         this.currentEnergy += energyRestored;
     }
-
     public bool ConsumeEnergy(int energyConsumed)
     {
         if (this.currentEnergy < energyConsumed) return false;
@@ -35,12 +40,10 @@ public class Entity : MonoBehaviour
         Debug.Log(currentEnergy);
         return true;
     }
-
     public void RefillEnergy()
     {
         this.currentEnergy = this.energy;
     }
-
     public void SufferDamage(int damage)
     {
         damage = Vulnerable(damage);
@@ -50,18 +53,16 @@ public class Entity : MonoBehaviour
 
         if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
-
     public void RestoreHealth(int healthRestored)
     {
+        healthRestored += extraHealing;
         if(CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED) != -1) 
         {
             this.currentHP = Mathf.Clamp(this.currentHP + (healthRestored / 2), 0, HP);
             return;
         }
-      
         this.currentHP = Mathf.Clamp(this.currentHP + healthRestored, 0, HP);
     }
-
     public bool IsDead()
     {
         if (this.currentHP <= 0) return true;
@@ -76,7 +77,6 @@ public class Entity : MonoBehaviour
         if(alteredEffects.Contains(checkingEffect)) return alteredEffects.IndexOf(checkingEffect);
         return -1;
     }
-
     public void ApplyAlteredEffect(CardData.TAlteredEffects alteredEffect, int value)
     {
         if(CheckIfSufferingEffect(alteredEffect) >= 0)
@@ -91,7 +91,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     }
-
     public void RemoveAlteredEffect(CardData.TAlteredEffects alteredEffect)
     {
         if (CheckIfSufferingEffect(alteredEffect) < 0) return;
@@ -101,7 +100,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     } 
-
     public void RemoveAlteredEffect()
     {
         alteredEffects.Clear();
@@ -109,7 +107,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     }
-
     public void Bleeding()
     {
         if (CheckIfSufferingEffect(CardData.TAlteredEffects.BLEED) < 0) return;
@@ -122,7 +119,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     }
-
     public void Poison()
     {
         if (CheckIfSufferingEffect(CardData.TAlteredEffects.POISON) < 0) return;
@@ -135,7 +131,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     }
-
     public void Burn()
     {
         if (CheckIfSufferingEffect(CardData.TAlteredEffects.BURN) < 0) return;
@@ -146,7 +141,6 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
     }
-
     public int Vulnerable(int damage)
     {
         if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE) < 0) return damage;
@@ -156,11 +150,13 @@ public class Entity : MonoBehaviour
         if (aEffectsValue[CheckIfSufferingEffect(CardData.TAlteredEffects.VULNERABLE)] <= 0) 
             RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
-        //UpdateEffectsDisplay();
+        UpdateEffectsDisplay();
 
-        return damage += (int)Mathf.Round((float)damage / 2);
+        if(this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xVULNERABLE)
+            return damage += (int)Mathf.Round((float)damage * 0.6f);
+
+        return damage += (int)Mathf.Round((float)damage * 0.5f);
     }
-
     public int Guarded(int damage)
     {
         if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.GUARDED) < 0) return damage;
@@ -172,9 +168,11 @@ public class Entity : MonoBehaviour
 
         UpdateEffectsDisplay();
 
-        return damage -= (int)Mathf.Round((float)damage / 2);
-    }
+        if (this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xGUARDED)
+            return damage -= (int)Mathf.Round((float)damage * 0.3f);
 
+        return damage -= (int)Mathf.Round((float)damage * 0.5f);
+    }
     public int Invulnerable(int damage)
     {
         if (this.CheckIfSufferingEffect(CardData.TAlteredEffects.INVULNERABLE) < 0) return damage;
