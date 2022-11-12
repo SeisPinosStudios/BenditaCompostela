@@ -16,6 +16,8 @@ MonoBehaviour:
   description: "Concede 8 puntos de energ\xEDa."
   artwork: {fileID: 0}
   cost: 2
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 
   aEffectValues: 
   effects: 01000000

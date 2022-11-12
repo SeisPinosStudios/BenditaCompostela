@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Restaura 4 puntos de vida.
   artwork: {fileID: 0}
   cost: 1
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 
   aEffectValues: 
   effects: 00000000

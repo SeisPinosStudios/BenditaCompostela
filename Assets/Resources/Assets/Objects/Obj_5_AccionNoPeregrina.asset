@@ -16,6 +16,8 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 21300000, guid: 3588a7d4e11bb6544893d8c305953d0d, type: 3}
   cost: 1
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 
   aEffectValues: 
   effects: 02000000

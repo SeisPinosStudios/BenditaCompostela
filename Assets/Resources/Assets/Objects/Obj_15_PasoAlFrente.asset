@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Aplica En Guardiax1.
   artwork: {fileID: 21300000, guid: 686a003ab5abb44438f6c0df7c242215, type: 3}
   cost: 1
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 04000000
   aEffectValues: 01000000
   effects: 

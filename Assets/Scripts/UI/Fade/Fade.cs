@@ -15,7 +15,7 @@ public class Fade : MonoBehaviour
     }
 
     public void FadeIn() {
-        fadeAn.Play("fadeIn");
+        fadeAn.Play("fadeIn");        
     }
 
     public void lateFadeOut()

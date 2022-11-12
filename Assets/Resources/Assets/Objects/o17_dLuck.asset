@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Aplica Invulnerablex1 y Vulnerablex2.
   artwork: {fileID: 0}
   cost: 8
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 0500000003000000
   aEffectValues: 0100000002000000
   effects: 

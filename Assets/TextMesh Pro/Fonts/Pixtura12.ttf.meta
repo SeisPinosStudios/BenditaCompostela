@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7de36d1c03e5ff74b8cc2b82a381de3a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pixtura12
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7a2b221038e6f694b997236303818810, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

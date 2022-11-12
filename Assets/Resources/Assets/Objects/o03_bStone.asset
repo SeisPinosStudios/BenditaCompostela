@@ -16,6 +16,8 @@ MonoBehaviour:
   description: Aplica Vulnerablex2
   artwork: {fileID: 0}
   cost: 3
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 03000000
   aEffectValues: 02000000
   effects: 

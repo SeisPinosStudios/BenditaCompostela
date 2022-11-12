@@ -7,28 +7,37 @@ public class Ruta_1 : MonoBehaviour
 {
     [SerializeField] private GameObject shop;
     [SerializeField] private GameObject encounter_1;
-    
-    Animator slideAn;
+        
     public GameObject fadeGo;
     Fade fade;
+    SlideAnimCoroutines coroutines;
 
     static bool encounterHappened;
     void Start()
     {
-        slideAn = gameObject.GetComponent<Animator>();
         fade = fadeGo.GetComponent<Fade>();
+        coroutines = gameObject.GetComponent<SlideAnimCoroutines>();
         encounterHappened = false;
     }
 
-    public void ruta1ToShop() {
-        slideAn.SetBool("isShop", true);
+    public void ToShop() {
+        fade.FadeOut();
+        fade.lateFadeIn();
         encounter_1.SetActive(false);
         shop.SetActive(true);
+
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }
 
-    public void shopToRuta1() {
-        slideAn.SetBool("isShop", false);
+    public void ToRoute() {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
         Invoke("CloseWindows",1f);
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 100f));
+
     }
 
     private void CloseWindows() {
@@ -36,16 +45,17 @@ public class Ruta_1 : MonoBehaviour
         encounter_1.SetActive(false);
     }
 
-    public void RouteToEncounter() {        
-        slideAn.SetBool("isShop", true);
+    public void ToEncounter() {        
         encounter_1.SetActive(true);
         shop.SetActive(false);
-        
         if (!encounterHappened)
         {
             encounter_1.GetComponent<DialogueActivator>().ActivateDialogue();
         }
         encounterHappened = true;
+
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }    
     void changeLevel(int lvl) {
         SceneManager.LoadScene(lvl);

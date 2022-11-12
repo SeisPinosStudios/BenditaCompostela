@@ -16,6 +16,8 @@ MonoBehaviour:
   description: "Restablece 11 puntos de energ\xEDa."
   artwork: {fileID: 21300000, guid: d9ba207f5e2459a42a3c2ff08d47ce9f, type: 3}
   cost: 2
+  cardType: 2
+  isUpgraded: 0
   alteredEffects: 
   aEffectValues: 
   effects: 01000000
