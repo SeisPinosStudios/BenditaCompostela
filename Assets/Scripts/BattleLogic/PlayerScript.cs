@@ -16,8 +16,7 @@ public class PlayerScript : Entity
     {
         PlayerConfig();
         if (SceneManager.GetActiveScene().name == "BattleScene")
-        {
-            Debug.Log("Hola");
+        {            
             GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));
         }
     }

@@ -31,8 +31,7 @@ public class Entity : MonoBehaviour
     public bool ConsumeEnergy(int energyConsumed)
     {
         if (this.currentEnergy < energyConsumed) return false;
-        this.currentEnergy -= energyConsumed;
-        Debug.Log(currentEnergy);
+        this.currentEnergy -= energyConsumed;        
         return true;
     }
 

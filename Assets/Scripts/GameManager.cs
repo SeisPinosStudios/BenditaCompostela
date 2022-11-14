@@ -10,9 +10,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    #region Game Context
+    #region Game Context And Map Nodes
+    [SerializeField] private List<Node> aux;
+    [SerializeField] private GameObject auxGo;
+
+    public static bool auxInitialize = true;
+
+    public static List<Node> mapNodeList;
+    public static string currentLevelNodeGoName;    
     public static int gameProgressContext = 0;
     #endregion
+
 
     public static Enemy nextEnemy;
     public static Scene ActualRoute;
@@ -22,6 +30,12 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
+        if (auxInitialize)
+        {
+            currentLevelNodeGoName = auxGo.name;
+            mapNodeList = aux;
+            auxInitialize = false;
+        }
         if (!Instance)
         {
             Instance = this;
@@ -31,9 +45,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }         
     }
-
     public void BattleEnd(Entity loser)
     {
         switch (loser.GetType().ToString())
@@ -43,7 +56,19 @@ public class GameManager : MonoBehaviour
                 break;
             case "EnemyScript":
                 Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
+                mapNodeList.Find(n => n.currentNodeGoName == currentLevelNodeGoName).isCompleted = true;                
+                gameProgressContext++;
+                
                 break;
         }
     }
+
+    public static GameObject GetCurrentLevelNode() {        
+        return GameObject.Find("===ROUTE MAP===").FindObject(currentLevelNodeGoName);
+    }
+
+    public static GameObject GetAnyLevelNode(string name) { 
+        return GameObject.Find("===ROUTE MAP===").FindObject(name);
+    }
+
 }

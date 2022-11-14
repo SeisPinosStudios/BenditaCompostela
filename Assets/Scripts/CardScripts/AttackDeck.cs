@@ -22,7 +22,7 @@ public class AttackDeck : MonoBehaviour
 
     public void DrawCard()
     {
-        Debug.Log("Attack deck clicked.");
+        
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         if (player.GetComponent<PlayerScript>().ConsumeEnergy(1)) Instantiate(card, hand.transform); ;    

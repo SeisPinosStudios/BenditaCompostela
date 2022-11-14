@@ -18,11 +18,9 @@ public class Card : MonoBehaviour
     }
     public void UseCard()
     {
-        cardData = gameObject.GetComponent<CardDisplay>().cardData;
-        Debug.Log("Carta jugada.");
+        cardData = gameObject.GetComponent<CardDisplay>().cardData;        
 
-        if (!self.ConsumeEnergy(cardData.cost)) return; /* If the card costs more than the remaining energy, it wont get used */
-        Debug.Log(cardData.cost);
+        if (!self.ConsumeEnergy(cardData.cost)) return; /* If the card costs more than the remaining energy, it wont get used */        
         //self.ConsumeEnergy(cardData.cost);
 
         self.Bleeding();

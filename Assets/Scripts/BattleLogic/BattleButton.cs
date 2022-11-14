@@ -8,16 +8,16 @@ public class BattleButton : MonoBehaviour
 {
     public Enemy enemy;
     public int context;
-    void Start()
+
+    private void OnEnable()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(() => ToBattleScene(enemy));
-        if(GameManager.gameProgressContext != context)
-            gameObject.GetComponent<Button>().enabled = false;
     }
 
     public void ToBattleScene(Enemy enemy)
     {
         GameManager.nextEnemy = enemy;
+        GameManager.currentLevelNodeGoName = gameObject.name;
         SceneManager.LoadScene("BattleScene");
     }
 }
