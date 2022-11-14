@@ -22,7 +22,18 @@ public class Card : MonoBehaviour
     {
         var energyCost = cardData.cost;
 
-        if (!self.ConsumeEnergy(cardData.cost)) return; /* If the card costs more than the remaining energy, it wont get used */
+        #region Trasgu's Passive
+        if (enemy.GetComponent<Entity>().IsBoss(Enemy.Boss.TRASGU) && Random.Range(0,9) >= 8)
+        {
+            Destroy(gameObject);
+            return; 
+        }
+        #endregion
+
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) >= 0)
+            energyCost += self.aEffectsValue[self.Suffering(CardData.TAlteredEffects.CONFUSED)];
+
+        if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
         self.Bleeding();
 
@@ -32,6 +43,7 @@ public class Card : MonoBehaviour
                 EquipWeapon();
                 break;
             case "Attack":
+                if (self.Suffering(CardData.TAlteredEffects.DISARMED) >= 0) return;
                 Attack();
                 break;
             case "Special":
@@ -120,6 +132,10 @@ public class Card : MonoBehaviour
             case CardData.TEffects.DRAWATTACK:
                 StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCorroutine(value));
                 break;
+            /*
+            case CardData.TEffects.STEAL:
+                StartCoroutine(self.GetComponent<EnemyScript>().Steal
+                break;*/
             default:
                 Debug.Log("Default.");
                 break;

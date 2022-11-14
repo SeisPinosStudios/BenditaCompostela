@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_5_Agricultor Enfurecido
+  m_EditorClassIdentifier: 
+  name: Agricultor enfurecido
+  sprite: {fileID: 0}
+  HP: 45
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 87e195003ac5ae54985d735375cf0f86, type: 2}
+  boss: 0
+  resistances: 

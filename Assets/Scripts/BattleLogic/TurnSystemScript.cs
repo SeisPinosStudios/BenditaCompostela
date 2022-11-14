@@ -24,6 +24,8 @@ public class TurnSystemScript : MonoBehaviour
 
     public void Turn()
     {
+        current.GetComponent<Entity>().RemoveAlteredEffect(CardData.TAlteredEffects.DISARMED);
+
         var temp = current;
         current = next;
         next = temp;

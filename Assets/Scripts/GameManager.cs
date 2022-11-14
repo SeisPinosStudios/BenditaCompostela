@@ -33,6 +33,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if(SceneManager.GetActiveScene().name == "DebugScene")
+        {
+            foreach (CardData card in Resources.LoadAll<CardData>("Assets"))
+            {
+                playerData.inventory.Add(card);
+                playerData.inventory.Add(card);
+            }
+        }
+            
+
         //foreach (CardData card in Resources.LoadAll<CardData>("Assets")) cardsList.Add(card);
     }
 
