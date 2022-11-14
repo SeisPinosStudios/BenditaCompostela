@@ -17,6 +17,7 @@ public class DialogueActivator : MonoBehaviour, IInterctable
 
     public void ActivateDialogue()
     {
+        Debug.Log("DIALOGUE ACTIVATION" );
         dialogTriggerScript.DialogueActivation();
     }
     [SerializeField] private DialogueObject dialogueObject;

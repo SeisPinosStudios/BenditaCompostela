@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 81f8588dc14433a4ea06cf8b7bda59ba, type: 2}
-  encounterId: 0
+  encounterId: 1
 --- !u!1 &742236694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,6 +1835,7 @@ GameObject:
   - component: {fileID: 903677503}
   - component: {fileID: 903677502}
   - component: {fileID: 903677505}
+  - component: {fileID: 903677506}
   m_Layer: 5
   m_Name: LoreButton
   m_TagString: Untagged
@@ -1958,6 +1959,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeSpriteHighlighted: {fileID: 21300000, guid: 3a06115fa14fe4e4fa823eb6d4a8da5e, type: 3}
   nodeSprite: {fileID: 21300000, guid: fa5da114b7d93c34eb0aa6c4f46436c3, type: 3}
+--- !u!114 &903677506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903677500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b56332cf9c7a43a70415dc40340ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loreId: 0
 --- !u!1 &936985342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,6 +2381,7 @@ MonoBehaviour:
   shop: {fileID: 1454134870}
   encounter_0: {fileID: 139080194}
   encounter_1: {fileID: 612171680}
+  lore_0: {fileID: 1399967565}
   mapController: {fileID: 958117488}
   fadeGo: {fileID: 49231522}
 --- !u!114 &1046541168
@@ -3024,7 +3039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 81f8588dc14433a4ea06cf8b7bda59ba, type: 2}
-  encounterId: 1
+  encounterId: 0
 --- !u!1 &1236232636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,7 +3557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399967566
 RectTransform:
   m_ObjectHideFlags: 0

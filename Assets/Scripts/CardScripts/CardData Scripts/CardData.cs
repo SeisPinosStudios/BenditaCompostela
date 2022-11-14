@@ -11,12 +11,10 @@ public class CardData : ScriptableObject
     public Sprite artwork;
     public int cost;
 
-    public bool isUpgraded;
-
     public enum TAlteredEffects 
         {BLEED, POISON, BURN, VULNERABLE, GUARDED, INVULNERABLE, CONFUSED, DISARMED}
 
     public enum TEffects
-        {rHEALTH, rENERGY, DRAW, DISCARD, CLEANSE}
+        {rHEALTH, rENERGY, DRAW, DISCARD, CLEANSE, STEAL}
     #endregion
 }

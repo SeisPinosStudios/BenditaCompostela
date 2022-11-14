@@ -20,7 +20,7 @@ public class MapPathSelector : MonoBehaviour
         foreach (Node node in GameManager.mapNodeList.FindAll(n => n.context == GameManager.gameProgressContext))
         {
 
-            var aux = GameManager.mapNodeList.FindAll(n => n.context == GameManager.gameProgressContext);
+           /* var aux = GameManager.mapNodeList.FindAll(n => n.context == GameManager.gameProgressContext);
             for (int i = 0; i < aux.Count; i++)
             {
                 Debug.Log("Node with context = " + GameManager.gameProgressContext + " : " + aux[i].currentNodeGoName);
@@ -29,7 +29,7 @@ public class MapPathSelector : MonoBehaviour
             {
                 Debug.Log("Previous nodes [" + i + "]: " + node.previousNodeGoNames[i]);
             }
-            Debug.Log("Prev Node Nme: " + prevCompleteNode.currentNodeGoName);
+            Debug.Log("Prev Node Nme: " + prevCompleteNode.currentNodeGoName);*/
             
             if (node.previousNodeGoNames.Find(n => n == prevCompleteNode.currentNodeGoName) != null)
             {
