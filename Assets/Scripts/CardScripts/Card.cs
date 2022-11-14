@@ -15,15 +15,14 @@ public class Card : MonoBehaviour
             self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
         }
+
+        cardData = gameObject.GetComponent<CardDisplay>().cardData;
     }
     public void UseCard()
     {
-        cardData = gameObject.GetComponent<CardDisplay>().cardData;
-        Debug.Log("Carta jugada.");
+        var energyCost = cardData.cost;
 
         if (!self.ConsumeEnergy(cardData.cost)) return; /* If the card costs more than the remaining energy, it wont get used */
-        Debug.Log(cardData.cost);
-        //self.ConsumeEnergy(cardData.cost);
 
         self.Bleeding();
 
@@ -50,19 +49,13 @@ public class Card : MonoBehaviour
     public void EquipWeapon()
     {
         Weapon weapon = (Weapon)cardData;
-
-        foreach(Transform card in GameObject.Find("HandPanel").transform)
-        {
-            if (card.GetComponent<CardDisplay>().cardData.GetType().ToString() == "Attack") Destroy(card.gameObject);
-        }
-
-        GameObject.Find("Player").GetComponent<PlayerScript>().weapon = weapon;
+        self.GetComponent<PlayerScript>().OnWeaponEquiped(weapon);   
     }
     public void Attack()
     {
         Attack attack = (Attack)cardData;
 
-        enemy.SufferDamage(attack.damage);
+        enemy.SufferDamage(attack.damage - enemy.defence + self.damageBoost);
 
         if (attack.alteredEffects.Length != 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)
@@ -71,7 +64,7 @@ public class Card : MonoBehaviour
     public void Special()
     {
         Special special = (Special)cardData;
-        if (special.damage > 0) enemy.SufferDamage(special.damage);
+        if (special.damage > 0) enemy.SufferDamage(special.damage - enemy.defence + self.damageBoost);
 
         if (special.alteredEffects.Length != 0)
             for (int i = 0; i < special.alteredEffects.Length; i++)
@@ -113,7 +106,7 @@ public class Card : MonoBehaviour
         switch (effect)
         {
             case CardData.TEffects.rHEALTH:
-                self.RestoreHealth(value);
+                self.RestoreHealth(value + self.extraHealing);
                 break;
             case CardData.TEffects.rENERGY:
                 self.RestoreEnergy(value);
@@ -123,6 +116,9 @@ public class Card : MonoBehaviour
                 break;
             case CardData.TEffects.CLEANSE:
                 self.RemoveAlteredEffect();
+                break;
+            case CardData.TEffects.DRAWATTACK:
+                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCorroutine(value));
                 break;
             default:
                 Debug.Log("Default.");

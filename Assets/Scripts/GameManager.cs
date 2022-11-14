@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //foreach (CardData card in Resources.LoadAll<CardData>("Assets")) cardsList.Add(card);
     }
 
     public void BattleEnd(Entity loser)

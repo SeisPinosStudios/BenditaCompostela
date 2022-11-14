@@ -15,10 +15,16 @@ public class EnemyScript : Entity
         HP = enemyData.HP;
         energy = enemyData.energy;
         currentHP = HP;
+
         gameObject.GetComponent<Image>().sprite = enemyData.sprite;
 
         attack.GetComponent<CardDragSystem>().enabled = true;
         attack.GetComponent<CardInspection>().enabled = true;
+    }
+
+    public void Start()
+    {
+        gameObject.GetComponent<Image>().SetNativeSize();
     }
 
     public void OnTurnBegin()
