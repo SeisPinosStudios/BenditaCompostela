@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Dardo envenenado
   description: Aplica Venenox1
-  artwork: {fileID: 21300000, guid: cfe217b3cab3e5f4fb7359ca474f1fd6, type: 3}
+  artwork: {fileID: 21300000, guid: 79d3ba4ecbc18944c86351e3f2f00472, type: 3}
   cost: 2
   alteredEffects: 01000000
   aEffectValues: 01000000

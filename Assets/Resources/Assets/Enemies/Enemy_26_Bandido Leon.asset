@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_26_Bandido Leon
+  m_EditorClassIdentifier: 
+  name: Bandido L
+  sprite: {fileID: 0}
+  HP: 70
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: 9ad03c0d6a037cb4498136c4f8f2b569, type: 2}
+  - {fileID: 11400000, guid: a4e996c9fc79fd54099b60348e16057d, type: 2}
+  boss: 0
+  resistances: 

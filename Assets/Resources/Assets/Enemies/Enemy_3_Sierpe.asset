@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_3_Sierpe
+  m_EditorClassIdentifier: 
+  name: Sierpe
+  sprite: {fileID: 21300000, guid: 0d529833d7eef324c8112c46bf9301c2, type: 3}
+  HP: 90
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: 7525caf9a3cdd4e46818993a1875af05, type: 2}
+  - {fileID: 11400000, guid: f70f857a5fca862419d7bd8921738b54, type: 2}
+  - {fileID: 11400000, guid: 9347fc2026bb3f54a926486f05a36858, type: 2}
+  - {fileID: 11400000, guid: 8ac471247bbe5904abfbfaec3bef267e, type: 2}
+  boss: 1
+  resistances: 01000000

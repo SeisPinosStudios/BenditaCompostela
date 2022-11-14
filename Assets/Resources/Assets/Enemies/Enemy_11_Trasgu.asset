@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_11_Trasgu
+  m_EditorClassIdentifier: 
+  name: Trasgu
+  sprite: {fileID: 0}
+  HP: 150
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: bf50f61a1a4c8da4f96685cf9e5286cb, type: 2}
+  - {fileID: 11400000, guid: 1d2ce0de9693b384182572ac440dc510, type: 2}
+  - {fileID: 11400000, guid: 1bae99d4a26c3a8478c4eddd876a95c0, type: 2}
+  - {fileID: 11400000, guid: d9ca304e37dee2c4dbd20e5f13872c8a, type: 2}
+  boss: 3
+  resistances: 

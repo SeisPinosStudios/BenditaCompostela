@@ -11,7 +11,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     #region Other Variables
     /* Functionality variables. */
     public int siblingIndex;
-    public float scaleMultiplier = 1.5f;
+    public float scaleMultiplier = 2.0f;
     Vector3 originalScale;
     Vector3 originalPosition;
     private bool inspecting = false;
@@ -36,7 +36,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
                 DisableHandPanel();
             }
 
@@ -65,7 +65,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 320, 2.0f);
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
                 DisableHandPanel();
             }
 
