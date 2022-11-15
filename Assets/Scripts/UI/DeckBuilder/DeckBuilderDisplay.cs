@@ -14,7 +14,6 @@ public class DeckBuilderDisplay: MonoBehaviour
         foreach(CardData card in GameManager.playerData.inventory)
         {
             cardPrefab.GetComponent<CardDisplay>().cardData = card;
-            Debug.Log(card.name);
             if(cards.Find(dupCard => dupCard.name == card.name) == null) Instantiate(cardPrefab, GameObject.Find("Content").transform);
             cards.Add(card);
         }

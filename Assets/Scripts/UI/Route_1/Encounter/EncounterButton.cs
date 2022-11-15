@@ -10,13 +10,13 @@ public class EncounterButton : MonoBehaviour
     public int encounterId;
     private void OnEnable()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
+        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());        
     }
 
     public void SetCurrentLevelAndTransition()
     {
         GameManager.currentLevelNodeGoName = gameObject.name;
-        GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;
+        GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;        
         GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter(encounterId);
     }
     public void ToBattleScene(Enemy enemy)

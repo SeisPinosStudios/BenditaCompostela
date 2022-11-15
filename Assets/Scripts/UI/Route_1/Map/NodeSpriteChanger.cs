@@ -10,12 +10,14 @@ public class NodeSpriteChanger : MonoBehaviour
     
     private Image currentNodeImage;
     private Color myColor;
+    private Color defColor;
     private bool nodeSelectedBlink;
     private bool r = true;
-    private void Start()
+    private void Awake()
     {
         currentNodeImage = gameObject.GetComponent<Image>();
         myColor.a = 2f;
+        defColor = new Vector4(255,255,255,1);
     }
 
     private void Update()
@@ -35,17 +37,19 @@ public class NodeSpriteChanger : MonoBehaviour
         }        
     }
     public void NodeCanBeSelected() {
-        gameObject.GetComponent<Image>().sprite = nodeSpriteHighlighted;
+        currentNodeImage.sprite = nodeSpriteHighlighted;
         nodeSelectedBlink = true;
     }
 
     public void NodeIsNotActive() {
-        gameObject.GetComponent<Image>().sprite = nodeSprite;
+        currentNodeImage.sprite = nodeSprite;
         nodeSelectedBlink = false;
     }
 
     public void NodeIsCompleted() {
-        gameObject.GetComponent<Image>().sprite = nodeSpriteHighlighted;
-        nodeSelectedBlink = true;
+        currentNodeImage.sprite = nodeSpriteHighlighted;
+        currentNodeImage.color = defColor;
+        gameObject.GetComponent<Button>().enabled = false;
+        nodeSelectedBlink = false;
     }
 }

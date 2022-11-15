@@ -17,6 +17,6 @@ public class CoinCounter : MonoBehaviour
 
     public void Update()
     {
-        coinText.text = GameManager.playerData.coins.ToString();
+       // coinText.text = GameManager.playerData.coins.ToString();
     }
 }

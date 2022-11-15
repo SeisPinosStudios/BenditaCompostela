@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Lore_0
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "AGRICULTOR \nVaya, un joven solitario abri\xE9ndose camino. \xBFPuedo darte
+    un consejo? Ten cuidado por donde te mueves chico, esta tierra no es para que
+    viajeros como t\xFA anden solos. "
+  - "AGRICULTOR \nM\xE1s adelante, se cuenta que habita una bestia descomunal, que
+    envenena el cuerpo y resiste cualquier ataque. Esta bestia se la dejo a los aventureros
+    que son lo suficientemente valientes e ingenuos como para no valorar su vida."
+  - "AGRICULTOR \nEn la ciudad, la gente atribuye las desapariciones de los ni\xF1os
+    a esta bestia. Debe hacer con ellos alg\xFAn tipo de ritual macabro. Que Dios
+    los tenga en su gloria a esos chiquillos."
+  - "AGRICULTOR \nNo ser\xE9 yo el que te corte el paso, si sigues por este camino,
+    en la frontera te encontrar\xE1s con ella. Yo seguir\xE9 por aqu\xED, trabajando
+    en lo m\xEDo. "
+  - "AGRICULTOR \nQue tengas suerte y ll\xE9vate esto, es lo m\xE1ximo que puedo
+    ofrecerte como ayuda. "
+  responses: []

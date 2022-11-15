@@ -91,7 +91,17 @@ public class PlayerScript : Entity
         damageBoost = 0;
         extraHealing = 0;
 
-        if(weapon.name == chestArmor.synergyWeapon.name)
+        ChestSynergy();
+        FeetSynergy();
+
+        defence += tempDefence;
+    }
+
+    public void ChestSynergy()
+    {
+        if (chestArmor == null || chestArmor.synergyWeapon == null) return;
+
+        if (weapon.name == chestArmor.synergyWeapon.name)
         {
             switch (chestArmor.synergy.ToString())
             {
@@ -109,6 +119,11 @@ public class PlayerScript : Entity
                     break;
             }
         }
+    }
+
+    public void FeetSynergy()
+    {
+        if (feetArmor == null || feetArmor.synergyWeapon == null) return;
 
         if (weapon.name == feetArmor.synergyWeapon.name)
         {
@@ -125,7 +140,5 @@ public class PlayerScript : Entity
                     break;
             }
         }
-
-        defence += tempDefence;
     }
 }

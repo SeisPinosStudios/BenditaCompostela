@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Ruta_1 : MonoBehaviour
 {
-    [SerializeField] private GameObject shop;
-    [SerializeField] private GameObject encounter_0;
-    [SerializeField] private GameObject encounter_1;
-    [SerializeField] private GameObject lore_0;
+    public GameObject shop;
+    public GameObject[] encounterList;
+    public GameObject[] loreList;    
     [SerializeField] private MapPathSelector mapController;
         
     public GameObject fadeGo;
@@ -44,43 +43,44 @@ public class Ruta_1 : MonoBehaviour
     }
     private void CloseWindows() {
         shop.SetActive(false);
-        encounter_1.SetActive(false);
-        encounter_0.SetActive(false);
-        lore_0.SetActive(false);
+        CloseArray(encounterList);
+        CloseArray(loreList);
+
+    }
+    private void CloseArray(GameObject[] list) {
+        for (int i = 0; i < list.Length; i++)
+        {
+            list[i].SetActive(false);
+        }
     }
 
-    public void ToEncounter(int encounterId) {        
-        switch (encounterId)
-        {
-            case 0:
-                Debug.Log("ENCONTRONAZO " + encounterId);
-                encounter_0.SetActive(true);
-                encounter_0.GetComponent<DialogueActivator>().ActivateDialogue();
-                break;
-            case 1:
-                Debug.Log("ENCONTRONAZO " + encounterId);
-                encounter_1.SetActive(true);
-                encounter_1.GetComponent<DialogueActivator>().ActivateDialogue();
-                break;
-        }
+    public void ToEncounter(int encounterId) {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
+        encounterList[encounterId].SetActive(true);
 
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
 
+        StartCoroutine(DelayDialogueActivation(encounterList,encounterId)); 
     }
     public void ToLore(int loreId)
-    {        
+    {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
+        loreList[loreId].SetActive(true);
+
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
-        switch (loreId)
-        {
-            case 0:
-                lore_0.SetActive(true);
-                //lore_0.GetComponent<DialogueActivator>().ActivateDialogue();
-                break;
-        }
 
+        StartCoroutine(DelayDialogueActivation(loreList,loreId));
     }
+    public IEnumerator DelayDialogueActivation(GameObject[] list, int id) {
+        yield return new WaitForSeconds(2f);        
+        list[id].GetComponent<DialogueActivator>().ActivateDialogue();
+    }    
     void changeLevel(int lvl) {
         SceneManager.LoadScene(lvl);
     }

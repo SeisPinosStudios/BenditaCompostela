@@ -11,8 +11,6 @@ public class BattleButton : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(() => ToBattleScene(enemy));
-        if(GameManager.gameProgressContext != context)
-            gameObject.GetComponent<Button>().enabled = false;
     }
 
     public void ToBattleScene(Enemy enemy)

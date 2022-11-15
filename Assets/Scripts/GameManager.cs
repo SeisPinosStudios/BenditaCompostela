@@ -17,26 +17,25 @@ public class GameManager : MonoBehaviour
     public static bool auxInitialize = true;
 
     public static List<Node> mapNodeList;
-    public static string currentLevelNodeGoName;
+    public static string currentLevelNodeGoName;    
     public static int gameProgressContext = 0;
     #endregion
 
 
     public static Enemy nextEnemy;
     public static string ActualRoute;
- 
     public GameObject[] BattleCompletedUI = new GameObject[2];
     public Player player;
     public static Player playerData;
 
+    #region Debug
+    bool debug = false;
+    #endregion
+
     public void Awake()
     {
-        if (auxInitialize)
-        {
-            currentLevelNodeGoName = auxGo.name;
-            mapNodeList = aux;
-            auxInitialize = false;
-        }
+        if (SceneManager.GetActiveScene().name == "DebugScene") debug = true;
+        
         if (!Instance)
         {
             Instance = this;
@@ -48,13 +47,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (SceneManager.GetActiveScene().name == "DebugScene")
+        if (debug)
         {
             foreach (CardData card in Resources.LoadAll<CardData>("Assets"))
             {
                 playerData.inventory.Add(card);
                 playerData.inventory.Add(card);
             }
+        }
+
+        if (auxInitialize && !debug)
+        {
+            currentLevelNodeGoName = auxGo.name;
+            mapNodeList = aux;
+            auxInitialize = false;
         }
     }
     public void BattleEnd(Entity loser)
@@ -66,20 +72,18 @@ public class GameManager : MonoBehaviour
                 break;
             case "EnemyScript":
                 Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
-                mapNodeList.Find(n => n.currentNodeGoName == currentLevelNodeGoName).isCompleted = true;
+                mapNodeList.Find(n => n.currentNodeGoName == currentLevelNodeGoName).isCompleted = true;                
                 gameProgressContext++;
-
+                
                 break;
         }
     }
 
-    public static GameObject GetCurrentLevelNode()
-    {
+    public static GameObject GetCurrentLevelNode() {        
         return GameObject.Find("===ROUTE MAP===").FindObject(currentLevelNodeGoName);
     }
 
-    public static GameObject GetAnyLevelNode(string name)
-    {
+    public static GameObject GetAnyLevelNode(string name) { 
         return GameObject.Find("===ROUTE MAP===").FindObject(name);
     }
 

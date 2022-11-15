@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueActivator : MonoBehaviour, IInteractable
+public class DialogueActivator : MonoBehaviour, IInterctable
 {
     [SerializeField] private DialogTriggerScript dialogTriggerScript;
 
@@ -12,17 +12,15 @@ public class DialogueActivator : MonoBehaviour, IInteractable
     }
     void Start()
     {
-        dialogTriggerScript.Interactable = this;
+        dialogTriggerScript.Interctable = this;
     }
 
     public void ActivateDialogue()
     {
-        Debug.Log("DIALOGUE ACTIVATION" );
         dialogTriggerScript.DialogueActivation();
     }
     [SerializeField] private DialogueObject dialogueObject;
     public void Interact(DialogTriggerScript dialogTriggerScript) {
-
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
             if (responseEvents.DialogueObject == dialogueObject)
