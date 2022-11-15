@@ -17,6 +17,7 @@ public class BattleButton : MonoBehaviour
 
     public void ToBattleScene(Enemy enemy)
     {
+        if (GameManager.playerData.playerDeck.Count < 5) return;
         GameManager.nextEnemy = enemy;
         SceneManager.LoadScene("BattleScene");
     }

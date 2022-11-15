@@ -7,14 +7,16 @@ public class DeckBuilderSlotScript : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData pointerEvent)
     {
+        var card = gameObject.GetComponent<DeckSlotDisplay>().cardData;
         var cardList = GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().cards;
 
         /* Removes the card from the player deck */
-        GameManager.playerData.playerDeck.Remove(gameObject.GetComponent<DeckSlotDisplay>().cardData);
-        GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().RemoveCardFromDeck(gameObject.GetComponent<DeckSlotDisplay>().cardData);
+        GameManager.playerData.inventory.Add(card);
+        GameManager.playerData.playerDeck.Remove(card);
+        GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().RemoveCardFromDeck(card);
 
         /* Adds the card to the list of cards in the Display Panel */
-        cardList.Add(gameObject.GetComponent<DeckSlotDisplay>().cardData);
+        cardList.Add(card);
 
         /* Deletes the selected slot */
         Destroy(gameObject);

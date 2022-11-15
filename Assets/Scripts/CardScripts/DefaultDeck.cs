@@ -25,6 +25,7 @@ public class DefaultDeck : MonoBehaviour
     {
         if (deckQueue.Count <= 0) return;
         card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
+        card.GetComponent<CardInspection>().enabled = false;
         Instantiate(card, hand.transform);
     }
 
@@ -35,6 +36,11 @@ public class DefaultDeck : MonoBehaviour
             DrawCard();
             yield return new WaitForSeconds(0.2f);
             if (deckQueue.Count <= 0) break;
+        }
+
+        foreach(Transform card in hand.transform)
+        {
+            card.gameObject.GetComponent<CardInspection>().enabled = true;
         }
     }
 

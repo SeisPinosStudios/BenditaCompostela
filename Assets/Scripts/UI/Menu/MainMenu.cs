@@ -5,58 +5,82 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    Animator slideAn;
+    #region Variables
     public GameObject fadeGo;
     Fade fade;
+    SlideAnimCoroutines coroutines;
+    #endregion
+
+    #region Initialization
     void Start()
     {
-       slideAn = gameObject.GetComponent<Animator>();
-        fade = fadeGo.GetComponent<Fade>();
+        transform.localPosition = new Vector3(0,-1080,0);
+        transform.localScale= new Vector3(1, 1, 1);        
+        fade = fadeGo.GetComponent<Fade>();      
+        fade.FadeIn();
+        coroutines = gameObject.GetComponent<SlideAnimCoroutines>();
+    }
+    #endregion
+
+    #region Transitions between Screens
+    public void StartToMainMenu() {        
+        StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 15.5f));
     }
 
-    // Animaciones de transiciones entre pantallas
-    public void menuToHistoria()
+    public void ToCredits()
     {
-        slideAn.SetBool("isHistoria", true);
-    }
-    public void historiaToMenu()
-    {
-        slideAn.SetBool("isHistoria", false);
-    }
-    public void menuToTutorial()
-    {
-        slideAn.SetBool("isTutorial", true);
-    }
-    public void tutorialToMenu()
-    {
-        slideAn.SetBool("isTutorial", false);
-    }
-    public void historiaToMap()
-    {
-        fade.lateFadeIn();
-        fade.FadeOut();       
-        slideAn.SetBool("isMap", true);
-    }
-    public void mapToHistoria()
-    {
-        fade.lateFadeIn();
         fade.FadeOut();
-        slideAn.SetBool("isMap", false);
+        fade.lateFadeIn();
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(3000, 0, 0), 100f));
     }
-    // Rutas
+    public void ToMainMenu()
+    {
+        fade.FadeOut();
+        fade.lateFadeIn();
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 100f));
+    }
+    public void ToPlay()
+    {
+        fade.FadeOut();
+        fade.lateFadeIn();
+        StopAllCoroutines();
+        
+        if (transform.localPosition == new Vector3(-3000, 2000, 0))
+        {
+            Invoke("StopAllCoroutines", 1.7f);
+            StartCoroutine(coroutines.animScaleAndPos(new Vector3(0.5f, 0.5f, 1), new Vector3(-1548, 1049), 50f));
+            StartCoroutine(coroutines.MoveSlideDelay(new Vector3 (1,1,1), new Vector3(-3000, 0, 0), 1f, 1f));
+        } else
+        {
+            StartCoroutine(coroutines.animPos(new Vector3(-3000, 0, 0), 100f));
+        }
+    }
+    
+    public void ToMap()
+    {
+        fade.FadeOut();
+        fade.lateFadeIn();
+        StopAllCoroutines();
+        Invoke("StopAllCoroutines", 1.7f);
+        StartCoroutine(coroutines.animScaleAndPos(new Vector3(4,4,1),new Vector3(-11754,-170), 50f));        
+        StartCoroutine(coroutines.MoveSlideDelay(new Vector3(1, 1, 1),new Vector3(-3000, 2000, 0), 1f,1f));
+    }
+
+    #endregion
+
+    #region Route Selection
     public void ruta1() 
     {
         fade.FadeOut();
-        slideAn.SetBool("isRuta1", true);
-        Invoke("ruta1LoadScene",1.5f);
-        
-    }
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, 2000, 0), 100f));
 
+        Invoke("ruta1LoadScene",1.5f);        
+    }
     void ruta1LoadScene() {
         SceneManager.LoadScene(1);
     }
-
-
-
+    #endregion
 }

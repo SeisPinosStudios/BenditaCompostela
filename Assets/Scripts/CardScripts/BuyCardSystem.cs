@@ -15,7 +15,7 @@ public class BuyCardSystem : MonoBehaviour, IPointerClickHandler
         {
             if (GameManager.playerData.CoinDecrease(3))
             {
-                GameManager.playerData.playerDeck.Add(gameObject.GetComponent<CardDisplay>().cardData);
+                GameManager.playerData.inventory.Add(gameObject.GetComponent<CardDisplay>().cardData);
                 Destroy(gameObject);
             }
         }

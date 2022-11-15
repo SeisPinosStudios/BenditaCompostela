@@ -1453,6 +1453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd66b7c2b2873b43a3312ff8b27ad00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aux: []
+  auxGo: {fileID: 0}
   BattleCompletedUI:
   - {fileID: 7801811126854394682, guid: f141346628f2e0444b002f232e7ee13b, type: 3}
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
@@ -1767,6 +1769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 622821384}
     m_Modifications:
+    - target: {fileID: 583154813018164463, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232968, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1841,7 +1847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -78
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 5649096037912232969, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

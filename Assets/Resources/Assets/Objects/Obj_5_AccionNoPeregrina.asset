@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Acci\xF3n no peregrina"
   description: Robas 2 cartas
-  artwork: {fileID: 21300000, guid: 3588a7d4e11bb6544893d8c305953d0d, type: 3}
+  artwork: {fileID: 21300000, guid: b1e4b9533fb523441a65f55bffc1fc0d, type: 3}
   cost: 0
   alteredEffects: 
   aEffectValues: 

@@ -18,6 +18,11 @@ public class DeckBuilderDisplay: MonoBehaviour
             if(cards.Find(dupCard => dupCard.name == card.name) == null) Instantiate(cardPrefab, GameObject.Find("Content").transform);
             cards.Add(card);
         }
+
+        foreach(CardData card in GameManager.playerData.playerDeck)
+        {
+            InsertCardInDeck(card);
+        }
     }
 
     public void InsertCardInDeck(CardData card)

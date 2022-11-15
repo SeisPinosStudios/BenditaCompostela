@@ -9,10 +9,11 @@ public class DialogTriggerScript : MonoBehaviour
 
     public DialogueUI DialogueUI => dialogueUI;
 
-    public IInterctable Interctable { get; set; }
+    public IInteractable Interactable { get; set; }
 
     public void DialogueActivation()
     {
-        Interctable?.Interact(this);
+        Debug.Log("DIALOGUEACTIVATION");
+        Interactable?.Interact(this);
     }
 }

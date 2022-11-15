@@ -222,18 +222,18 @@ public class Entity : MonoBehaviour
     {
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
         float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
-        gameObject.transform.GetChild(3).GetComponent<Slider>().value = healthBar;
-        gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
+        gameObject.transform.GetChild(1).GetComponent<Slider>().value = healthBar;
+        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
         if (this.GetType() == typeof(PlayerScript))
         {
-            gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
-            gameObject.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
+            gameObject.transform.GetChild(3).GetComponent<Slider>().value = energyBar;
+            gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
         }
     }
 
     public void UpdateEffectsDisplay()
     {
-        foreach(Transform child in transform.GetChild(1).GetComponentInChildren<Transform>())
+        foreach(Transform child in transform.GetChild(2).GetComponentInChildren<Transform>())
         {
             Destroy(child.gameObject);
         }
@@ -241,8 +241,7 @@ public class Entity : MonoBehaviour
         foreach (CardData.TAlteredEffects effect in alteredEffects)
         {
             alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect];
-            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(1));
-            //newImage.GetComponentInChildren<Image>().sprite = alteredEffectsImages[(int)effect];
+            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
             newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + aEffectsValue[Suffering(effect)].ToString();
         }
     }
