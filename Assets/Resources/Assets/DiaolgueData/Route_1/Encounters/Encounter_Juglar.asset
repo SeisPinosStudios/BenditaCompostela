@@ -28,3 +28,4 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: c4826270cb751ba42be60f139777d29d, type: 2}
   - responseText: Rechazarlo
     dialogueObject: {fileID: 11400000, guid: fe31ea81ffc0539498aca84315dec887, type: 2}
+  character: {fileID: 21300000, guid: cb1975c497ee6b84da21220eda43f74d, type: 3}

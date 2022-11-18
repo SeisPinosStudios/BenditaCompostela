@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    public Sprite character;
+    public Image characterImage;
 
     public bool IsOpen { get; private set; }
 
@@ -14,6 +17,8 @@ public class DialogueUI : MonoBehaviour
     private TypeWriterEffect typeWriterEffect;
     private void Awake()
     {
+        characterImage.sprite = character;
+        characterImage.SetNativeSize();
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogBox();

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
-  m_Name: Enemy_4_Cinguena Negra
+  m_Name: Enemy_02_Juglar
   m_EditorClassIdentifier: 
-  name: "Cing\xFCe\xF1a negra"
-  sprite: {fileID: 21300000, guid: 9b3812b4fd538894dba21f07a4521529, type: 3}
-  HP: 30
+  name: Juglar
+  sprite: {fileID: 21300000, guid: 0eae9e1012ed40042b2aa28af2475e6e, type: 3}
+  HP: 32
   energy: 99
   enemyAttacks:
-  - {fileID: 11400000, guid: bc91c5d8d22ac704ea5348419ad12021, type: 2}
+  - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}

@@ -28,3 +28,4 @@ MonoBehaviour:
   - "AGRICULTOR \nQue tengas suerte y ll\xE9vate esto, es lo m\xE1ximo que puedo
     ofrecerte como ayuda. "
   responses: []
+  character: {fileID: 21300000, guid: cb1975c497ee6b84da21220eda43f74d, type: 3}

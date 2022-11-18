@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class BattleButton : MonoBehaviour
 {
     public Enemy enemy;
-    public int context;
     private MapPathSelector mapController;
     void Start()
     {
