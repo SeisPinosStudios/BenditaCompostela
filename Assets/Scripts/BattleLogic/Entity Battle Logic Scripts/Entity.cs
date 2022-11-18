@@ -83,7 +83,8 @@ public class Entity : MonoBehaviour
 
         if(Suffering(alteredEffect) >= 0)
         {
-            aEffectsValue[Suffering(alteredEffect)] += value;
+            if(alteredEffect == CardData.TAlteredEffects.INVULNERABLE) aEffectsValue[Suffering(alteredEffect)] = Mathf.Clamp(aEffectsValue[Suffering(alteredEffect)] + value, 0, 2);
+            else aEffectsValue[Suffering(alteredEffect)] = Mathf.Clamp(aEffectsValue[Suffering(alteredEffect)] + value, 0, 5);
             UpdateEffectsDisplay();
             return;
         }
@@ -244,6 +245,11 @@ public class Entity : MonoBehaviour
             GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
             newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + aEffectsValue[Suffering(effect)].ToString();
         }
+    }
+
+    public void AttackAnimation(bool state)
+    {
+        GetComponent<Animator>().SetBool("Attack", state);
     }
     #endregion
 

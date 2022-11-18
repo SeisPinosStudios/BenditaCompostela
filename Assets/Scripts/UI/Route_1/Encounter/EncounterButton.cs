@@ -8,21 +8,40 @@ public class EncounterButton : MonoBehaviour
 
     public Enemy enemy;
     public int encounterId;
+    public DialogueObject dialog;
+    public Transform pivot;
+    public GameObject encounterPrefab;
+    public List<ResponseEvent> events;
+    private MapPathSelector mapController;
+
     private void OnEnable()
     {
+        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());        
     }
 
     public void SetCurrentLevelAndTransition()
     {
-        GameManager.currentLevelNodeGoName = gameObject.name;
-        GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;        
-        GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter(encounterId);
+        if (SceneManager.GetActiveScene().name != "test")
+        {
+            GameManager.currentNode = mapController.GetGoIndex(gameObject);
+            GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter(encounterId);
+        }
+
+        StartCoroutine(Encounter());
     }
-    public void ToBattleScene(Enemy enemy)
+
+    IEnumerator Encounter()
     {
-        GameManager.nextEnemy = enemy;
-        GameManager.currentLevelNodeGoName = gameObject.name;
-        SceneManager.LoadScene("BattleScene");
+        yield return new WaitForSeconds(1.5f);
+
+        encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
+        encounterPrefab.GetComponent<DialogueResponseEvents>().dialogueObject = dialog;
+        encounterPrefab.GetComponent<BattleButton>().enemy = enemy;
+        foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
+        var encounter = Instantiate(encounterPrefab, pivot);
+        foreach (ResponseEvent responseEvent in events) encounter.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
+        encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
+        encounter.GetComponent<DialogueActivator>().ActivateDialogue();
     }
 }

@@ -12,7 +12,7 @@ public class Ruta_1 : MonoBehaviour
         
     public GameObject fadeGo;
     Fade fade;
-    SlideAnimCoroutines coroutines;
+    public SlideAnimCoroutines coroutines;
 
     void Start()
     {
@@ -37,16 +37,16 @@ public class Ruta_1 : MonoBehaviour
         Invoke("CloseWindows",1f);
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 100f));
-        GameManager.gameProgressContext++;
+        GameManager.UpdateNodeProgress();
         mapController.UpdateMap();
-
     }
+
     private void CloseWindows() {
         shop.SetActive(false);
         CloseArray(encounterList);
         CloseArray(loreList);
-
     }
+
     private void CloseArray(GameObject[] list) {
         for (int i = 0; i < list.Length; i++)
         {
@@ -58,12 +58,10 @@ public class Ruta_1 : MonoBehaviour
         fade.FadeOut();
         fade.lateFadeIn();
 
-        encounterList[encounterId].SetActive(true);
+        //encounterList[encounterId].SetActive(true);
 
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
-
-        StartCoroutine(DelayDialogueActivation(encounterList,encounterId)); 
     }
     public void ToLore(int loreId)
     {

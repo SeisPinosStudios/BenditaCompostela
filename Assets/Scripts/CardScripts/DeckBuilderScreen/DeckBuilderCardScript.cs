@@ -12,6 +12,8 @@ public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler
         var cardList = GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().cards;
         var cardName = this.GetComponent<CardDisplay>().cardData.name;
 
+        if (GameManager.playerData.playerDeck.Count >= 20) return;
+
         /* Adds the selected card to the player deck and removes it from the inventory */
         GameManager.playerData.inventory.Remove(card);
         GameManager.playerData.playerDeck.Add(card);

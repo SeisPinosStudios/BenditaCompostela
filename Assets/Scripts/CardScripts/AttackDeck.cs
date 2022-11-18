@@ -13,27 +13,22 @@ public class AttackDeck : MonoBehaviour
     {
         gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
     }
-
     public void Update()
     {
         if(player.GetComponent<PlayerScript>().weapon == null) gameObject.GetComponent<Button>().enabled = false;
-        else gameObject.GetComponent<Button>().enabled = true;
     }
-
     public void DrawCard()
     {
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         if (player.GetComponent<PlayerScript>().ConsumeEnergy(1)) Instantiate(card, hand.transform);    
     }
-
     public void DrawFreeCard()
     {
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         Instantiate(card, hand.transform);
     }
-
     public IEnumerator DrawCardCorroutine(int drawnCards)
     {
         for (int j = 0; j < drawnCards; j++)

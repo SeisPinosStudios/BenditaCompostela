@@ -43,15 +43,15 @@ public class PlayerScript : Entity
     }
     public IEnumerator OnTurnEnd()
     {
-        yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
         DeactivateCombatControl();
+        yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
         GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().Turn();
     }
     public void PlayerConfig()
     {
         playerData = GameManager.playerData;
-        HP = playerData.HP;
-        currentHP = HP;
+        HP = playerData.maxHP;
+        currentHP = playerData.currentHP;
         energy = playerData.energy;
         currentEnergy = energy;
         playerDeck = playerData.playerDeck;
@@ -76,6 +76,7 @@ public class PlayerScript : Entity
     }
     public void OnWeaponEquiped(Weapon newWeapon)
     {
+        GameObject.Find("AttackDeck").GetComponent<Button>().enabled = true;
         foreach (Transform card in GameObject.Find("HandPanel").transform)
         {
             if (card.GetComponent<CardDisplay>().cardData.GetType().ToString() == "Attack") Destroy(card.gameObject);
@@ -96,7 +97,6 @@ public class PlayerScript : Entity
 
         defence += tempDefence;
     }
-
     public void ChestSynergy()
     {
         if (chestArmor == null || chestArmor.synergyWeapon == null) return;
@@ -120,7 +120,6 @@ public class PlayerScript : Entity
             }
         }
     }
-
     public void FeetSynergy()
     {
         if (feetArmor == null || feetArmor.synergyWeapon == null) return;

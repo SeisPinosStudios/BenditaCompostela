@@ -5,8 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Node 
 {
+    public int index;
     public int context;
-    public List<string> previousNodeGoNames;
-    public string currentNodeGoName;
-    public bool isCompleted { get; set; }
+    public List<GameObject> previousNodes;
+    public GameObject nodeGo;
+    public bool isCompleted;
 }

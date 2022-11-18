@@ -19,7 +19,7 @@ public class EnemyScript : Entity
 
         if (IsBoss(Enemy.Boss.SIERPE)) defence = 2;
 
-        gameObject.GetComponent<Image>().sprite = enemyData.sprite;
+        gameObject.GetComponentInChildren<Image>().sprite = enemyData.sprite;
 
         attack.GetComponent<CardDragSystem>().enabled = true;
         attack.GetComponent<CardInspection>().enabled = true;
@@ -27,7 +27,7 @@ public class EnemyScript : Entity
 
     public void Start()
     {
-        gameObject.GetComponent<Image>().SetNativeSize();
+        gameObject.GetComponentInChildren<Image>().SetNativeSize();
     }
 
     public void OnTurnBegin()

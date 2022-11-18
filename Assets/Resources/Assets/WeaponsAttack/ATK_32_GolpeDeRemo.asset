@@ -15,8 +15,7 @@ MonoBehaviour:
   name: Golpe de remo
   description: "Realiza <b>6</b> puntos de da\xF1o."
   artwork: {fileID: 21300000, guid: 30e2aeb56b89ce94f8f3ca643a45ed75, type: 3}
-  cost: 3
-  type: 0
-  damage: 4
-  alteredEffects: 02000000
+  cost: 5
+  damage: 6
+  alteredEffects: 03000000
   aEffectValues: 01000000

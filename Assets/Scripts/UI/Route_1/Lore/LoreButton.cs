@@ -13,8 +13,8 @@ public class LoreButton : MonoBehaviour
 
     public void SetCurrentLevelAndTransition()
     {
-        GameManager.currentLevelNodeGoName = gameObject.name;
-        GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;
+        //GameManager.currentLevelNodeGoName = gameObject.name;
+        //GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;
         GameObject.Find("Slide").GetComponent<Ruta_1>().ToLore(loreId);
     }
 }

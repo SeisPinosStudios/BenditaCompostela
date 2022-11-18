@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
 {
+    private MapPathSelector mapController;
+    
     private void OnEnable()
     {
+        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
     }
 
     public void SetCurrentLevelAndTransition() {
-        GameManager.currentLevelNodeGoName = gameObject.name;
-        GameManager.mapNodeList.Find(n => n.currentNodeGoName == gameObject.name).isCompleted = true;
+        GameManager.currentNode = mapController.GetGoIndex(gameObject);
         GameObject.Find("Slide").GetComponent<Ruta_1>().ToShop();
     }
-
-    
 }

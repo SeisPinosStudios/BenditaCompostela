@@ -30,8 +30,11 @@ public class Card : MonoBehaviour
         }
         #endregion
 
-        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) >= 0)
-            energyCost += self.aEffectsValue[self.Suffering(CardData.TAlteredEffects.CONFUSED)];
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) >= 0  && cardData.GetType() != typeof(Weapon))
+        {
+            energyCost++;
+            self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
+        }
 
         if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
@@ -40,10 +43,10 @@ public class Card : MonoBehaviour
         switch (cardData.GetType().ToString())
         {
             case "Weapon":
+                if (self.Suffering(CardData.TAlteredEffects.DISARMED) >= 0) return;
                 EquipWeapon();
                 break;
             case "Attack":
-                if (self.Suffering(CardData.TAlteredEffects.DISARMED) >= 0) return;
                 Attack();
                 break;
             case "Special":
@@ -55,7 +58,6 @@ public class Card : MonoBehaviour
             default:
                 break;
         }
-
         Destroy(gameObject);
     }
     public void EquipWeapon()
@@ -133,6 +135,7 @@ public class Card : MonoBehaviour
                 self.RemoveAlteredEffect();
                 break;
             case CardData.TEffects.DRAWATTACK:
+                if (self.GetComponent<PlayerScript>().weapon == null) return;
                 StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCorroutine(value));
                 break;
             /*

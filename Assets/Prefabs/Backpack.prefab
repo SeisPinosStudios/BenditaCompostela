@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7611d291556e6b342b6a9cdcb785ef63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: 
+  destination: EquipmentScene
 --- !u!1 &7596014893746645182
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,8 +15,7 @@ MonoBehaviour:
   name: Mordisco desesperado
   description: Aplica Sangradox1.
   artwork: {fileID: 21300000, guid: 115bb4d5f08fd814c822b555a54281e6, type: 3}
-  cost: 2
-  type: 0
+  cost: 1
   alteredEffects: 00000000
   aEffectValues: 01000000
   effects: 

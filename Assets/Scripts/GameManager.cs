@@ -10,23 +10,26 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    #region Game Context And Map Nodes
-    [SerializeField] private List<Node> aux;
-    [SerializeField] private GameObject auxGo;
+    #region Game Context And Map Nodes    
+    public static List<int> completedNodes = new List<int>();
+    public static int currentNode;
 
     public static bool auxInitialize = true;
 
-    public static List<Node> mapNodeList;
-    public static string currentLevelNodeGoName;    
     public static int gameProgressContext = 0;
     #endregion
 
+    #region Tutorial
+    public static bool hasTutorial;
+    public static List<DialogueObject> tutorialText;
+    #endregion
 
     public static Enemy nextEnemy;
     public static string ActualRoute;
     public GameObject[] BattleCompletedUI = new GameObject[2];
     public Player player;
     public static Player playerData;
+
 
     #region Debug
     bool debug = false;
@@ -35,7 +38,7 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         if (SceneManager.GetActiveScene().name == "DebugScene") debug = true;
-        
+
         if (!Instance)
         {
             Instance = this;
@@ -58,8 +61,6 @@ public class GameManager : MonoBehaviour
 
         if (auxInitialize && !debug)
         {
-            currentLevelNodeGoName = auxGo.name;
-            mapNodeList = aux;
             auxInitialize = false;
         }
     }
@@ -72,19 +73,15 @@ public class GameManager : MonoBehaviour
                 break;
             case "EnemyScript":
                 Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
-                mapNodeList.Find(n => n.currentNodeGoName == currentLevelNodeGoName).isCompleted = true;                
-                gameProgressContext++;
-                
+                UpdateNodeProgress();
                 break;
         }
     }
 
-    public static GameObject GetCurrentLevelNode() {        
-        return GameObject.Find("===ROUTE MAP===").FindObject(currentLevelNodeGoName);
-    }
+    public static void UpdateNodeProgress()
+    {
+        completedNodes.Add(currentNode);
+        gameProgressContext++;
 
-    public static GameObject GetAnyLevelNode(string name) { 
-        return GameObject.Find("===ROUTE MAP===").FindObject(name);
     }
-
 }

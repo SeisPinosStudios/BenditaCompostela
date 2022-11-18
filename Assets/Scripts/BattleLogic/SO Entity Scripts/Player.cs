@@ -8,7 +8,8 @@ public class Player : ScriptableObject
 {
     /* Statistic variables for 
      * the player entity */
-    public int HP;
+    public int maxHP;
+    public int currentHP;
     public int energy;
     public int coins;
 
@@ -31,7 +32,8 @@ public class Player : ScriptableObject
     public Player copy()
     {
         Player player = CreateInstance<Player>();
-        player.HP = HP;
+        player.maxHP = maxHP;
+        player.currentHP = currentHP;
         player.energy = energy;
         player.coins = coins;
         player.playerDeck = playerDeck.Select((card) => Instantiate(card)).ToList();

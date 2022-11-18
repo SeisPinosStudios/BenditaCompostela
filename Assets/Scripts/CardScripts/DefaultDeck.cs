@@ -16,8 +16,15 @@ public class DefaultDeck : MonoBehaviour
     {
         //gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
 
+        bool weaponOnTop = false;
+
         CopyDeck();
-        Shuffle();
+        while (!weaponOnTop)
+        {
+            Shuffle();
+            weaponOnTop = WeaponOnTop();
+        }
+        
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
     }
 
@@ -25,12 +32,12 @@ public class DefaultDeck : MonoBehaviour
     {
         if (deckQueue.Count <= 0) return;
         card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
-        card.GetComponent<CardInspection>().enabled = false;
         Instantiate(card, hand.transform);
     }
-
     public IEnumerator DrawCardCorroutine(int drawnCards)
     {
+        card.GetComponent<CardInspection>().enabled = false;
+
         for (int j = 0; j < drawnCards; j++)
         {
             DrawCard();
@@ -42,8 +49,9 @@ public class DefaultDeck : MonoBehaviour
         {
             card.gameObject.GetComponent<CardInspection>().enabled = true;
         }
-    }
 
+        card.GetComponent<CardInspection>().enabled = true;
+    }
     public IEnumerator DiscardCorroutine()
     {
         while (hand.transform.childCount > 0)
@@ -51,12 +59,11 @@ public class DefaultDeck : MonoBehaviour
             if(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData.GetType() != typeof(Attack)) 
                 deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
             Destroy(hand.transform.GetChild(0).gameObject);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
 
         Debug.Log("Salió del bucle");
     }
-
     public void Shuffle()
     { 
         for(int i = 0; i < playerDeck.Count; i++)
@@ -71,4 +78,13 @@ public class DefaultDeck : MonoBehaviour
     {
         foreach(CardData card in GameManager.playerData.playerDeck) playerDeck.Add(card);
     }  
+    public bool WeaponOnTop()
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            if (playerDeck[i].GetType() == typeof(Weapon)) return true;
+        }
+
+        return false;
+    }
 }

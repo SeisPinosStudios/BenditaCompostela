@@ -15,8 +15,7 @@ MonoBehaviour:
   name: "Picotazo de escorpi\xF3n"
   description: "Realiza 5 puntos de da\xF1o y aplica Venenox2."
   artwork: {fileID: 21300000, guid: 1ecde518d873dc44eb18ac7d83b20185, type: 3}
-  cost: 5
-  type: 0
+  cost: 4
   damage: 5
-  alteredEffects: 01000000
-  aEffectValues: 02000000
+  alteredEffects: 0000000001000000
+  aEffectValues: 0100000001000000
