@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class Ruta_1 : MonoBehaviour
 {
     public GameObject shop;
-    public GameObject[] encounterList;
-    public GameObject[] loreList;    
+
+    //public GameObject[] encounterList;
+    //public GameObject[] loreList;    
     [SerializeField] private MapPathSelector mapController;
         
     public GameObject fadeGo;
@@ -43,8 +44,8 @@ public class Ruta_1 : MonoBehaviour
 
     private void CloseWindows() {
         shop.SetActive(false);
-        CloseArray(encounterList);
-        CloseArray(loreList);
+        //CloseArray(encounterList);
+        //CloseArray(loreList);
     }
 
     private void CloseArray(GameObject[] list) {
@@ -68,12 +69,12 @@ public class Ruta_1 : MonoBehaviour
         fade.FadeOut();
         fade.lateFadeIn();
 
-        loreList[loreId].SetActive(true);
+        //loreList[loreId].SetActive(true);
 
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
 
-        StartCoroutine(DelayDialogueActivation(loreList,loreId));
+        //StartCoroutine(DelayDialogueActivation(loreList,loreId));
     }
     public IEnumerator DelayDialogueActivation(GameObject[] list, int id) {
         yield return new WaitForSeconds(2f);        

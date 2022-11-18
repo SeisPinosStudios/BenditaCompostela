@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EncounterButton : MonoBehaviour
 {
-
-    public Enemy enemy;
     public int encounterId;
     public DialogueObject dialog;
     public Transform pivot;
@@ -25,6 +23,7 @@ public class EncounterButton : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "test")
         {
             GameManager.currentNode = mapController.GetGoIndex(gameObject);
+            Debug.Log(mapController.GetGoIndex(gameObject));
             GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter(encounterId);
         }
 
@@ -37,11 +36,17 @@ public class EncounterButton : MonoBehaviour
 
         encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
         encounterPrefab.GetComponent<DialogueResponseEvents>().dialogueObject = dialog;
-        encounterPrefab.GetComponent<BattleButton>().enemy = enemy;
         foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
         var encounter = Instantiate(encounterPrefab, pivot);
         foreach (ResponseEvent responseEvent in events) encounter.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
         encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
         encounter.GetComponent<DialogueActivator>().ActivateDialogue();
+    }
+
+    public void ToBattleScene(Enemy enemy)
+    {
+        if (GameManager.playerData.playerDeck.Count < 5) return;
+        GameManager.nextEnemy = enemy;
+        SceneManager.LoadScene("BattleScene");
     }
 }

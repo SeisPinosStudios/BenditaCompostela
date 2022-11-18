@@ -27,6 +27,7 @@ public class MapPathSelector : MonoBehaviour
             {
                 if (node.previousNodes.Find(n => n == lastCompletedNode.nodeGo) != null)
                 {
+                    Debug.Log(node.nodeGo);
                     node.nodeGo.SetActive(true);
                     node.nodeGo.GetComponent<NodeSpriteChanger>().NodeCanBeSelected();
                 }
@@ -41,6 +42,7 @@ public class MapPathSelector : MonoBehaviour
     }
     public void ActivatePreviousSelectedNodes()
     {
+        DeactivatePreviosNotSelecteNodes();
         for (int i = 0; i < GameManager.completedNodes.Count; i++)
         {
             map[GameManager.completedNodes[i]].nodeGo.SetActive(true);
@@ -72,7 +74,15 @@ public class MapPathSelector : MonoBehaviour
         {
             return -1;
         }
-
     }
-
+    public void DeactivatePreviosNotSelecteNodes()
+    {
+        foreach (Node node in map)
+        {
+            if (!node.isCompleted && GameManager.gameProgressContext != node.context)
+            {
+                node.nodeGo.SetActive(false);
+            }
+        }
+    }
 }

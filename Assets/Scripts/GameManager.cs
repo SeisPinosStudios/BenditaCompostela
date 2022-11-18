@@ -80,8 +80,15 @@ public class GameManager : MonoBehaviour
 
     public static void UpdateNodeProgress()
     {
+        Debug.Log(gameProgressContext);
+        Debug.Log(completedNodes);
+        Debug.Log(currentNode);
         completedNodes.Add(currentNode);
         gameProgressContext++;
+    }
 
+    private void Update()
+    {
+        Debug.Log("CURRENT NODE: " + currentNode);
     }
 }
