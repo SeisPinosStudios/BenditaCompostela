@@ -23,14 +23,9 @@ public class MapPathSelector : MonoBehaviour
         {          
             if (GameManager.gameProgressContext != 0)
             {
-<<<<<<< Updated upstream
-                if (node.previousNodes.Find(n => n == lastCompletedNode.nodeGo) != null)
-                {
-=======
                 var prevNodeStruct = node.previousNodes.Find(n => n.previousNodeGo == lastCompletedNode.nodeGo);                
                 if (prevNodeStruct.previousNodeGo == lastCompletedNode.nodeGo)
                 {                    
->>>>>>> Stashed changes
                     node.nodeGo.SetActive(true);
                     prevNodeStruct.previousNodePathGo.SetActive(true);
 
@@ -64,17 +59,9 @@ public class MapPathSelector : MonoBehaviour
     }
     public void UpdateMap()
     {
-<<<<<<< Updated upstream
-        for (int i = 0; i < GameManager.completedNodes.Count; i++)
-        {
-            map[GameManager.completedNodes[i]].nodeGo.SetActive(true);
-            map[GameManager.completedNodes[i]].nodeGo.GetComponent<NodeSpriteChanger>().NodeIsCompleted();
-        }
-=======
         LoadMapNodes();
         ActivatePreviousSelectedNodes();
         ActivateNextNodes();
->>>>>>> Stashed changes
     }
     public void LoadMapNodes()
     {
@@ -129,11 +116,6 @@ public class MapPathSelector : MonoBehaviour
         {
             return -1;
         }
-
     }
-<<<<<<< Updated upstream
-
-=======
    
->>>>>>> Stashed changes
 }
