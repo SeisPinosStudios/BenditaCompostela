@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6e1a63a7dbbd843a69d53188f86b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeSpriteHighlighted: {fileID: 21300000, guid: e142f2b9ef148a44f8ec1f069089a42f, type: 3}
-  nodeSprite: {fileID: 21300000, guid: 966ce1cf22cce7247aaf0513918aa9aa, type: 3}
+  nodeSpriteHighlighted: {fileID: 21300000, guid: 966ce1cf22cce7247aaf0513918aa9aa, type: 3}
+  nodeSprite: {fileID: 21300000, guid: e142f2b9ef148a44f8ec1f069089a42f, type: 3}
