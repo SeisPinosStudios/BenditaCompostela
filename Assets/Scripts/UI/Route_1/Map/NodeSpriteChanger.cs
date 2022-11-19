@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class NodeSpriteChanger : MonoBehaviour
+public class NodeSpriteChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Sprite nodeSpriteHighlighted;
     [SerializeField] private Sprite nodeSprite;
@@ -13,6 +14,7 @@ public class NodeSpriteChanger : MonoBehaviour
     private Color defColor;
     private bool nodeSelectedBlink;
     private bool r = true;
+    private bool completed = false;
     private void Awake()
     {
         currentNodeImage = gameObject.GetComponent<Image>();
@@ -36,20 +38,36 @@ public class NodeSpriteChanger : MonoBehaviour
             }
         }        
     }
-    public void NodeCanBeSelected() {
-        currentNodeImage.sprite = nodeSpriteHighlighted;
+    public void NodeCanBeSelected() {        
         nodeSelectedBlink = true;
     }
 
-    public void NodeIsNotActive() {
+    public void NodeIsCompleted() {
         currentNodeImage.sprite = nodeSprite;
+        currentNodeImage.color = defColor;
+        completed = true;
+        if (gameObject.GetComponent<Button>() != null)
+        {
+            gameObject.GetComponent<Button>().enabled = false;
+        }        
         nodeSelectedBlink = false;
     }
 
-    public void NodeIsCompleted() {
-        currentNodeImage.sprite = nodeSpriteHighlighted;
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (nodeSpriteHighlighted == null || completed) return;
         currentNodeImage.color = defColor;
-        gameObject.GetComponent<Button>().enabled = false;
         nodeSelectedBlink = false;
+        currentNodeImage.sprite = nodeSpriteHighlighted;           
     }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (nodeSpriteHighlighted == null || completed) return;
+        currentNodeImage.sprite = nodeSprite;
+        nodeSelectedBlink = true;
+        
+    }
+
+    
 }

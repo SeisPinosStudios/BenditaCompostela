@@ -30,7 +30,7 @@ public class TurnSystemScript : MonoBehaviour
         current = next;
         next = temp;
 
-        Debug.Log("Turno de " + current);
+        //Debug.Log("Turno de " + current);
 
         if (current == player)
         {

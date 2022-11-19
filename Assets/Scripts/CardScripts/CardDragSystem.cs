@@ -21,7 +21,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         if (pointerEvent.position.y <= 200)
         {
-            Debug.Log(originalPosition.y.ToString());
+            //Debug.Log(originalPosition.y.ToString());
             gameObject.transform.position = originalPosition;
         }
         else

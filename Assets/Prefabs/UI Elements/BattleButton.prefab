@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6722202979871866508
+--- !u!1 &1743755054152305974
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,33 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6722202979871866511}
-  - component: {fileID: 6722202979871866507}
-  - component: {fileID: 6722202979871866504}
-  - component: {fileID: 6722202979871866505}
-  - component: {fileID: 6722202979871866506}
-  - component: {fileID: 8834426560755950692}
+  - component: {fileID: 1743755054152305975}
+  - component: {fileID: 1743755054152305978}
+  - component: {fileID: 1743755054152305977}
+  - component: {fileID: 1743755054152305976}
+  - component: {fileID: 1743755054152305979}
+  - component: {fileID: 1743755054152305980}
   m_Layer: 5
-  m_Name: EncounterButton
-  m_TagString: Untagged
+  m_Name: BattleButton
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6722202979871866511
+--- !u!224 &1743755054152305975
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1743755054152305974}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream:Assets/Prefabs/UI Elements/EncounterButton.prefab
-  m_LocalScale: {x: 2, y: 2, z: 1}
-=======
   m_LocalScale: {x: 4, y: 4, z: 1}
->>>>>>> Stashed changes:Assets/Prefabs/UI Elements/EncounterButton 1.prefab
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,24 +38,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.723083}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6722202979871866507
+--- !u!222 &1743755054152305978
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
+  m_GameObject: {fileID: 1743755054152305974}
   m_CullTransparentMesh: 1
---- !u!114 &6722202979871866504
+--- !u!114 &1743755054152305977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
+  m_GameObject: {fileID: 1743755054152305974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -73,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e142f2b9ef148a44f8ec1f069089a42f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 117724ee43fd4a540903f9f9dee9653d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -83,13 +79,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6722202979871866505
+--- !u!114 &1743755054152305976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
+  m_GameObject: {fileID: 1743755054152305974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -102,7 +98,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -112,7 +108,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: ce8e9feef7147354c9bacab8e0dc82ae, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -123,44 +119,34 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6722202979871866504}
+  m_TargetGraphic: {fileID: 1743755054152305977}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6722202979871866506
+--- !u!114 &1743755054152305979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
+  m_GameObject: {fileID: 1743755054152305974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea37061b98a1855478fca6a5934df4b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1279ab6b2a7acdc42a1c974bb1054eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  encounterId: 0
-  dialog: {fileID: 0}
-  pivot: {fileID: 0}
-  encounterPrefab: {fileID: 8216788601594755314, guid: 7017f2085f03a824cab1e71a5ffd7493, type: 3}
-  events: []
---- !u!114 &8834426560755950692
+--- !u!114 &1743755054152305980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722202979871866508}
+  m_GameObject: {fileID: 1743755054152305974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa6e1a63a7dbbd843a69d53188f86b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream:Assets/Prefabs/UI Elements/EncounterButton.prefab
-  nodeSpriteHighlighted: {fileID: 0}
-  nodeSprite: {fileID: 0}
-=======
-  nodeSpriteHighlighted: {fileID: 21300000, guid: 966ce1cf22cce7247aaf0513918aa9aa, type: 3}
-  nodeSprite: {fileID: 21300000, guid: e142f2b9ef148a44f8ec1f069089a42f, type: 3}
->>>>>>> Stashed changes:Assets/Prefabs/UI Elements/EncounterButton 1.prefab
+  nodeSpriteHighlighted: {fileID: 21300000, guid: ce8e9feef7147354c9bacab8e0dc82ae, type: 3}
+  nodeSprite: {fileID: 21300000, guid: 117724ee43fd4a540903f9f9dee9653d, type: 3}
