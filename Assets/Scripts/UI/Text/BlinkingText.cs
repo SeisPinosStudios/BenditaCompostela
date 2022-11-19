@@ -10,7 +10,8 @@ public class BlinkingText : MonoBehaviour
     void Start()
     {
         text = gameObject.GetComponent<TMP_Text>();
-        r = true;
+        text.alpha = 0;
+        r = false;
     }
 
     // Update is called once per frame

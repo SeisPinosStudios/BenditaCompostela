@@ -27,4 +27,5 @@ public class Fade : MonoBehaviour
     {
         Invoke("FadeIn", 1.5f);
     }
+
 }

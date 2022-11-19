@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DebugScene.unity
     guid: 88d2811d8a130654a8bb5c4390114c8d
   - enabled: 0
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Menu_NoCreddits.unity
     guid: 96300dc88acad8e45a85db23db24fa82
   - enabled: 0
     path: Assets/Scenes/0.unity
