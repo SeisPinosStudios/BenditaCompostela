@@ -32,13 +32,15 @@ public class TurnSystemScript : MonoBehaviour
         current = enemy;
         next = player;
         fade.GetComponent<Fade>().FadeIn();
+        Turn();
+        /*
         if (GameManager.nextEnemy.name == "Bandido A")
         {
             Tutorial();         
         }
         else {
             Turn();
-        }
+        }*/
     }
 
     public void Turn()
