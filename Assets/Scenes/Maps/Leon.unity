@@ -4756,10 +4756,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046541165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f7309caf9a00840b2ca4d2878223c4, type: 3}
+  m_Script: {fileID: 11500000, guid: fc98f25e85b8b2242bdb0210823bae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 0}
+  shop: {fileID: 742804096}
   encounterList: []
   loreList: []
   mapController: {fileID: 958117488}
@@ -5759,7 +5759,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
   m_Value: -0.000000057636687
-  m_Size: 0.3375658
+  m_Size: 0.33756372
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

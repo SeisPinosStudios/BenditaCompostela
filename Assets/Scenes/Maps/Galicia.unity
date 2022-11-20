@@ -5183,7 +5183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1293.3861}
+  m_AnchoredPosition: {x: 0, y: 1293.386}
   m_SizeDelta: {x: 1663.961, y: 3666.772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -5276,10 +5276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046541165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f7309caf9a00840b2ca4d2878223c4, type: 3}
+  m_Script: {fileID: 11500000, guid: fc98f25e85b8b2242bdb0210823bae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 0}
+  shop: {fileID: 1861637378}
   encounterList: []
   loreList: []
   mapController: {fileID: 958117488}
@@ -6991,8 +6991,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: -0.00000004719021
-  m_Size: 0.29453558
+  m_Value: 0
+  m_Size: 0.29453486
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
