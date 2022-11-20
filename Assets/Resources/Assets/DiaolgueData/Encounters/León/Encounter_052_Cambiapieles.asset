@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - "Con tu fiel espada en mano cargas contra el oso, preparado para acabar con \xE9l."
   responses: []
-  character: {fileID: 0}
+  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}

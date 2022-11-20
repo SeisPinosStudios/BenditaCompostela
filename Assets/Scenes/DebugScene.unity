@@ -1543,6 +1543,12 @@ MonoBehaviour:
   - {fileID: 7801811126854394682, guid: f141346628f2e0444b002f232e7ee13b, type: 3}
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
   player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
+  Debuginventory: []
+  backgrounds:
+  - {fileID: 21300000, guid: 6029fe4c41c11c0438b917fdcfe47d8a, type: 3}
+  - {fileID: 21300000, guid: e6f8651bbbc59704abf184e6744c8ce5, type: 3}
+  - {fileID: 21300000, guid: c7646ee3e969ab844a522dda58dcb104, type: 3}
+  - {fileID: 21300000, guid: dee30eef073971b409c73f9b89e2ecf4, type: 3}
 --- !u!4 &1123608500
 Transform:
   m_ObjectHideFlags: 0

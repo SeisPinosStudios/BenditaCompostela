@@ -27,13 +27,13 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public static Enemy nextEnemy;
-    public static string ActualRoute;
+    public static string ActualRoute = "Sevilla";
     public GameObject[] BattleCompletedUI = new GameObject[2];
     public Player player;
     public static Player playerData;
     public List<CardData> Debuginventory;
-    public List<Image> backgrounds;
-    public Image activeBackground;
+    public List<Sprite> backgrounds;
+    public static Sprite activeBackground;
 
 
     #region Debug
@@ -77,9 +77,9 @@ public class GameManager : MonoBehaviour
                 Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
                 break;
             case "EnemyScript":
+                UpdateNodeProgress();
                 Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
                 GameManager.playerData.currentHP = GameObject.Find("Player").GetComponent<PlayerScript>().currentHP;
-                UpdateNodeProgress();
                 break;
         }
     }
@@ -87,6 +87,12 @@ public class GameManager : MonoBehaviour
     {
         completedNodes.Add(currentNode);
         gameProgressContext++;
+        SaveGame();
+    }
+    public static void NewRoute()
+    {
+        gameProgressContext = 0;
+        completedNodes.Clear();
     }
     public static void SaveGame()
     {
@@ -114,12 +120,15 @@ public class GameManager : MonoBehaviour
 
         foreach(int node in completedNodes)
         {
+            Debug.Log(node);
             completedNodesData.Append(node + "\n");
+            Debug.Log(completedNodesData.ToString());
         }
 
         PlayerPrefs.SetString("inventoryData", inventoryData.ToString());
         PlayerPrefs.SetString("playerDeckData", playerDeckData.ToString());
         PlayerPrefs.SetString("equipmentData", equipmentData.ToString());
+        PlayerPrefs.SetString("completedNodesData", completedNodesData.ToString());
         PlayerPrefs.SetString("route", ActualRoute);
         PlayerPrefs.SetInt("gameProgressContext", gameProgressContext);
         PlayerPrefs.SetInt("SavedData", 1);
@@ -127,6 +136,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("energy", playerData.energy);
         PlayerPrefs.SetInt("coins", playerData.coins);
         PlayerPrefs.SetInt("currentHP", playerData.currentHP);
+        PlayerPrefs.SetFloat("volume", AudioListener.volume);
 
         Debug.Log("Data saved");
     }
@@ -145,18 +155,22 @@ public class GameManager : MonoBehaviour
         
         for(int i = 0; i < inventoryData.Length-1; i++)
         {
-            Debug.Log(inventoryData[i]);
+            Debug.Log("INVENTORY: " + inventoryData[i]);
             playerData.inventory.Add(Instantiate(CardDataFilter.allCards()[int.Parse(inventoryData[i])]));
         }
 
+
         for (int i = 0; i < playerDeckData.Length - 1; i++)
         {
-            Debug.Log(playerDeckData[i]);
+            Debug.Log("PLAYER DECK: " + playerDeckData[i]);
             playerData.playerDeck.Add(Instantiate(CardDataFilter.allCards()[int.Parse(playerDeckData[i])]));
         }
 
+        Debug.Log("COMPLETED NODES COUNT: " + completedNodesData.Length + "CONTENT: " + completedNodesData);
+
         for(int i = 0; i < completedNodesData.Length - 1; i++)
         {
+            Debug.Log("COMPLETED NODES: " + completedNodesData[i]);
             completedNodes.Add(int.Parse(completedNodesData[i]));
         }
 
@@ -164,11 +178,14 @@ public class GameManager : MonoBehaviour
         playerData.feetArmor = (Armor)Instantiate(CardDataFilter.allCards()[int.Parse(equipmentData[1])]);
 
         gameProgressContext = PlayerPrefs.GetInt("gameProgressContext");
+        Debug.Log("GAME CONTEXT: " + gameProgressContext);
 
-        playerData.maxHP = PlayerPrefs.GetInt("maxHP");
+        playerData.maxHP = PlayerPrefs.GetInt("HP");
         playerData.coins = PlayerPrefs.GetInt("coins");
         playerData.energy = PlayerPrefs.GetInt("energy");
         playerData.currentHP = PlayerPrefs.GetInt("currentHP");
+        GameManager.ActualRoute = PlayerPrefs.GetString("route");
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
         
         Debug.Log("Data loaded");
     }
@@ -192,15 +209,19 @@ public class GameManager : MonoBehaviour
                 activeBackground = backgrounds[1];
                 break;
             case "Leon":
-                activeBackground = backgrounds[2];
+                activeBackground  = backgrounds[2];
                 break;
             case "Galicia":
                 activeBackground = backgrounds[3];
                 break;
         }
     }
+    public void SetRoute(string route)
+    {
+        ActualRoute = route;
+    }
     public void Update()
     {
-        
+        GetBackground();
     }
 }

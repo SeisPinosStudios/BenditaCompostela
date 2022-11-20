@@ -57,7 +57,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 504982115630166390}
   textLabel: {fileID: 5502766250163120607}
   character: {fileID: 0}
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 8216788600913495490}
   characterImage: {fileID: 8775022607961644301}
 --- !u!114 &8908084508217009384
 MonoBehaviour:
@@ -229,9 +229,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ddf73bdc2d311642a9a3a0bd2ec008e, type: 3}
+  m_Sprite: {fileID: -1797045276, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -681,7 +681,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8216788600913495491
 CanvasRenderer:

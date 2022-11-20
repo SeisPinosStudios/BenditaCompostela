@@ -1252,6 +1252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: DebugScene
+  buttonImage: {fileID: 0}
+  sprites: []
 --- !u!114 &1693975862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,6 +1479,14 @@ MonoBehaviour:
   player: {fileID: 327742870}
   hand: {fileID: 1504785916}
   card: {fileID: 6344285022213485672, guid: b2f3be45166e6dd458ed65547b135076, type: 3}
+  images:
+  - {fileID: 21300000, guid: 99cad3e93d49cf74a9794d61e55340b5, type: 3}
+  - {fileID: 21300000, guid: 77c0298d23395e947b7554727d38b5cf, type: 3}
+  - {fileID: 21300000, guid: b65841c585fb31a4d88cd4c42e847e9c, type: 3}
+  - {fileID: 21300000, guid: b7bc0e6594238c84481f1ce7bba3b3b1, type: 3}
+  - {fileID: 21300000, guid: ff0fc66d162433a44a9d46981d15fa0f, type: 3}
+  - {fileID: 21300000, guid: a30783fa17812ea42be0808f01f60571, type: 3}
+  image: {fileID: 1873746586}
 --- !u!114 &1873746589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,7 +1566,6 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
   Debuginventory: []
   backgrounds: []
-  activeBackground: {fileID: 0}
 --- !u!4 &2024956697
 Transform:
   m_ObjectHideFlags: 0

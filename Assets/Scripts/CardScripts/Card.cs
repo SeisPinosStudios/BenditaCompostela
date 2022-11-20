@@ -136,7 +136,7 @@ public class Card : MonoBehaviour
                 break;
             case CardData.TEffects.DRAWATTACK:
                 if (self.GetComponent<PlayerScript>().weapon == null) return;
-                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCorroutine(value));
+                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCoroutine(value));
                 break;
             /*
             case CardData.TEffects.STEAL:

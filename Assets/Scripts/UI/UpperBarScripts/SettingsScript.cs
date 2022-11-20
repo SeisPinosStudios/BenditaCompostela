@@ -15,8 +15,8 @@ public class SettingsScript : MonoBehaviour
 
     public void Settings()
     {
-        if (!open) OpenSettings();
-        else CloseSettings();
+        if (settingsScreen != null) settingsScreen.gameObject.SetActive(true);
+        else OpenSettings();
     }
 
     public void OpenSettings()

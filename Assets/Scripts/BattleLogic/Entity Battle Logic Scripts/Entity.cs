@@ -10,11 +10,13 @@ public class Entity : MonoBehaviour
     public int energy;
     public int currentEnergy;
 
+    #region Altered Effects
     public List<CardData.TAlteredEffects> alteredEffects;
     public List<int> aEffectsValue;
-
     public GameObject alteredEffectsDisplayPrefab;
     public Sprite[] alteredEffectsImages;
+    int poisonTurns;
+    #endregion
 
     #region Synergy Variables
     public int damageBoost = 0;
@@ -49,6 +51,7 @@ public class Entity : MonoBehaviour
         damage = Vulnerable(damage);
         damage = Guarded(damage);
         damage = Invulnerable(damage);
+        damage = Mathf.Clamp(damage, 0, 99);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
@@ -103,6 +106,8 @@ public class Entity : MonoBehaviour
         aEffectsValue.Remove(Suffering(alteredEffect));
         alteredEffects.Remove(alteredEffect);
 
+        if (alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
+
         UpdateEffectsDisplay();
     } 
     public void RemoveAlteredEffect()
@@ -138,12 +143,12 @@ public class Entity : MonoBehaviour
 
         ReduceAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
     }
-
     public void Poison()
     {
         if (Suffering(CardData.TAlteredEffects.POISON) < 0) return;
 
-        var effectCharges = aEffectsValue[Suffering(CardData.TAlteredEffects.POISON)];
+        poisonTurns++;
+        var effectCharges = poisonTurns;
 
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
         if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
@@ -152,7 +157,6 @@ public class Entity : MonoBehaviour
 
         ReduceAlteredEffect(CardData.TAlteredEffects.POISON, 1);
     }
-
     public void Burn()
     {
         if (Suffering(CardData.TAlteredEffects.BURN) < 0) return;
@@ -166,7 +170,6 @@ public class Entity : MonoBehaviour
 
         RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
     }
-
     public bool Disarmed()
     {
         if (Suffering(CardData.TAlteredEffects.DISARMED) < 0) return false;

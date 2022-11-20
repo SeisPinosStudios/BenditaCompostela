@@ -29,4 +29,4 @@ MonoBehaviour:
   responses:
   - responseText: Gracias por el dato buen hombre
     dialogueObject: {fileID: 11400000, guid: d769a304d9d59c54a84ccd83748e1308, type: 2}
-  character: {fileID: 21300000, guid: c210ad7b73842024daa9e847761f7298, type: 3}
+  character: {fileID: -669100558, guid: c210ad7b73842024daa9e847761f7298, type: 3}

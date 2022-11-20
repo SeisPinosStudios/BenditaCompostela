@@ -24,7 +24,7 @@ public class EncounterButton : MonoBehaviour
         {
             GameManager.currentNode = mapController.GetGoIndex(gameObject);
             Debug.Log(mapController.GetGoIndex(gameObject));
-            GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter();
+            GameObject.Find("Slide").GetComponent<RouteNavigator>().ToEncounter();
         }
 
         StartCoroutine(Encounter());
@@ -51,7 +51,7 @@ public class EncounterButton : MonoBehaviour
     #region Event Units
 
     public void ToSlideRoute() {
-        GameObject.Find("Slide").GetComponent<Ruta_1>().ToRoute();
+        GameObject.Find("Slide").GetComponent<RouteNavigator>().ToRoute();
     }
     public bool TakeMoney(int money)
     {

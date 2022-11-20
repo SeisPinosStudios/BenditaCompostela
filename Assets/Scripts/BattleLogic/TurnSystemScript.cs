@@ -17,6 +17,7 @@ public class TurnSystemScript : MonoBehaviour
 
     public void Start()
     {
+        GameObject.Find("====CANVAS====").GetComponent<Image>().sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
         Turn();

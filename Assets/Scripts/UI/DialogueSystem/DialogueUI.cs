@@ -20,6 +20,7 @@ public class DialogueUI : MonoBehaviour
     {
         characterImage.sprite = character;
         characterImage.SetNativeSize();
+        backgroundImage.sprite = GameManager.activeBackground;
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogBox();

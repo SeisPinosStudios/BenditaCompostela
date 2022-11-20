@@ -9,7 +9,6 @@ public class MapPathSelector : MonoBehaviour
     private void Start()
     {        
         UpdateMap();
-        
     }
 
     public void ActivateNextNodes()
@@ -67,6 +66,7 @@ public class MapPathSelector : MonoBehaviour
     {
         for (int i = 0; i < GameManager.completedNodes.Count; i++)
         {
+            Debug.Log(GameManager.completedNodes[i]);
             map[GameManager.completedNodes[i]].isCompleted = true;
         }
     }

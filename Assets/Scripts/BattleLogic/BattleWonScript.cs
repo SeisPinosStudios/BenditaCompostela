@@ -15,7 +15,7 @@ public class BattleWonScript : MonoBehaviour
     public GameObject rewardText;
     public GameObject rewardMainText;
     public void Awake()
-    {
+    {   
         var cards = CardDataFilter.ObjectsCardDataList();
         
         for(int i = 0; i < 3; i++)
@@ -35,6 +35,8 @@ public class BattleWonScript : MonoBehaviour
         if (GameManager.nextEnemy.name == "Bandido A") BandidoTutorial();
 
         if (!boss.Contains(GameManager.nextEnemy) && GameManager.nextEnemy.name != "Bandido A") DefaultEnemy();
+
+        GameManager.SaveGame();
     }
     public void CleanRewards()
     {
@@ -65,6 +67,7 @@ public class BattleWonScript : MonoBehaviour
     void Sierpe()
     {
         GameManager.ActualRoute = "Extremadura";
+        GameManager.NewRoute();
 
         StringBuilder desc = new StringBuilder();
         desc.Append("Has conseguido derrotar a la temible sierpe y obtenido las siguientes recompensas:<br>+5 vida - +3 energía - +35 monedas -");
@@ -86,6 +89,7 @@ public class BattleWonScript : MonoBehaviour
     void Hernan()
     {
         GameManager.ActualRoute = "Leon";
+        GameManager.NewRoute();
 
         StringBuilder desc = new StringBuilder();
         desc.Append("¿Realmente deberías estar orgulloso de apalizar a un niño? Sea como fuere, has conseguido las siguientes recompensas:<br>+5 vida - +3 energía - +50 monedas - ");
@@ -107,6 +111,7 @@ public class BattleWonScript : MonoBehaviour
     void Trasgu()
     {
         GameManager.ActualRoute = "Galicia";
+        GameManager.NewRoute();
 
         StringBuilder desc = new StringBuilder();
         desc.Append("La agilidad del trasgu no ha sido rival para la agilidad de tu muñeca y has acabado haciéndole unos cuantos agujeros más, ¡enhorabuena! Has conseguido las siguientes recompensas:<br>+5 vida - +3 energía - +65 monedas - ");

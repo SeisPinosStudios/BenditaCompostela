@@ -14,6 +14,14 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private GameObject upgradePrefab;
 
+    #region Shop Answers
+    public List<string> normalBuy;
+    public List<string> specialBuy;
+    public List<string> armorBuy;
+    public List<string> weaponBuy;
+    public List<string> noMoney;
+    #endregion
+
 
     private CardDatabase cardDataBase;
     private CardDataFilter cardDataFilter;
@@ -29,7 +37,6 @@ public class Shop : MonoBehaviour
         GenerateUpgrade(upgradePivots[0], CardDataFilter.OwnedWeapons());
         GenerateUpgrade(upgradePivots[1], CardDataFilter.OwnedArmors());
     }
-
     public void GenerateCards(Transform[] pivots, List<CardData> cardDataList)
     {        
         for (int i = 0; i < pivots.Length; i++)
@@ -38,12 +45,9 @@ public class Shop : MonoBehaviour
             Instantiate(cardPrefab, pivots[i]);
         }
     }
-
     public void GenerateUpgrade(Transform pivot, List<CardData> card)
     {
         upgradePrefab.GetComponent<CardDisplay>().cardData = card[Random.Range(0, card.Count)];
         Instantiate(upgradePrefab, pivot);
     }
-
-    
 }
