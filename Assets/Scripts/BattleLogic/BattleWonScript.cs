@@ -31,6 +31,10 @@ public class BattleWonScript : MonoBehaviour
         if (GameManager.nextEnemy == boss[2]) Trasgu();
 
         if (GameManager.nextEnemy == boss[3]) Santiago();
+
+        if (GameManager.nextEnemy.name == "Bandido A") BandidoTutorial();
+
+        if (!boss.Contains(GameManager.nextEnemy) && GameManager.nextEnemy.name != "Bandido A") DefaultEnemy();
     }
     public void CleanRewards()
     {
@@ -128,5 +132,15 @@ public class BattleWonScript : MonoBehaviour
     void Santiago()
     {
         SceneManager.LoadScene("FinalScene");
+    }
+    void BandidoTutorial()
+    {
+        StringBuilder desc = new StringBuilder();
+        desc.Append("Has conseguido derrotar a tu rival y obtenido las siguientes recompensas: " + GameManager.nextEnemy.reward + " monedas.");
+        var card = CardDataFilter.WeaponCardDataList().Find(weapon => weapon.name == "Daga");
+        desc.Append(card.name);
+        GameManager.playerData.inventory.Add(card);
+
+        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
     }
 }

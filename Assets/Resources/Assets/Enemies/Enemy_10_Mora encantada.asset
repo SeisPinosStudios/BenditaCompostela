@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcfd0aa921e34914498c087a7652fbdf, type: 2}
   boss: 0
   resistances: 02000000
+  reward: 7

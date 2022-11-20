@@ -420,12 +420,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576dd6d3256a7564c80b7ec537546c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.4
+  fadeSpeed: 0.3
   fade: {fileID: 696542167}
   credits:
-  - "Con un \xFAltimo golpe de tu fiel arma..."
-  - ...consigue derrotar a Santiago.
-  - "Y con esta \xFAltima victoria..."
+  - "Y con un \xFAltimo golpe de tu fiel arma..."
+  - ...consigues derrotar al poderoso Santiago.
+  - "Con esta \xFAltima victoria..."
   - ...llegas al final de tu viaje.
   - <sprite index=0>
   - Un juego de:<br><b>Seis Pinos Studios</b>
@@ -645,7 +645,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

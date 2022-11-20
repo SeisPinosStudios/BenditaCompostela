@@ -18,3 +18,6 @@ MonoBehaviour:
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: bc91c5d8d22ac704ea5348419ad12021, type: 2}
+  boss: 0
+  resistances: 
+  reward: 6

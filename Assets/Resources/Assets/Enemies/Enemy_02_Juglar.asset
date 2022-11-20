@@ -19,3 +19,6 @@ MonoBehaviour:
   enemyAttacks:
   - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
   - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  boss: 0
+  resistances: 
+  reward: 5
