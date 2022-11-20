@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
-  m_Name: Lore_041_Nino
+  m_Name: Lore_021_TerratenienteAmable
   m_EditorClassIdentifier: 
   dialogue:
-  - "NI\xD1O\n\xA1Pero si soy menor que t\xFA!"
+  - 'TERRATENIENTE
+
+    ...'
   responses: []
-  character: {fileID: 21300000, guid: b6481caac59f6a54ea438feca484338b, type: 3}
+  character: {fileID: 21300000, guid: beb1affa6e8e4274a822e1fc1cb465ca, type: 3}

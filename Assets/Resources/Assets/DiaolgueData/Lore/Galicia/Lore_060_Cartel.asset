@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
-  m_Name: Lore_06_Cartel
+  m_Name: Lore_060_Cartel
   m_EditorClassIdentifier: 
   dialogue:
   - 'Te encuentras un cartel que reza lo siguiente:'
@@ -20,5 +20,7 @@ MonoBehaviour:
     comprensi\xF3n."
   - "Cuidado con los embrujos y dem\xE1s maleficios que puedas sufrir. Advertido
     quedas. \""
-  responses: []
+  responses:
+  - responseText: No me queda otra, tengo que seguir...
+    dialogueObject: {fileID: 11400000, guid: 8282fe70ecee862438f78b4e843111d5, type: 2}
   character: {fileID: 0}

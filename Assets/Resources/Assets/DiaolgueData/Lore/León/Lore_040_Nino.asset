@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Lore_040_Nino
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "NI\xD1O\n\xA1Hola! \xBFQu\xE9 haces por aqu\xED? \xBFT\xFA tambi\xE9n est\xE1s
+    buscando a la Vieja del Monte? "
+  - "NI\xD1O\nUna vez, cuando me perd\xED por el bosque, me encontr\xE9 con ella. "
+  - "NI\xD1O\nMe dio un trozo de pan y me ense\xF1\xF3 el camino de vuelta. Sab\xEDa
+    mucho mejor que el pan que hace el hombre de la plaza. Se notaba que era diferente."
+  - "NI\xD1O\nLos otros ni\xF1os del pueblo dicen que vive en una cueva en las monta\xF1as.
+    He salido a buscarla, pero no doy con ella. "
+  - "NI\xD1O\nSi consigues encontrarla, av\xEDsame por favor, quiero m\xE1s pan como
+    el que me dio, aquella vez.  "
+  - "NI\xD1O\nA saber qu\xE9 m\xE1s cosas hace en esa cueva..."
+  responses:
+  - responseText: "\xBFNo deber\xEDas estar trabajando?"
+    dialogueObject: {fileID: 11400000, guid: 42fbcac13fe80524f91d374d8acfceab, type: 2}
+  character: {fileID: 21300000, guid: b6481caac59f6a54ea438feca484338b, type: 3}
