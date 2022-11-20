@@ -16,7 +16,7 @@ public class EncounterButton : MonoBehaviour
     private void OnEnable()
     {
         mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
-        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());        
+        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
     }
     public void SetCurrentLevelAndTransition()
     {
@@ -49,6 +49,10 @@ public class EncounterButton : MonoBehaviour
     }
 
     #region Event Units
+
+    public void ToSlideRoute() {
+        GameObject.Find("Slide").GetComponent<Ruta_1>().ToRoute();
+    }
     public bool TakeMoney(int money)
     {
         return GameManager.playerData.CoinDecrease(money);
@@ -127,12 +131,10 @@ public class EncounterButton : MonoBehaviour
         ToBattleScene(enemy);
     }
 
-    public void CambiapielesAceptar(CardData card, CardData card2)
+    public void CambiapielesAceptar()
     {
         GiveMoney(5);
         Heal(5);
-        GiveCard(card);
-        GiveCard(card2);
     }
     public void CambiapielesRechazar(Enemy enemy)
     {
