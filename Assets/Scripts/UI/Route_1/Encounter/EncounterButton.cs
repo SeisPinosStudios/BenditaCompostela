@@ -99,12 +99,10 @@ public class EncounterButton : MonoBehaviour
         ToBattleScene(enemy);
     }
 
-    public void AgricultorAceptar(CardData card, CardData card2)
+    public void AgricultorAceptar()
     {
         if (loseHP(7))
         {
-            GameManager.playerData.inventory.Add(card);
-            GameManager.playerData.inventory.Add(card2);
             GiveMoney(10);
         }
     }

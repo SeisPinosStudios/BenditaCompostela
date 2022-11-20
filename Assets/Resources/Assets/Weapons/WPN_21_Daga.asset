@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 21300000, guid: 496b72346b29e8a4d87139e10bf35e5b, type: 3}
   cost: 0
-  weaponId: 0
+  weaponId: 1
   attackList:
   - {fileID: 11400000, guid: b65265e8f79b87a48bf9dc59f6681eb5, type: 2}
   - {fileID: 11400000, guid: 3a498ca11f346334e865f9ce282d9adb, type: 2}

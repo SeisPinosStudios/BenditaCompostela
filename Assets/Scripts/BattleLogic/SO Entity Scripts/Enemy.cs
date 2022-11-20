@@ -27,4 +27,6 @@ public class Enemy : ScriptableObject
 
         return false;
     }
+
+    public int reward;
 }

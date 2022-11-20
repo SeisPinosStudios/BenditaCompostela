@@ -89,6 +89,7 @@ public class MainMenu : MonoBehaviour
         fade.FadeOut();
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, 2000, 0), 100f));
+        GameManager.ActualRoute = "Sevilla";
 
         Invoke("ruta1LoadScene",1.5f);        
     }

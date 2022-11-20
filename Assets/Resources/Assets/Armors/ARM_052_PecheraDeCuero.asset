@@ -27,3 +27,4 @@ MonoBehaviour:
   synergy: 3
   upgradeLevel: 2
   improvedArmor: {fileID: 0}
+  armorId: 2

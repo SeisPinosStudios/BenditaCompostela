@@ -63,6 +63,18 @@ public class CardDataFilter : MonoBehaviour
             
         return obj;
     }
+    public static List<CardData> ShopArmor()
+    {
+        List<CardData> obj = new List<CardData>();
+
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Weapons"))
+        {
+            var weapon = (Armor)card;
+            if (weapon.upgradeLevel == 0) obj.Add(card);
+        }
+
+        return obj;
+    }
     public static List<CardData> OwnedWeapons()
     {
         List<CardData> weapons = new List<CardData>();
