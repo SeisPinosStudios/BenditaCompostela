@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 376
-        width: 406
-        height: 371
+        y: 377
+        width: 389
+        height: 367
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,6 +121,69 @@ TextureImporter:
       bones: []
       spriteID: 1e89aa1ccce71f440aec1775a4312e4a
       internalID: 430893795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mapa_Seleccionado_1
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 50
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ae8cdcbf0b43347ab726488a6cba9c
+      internalID: -1049785943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mapa_Seleccionado_2
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 22
+        width: 30
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea831c4bb26f9348adcab633fe07e8d
+      internalID: -1228264776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mapa_Seleccionado_3
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 0
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b9a6885d3b5424a8a77951b9e24b57
+      internalID: 1418458111
       vertices: []
       indices: 
       edges: []
@@ -140,7 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Mapa_Seleccionado_3: 1418458111
       Mapa_Seleccionado_0: 430893795
+      Mapa_Seleccionado_1: -1049785943
+      Mapa_Seleccionado_2: -1228264776
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

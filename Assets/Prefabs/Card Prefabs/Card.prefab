@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735d1385b3bb10a479deb876d4abd826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 3323f6fe7302d294f82457adf95fddf1, type: 2}
+  cardData: {fileID: 11400000, guid: 18c256f215a836d449590b4fbc4fe895, type: 2}
   nameText: {fileID: 5422815997749187472}
   descText: {fileID: 5685668778224680722}
   sprite: {fileID: 7560168526375386494}
