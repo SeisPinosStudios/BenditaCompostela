@@ -9,6 +9,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     public Sprite character;
+    public Image backgroundImage;
     public Image characterImage;
 
     public bool IsOpen { get; private set; }
