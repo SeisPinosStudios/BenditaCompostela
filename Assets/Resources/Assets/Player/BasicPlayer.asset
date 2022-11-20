@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589f084624984b34f9ec8be3003e66af, type: 3}
   m_Name: BasicPlayer
   m_EditorClassIdentifier: 
-  HP: 35
+  maxHP: 35
+  currentHP: 35
   energy: 10
   coins: 10
   playerDeck: []
@@ -29,5 +30,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c7fa1ecb00b9504fb5db4c04a18fbd4, type: 2}
   - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
   - {fileID: 11400000, guid: f740c02bf91aa1b46a78dd9e2b536907, type: 2}
-  chestArmor: {fileID: 11400000, guid: 915595cddd7bbef4c8c81c55c20ebac9, type: 2}
-  feetArmor: {fileID: 11400000, guid: 76e2709780b84fa49b087eb49fdf6df9, type: 2}
+  - {fileID: 11400000, guid: 4c19d69b23ef70b4b870767d2ce4da04, type: 2}
+  - {fileID: 11400000, guid: 915595cddd7bbef4c8c81c55c20ebac9, type: 2}
+  - {fileID: 11400000, guid: 09d16f098338b894e8d2d2f79c238157, type: 2}
+  - {fileID: 11400000, guid: 1ea9764669fff1b4fb2be572b2705cff, type: 2}
+  chestArmor: {fileID: 11400000, guid: 003342c37eaa96041b6ba62ae767bf32, type: 2}
+  feetArmor: {fileID: 11400000, guid: 6806a213d57dc7a4e9c83331cc7729f4, type: 2}

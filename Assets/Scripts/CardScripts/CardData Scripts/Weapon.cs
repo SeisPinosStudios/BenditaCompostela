@@ -7,4 +7,6 @@ public class Weapon : CardData
 {
     public int weaponId;
     public List<CardData> attackList;
+    public Weapon improvedWeapon;
+    public int upgradeLevel;
 }

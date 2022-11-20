@@ -5,47 +5,80 @@ using UnityEngine.SceneManagement;
 
 public class Ruta_1 : MonoBehaviour
 {
-    [SerializeField] private GameObject shop;
-    [SerializeField] private GameObject encounter_1;
-    
-    Animator slideAn;
+    public GameObject shop;
+
+    //public GameObject[] encounterList;
+    //public GameObject[] loreList;    
+    [SerializeField] private MapPathSelector mapController;
+        
     public GameObject fadeGo;
     Fade fade;
+    public SlideAnimCoroutines coroutines;
 
-    static bool encounterHappened;
     void Start()
     {
-        slideAn = gameObject.GetComponent<Animator>();
+        CloseWindows();
         fade = fadeGo.GetComponent<Fade>();
-        encounterHappened = false;
+        coroutines = gameObject.GetComponent<SlideAnimCoroutines>();        
     }
 
-    public void ruta1ToShop() {
-        slideAn.SetBool("isShop", true);
-        encounter_1.SetActive(false);
+    public void ToShop() {
+        fade.FadeOut();
+        fade.lateFadeIn();
         shop.SetActive(true);
+        
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }
 
-    public void shopToRuta1() {
-        slideAn.SetBool("isShop", false);
+    public void ToRoute() {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
         Invoke("CloseWindows",1f);
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 100f));
+        GameManager.UpdateNodeProgress();
+        mapController.UpdateMap();
     }
 
     private void CloseWindows() {
         shop.SetActive(false);
-        encounter_1.SetActive(false);
+        //CloseArray(encounterList);
+        //CloseArray(loreList);
     }
 
-    public void RouteToEncounter() {        
-        slideAn.SetBool("isShop", true);
-        encounter_1.SetActive(true);
-        shop.SetActive(false);
-        
-        if (!encounterHappened)
+    private void CloseArray(GameObject[] list) {
+        for (int i = 0; i < list.Length; i++)
         {
-            encounter_1.GetComponent<DialogueActivator>().ActivateDialogue();
+            list[i].SetActive(false);
         }
-        encounterHappened = true;
+    }
+
+    public void ToEncounter() {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
+        //encounterList[encounterId].SetActive(true);
+
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
+    }
+    public void ToLore(int loreId)
+    {
+        fade.FadeOut();
+        fade.lateFadeIn();
+
+        //loreList[loreId].SetActive(true);
+
+        StopAllCoroutines();
+        StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
+
+        //StartCoroutine(DelayDialogueActivation(loreList,loreId));
+    }
+    public IEnumerator DelayDialogueActivation(GameObject[] list, int id) {
+        yield return new WaitForSeconds(2f);        
+        list[id].GetComponent<DialogueActivator>().ActivateDialogue();
     }    
     void changeLevel(int lvl) {
         SceneManager.LoadScene(lvl);

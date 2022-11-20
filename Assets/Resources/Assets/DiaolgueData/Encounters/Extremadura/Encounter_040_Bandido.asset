@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_040_Bandido
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "\xBFQu\xE9 pasa? Venga, ya. Me est\xE1s mirando raro, solo estoy de paso. En
+    serio, simplemente iba por aqu\xED, sin molestar a nadie."
+  - "Veo que no te convence esta versi\xF3n del relato. Comprensible. Escucha, no
+    he tenido una buena racha \xFAltimamente \xBFComprendes? Cada uno se busca la
+    vida como puede. "
+  - "De hecho, d\xE9jame explicarte. A la vuelta de esa colina, hay un granero. Es
+    de uno de esos rufianes, los terratenientes."
+  - "Esc\xFAchame atentamente, podemos ir sin que nos vean, aprovisionarnos y que
+    cada uno siga su camino."
+  - "Cambia ese gesto. No nos ver\xE1n \xBFY qu\xE9? \xBFQu\xE9 va a pasar por que
+    les robemos un poco de trigo? No van a hacer nada, tienen de sobra, ni se dar\xE1n
+    cuenta."
+  - "De hecho, te dar\xE9 un buen precio por tu parte del bot\xEDn."
+  responses:
+  - responseText: Aceptar trato
+    dialogueObject: {fileID: 11400000, guid: f5bac2cef6b011344be2182849b49b90, type: 2}
+  - responseText: Rechazar trato
+    dialogueObject: {fileID: 11400000, guid: 852b547de0922324b967ec7b514166ca, type: 2}
+  character: {fileID: 21300000, guid: 8b89400f7219445499d5e87c644615a6, type: 3}

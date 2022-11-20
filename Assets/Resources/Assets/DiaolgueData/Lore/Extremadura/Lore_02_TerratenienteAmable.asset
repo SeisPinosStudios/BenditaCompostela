@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Lore_02_TerratenienteAmable
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Buenos d\xEDas, chico. Esta zona forma parte de una ruta para peregrinos, debes
+    estar lejos de casa."
+  - "Bueno, tranquilo, no desistas, al final de este camino est\xE1 Alcu\xE9scar,
+    all\xED podr\xE1s descansar. "
+  - "Pero tengo que advertirte que m\xE1s all\xE1 del pueblo. La zona se vuelve m\xE1s
+    peligrosa."
+  - "Gran parte de las tierras que hay all\xED las regenta mi hermano, y ha dejado
+    que el desorden y el crimen campen a sus anchas. "
+  - "A parte de que no sabe gestionar lo que tiene, su actitud es pr\xE1cticamente
+    tir\xE1nica. Que tengas fortuna en el resto de tu viaje, chico. "
+  responses: []
+  character: {fileID: 21300000, guid: beb1affa6e8e4274a822e1fc1cb465ca, type: 3}

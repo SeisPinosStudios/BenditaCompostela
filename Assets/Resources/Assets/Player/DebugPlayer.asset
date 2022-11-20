@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589f084624984b34f9ec8be3003e66af, type: 3}
   m_Name: DebugPlayer
   m_EditorClassIdentifier: 
-  HP: 35
+  maxHP: 35
+  currentHP: 35
   energy: 10
   coins: 10
   playerDeck: []

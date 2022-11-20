@@ -15,6 +15,12 @@ public class SimpleSceneChangeButton : MonoBehaviour
 
     public void SceneTransition(string destination)
     {
+        if (destination == "Back") {
+            SceneManager.LoadScene(GameManager.ActualRoute);
+            return;
+        }
+
+        GameManager.ActualRoute = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(destination);
     }
 }

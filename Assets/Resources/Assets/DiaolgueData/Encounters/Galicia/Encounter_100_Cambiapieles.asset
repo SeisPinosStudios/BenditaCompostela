@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_100_Cambiapieles
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "\xA1Joven e insolente peregrino! \xBFTe has atrevido a acercarte a un oso? En
+    ese caso, he de confesar, que los osos no hablan. Evidentemente, soy un humano."
+  - "No podr\xE1s negarme que mi atuendo es convincente, al resto de animales se
+    lo parece. "
+  - "\xBFQu\xE9 te ocurre? \xBFPor qu\xE9 me miras as\xED? Es como si me estuvieras
+    juzgando. No es la primera vez que ves a otras personas disfraz\xE1ndose de mam\xEDferos.
+    Es imposible. "
+  - "Es algo bastante com\xFAn, lo hace mucha gente. Es una forma, de expresarse
+    como cualquier otra. No hacemos da\xF1o a nadie. "
+  - "Mira chico, d\xE9jame vivir, te ofrezco esto y haces como si nunca me hubieras
+    visto \xBFTe parece? "
+  - "\xA1Pero espera! \xBFQu\xE9 te crees? \xBFQue te lo iba a dar gratis? "
+  - "Antes de eso, te explico. Como entender\xE1s. La dieta que siguen mis compa\xF1eros
+    es dif\xEDcil de digerir para nosotros, los humanos."
+  - "As\xED que, agradecer\xEDa que, a cambio de estas suculentas recompensas, me
+    dieras algo que pudiera comer. "
+  responses:
+  - responseText: Ea, un poquito pan.
+    dialogueObject: {fileID: 11400000, guid: 3d6005b2e83e016449fb68116d0a583f, type: 2}
+  - responseText: No tengo nada...
+    dialogueObject: {fileID: 11400000, guid: 011c52844a8cafd469214a0a586d2d04, type: 2}
+  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}

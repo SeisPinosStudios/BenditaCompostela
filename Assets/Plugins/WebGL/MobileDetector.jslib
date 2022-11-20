@@ -1,7 +1,7 @@
 var MobileDetector = {
 	IsMobile: function()
 	{
-		return Module.SystemInfo.mobile
+		return Module.SystemInfo.mobile;
 	}
 };
 

@@ -13,6 +13,7 @@ public class DialogTriggerScript : MonoBehaviour
 
     public void DialogueActivation()
     {
-        Interctable?.Interact(this);
+        Debug.Log(Interctable);
+        Interctable?.Interact(this);        
     }
 }

@@ -7,16 +7,17 @@ using UnityEngine.SceneManagement;
 public class BattleButton : MonoBehaviour
 {
     public Enemy enemy;
-    public int context;
+    private MapPathSelector mapController;
     void Start()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(() => ToBattleScene(enemy));
-        if(GameManager.gameProgressContext != context)
-            gameObject.GetComponent<Button>().enabled = false;
+        if(SceneManager.GetActiveScene().name != "DebugScene") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        gameObject.GetComponent<Button>()?.onClick.AddListener(() => ToBattleScene(enemy));
     }
 
     public void ToBattleScene(Enemy enemy)
     {
+        if (GameManager.playerData.playerDeck.Count < 5) return;
+        if (SceneManager.GetActiveScene().name != "DebugScene") GameManager.currentNode = mapController.GetGoIndex(gameObject);
         GameManager.nextEnemy = enemy;
         SceneManager.LoadScene("BattleScene");
     }

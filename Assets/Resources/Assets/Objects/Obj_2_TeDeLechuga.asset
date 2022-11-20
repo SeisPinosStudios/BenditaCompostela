@@ -15,7 +15,7 @@ MonoBehaviour:
   name: "T\xE9 de lechuga"
   description: Cura 8 puntos de vida.
   artwork: {fileID: 21300000, guid: 6fa0c3c5383ba7b42b1bbed13d956173, type: 3}
-  cost: 8
+  cost: 4
   alteredEffects: 
   aEffectValues: 
   effects: 00000000

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_010_Juglar
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'JUGLAR
+
+    Bienaventurado muchacho. Dichosos los ojos de ver a alguien tan
+    joven merodeando por estos lares.  '
+  - "JUGLAR\nPor mi siempre noble pero mal valorada profesi\xF3n, grandes rutas debo
+    adentrarme a recorrer,"
+  - "JUGLAR\nexplorando los diferentes pueblos que hay por ver, entreteniendo a sus
+    gentes me hallar\xE9is. "
+  - "JUGLAR\nAhora bien muchacho, te ofrezco un trato. Un intercambio, algo m\xEDo
+    por algo tuyo. "
+  responses:
+  - responseText: Aceptar Trato
+    dialogueObject: {fileID: 11400000, guid: c4826270cb751ba42be60f139777d29d, type: 2}
+  - responseText: Rechazarlo
+    dialogueObject: {fileID: 11400000, guid: fe31ea81ffc0539498aca84315dec887, type: 2}
+  character: {fileID: 21300000, guid: 7c36b5b41d7a9be4c99cb714aa23d11d, type: 3}

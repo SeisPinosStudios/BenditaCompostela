@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Bebida sospechosa
   description: Aplica Vulnerablex2.
   artwork: {fileID: 21300000, guid: 979d7a8fbd4bd424f802a24bdcacba46, type: 3}
-  cost: 3
-  alteredEffects: 03000000
-  aEffectValues: 02000000
-  effects: 
-  eValues: 
+  cost: 4
+  alteredEffects: 
+  aEffectValues: 
+  effects: 05000000
+  eValues: 00000000

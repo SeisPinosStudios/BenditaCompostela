@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
+  m_Name: WPN_42_LanzaConEscudo
+  m_EditorClassIdentifier: 
+  name: Lanza con escudo ++
+  description: 
+  artwork: {fileID: 21300000, guid: b16d48c53c07bd74f8f20c0d22c7a39f, type: 3}
+  cost: 0
+  weaponId: 0
+  attackList:
+  - {fileID: 11400000, guid: e6334bc2974ab3f48860071695624709, type: 2}
+  - {fileID: 11400000, guid: cb929058b4a5aaa49a9db1f5ee80ffbd, type: 2}
+  - {fileID: 11400000, guid: cc8d738acdb8d154d804cda257ff9e08, type: 2}
+  improvedWeapon: {fileID: 0}
+  upgradeLevel: 2

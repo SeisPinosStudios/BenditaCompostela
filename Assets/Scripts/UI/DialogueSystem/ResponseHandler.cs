@@ -11,7 +11,7 @@ public class ResponseHandler : MonoBehaviour
     [SerializeField] private RectTransform responseContainer;
 
     private DialogueUI dialogueUI;
-    private ResponseEvent[] responseEvents;
+    private List<ResponseEvent> responseEvents;
 
     List<GameObject> tempResponseButtons = new List<GameObject>();
 
@@ -20,7 +20,7 @@ public class ResponseHandler : MonoBehaviour
         dialogueUI = GetComponent<DialogueUI>();
     }
 
-    public void AddResponseEvent(ResponseEvent[] responseEvents) {
+    public void AddResponseEvent(List<ResponseEvent> responseEvents) {
         this.responseEvents = responseEvents;
     }
     public void ShowResponses(Response[] responses)
@@ -42,8 +42,6 @@ public class ResponseHandler : MonoBehaviour
         }
         responseBox.sizeDelta = new Vector2(responseBox.sizeDelta.x, responseBoxHeight);
         responseBox.gameObject.SetActive(true);
-
-
     }
     private void onPickedResponse(Response response, int responseIndex)
     {
@@ -53,16 +51,19 @@ public class ResponseHandler : MonoBehaviour
         }
         tempResponseButtons.Clear();
 
-        if (responseEvents != null && responseIndex <= responseEvents.Length) {
-            responseEvents[responseIndex].OnPickedResponse?.Invoke();
+        if (responseEvents != null && responseIndex <= responseEvents.Count) {
+            //responseEvents[responseIndex].OnPickedResponse?.Invoke();
         }
 
-        responseEvents = null;
+        //responseEvents = null;
         if (response.DialogueObject) {
-            dialogueUI.ShowDialogue(response.DialogueObject);
+            dialogueUI.ShowResponseDialog(response.DialogueObject, responseEvents[responseIndex]);
         }
         else
         {
+            Debug.Log("Hola");
+            Debug.Log(responseEvents[responseIndex].OnPickedResponse);
+            responseEvents[responseIndex].OnPickedResponse?.Invoke();
             dialogueUI.CloseDialogBox();
         }
     }

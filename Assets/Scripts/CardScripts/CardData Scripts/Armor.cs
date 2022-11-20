@@ -8,12 +8,16 @@ public class Armor : CardData
     public int defenseValue;
     public int damageBonus;
     public int extraDefence;
-    public Weapon synergyWeapon;
+    public List<Weapon> synergyWeapon;
     public TArmor armorType;
     public TSynergy synergy;
+    public int upgradeLevel;
+    public Armor improvedArmor;
     public enum TArmor 
         { CHEST, FEET}
 
     public enum TSynergy
-        { DAMAGE, DEFENCE, HEALING, rCOST, xVULNERABLE, xGUARDED}
+        { DAMAGE, DEFENCE, HEALING, ENERGY, xVULNERABLE, xGUARDED}
+
+    
 }

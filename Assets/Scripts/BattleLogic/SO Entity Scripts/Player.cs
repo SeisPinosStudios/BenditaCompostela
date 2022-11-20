@@ -8,7 +8,8 @@ public class Player : ScriptableObject
 {
     /* Statistic variables for 
      * the player entity */
-    public int HP;
+    public int maxHP;
+    public int currentHP;
     public int energy;
     public int coins;
 
@@ -27,11 +28,24 @@ public class Player : ScriptableObject
         coins -= cost;
         return true;
     }
-
+    public void CoinIncrease(int addedCoins)
+    {
+        coins += addedCoins;
+    }
+    public bool loseHP(int HP)
+    {
+        if (currentHP < HP) return false;
+        return true;
+    }
+    public void Heal(int HP)
+    {
+        currentHP = Mathf.Clamp(currentHP+HP,0,maxHP);
+    }
     public Player copy()
     {
         Player player = CreateInstance<Player>();
-        player.HP = HP;
+        player.maxHP = maxHP;
+        player.currentHP = currentHP;
         player.energy = energy;
         player.coins = coins;
         player.playerDeck = playerDeck.Select((card) => Instantiate(card)).ToList();

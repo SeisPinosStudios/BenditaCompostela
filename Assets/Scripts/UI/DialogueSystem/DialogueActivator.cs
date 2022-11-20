@@ -19,12 +19,11 @@ public class DialogueActivator : MonoBehaviour, IInterctable
     {
         dialogTriggerScript.DialogueActivation();
     }
-    [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] public DialogueObject dialogueObject;
     public void Interact(DialogTriggerScript dialogTriggerScript) {
-
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
-            if (responseEvents.DialogueObject == dialogueObject)
+            if (responseEvents.dialogueObject == dialogueObject)
             {
                 dialogTriggerScript.DialogueUI.AddResponseEvents(responseEvents.Events);
                 break;

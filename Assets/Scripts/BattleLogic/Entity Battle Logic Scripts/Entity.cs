@@ -51,6 +51,8 @@ public class Entity : MonoBehaviour
         damage = Invulnerable(damage);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
+        if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
+
         if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
     public void RestoreHealth(int healthRestored)
@@ -83,7 +85,8 @@ public class Entity : MonoBehaviour
 
         if(Suffering(alteredEffect) >= 0)
         {
-            aEffectsValue[Suffering(alteredEffect)] += value;
+            if(alteredEffect == CardData.TAlteredEffects.INVULNERABLE) aEffectsValue[Suffering(alteredEffect)] = Mathf.Clamp(aEffectsValue[Suffering(alteredEffect)] + value, 0, 2);
+            else aEffectsValue[Suffering(alteredEffect)] = Mathf.Clamp(aEffectsValue[Suffering(alteredEffect)] + value, 0, 5);
             UpdateEffectsDisplay();
             return;
         }
@@ -222,18 +225,18 @@ public class Entity : MonoBehaviour
     {
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
         float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
-        gameObject.transform.GetChild(3).GetComponent<Slider>().value = healthBar;
-        gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
+        gameObject.transform.GetChild(1).GetComponent<Slider>().value = healthBar;
+        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
         if (this.GetType() == typeof(PlayerScript))
         {
-            gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
-            gameObject.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
+            gameObject.transform.GetChild(3).GetComponent<Slider>().value = energyBar;
+            gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
         }
     }
 
     public void UpdateEffectsDisplay()
     {
-        foreach(Transform child in transform.GetChild(1).GetComponentInChildren<Transform>())
+        foreach(Transform child in transform.GetChild(2).GetComponentInChildren<Transform>())
         {
             Destroy(child.gameObject);
         }
@@ -241,10 +244,14 @@ public class Entity : MonoBehaviour
         foreach (CardData.TAlteredEffects effect in alteredEffects)
         {
             alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect];
-            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(1));
-            //newImage.GetComponentInChildren<Image>().sprite = alteredEffectsImages[(int)effect];
+            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
             newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + aEffectsValue[Suffering(effect)].ToString();
         }
+    }
+
+    public void AttackAnimation(bool state)
+    {
+        GetComponent<Animator>().SetBool("Attack", state);
     }
     #endregion
 

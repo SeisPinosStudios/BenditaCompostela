@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fde59e279f3359f4dab7494337aaf561
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 100
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Alkhemikal
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a26193566f73cc34984abb420eb36558, type: 3}
+  - {fileID: 12800000, guid: 187284f8eb46b5f44a6dcc7be0bac64b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
