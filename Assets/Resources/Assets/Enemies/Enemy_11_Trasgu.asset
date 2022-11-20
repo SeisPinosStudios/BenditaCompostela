@@ -17,7 +17,6 @@ MonoBehaviour:
   HP: 150
   energy: 99
   enemyAttacks:
-  - {fileID: 11400000, guid: bf50f61a1a4c8da4f96685cf9e5286cb, type: 2}
   - {fileID: 11400000, guid: 1d2ce0de9693b384182572ac440dc510, type: 2}
   - {fileID: 11400000, guid: 1bae99d4a26c3a8478c4eddd876a95c0, type: 2}
   - {fileID: 11400000, guid: d9ca304e37dee2c4dbd20e5f13872c8a, type: 2}

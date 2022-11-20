@@ -21,7 +21,7 @@ public class RouteNavigator : MonoBehaviour
         fade.FadeOut();
         fade.lateFadeIn();
         shop.SetActive(true);
-        
+        Destroy(GameObject.Find("EncounterPrefab(Clone)"));
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }
@@ -49,6 +49,10 @@ public class RouteNavigator : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
+    }
+    public void CloseWindows()
+    {
+        Destroy(GameObject.Find("EncounterPrefab(Clone)"));
     }
     public void ToLore()
     {

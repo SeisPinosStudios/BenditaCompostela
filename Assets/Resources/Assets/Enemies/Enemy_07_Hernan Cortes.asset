@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_07_Hernan Cortes
   m_EditorClassIdentifier: 
   name: "Hern\xE1n Cort\xE9s"
-  sprite: {fileID: 21300000, guid: 56ea753efc4a0654ead4a33be822d0d4, type: 3}
+  sprite: {fileID: 21300000, guid: 237e620ffd727bf45a8dffc909a8044b, type: 3}
   HP: 110
   energy: 99
   enemyAttacks:

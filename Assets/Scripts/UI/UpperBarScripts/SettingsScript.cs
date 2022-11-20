@@ -8,15 +8,16 @@ public class SettingsScript : MonoBehaviour
     bool open = false;
     public GameObject settingsPrefab;
     public Transform pivot;
-    GameObject settingsScreen;
+    public GameObject settingsScreen;
     public void Awake()
     {
     }
 
     public void Settings()
     {
-        if (settingsScreen != null) settingsScreen.gameObject.SetActive(true);
-        else OpenSettings();
+        Debug.Log("A");
+        if (settingsScreen == null) OpenSettings();
+        else settingsScreen.gameObject.SetActive(true);
     }
 
     public void OpenSettings()

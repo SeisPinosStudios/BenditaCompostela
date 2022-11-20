@@ -103,7 +103,7 @@ public class DialogueUI : MonoBehaviour
     public void CloseDialogBox() {
         IsOpen = false;
         dialogueBox.SetActive(false);
-        parent.SetActive(false);
+        //parent.SetActive(false);
         textLabel.text = string.Empty;
     }
 }

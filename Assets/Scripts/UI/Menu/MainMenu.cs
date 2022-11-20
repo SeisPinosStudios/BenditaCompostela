@@ -117,9 +117,11 @@ public class MainMenu : MonoBehaviour
     void LoadRouteScene() {
         SceneManager.LoadScene(GameManager.ActualRoute);
     }
+
     public void ToCinematic()
     {
         SceneManager.LoadScene("Cinematic_1");
     }
     #endregion
+
 }
