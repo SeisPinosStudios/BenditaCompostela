@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_20_Oso Andalucia
   m_EditorClassIdentifier: 
   name: Oso A
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9ef8b563c2c2e1b49a26245cb0c5d301, type: 3}
   HP: 40
   energy: 99
   enemyAttacks:

@@ -11,6 +11,8 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     public float lerpDuration;
     public int separation;
 
+    public Animator backpackAnimator;
+
     public void Awake()
     {
         mitopedia = transform.GetChild(0).gameObject;
@@ -31,6 +33,7 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
 
     public IEnumerator OpenBackpack()
     {
+        backpackAnimator.SetBool("opening", true);
         float timeElapsed = 0;
         var mitopediaPosition = mitopedia.transform.localPosition;
         var deckBuilderPosition = deckBuilder.transform.localPosition;

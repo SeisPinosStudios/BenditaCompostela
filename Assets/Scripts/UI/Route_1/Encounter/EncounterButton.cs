@@ -15,7 +15,7 @@ public class EncounterButton : MonoBehaviour
 
     private void OnEnable()
     {
-        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        if(SceneManager.GetActiveScene().name != "Cinematic_1") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
     }
     public void SetCurrentLevelAndTransition()
@@ -33,6 +33,16 @@ public class EncounterButton : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
+        encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
+        encounterPrefab.GetComponent<DialogueResponseEvents>().dialogueObject = dialog;
+        foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
+        encounterPrefab.GetComponentInChildren<DialogueUI>().character = dialog.character;
+        var encounter = Instantiate(encounterPrefab, pivot);
+        encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
+        encounter.GetComponent<DialogueActivator>().ActivateDialogue();
+    }
+    public void Cinematic()
+    {
         encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
         encounterPrefab.GetComponent<DialogueResponseEvents>().dialogueObject = dialog;
         foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogueUI : MonoBehaviour
     public Sprite character;
     public Image backgroundImage;
     public Image characterImage;
+    public GameObject parent;
 
     public bool IsOpen { get; private set; }
 
@@ -20,7 +22,7 @@ public class DialogueUI : MonoBehaviour
     {
         characterImage.sprite = character;
         characterImage.SetNativeSize();
-        backgroundImage.sprite = GameManager.activeBackground;
+        if(SceneManager.GetActiveScene().name != "Cinematic_1") backgroundImage.sprite = GameManager.activeBackground;
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogBox();
@@ -101,6 +103,7 @@ public class DialogueUI : MonoBehaviour
     public void CloseDialogBox() {
         IsOpen = false;
         dialogueBox.SetActive(false);
+        parent.SetActive(false);
         textLabel.text = string.Empty;
     }
 }

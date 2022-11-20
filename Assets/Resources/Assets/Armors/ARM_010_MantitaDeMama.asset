@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: ARM_010_MantitaDeMama
   m_EditorClassIdentifier: 
   name: "Matita de mam\xE1"
-  description: 
+  description: Protege 1
   artwork: {fileID: 21300000, guid: 38d6db941f2cd3242824a49bf6985beb, type: 3}
   cost: 0
   defenseValue: 1
   damageBonus: 0
   extraDefence: 0
-  synergyWeapon: {fileID: 0}
+  synergyWeapon:
+  - {fileID: 0}
   armorType: 0
   synergy: 1
+  upgradeLevel: 0
+  improvedArmor: {fileID: 0}
+  armorId: 0

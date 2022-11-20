@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_08_Lobo
   m_EditorClassIdentifier: 
   name: Lobo
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bd96ce9d0b47376438fedd91eaa67d23, type: 3}
   HP: 40
   energy: 99
   enemyAttacks:

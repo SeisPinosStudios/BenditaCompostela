@@ -100,7 +100,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             GameManager.ActualRoute = "Sevilla";
-            ToRoute();
+            ToCinematic();
         }
     }
     #endregion
@@ -116,6 +116,10 @@ public class MainMenu : MonoBehaviour
     }
     void LoadRouteScene() {
         SceneManager.LoadScene(GameManager.ActualRoute);
+    }
+    public void ToCinematic()
+    {
+        SceneManager.LoadScene("Cinematic_1");
     }
     #endregion
 }

@@ -59,6 +59,7 @@ MonoBehaviour:
   character: {fileID: 0}
   backgroundImage: {fileID: 8216788600913495490}
   characterImage: {fileID: 8775022607961644301}
+  parent: {fileID: 8216788601594755314}
 --- !u!114 &8908084508217009384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1797045276, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
+  m_Sprite: {fileID: -491165686, guid: 33e4b07a2868a8546a43a07c7aaa4c94, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -711,7 +712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a866961c28977c488c455a9870ddcd1, type: 3}
+  m_Sprite: {fileID: -1331910494, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

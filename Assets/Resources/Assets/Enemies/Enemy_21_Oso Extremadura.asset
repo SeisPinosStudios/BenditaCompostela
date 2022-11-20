@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_21_Oso Extremadura
   m_EditorClassIdentifier: 
   name: Oso E
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f441c57775debf54eb8e26289de8f43f, type: 3}
   HP: 80
   energy: 99
   enemyAttacks:

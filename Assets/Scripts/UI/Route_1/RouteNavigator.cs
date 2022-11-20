@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RouteNavigator : MonoBehaviour
 {
-    public GameObject shop;
-    public GameObject[] encounterList;
-    public GameObject[] loreList;    
+    public GameObject shop; 
     [SerializeField] private MapPathSelector mapController;
         
     public GameObject fadeGo;
@@ -16,7 +14,6 @@ public class RouteNavigator : MonoBehaviour
 
     void Start()
     {
-        CloseWindows();
         fade = fadeGo.GetComponent<Fade>();
         coroutines = gameObject.GetComponent<SlideAnimCoroutines>();
     }
@@ -38,11 +35,6 @@ public class RouteNavigator : MonoBehaviour
         GameManager.UpdateNodeProgress();
         mapController.UpdateMap();
     }
-    private void CloseWindows() {
-        shop.SetActive(false);
-        CloseArray(encounterList);
-        CloseArray(loreList);
-    }
     private void CloseArray(GameObject[] list) {
         for (int i = 0; i < list.Length; i++)
         {
@@ -58,17 +50,13 @@ public class RouteNavigator : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }
-    public void ToLore(int loreId)
+    public void ToLore()
     {
         fade.FadeOut();
         fade.lateFadeIn();
 
-        loreList[loreId].SetActive(true);
-
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
-
-        StartCoroutine(DelayDialogueActivation(loreList,loreId));
     }
     public IEnumerator DelayDialogueActivation(GameObject[] list, int id) {
         yield return new WaitForSeconds(2f);        

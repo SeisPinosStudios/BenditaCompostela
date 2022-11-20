@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         switch (loser.GetType().ToString())
         {
             case "PlayerScript":
+                SceneManager.LoadScene("DeathScene");
                 Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
                 break;
             case "EnemyScript":
@@ -223,5 +224,9 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         GetBackground();
+
+        if (SceneManager.GetActiveScene().name == "Cinematic_1" && GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Stop();
+
+        if (SceneManager.GetActiveScene().name != "Cinematic_1" && !GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
     }
 }

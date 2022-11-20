@@ -34,7 +34,7 @@ public class EnemyScript : Entity
     {
         Debug.Log("Turno del enemigo.");
         currentEnergy = energy;
-        this.Poison();
+        Poison();
         if(this.currentHP > 0) StartCoroutine(EnemyTurn());
     }
 
@@ -53,7 +53,6 @@ public class EnemyScript : Entity
         yield return new WaitForSeconds(1.0f);
         attackCard.GetComponent<Card>().UseCard();
         yield return new WaitForSeconds(2.0f);
-        this.Burn();
         FindObjectOfType<TurnSystemScript>().GetComponent<TurnSystemScript>().Turn();
     }
 

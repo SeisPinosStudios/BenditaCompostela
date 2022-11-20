@@ -72,4 +72,7 @@ MonoBehaviour:
   - "MARCOS \r\nSiga tomando este mejunje como le dije. Tenga buen d\xEDa. Hasta
     la vista muchacho. "
   - "ELVIRA \r\n\rEste se\xF1or ha perdido la cabeza. "
-  responses: []
+  responses:
+  - responseText: (He de tomar cartas en el asunto...)
+    dialogueObject: {fileID: 0}
+  character: {fileID: -491165686, guid: 33e4b07a2868a8546a43a07c7aaa4c94, type: 3}

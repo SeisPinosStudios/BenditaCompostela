@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_17_Herrero Extremadura
   m_EditorClassIdentifier: 
   name: Herrero E
-  sprite: {fileID: 21300000, guid: f62785c7b70f0b24695e5079677309fd, type: 3}
+  sprite: {fileID: 21300000, guid: 1e3cc814eb62abb45acea3ee283e8326, type: 3}
   HP: 60
   energy: 99
   enemyAttacks:

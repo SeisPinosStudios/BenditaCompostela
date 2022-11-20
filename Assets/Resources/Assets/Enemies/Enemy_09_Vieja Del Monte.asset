@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_09_Vieja Del Monte
   m_EditorClassIdentifier: 
   name: Vieja del monte
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 067d127ba0e4e6a4e9633261cbe7e203, type: 3}
   HP: 60
   energy: 99
   enemyAttacks:

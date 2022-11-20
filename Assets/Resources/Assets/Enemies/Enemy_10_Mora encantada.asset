@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_10_Mora encantada
   m_EditorClassIdentifier: 
   name: Mora encantada
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 73951c3d2beced44c94f7b90c2bc41cc, type: 3}
   HP: 90
   energy: 99
   enemyAttacks:

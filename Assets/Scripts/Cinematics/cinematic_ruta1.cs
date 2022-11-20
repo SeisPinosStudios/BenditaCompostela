@@ -1,32 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class cinematic_ruta1 : MonoBehaviour
 {
-    [SerializeField] VideoPlayer myVideoPlayer;
-    [SerializeField] DialogueUI dialogueUI;
+    [SerializeField] VideoPlayer firstCinematic;
+    [SerializeField] VideoPlayer secondCinematic;
 
     public bool VideoHasEnded;
+    public UnityEvent startDialogueEvent;
 
 
     void Start()
     {
         VideoHasEnded = false;
-        myVideoPlayer.loopPointReached += startDialogue;
+        firstCinematic.loopPointReached += startDialogue;
+        secondCinematic.loopPointReached += ToRoute;
+    }
+    void startDialogue(VideoPlayer vp) {
+        /*
+        gameObject.GetComponent<DialogueActivator>().ActivateDialogue();
+        VideoHasEnded = true;*/
+        startDialogueEvent.Invoke();
     }
 
-    void startDialogue(VideoPlayer vp) {
-        gameObject.GetComponent<DialogueActivator>().ActivateDialogue();
-        VideoHasEnded = true;
+    public void startSecondCinematic()
+    {
+        GameObject.Find("Cinematica1").SetActive(false);
+        Destroy(GameObject.Find("DialogPivot"));
+        secondCinematic.Play();
+    }
+
+    public void ToRoute(VideoPlayer vp)
+    {
+        SceneManager.LoadScene("Sevilla");
     }
     private void Update()
     {
-        if (!dialogueUI.IsOpen && VideoHasEnded)
-        {
-            SceneManager.LoadScene(2);
-        }
+
     }
 }

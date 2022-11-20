@@ -22,7 +22,6 @@ public class Shop : MonoBehaviour
     public List<string> noMoney;
     #endregion
 
-
     private CardDatabase cardDataBase;
     private CardDataFilter cardDataFilter;
     public Special.Zone zone;
@@ -47,6 +46,7 @@ public class Shop : MonoBehaviour
     }
     public void GenerateUpgrade(Transform pivot, List<CardData> card)
     {
+        if(card.Count <= 0) return;
         upgradePrefab.GetComponent<CardDisplay>().cardData = card[Random.Range(0, card.Count)];
         Instantiate(upgradePrefab, pivot);
     }

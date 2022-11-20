@@ -532,6 +532,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 41cc3ed083c5ac340880842d7261b233, type: 3}
+    - target: {fileID: 1743755054152305979, guid: 69692d21890f95c449fa34af1be75546, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 11400000, guid: 77e8a69418e67ff4289efb72d4537aca, type: 2}
     - target: {fileID: 1743755054152305980, guid: 69692d21890f95c449fa34af1be75546, type: 3}
       propertyPath: nodeSprite
       value: 
@@ -4622,7 +4626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1058.9636}
+  m_AnchoredPosition: {x: 0, y: 1058.9635}
   m_SizeDelta: {x: 1663.961, y: 3197.927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -4756,12 +4760,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046541165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f7309caf9a00840b2ca4d2878223c4, type: 3}
+  m_Script: {fileID: 11500000, guid: fc98f25e85b8b2242bdb0210823bae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 0}
-  encounterList: []
-  loreList: []
+  shop: {fileID: 742804096}
   mapController: {fileID: 958117488}
   fadeGo: {fileID: 49231522}
   coroutines: {fileID: 0}
@@ -5758,8 +5760,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: -0.000000057636687
-  m_Size: 0.3375658
+  m_Value: 0
+  m_Size: 0.33770946
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8506,6 +8508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpperBar
       objectReference: {fileID: 0}
+    - target: {fileID: 2717039579925816218, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 1046541166}
     - target: {fileID: 8940110662092568575, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
