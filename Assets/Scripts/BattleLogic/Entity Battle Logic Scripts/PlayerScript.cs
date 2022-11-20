@@ -23,6 +23,10 @@ public class PlayerScript : Entity
     public Armor.TSynergy activeSynergy;
     #endregion
 
+    #region Other Variables
+    public Transform equipedWeapon;
+    public GameObject cardPrefab;
+    #endregion
     public void Awake()
     {
         PlayerConfig();
@@ -36,6 +40,7 @@ public class PlayerScript : Entity
     {
         DeactivateCombatControl();
         currentEnergy = energy;
+        if (activeSynergy == Armor.TSynergy.ENERGY) currentEnergy += 3 * (chestArmor.upgradeLevel + 1);
         yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(5));
         this.Poison();
@@ -62,15 +67,13 @@ public class PlayerScript : Entity
     }
     public void ActivateCombatControl()
     {
-        foreach (Card card in FindObjectsOfType<Card>()) card.GetComponent<CardDragSystem>().enabled = true;
-        GameObject.Find("DefaultDeck").GetComponent<Button>().enabled = true;
+        foreach (Transform card in GameObject.Find("HandPanel").transform) card.gameObject.GetComponent<CardDragSystem>().enabled = true;
         GameObject.Find("AttackDeck").GetComponent<Button>().enabled = true;
         GameObject.Find("TurnButton").GetComponent <Button>().enabled = true;
     }
     public void DeactivateCombatControl()
     {
-        foreach (Card card in FindObjectsOfType<Card>()) card.GetComponent<CardDragSystem>().enabled = false;
-        GameObject.Find("DefaultDeck").GetComponent<Button>().enabled = false;
+        foreach (Transform card in GameObject.Find("HandPanel").transform) card.gameObject.GetComponent<CardDragSystem>().enabled = false;
         GameObject.Find("AttackDeck").GetComponent<Button>().enabled = false;
         GameObject.Find("TurnButton").GetComponent<Button>().enabled = false;
     }
@@ -85,6 +88,13 @@ public class PlayerScript : Entity
         weapon = newWeapon;
 
         CheckForSynergy();
+
+        if (equipedWeapon.childCount > 0) Destroy(equipedWeapon.GetChild(0).gameObject);
+
+        cardPrefab.GetComponent<CardDisplay>().cardData = weapon;
+        Instantiate(cardPrefab, equipedWeapon);
+
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("EquipWeapon");
     }
     public void CheckForSynergy()
     {
@@ -99,44 +109,53 @@ public class PlayerScript : Entity
     }
     public void ChestSynergy()
     {
-        if (chestArmor == null || chestArmor.synergyWeapon == null) return;
+        if (chestArmor == null || chestArmor.synergyWeapon.Count < 3) return;
 
-        if (weapon.name == chestArmor.synergyWeapon.name)
+        foreach(Weapon weaponSynergy in chestArmor.synergyWeapon)
         {
-            switch (chestArmor.synergy.ToString())
+            Debug.Log(weaponSynergy.name);
+            if(weapon.name == weaponSynergy.name)
             {
-                case "DAMAGE":
-                    damageBoost += chestArmor.damageBonus;
-                    break;
-                case "DEFENCE":
-                    tempDefence += chestArmor.extraDefence;
-                    break;
-                case "HEALING":
-                    extraHealing += 5;
-                    break;
-                default:
-                    activeSynergy = chestArmor.synergy;
-                    break;
+                switch (chestArmor.synergy.ToString())
+                {
+                    case "DAMAGE":
+                        damageBoost += chestArmor.damageBonus;
+                        break;
+                    case "DEFENCE":
+                        tempDefence += chestArmor.extraDefence;
+                        break;
+                    case "HEALING":
+                        extraHealing += 3*(Mathf.Clamp(chestArmor.upgradeLevel, 1, 2));
+                        break;
+                    default:
+                        activeSynergy = chestArmor.synergy;
+                        break;
+                }
+
+                return;
             }
         }
     }
     public void FeetSynergy()
     {
-        if (feetArmor == null || feetArmor.synergyWeapon == null) return;
+        if (feetArmor == null || feetArmor.synergyWeapon.Count < 3) return;
 
-        if (weapon.name == feetArmor.synergyWeapon.name)
+        foreach (Weapon weaponSynergy in feetArmor.synergyWeapon)
         {
-            switch (feetArmor.synergy.ToString())
+            if (weapon.name == weaponSynergy.name)
             {
-                case "DAMAGE":
-                    damageBoost += feetArmor.damageBonus;
-                    break;
-                case "DEFENCE":
-                    tempDefence += feetArmor.extraDefence;
-                    break;
-                case "HEALING":
-                    extraHealing += 1;
-                    break;
+                switch (feetArmor.synergy.ToString())
+                {
+                    case "DAMAGE":
+                        damageBoost += feetArmor.damageBonus;
+                        break;
+                    case "DEFENCE":
+                        tempDefence += feetArmor.extraDefence;
+                        break;
+                    case "HEALING":
+                        extraHealing += (1+feetArmor.upgradeLevel);
+                        break;
+                }
             }
         }
     }

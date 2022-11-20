@@ -28,7 +28,19 @@ public class Player : ScriptableObject
         coins -= cost;
         return true;
     }
-
+    public void CoinIncrease(int addedCoins)
+    {
+        coins += addedCoins;
+    }
+    public bool loseHP(int HP)
+    {
+        if (currentHP < HP) return false;
+        return true;
+    }
+    public void Heal(int HP)
+    {
+        currentHP = Mathf.Clamp(currentHP+HP,0,maxHP);
+    }
     public Player copy()
     {
         Player player = CreateInstance<Player>();

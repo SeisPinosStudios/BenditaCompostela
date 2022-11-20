@@ -12,13 +12,14 @@ public class ZoneLocation : MonoBehaviour
         textComponent = GetComponent<TextMeshProUGUI>();
 
         textComponent.text = SceneManager.GetActiveScene().name;
+        textComponent.text = RouteCompute(SceneManager.GetActiveScene().name);
     }
 
     public string RouteCompute(string scene)
     {
         switch (scene)
         {
-            case "0":
+            case "Route_Andalucia":
                 return "Andalucia";
             case "1":
                 return "Extremadura";

@@ -51,6 +51,8 @@ public class Entity : MonoBehaviour
         damage = Invulnerable(damage);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
+        if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
+
         if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
     public void RestoreHealth(int healthRestored)

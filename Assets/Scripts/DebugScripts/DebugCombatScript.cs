@@ -28,6 +28,7 @@ public class DebugCombatScript : MonoBehaviour
     {
         if (HPInput.text == null) return; 
         GameManager.playerData.maxHP = int.Parse(HPInput.text);
+        GameManager.playerData.currentHP = int.Parse(HPInput.text);
         if (EnergyInput.text == null) return;
         GameManager.playerData.energy = int.Parse(EnergyInput.text);
     }

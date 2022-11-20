@@ -10,4 +10,7 @@ public class Special : CardData
     public int[] aEffectValues;
     public TEffects[] effects;
     public int[] eValues;
+    public Zone zone;
+
+    public enum Zone { NULL, ANDALUCIA, EXTREMADURA, LEON, GALICIA }
 }

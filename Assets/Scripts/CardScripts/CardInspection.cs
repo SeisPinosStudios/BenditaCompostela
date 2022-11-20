@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
 
-public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     #region Other Variables
     /* Functionality variables. */
@@ -41,37 +41,6 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             }
 
             if(siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
-            inspecting = !inspecting;
-        }
-
-        if(isMobile() && inspecting)
-        {
-            transform.localScale = originalScale;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = originalPosition;
-                EnableHandPanel();
-            }
-
-            inspecting = !inspecting;
-            Debug.Log(isMobile().ToString());
-        }
-        else if(isMobile() && !inspecting)
-        {
-            originalScale = transform.localScale;
-            originalPosition = transform.localPosition;
-            transform.localScale = (transform.localScale) * scaleMultiplier;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
-                DisableHandPanel();
-            }
-
-            if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
-            inspecting = !inspecting;
-            Debug.Log(isMobile().ToString());
         }
     }
     public void OnPointerExit(PointerEventData pointerEvent)
@@ -89,6 +58,40 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         } 
     } 
     #endregion
+    public void OnPointerClick(PointerEventData pointerEvent)
+    {
+        if (!isMobile()) return;
+
+        if (inspecting)
+        {
+            transform.localScale = originalScale;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = originalPosition;
+                EnableHandPanel();
+            }
+
+            inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
+        }
+        else if (!inspecting)
+        {
+            originalScale = transform.localScale;
+            originalPosition = transform.localPosition;
+            transform.localScale = (transform.localScale) * scaleMultiplier;
+
+            if (SceneManager.GetActiveScene().name == "BattleScene")
+            {
+                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
+                DisableHandPanel();
+            }
+
+            if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+            inspecting = !inspecting;
+            Debug.Log(isMobile().ToString());
+        }
+    }
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime

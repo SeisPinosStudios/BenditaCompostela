@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_080_Herrero
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "\xBFUn joven peregrino? Supongo que deseas llegar a la catedral. Todos los que
+    vienen por aqu\xED buscan rezar sus plegarias al Santo."
+  - "Si quieres saber las buenas noticias, est\xE1s cerca de tu destino. En cambio,
+    las malas noticias son que esta tierra es hostil con los extranjeros. "
+  - "Esa catedral atrae demasiada gente, los lugare\xF1os no suelen estar conformes
+    con ello. Mis antepasados hablaban de que esta tierra era un remanso de paz,
+    alejado de toda creencia espiritual. "
+  - "Desde hace siglos, la religi\xF3n regenta este lugar y es la principal se\xF1a
+    de atenci\xF3n para viajeros. Pero tambi\xE9n, fuerzas misteriosas contrarias
+    a ella se han hecho su hueco."
+  - Joven peregrino, preciso de tu ayuda. No quiero actuar como un mendigo, pero
+    es por pura necesidad.
+  - "Las materias primas escasean, las grandes miner\xEDas venden a precios desorbitados.
+    Y no puedo acceder al trabajo en estas condiciones."
+  - "Puedo recompensaros bien, a cambio de piezas de equipamiento para poder trabajar
+    \xBFAceptar\xEDas este trato? "
+  responses:
+  - responseText: Acepta el trato.
+    dialogueObject: {fileID: 11400000, guid: e573b0557877ed847bdc3f4d566fe870, type: 2}
+  - responseText: Rechaza el trato.
+    dialogueObject: {fileID: 11400000, guid: b2ccaccf6198e104998468cdd44bd0c2, type: 2}
+  character: {fileID: 21300000, guid: 702289f6f457ada438c875066a0f51d0, type: 3}

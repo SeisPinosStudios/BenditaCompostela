@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
   m_Name: SPE_15_MagiaDeMoura
   m_EditorClassIdentifier: 
-  name: Magia de meira
+  name: Magia de moura
   description: "Realiza 5 puntos de da\xF1o y aplica Quemadurax2."
-  artwork: {fileID: 21300000, guid: cfa6cc1d8fd878848ad0f259c1ace093, type: 3}
+  artwork: {fileID: 21300000, guid: 237f6d0939d8de54a91f38dd1693c5ef, type: 3}
   cost: 8
-  type: 0
   damage: 5
   alteredEffects: 02000000
   aEffectValues: 03000000
   effects: 
   eValues: 
+  zone: 3

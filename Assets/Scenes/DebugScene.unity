@@ -1520,7 +1520,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1123608500}
   - component: {fileID: 1123608499}
-  - component: {fileID: 1123608498}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1528,22 +1527,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1123608498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123608497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8464678d3c7551a4383449f6f42d3f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 2561607356121450935, guid: 140ec38240e6db34ea1d267a7d30b127, type: 3}
-  HPInput: {fileID: 1891256511}
-  EnergyInput: {fileID: 792610914}
-  accept: {fileID: 601681893}
 --- !u!114 &1123608499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,13 +1539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd66b7c2b2873b43a3312ff8b27ad00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aux: []
-  auxGo: {fileID: 0}
   BattleCompletedUI:
   - {fileID: 7801811126854394682, guid: f141346628f2e0444b002f232e7ee13b, type: 3}
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
-  player: {fileID: 11400000, guid: 991c38ec4a1463a4ba1ef16b669b63c0, type: 2}
-  debug: 0
+  player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
 --- !u!4 &1123608500
 Transform:
   m_ObjectHideFlags: 0
@@ -2465,6 +2445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052839176}
+  - component: {fileID: 2052839177}
   m_Layer: 0
   m_Name: ====LOGIC====
   m_TagString: Untagged
@@ -2487,3 +2468,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052839177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052839175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8464678d3c7551a4383449f6f42d3f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2561607356121450935, guid: 140ec38240e6db34ea1d267a7d30b127, type: 3}
+  HPInput: {fileID: 1891256511}
+  EnergyInput: {fileID: 792610914}
+  accept: {fileID: 601681893}

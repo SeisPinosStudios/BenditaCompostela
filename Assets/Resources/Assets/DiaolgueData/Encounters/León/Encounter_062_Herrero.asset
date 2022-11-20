@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_062_Herrero
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Tienes el ego\xEDsmo en tu sangre. A lo que se suma tu nula capacidad de empat\xEDa
+    por aquellos que lo est\xE1n pasando peor que t\xFA."
+  responses: []
+  character: {fileID: 21300000, guid: 702289f6f457ada438c875066a0f51d0, type: 3}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_051_Cambiapieles
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Si algo me caracteriza, es que puedo encajar las cr\xEDticas con humildad. Puedo
+    observar que este disfraz no ha sido el m\xE1s convincente."
+  - "Tampoco hace falta que me mires as\xED. Escucha, soy un cambiapieles, me disfrazo
+    de otros animales peludos para poder introducirme en sus comunidades y formar
+    parte de ellos."
+  - "Obviamente, no lo hago por gusto, todo esto lo hago con fines meramente acad\xE9micos.
+    Veo que no te hago cambiar de opini\xF3n. "
+  - "Tampoco me importa, muchos otros opinan que he perdido el juicio. \xA1JA! Ya
+    les gustar\xEDa, estoy completamente en mis cabales. "
+  - "Deb\xE9is entender, que alguien tiene que hacer este tipo de labores, estudiar
+    las diferentes especies de la zona. Solo que, cada uno tiene sus m\xE9todos."
+  - "Mira chico, si te doy esto \xBFTe ir\xE1s y dejar\xE1s de juzgarme? \xBFS\xED?
+    Pues anda toma, tampoco preguntes de d\xF3nde ha salido. "
+  responses: []
+  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290df8450f704e74ea217b4aa1defdf2, type: 3}
+  m_Name: WPN_32_Martillo
+  m_EditorClassIdentifier: 
+  name: Martillo ++
+  description: 
+  artwork: {fileID: 21300000, guid: feb33372435708341926d69e844e7b42, type: 3}
+  cost: 0
+  weaponId: 0
+  attackList:
+  - {fileID: 11400000, guid: 9739f7c906e2b6245a5f431a2404e226, type: 2}
+  - {fileID: 11400000, guid: da16ab36ee8bbfb4d956e5245a4824a5, type: 2}
+  - {fileID: 11400000, guid: 4cf95f5a198d106458d2e88a73b82255, type: 2}
+  improvedWeapon: {fileID: 0}
+  upgradeLevel: 2

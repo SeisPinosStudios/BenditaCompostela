@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Linq;
 
 public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler
@@ -27,7 +28,10 @@ public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler
          * the list of cards in player's inventory to destroy
          * the game object */
         var duplicatedCard = cardList.Find(dupCard => dupCard.name == cardName);
-        if (duplicatedCard == null) Destroy(gameObject);
+        if (duplicatedCard == null)
+        {
+            Destroy(gameObject);
+        }
         else gameObject.GetComponent<CardDisplay>().cardData = duplicatedCard;
     }
 }

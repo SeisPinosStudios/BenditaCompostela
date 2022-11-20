@@ -8,7 +8,7 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
     private void Start()
     {
-        updateCoinCounter(GameManager.playerData.coins.ToString());        
+        updateCoinCounter(GameManager.playerData.coins.ToString());
     }
 
     public void updateCoinCounter(string newCoins) {
@@ -17,6 +17,6 @@ public class CoinCounter : MonoBehaviour
 
     public void Update()
     {
-       // coinText.text = GameManager.playerData.coins.ToString();
+        updateCoinCounter(GameManager.playerData.coins.ToString());
     }
 }

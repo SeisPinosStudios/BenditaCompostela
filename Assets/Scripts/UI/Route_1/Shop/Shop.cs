@@ -9,34 +9,40 @@ public class Shop : MonoBehaviour
     [SerializeField] private Transform[] weaponPivots;
     [SerializeField] private Transform[] objectPivots;
     [SerializeField] private Transform[] specialObjectPivots;
+    [SerializeField] private Transform[] armorPivots;
+    [SerializeField] private Transform[] upgradePivots;
     [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private GameObject upgradePrefab;
 
 
     private CardDatabase cardDataBase;
     private CardDataFilter cardDataFilter;
-    [SerializeField] private float scaleFactor;
+    public Special.Zone zone;
     void Start()
     {
         cardDataFilter = GetComponent<CardDataFilter>();
-
-        scaleFactor = 2.0f;       
-        GenerateCards(objectPivots, cardDataFilter.ObjectsCardDataList(), scaleFactor);
-        GenerateCards(specialObjectPivots, cardDataFilter.SpecialCardDataList(), scaleFactor);
-        GenerateCards(weaponPivots, cardDataFilter.WeaponCardDataList(), scaleFactor);
+;       
+        GenerateCards(objectPivots, CardDataFilter.ObjectsCardDataList());
+        GenerateCards(specialObjectPivots, CardDataFilter.SpecialZoneCardList(zone));
+        GenerateCards(weaponPivots, CardDataFilter.ShopWeapons());
+        GenerateCards(armorPivots, CardDataFilter.ArmorCardDataList());
+        GenerateUpgrade(upgradePivots[0], CardDataFilter.OwnedWeapons());
+        GenerateUpgrade(upgradePivots[1], CardDataFilter.OwnedArmors());
     }
 
-    public void GenerateCards(Transform[] pivots, List<CardData> cardDataList, float scaleFactor)
+    public void GenerateCards(Transform[] pivots, List<CardData> cardDataList)
     {        
         for (int i = 0; i < pivots.Length; i++)
         {
-            GameObject go = Instantiate(cardPrefab, pivots[i]);
-            CardDisplay cardDisplay = go.GetComponent<CardDisplay>();
-            go.GetComponent<CardInspection>().scaleMultiplier = 1.5f;
-            go.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
-
-            cardDisplay.cardData = cardDataList[Random.Range(1,cardDataList.Count)];
-
+            cardPrefab.GetComponent<CardDisplay>().cardData = cardDataList[Random.Range(0, cardDataList.Count)];
+            Instantiate(cardPrefab, pivots[i]);
         }
+    }
+
+    public void GenerateUpgrade(Transform pivot, List<CardData> card)
+    {
+        upgradePrefab.GetComponent<CardDisplay>().cardData = card[Random.Range(0, card.Count)];
+        Instantiate(upgradePrefab, pivot);
     }
 
     

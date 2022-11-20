@@ -59,11 +59,11 @@ public class CardDisplay : MonoBehaviour
         if (cardData.GetType() == typeof(Attack))
         {
             var card = (Attack)cardData;
-            if(card.damage > 0) description.Append("Realiza " + card.damage.ToString() + " puntos de daño. ");
+            if(card.damage > 0) description.Append("Daña " + card.damage.ToString() + "<br>");
         }
         else if (cardData.GetType() == typeof(Special)){
             var card = (Special)cardData;
-            if (card.damage > 0) description.Append("Realiza " + card.damage.ToString() + " puntos de daño. ");
+            if (card.damage > 0) description.Append("Daña " + card.damage.ToString() + "<br>");
         }
     }
 
@@ -113,26 +113,26 @@ public class CardDisplay : MonoBehaviour
                 switch (card.effects[i])
                 {
                     case CardData.TEffects.rHEALTH:
-                        description.Append("Restaura " + card.eValues[i] + " puntos de vida. ");
+                        description.Append("Restaura " + card.eValues[i] + " puntos de vida.<br>");
                         break;
                     case CardData.TEffects.rENERGY:
-                        if (card.aEffectValues[i] == -1) description.Append("Restaura toda tu energía. ");
-                        else description.Append("Otorga " + card.eValues[i] + " cargas de energía. ");
+                        if (card.aEffectValues[i] == -1) description.Append("Restaura toda tu energía.<br>");
+                        else description.Append("Revitaliza " + card.eValues[i] + "<br>");
                         break;
                     case CardData.TEffects.DRAW:
-                        description.Append("Robas " + card.eValues[i] + " cartas.");
+                        description.Append("Robas " + card.eValues[i] + " cartas.<br>");
                         break;
                     case CardData.TEffects.DRAWATTACK:
-                        description.Append("Robas " + card.eValues[i] + " cartas de ataque.");
+                        description.Append("Robas " + card.eValues[i] + " cartas de ataque.<br>");
                         break;
                     case CardData.TEffects.DISCARD:
-                        description.Append("Descarta " + card.eValues[i] + " cartas.");
+                        description.Append("Descarta " + card.eValues[i] + " cartas.<br>");
                         break;
                     case CardData.TEffects.CLEANSE:
-                        description.Append("Limpia todos los efectos de estado.");
+                        description.Append("Limpia todos los efectos de estado.<br>");
                         break;
                     case CardData.TEffects.STEAL:
-                        description.Append("Robas una carta a tu rival y la usas este turno");
+                        description.Append("Robas una carta a tu rival y la usas este turno.<br>");
                         break;
                 }
             }

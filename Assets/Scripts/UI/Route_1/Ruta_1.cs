@@ -55,7 +55,7 @@ public class Ruta_1 : MonoBehaviour
         }
     }
 
-    public void ToEncounter(int encounterId) {
+    public void ToEncounter() {
         fade.FadeOut();
         fade.lateFadeIn();
 

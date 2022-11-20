@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_060_Herrero
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Vaya chico, est\xE1s muy lejos de casa. \xBFNo eres demasiado joven para hacer
+    un viaje tan largo?"
+  - "Los j\xF3venes y vuestros sue\xF1os, completamente ajenos a la realidad que
+    vivimos. Mientras otros intentamos ganarnos el pan, vosotros no ten\xE9is otra
+    cosa que hacer que ir dando tumbos por ah\xED."
+  - "Aun as\xED, creo que puedes ayudarme. Ver\xE1s chico, son tiempos duros para
+    la profesi\xF3n, apenas llegan recursos para poder trabajar. "
+  - "Aquellos que se dedican a explotar las minas, se guardan los materiales y los
+    ponen a precios desorbitados. As\xED los humildes herreros como yo no podemos
+    trabajar."
+  - "La situaci\xF3n no parece que vaya a cambiar, el hierro y otros minerales son
+    bienes de primera necesidad, y siempre hay compradores, sin importar que el precio
+    sea abusivo."
+  - 'Se necesitan para seguir fabricando armas. Las guerras nunca terminan. '
+  - "Pero seguro que, en tu peregrinaje, has conseguido bienes que me pueden ser
+    \xFAtiles. Si me das alguno, te lo recompensar\xE9 muy bien."
+  responses:
+  - responseText: Acepta el trato.
+    dialogueObject: {fileID: 11400000, guid: fbe072866d3e4cc4e87218d212a001ed, type: 2}
+  - responseText: Rechaza el trato.
+    dialogueObject: {fileID: 11400000, guid: f1b2947c96110a743ba4184e57279789, type: 2}
+  character: {fileID: 21300000, guid: 702289f6f457ada438c875066a0f51d0, type: 3}

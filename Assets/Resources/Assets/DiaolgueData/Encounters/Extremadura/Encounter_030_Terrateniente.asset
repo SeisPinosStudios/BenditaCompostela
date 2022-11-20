@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Encounter_030_Terrateniente
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "\xA1Alto ah\xED muchacho! \xBFAcaso sabes por d\xF3nde andas? "
+  - "Forastero \xBFVerdad? Bueno, en ese caso, por si nadie te lo ha dicho, todo
+    lo que hay al norte del pueblo es de mi propiedad."
+  - "Tenemos alg\xFAn disidente que piensa lo contrario, que no se preocupe, ya se
+    lo explicar\xE9. "
+  - "La tierra es de quien la trabaja, y aqu\xED el que m\xE1s trabaja soy yo, que
+    me tiro todo el d\xEDa buscando gente que me trabaje la tierra, nadie piensa
+    en lo dura que es la vida de un terrateniente. "
+  - "Los j\xF3venes de hoy en d\xEDa quer\xE9is vivir como se\xF1ores, pero trabajar
+    poco, as\xED no funciona el mundo."
+  - "Pero bueno, podr\xEDa ser peor, podr\xEDas querer entrar en una propiedad privada
+    como si nada, justo como est\xE1s haciendo t\xFA."
+  - "Mira chico, te ofrezco un trato, trabaja para m\xED durante una jornada y no
+    solo te dejar\xE9 pasar, sino que tambi\xE9n te pagar\xE9 un sueldo muy generoso
+    \xBFQu\xE9 te parece? "
+  responses:
+  - responseText: Aceptar trato
+    dialogueObject: {fileID: 11400000, guid: 189b261dd1902464c9c8b629fd8a9fea, type: 2}
+  - responseText: Rechazar trato
+    dialogueObject: {fileID: 11400000, guid: 4a905de411ace5c409abfe9a2ca74020, type: 2}
+  character: {fileID: 21300000, guid: 6a263605203314143ad929e5b06f420e, type: 3}

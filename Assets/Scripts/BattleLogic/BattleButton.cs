@@ -10,14 +10,14 @@ public class BattleButton : MonoBehaviour
     private MapPathSelector mapController;
     void Start()
     {
-        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        if(SceneManager.GetActiveScene().name != "DebugScene") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>()?.onClick.AddListener(() => ToBattleScene(enemy));
     }
 
     public void ToBattleScene(Enemy enemy)
     {
         if (GameManager.playerData.playerDeck.Count < 5) return;
-        GameManager.currentNode = mapController.GetGoIndex(gameObject);
+        if (SceneManager.GetActiveScene().name != "DebugScene") GameManager.currentNode = mapController.GetGoIndex(gameObject);
         GameManager.nextEnemy = enemy;
         SceneManager.LoadScene("BattleScene");
     }
