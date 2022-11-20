@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735d1385b3bb10a479deb876d4abd826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 3323f6fe7302d294f82457adf95fddf1, type: 2}
+  cardData: {fileID: 0}
   nameText: {fileID: 5422815997749187472}
   descText: {fileID: 5685668778224680722}
   sprite: {fileID: 7560168526375386494}
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6344285022213485672}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb59b68a8afaa6d4a8d466dee779de5d, type: 3}
   m_Name: 
