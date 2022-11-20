@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
-  m_Name: Lore_05_Agricultor
+  m_Name: Lore_051_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
   - "AGRICULTOR\nY entonces lleg\xF3 ese peque\xF1o maleante, y me dijo que estaba
