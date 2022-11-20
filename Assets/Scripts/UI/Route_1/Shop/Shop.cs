@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
         GenerateCards(objectPivots, CardDataFilter.ObjectsCardDataList());
         GenerateCards(specialObjectPivots, CardDataFilter.SpecialZoneCardList(zone));
         GenerateCards(weaponPivots, CardDataFilter.ShopWeapons());
-        GenerateCards(armorPivots, CardDataFilter.ArmorCardDataList());
+        GenerateCards(armorPivots, CardDataFilter.ShopArmor());
         GenerateUpgrade(upgradePivots[0], CardDataFilter.OwnedWeapons());
         GenerateUpgrade(upgradePivots[1], CardDataFilter.OwnedArmors());
     }

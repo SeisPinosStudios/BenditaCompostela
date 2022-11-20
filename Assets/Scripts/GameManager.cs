@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public static Player playerData;
     public List<CardData> Debuginventory;
+    public List<Image> backgrounds;
+    public Image activeBackground;
 
 
     #region Debug
@@ -53,7 +55,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         if (debug)
         {
             foreach (CardData card in Resources.LoadAll<CardData>("Assets"))
@@ -63,7 +64,6 @@ public class GameManager : MonoBehaviour
             }
             Debuginventory = playerData.inventory;
         }
-
         if (auxInitialize && !debug)
         {
             auxInitialize = false;
@@ -96,11 +96,13 @@ public class GameManager : MonoBehaviour
         StringBuilder playerDeckData = new StringBuilder();
         StringBuilder equipmentData = new StringBuilder();
         StringBuilder completedNodesData = new StringBuilder();
+
         foreach (CardData card in playerData.inventory) {
             var cardData = CardDataFilter.allCards().Find(cardData => cardData.name == card.name);
             Debug.Log(CardDataFilter.allCards().IndexOf(cardData));
             inventoryData.Append(CardDataFilter.allCards().IndexOf(cardData) + "\n");
         }
+
         foreach (CardData card in playerData.playerDeck) {
             var cardData = CardDataFilter.allCards().Find(cardData => cardData.name == card.name);
             Debug.Log(CardDataFilter.allCards().IndexOf(cardData));
@@ -121,6 +123,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("route", ActualRoute);
         PlayerPrefs.SetInt("gameProgressContext", gameProgressContext);
         PlayerPrefs.SetInt("SavedData", 1);
+        PlayerPrefs.SetInt("HP", playerData.maxHP);
+        PlayerPrefs.SetInt("energy", playerData.energy);
+        PlayerPrefs.SetInt("coins", playerData.coins);
+        PlayerPrefs.SetInt("currentHP", playerData.currentHP);
 
         Debug.Log("Data saved");
     }
@@ -158,6 +164,11 @@ public class GameManager : MonoBehaviour
         playerData.feetArmor = (Armor)Instantiate(CardDataFilter.allCards()[int.Parse(equipmentData[1])]);
 
         gameProgressContext = PlayerPrefs.GetInt("gameProgressContext");
+
+        playerData.maxHP = PlayerPrefs.GetInt("maxHP");
+        playerData.coins = PlayerPrefs.GetInt("coins");
+        playerData.energy = PlayerPrefs.GetInt("energy");
+        playerData.currentHP = PlayerPrefs.GetInt("currentHP");
         
         Debug.Log("Data loaded");
     }
@@ -169,5 +180,27 @@ public class GameManager : MonoBehaviour
     public static void DumpSavedData()
     {
         PlayerPrefs.DeleteAll();
+    }
+    public void GetBackground()
+    {
+        switch (ActualRoute)
+        {
+            case "Sevilla":
+                activeBackground = backgrounds[0];
+                break;
+            case "Extremadura":
+                activeBackground = backgrounds[1];
+                break;
+            case "Leon":
+                activeBackground = backgrounds[2];
+                break;
+            case "Galicia":
+                activeBackground = backgrounds[3];
+                break;
+        }
+    }
+    public void Update()
+    {
+        
     }
 }
