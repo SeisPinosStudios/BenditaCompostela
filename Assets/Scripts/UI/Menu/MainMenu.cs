@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     #region Variables
     public GameObject fadeGo;
+    public GameObject title;
+    public GameObject touchText;
     Fade fade;
     SlideAnimCoroutines coroutines;
     #endregion
@@ -14,11 +16,22 @@ public class MainMenu : MonoBehaviour
     #region Initialization
     void Start()
     {
-        transform.localPosition = new Vector3(0,-1080,0);
-        transform.localScale= new Vector3(1, 1, 1);        
-        fade = fadeGo.GetComponent<Fade>();      
+        transform.localPosition = new Vector3(0, -1080, 0);
+        transform.localScale = new Vector3(1, 1, 1);
+        fade = fadeGo.GetComponent<Fade>();
         fade.FadeIn();
         coroutines = gameObject.GetComponent<SlideAnimCoroutines>();
+        Invoke("EneableTitleAnim", 1f);
+
+    }
+
+    public void EneableTitleAnim() {
+        title.SetActive(true);
+        Invoke("EneableTouchText", 2f);
+    }
+    public void EneableTouchText()
+    {
+        touchText.SetActive(true);
     }
     #endregion
 
@@ -76,6 +89,7 @@ public class MainMenu : MonoBehaviour
         fade.FadeOut();
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, 2000, 0), 100f));
+        GameManager.ActualRoute = "Sevilla";
 
         Invoke("ruta1LoadScene",1.5f);        
     }

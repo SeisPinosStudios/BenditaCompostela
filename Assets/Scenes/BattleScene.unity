@@ -1554,6 +1554,9 @@ MonoBehaviour:
   - {fileID: 7801811126854394682, guid: f141346628f2e0444b002f232e7ee13b, type: 3}
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
   player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
+  Debuginventory: []
+  backgrounds: []
+  activeBackground: {fileID: 0}
 --- !u!4 &2024956697
 Transform:
   m_ObjectHideFlags: 0
@@ -1649,8 +1652,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619144, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301442056216619144, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3301442056216619146, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
       propertyPath: HP
@@ -1856,7 +1863,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.026481628
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4488729308338467421, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 594be03e225bd3048b22f9f7922f1350, type: 3}
 --- !u!114 &3301442056443616531 stripped
 MonoBehaviour:

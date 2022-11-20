@@ -7,7 +7,7 @@ public class Node
 {
     public int index;
     public int context;
-    public List<GameObject> previousNodes;
+    public List<PreviousNode> previousNodes;
     public GameObject nodeGo;
     public bool isCompleted;
 }
