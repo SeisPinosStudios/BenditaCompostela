@@ -569,7 +569,7 @@ MonoBehaviour:
   nameText: {fileID: 2571937501497045032}
   descText: {fileID: 6545579742089875006}
   sprite: {fileID: 7560168526375386494}
-  cost: {fileID: 0}
+  cost: {fileID: 2878432693995223093}
   energyIcon: {fileID: 7726059553996807793}
 --- !u!114 &7197058838121625349
 MonoBehaviour:
