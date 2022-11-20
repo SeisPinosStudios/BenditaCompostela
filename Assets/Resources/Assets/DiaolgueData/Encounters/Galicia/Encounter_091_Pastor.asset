@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - 'Menos mal, bendito el cielo. Mi calvario ha terminado. '
   responses: []
-  character: {fileID: 21300000, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
+  character: {fileID: -1797045276, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}

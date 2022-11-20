@@ -15,6 +15,6 @@ public class ShopButton : MonoBehaviour
 
     public void SetCurrentLevelAndTransition() {
         GameManager.currentNode = mapController.GetGoIndex(gameObject);
-        GameObject.Find("Slide").GetComponent<Ruta_1>().ToShop();
+        GameObject.Find("Slide").GetComponent<RouteNavigator>().ToShop();
     }
 }

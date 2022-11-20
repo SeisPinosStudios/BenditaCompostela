@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject fadeGo;
     public GameObject title;
     public GameObject touchText;
+    public GameObject savedDataScreen;
     Fade fade;
     SlideAnimCoroutines coroutines;
     #endregion
@@ -24,14 +25,18 @@ public class MainMenu : MonoBehaviour
         Invoke("EneableTitleAnim", 1f);
 
     }
-
     public void EneableTitleAnim() {
         title.SetActive(true);
+        Invoke("AnimSound", 1f);
         Invoke("EneableTouchText", 2f);
     }
     public void EneableTouchText()
     {
         touchText.SetActive(true);
+    }
+    public void AnimSound()
+    {
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("MainAnimation");
     }
     #endregion
 
@@ -46,6 +51,7 @@ public class MainMenu : MonoBehaviour
         fade.lateFadeIn();
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(3000, 0, 0), 100f));
+        SceneManager.LoadScene("Credits");
     }
     public void ToMainMenu()
     {
@@ -83,18 +89,39 @@ public class MainMenu : MonoBehaviour
 
     #endregion
 
+    #region Data Detected
+    public void CheckForData()
+    {
+        if(PlayerPrefs.GetInt("SavedData") == 1)
+        {
+            Debug.Log("Entra en hay datos");
+            savedDataScreen.SetActive(true);
+        }
+        else
+        {
+            GameManager.ActualRoute = "Sevilla";
+            ToCinematic();
+        }
+    }
+    #endregion
+
     #region Route Selection
-    public void ruta1() 
+    public void ToRoute() 
     {
         fade.FadeOut();
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, 2000, 0), 100f));
-        GameManager.ActualRoute = "Sevilla";
 
-        Invoke("ruta1LoadScene",1.5f);        
+        Invoke("LoadRouteScene", 1.5f);        
     }
-    void ruta1LoadScene() {
-        SceneManager.LoadScene(1);
+    void LoadRouteScene() {
+        SceneManager.LoadScene(GameManager.ActualRoute);
+    }
+
+    public void ToCinematic()
+    {
+        SceneManager.LoadScene("Cinematic_1");
     }
     #endregion
+
 }

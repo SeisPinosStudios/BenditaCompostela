@@ -19,12 +19,12 @@ public class ResponseHandler : MonoBehaviour
     {
         dialogueUI = GetComponent<DialogueUI>();
     }
-
     public void AddResponseEvent(List<ResponseEvent> responseEvents) {
         this.responseEvents = responseEvents;
     }
     public void ShowResponses(Response[] responses)
     {
+        GetComponent<TypeWriterEffect>().Stop();
         float responseBoxHeight = 0;
         for(int i = 0; i<responses.Length; i++)
         {

@@ -15,8 +15,8 @@ public class EncounterButton : MonoBehaviour
 
     private void OnEnable()
     {
-        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
-        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());        
+        if(SceneManager.GetActiveScene().name != "Cinematic_1") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
     }
     public void SetCurrentLevelAndTransition()
     {
@@ -24,7 +24,7 @@ public class EncounterButton : MonoBehaviour
         {
             GameManager.currentNode = mapController.GetGoIndex(gameObject);
             Debug.Log(mapController.GetGoIndex(gameObject));
-            GameObject.Find("Slide").GetComponent<Ruta_1>().ToEncounter();
+            GameObject.Find("Slide").GetComponent<RouteNavigator>().ToEncounter();
         }
 
         StartCoroutine(Encounter());
@@ -41,6 +41,16 @@ public class EncounterButton : MonoBehaviour
         encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
         encounter.GetComponent<DialogueActivator>().ActivateDialogue();
     }
+    public void Cinematic()
+    {
+        encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
+        encounterPrefab.GetComponent<DialogueResponseEvents>().dialogueObject = dialog;
+        foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
+        encounterPrefab.GetComponentInChildren<DialogueUI>().character = dialog.character;
+        var encounter = Instantiate(encounterPrefab, pivot);
+        encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
+        encounter.GetComponent<DialogueActivator>().ActivateDialogue();
+    }
     public void ToBattleScene(Enemy enemy)
     {
         //if (GameManager.playerData.playerDeck.Count < 5) return;
@@ -49,6 +59,10 @@ public class EncounterButton : MonoBehaviour
     }
 
     #region Event Units
+
+    public void ToSlideRoute() {
+        GameObject.Find("Slide").GetComponent<RouteNavigator>().ToRoute();
+    }
     public bool TakeMoney(int money)
     {
         return GameManager.playerData.CoinDecrease(money);
@@ -125,12 +139,10 @@ public class EncounterButton : MonoBehaviour
         ToBattleScene(enemy);
     }
 
-    public void CambiapielesAceptar(CardData card, CardData card2)
+    public void CambiapielesAceptar()
     {
         GiveMoney(5);
         Heal(5);
-        GiveCard(card);
-        GiveCard(card2);
     }
     public void CambiapielesRechazar(Enemy enemy)
     {

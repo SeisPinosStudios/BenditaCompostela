@@ -10,11 +10,13 @@ public class Entity : MonoBehaviour
     public int energy;
     public int currentEnergy;
 
+    #region Altered Effects
     public List<CardData.TAlteredEffects> alteredEffects;
     public List<int> aEffectsValue;
-
     public GameObject alteredEffectsDisplayPrefab;
     public Sprite[] alteredEffectsImages;
+    int poisonTurns;
+    #endregion
 
     #region Synergy Variables
     public int damageBoost = 0;
@@ -49,6 +51,15 @@ public class Entity : MonoBehaviour
         damage = Vulnerable(damage);
         damage = Guarded(damage);
         damage = Invulnerable(damage);
+        damage = Mathf.Clamp(damage, 0, 99);
+        this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+
+        if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
+
+        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
+    }
+    public void SufferEffectDamage(int damage)
+    {
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
@@ -100,16 +111,26 @@ public class Entity : MonoBehaviour
     {
         if (Suffering(alteredEffect) < 0) return;
 
+        Debug.Log("INDEX IN LIST:" + Suffering(alteredEffect));
+
         aEffectsValue.Remove(Suffering(alteredEffect));
         alteredEffects.Remove(alteredEffect);
+
+        if (alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
+
+        Debug.Log("REMOVED EFFECT: " + alteredEffect.ToString());
+
+        if(aEffectsValue.Contains(0)) aEffectsValue.Remove(aEffectsValue.IndexOf(0));
 
         UpdateEffectsDisplay();
     } 
     public void RemoveAlteredEffect()
     {
-        alteredEffects.Clear();
-        aEffectsValue.Clear();
-
+        foreach(CardData.TAlteredEffects effect in alteredEffects)
+        {
+            if (effect == CardData.TAlteredEffects.INVULNERABLE || effect == CardData.TAlteredEffects.GUARDED) continue;
+            RemoveAlteredEffect(effect);
+        }
         UpdateEffectsDisplay();
     }
     public void ReduceAlteredEffect(CardData.TAlteredEffects alteredEffect, int charges)
@@ -117,6 +138,8 @@ public class Entity : MonoBehaviour
         if (Suffering(alteredEffect) < 0) return;
 
         aEffectsValue[Suffering(alteredEffect)] -= charges;
+
+        Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
 
         if (aEffectsValue[Suffering(alteredEffect)] <= 0)
             RemoveAlteredEffect(alteredEffect);
@@ -134,25 +157,28 @@ public class Entity : MonoBehaviour
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
         if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
 
-        SufferDamage(effectCharges);
+        SufferEffectDamage(effectCharges);
 
         ReduceAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
-    }
 
+        Debug.Log("EFFECT: Bleed");
+    }
     public void Poison()
     {
         if (Suffering(CardData.TAlteredEffects.POISON) < 0) return;
 
-        var effectCharges = aEffectsValue[Suffering(CardData.TAlteredEffects.POISON)];
+        poisonTurns++;
+        var effectCharges = poisonTurns;
 
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
         if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
 
-        SufferDamage(effectCharges);
+        SufferEffectDamage(effectCharges);
 
         ReduceAlteredEffect(CardData.TAlteredEffects.POISON, 1);
-    }
 
+        Debug.Log("EFFECT: Poison");
+    }
     public void Burn()
     {
         if (Suffering(CardData.TAlteredEffects.BURN) < 0) return;
@@ -162,25 +188,27 @@ public class Entity : MonoBehaviour
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
         if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
 
-        this.SufferDamage(effectCharges);
+        SufferEffectDamage(effectCharges);
 
-        RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
+        ReduceAlteredEffect(CardData.TAlteredEffects.BURN, effectCharges);
+
+        Debug.Log("EFFECT: Burn");
     }
-
     public bool Disarmed()
     {
+        Debug.Log("EFFECT: Disarmed");
         if (Suffering(CardData.TAlteredEffects.DISARMED) < 0) return false;
 
         return true;
     }
     public int Vulnerable(int damage)
     {
+        
         if (this.Suffering(CardData.TAlteredEffects.VULNERABLE) < 0) return damage;
 
-        this.aEffectsValue[Suffering(CardData.TAlteredEffects.VULNERABLE)]--;
+        Debug.Log("EFFECT: Vulnerable");
 
-        if (aEffectsValue[Suffering(CardData.TAlteredEffects.VULNERABLE)] <= 0) 
-            RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
+        ReduceAlteredEffect(CardData.TAlteredEffects.VULNERABLE, 1);
 
         UpdateEffectsDisplay();
 
@@ -193,10 +221,9 @@ public class Entity : MonoBehaviour
     {
         if (this.Suffering(CardData.TAlteredEffects.GUARDED) < 0) return damage;
 
-        this.aEffectsValue[Suffering(CardData.TAlteredEffects.GUARDED)]--;
+        Debug.Log("EFFECT: Guarded");
 
-        if (aEffectsValue[Suffering(CardData.TAlteredEffects.GUARDED)] <= 0)
-            RemoveAlteredEffect(CardData.TAlteredEffects.GUARDED);
+        ReduceAlteredEffect(CardData.TAlteredEffects.GUARDED, 1);
 
         UpdateEffectsDisplay();
 
@@ -209,11 +236,10 @@ public class Entity : MonoBehaviour
     {
         if (this.Suffering(CardData.TAlteredEffects.INVULNERABLE) < 0) return damage;
 
-        this.aEffectsValue[Suffering(CardData.TAlteredEffects.INVULNERABLE)]--;
+        Debug.Log("EFFECT: Invulnerable");
 
-        if (aEffectsValue[Suffering(CardData.TAlteredEffects.INVULNERABLE)] <= 0)
-            RemoveAlteredEffect(CardData.TAlteredEffects.INVULNERABLE);
-        
+        ReduceAlteredEffect(CardData.TAlteredEffects.INVULNERABLE, 1);
+
         UpdateEffectsDisplay();
 
         return 0;

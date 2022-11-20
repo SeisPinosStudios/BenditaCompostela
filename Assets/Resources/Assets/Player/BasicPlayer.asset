@@ -19,20 +19,10 @@ MonoBehaviour:
   playerDeck: []
   inventory:
   - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
-  - {fileID: 11400000, guid: 91bd69417fc4794458425cb91fc6aae3, type: 2}
   - {fileID: 11400000, guid: 8ffbe4a1bec204a4c9f58804f5bd99b3, type: 2}
-  - {fileID: 11400000, guid: 3d912b2814213a3429d58630664b440a, type: 2}
-  - {fileID: 11400000, guid: 9e721383584198f40af99f5ce551435d, type: 2}
-  - {fileID: 11400000, guid: 348e904085a60304e8d86a8891ea8d1a, type: 2}
+  - {fileID: 11400000, guid: 8b238346f9846fb4ca9f26a1d1e42ce9, type: 2}
   - {fileID: 11400000, guid: a4ccef38288e9174abbbf7ac5f1b410c, type: 2}
   - {fileID: 11400000, guid: 4c7fa1ecb00b9504fb5db4c04a18fbd4, type: 2}
   - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
-  - {fileID: 11400000, guid: f740c02bf91aa1b46a78dd9e2b536907, type: 2}
-  - {fileID: 11400000, guid: 4c19d69b23ef70b4b870767d2ce4da04, type: 2}
-  - {fileID: 11400000, guid: 915595cddd7bbef4c8c81c55c20ebac9, type: 2}
-  - {fileID: 11400000, guid: 09d16f098338b894e8d2d2f79c238157, type: 2}
-  - {fileID: 11400000, guid: 1ea9764669fff1b4fb2be572b2705cff, type: 2}
   chestArmor: {fileID: 11400000, guid: 003342c37eaa96041b6ba62ae767bf32, type: 2}
   feetArmor: {fileID: 11400000, guid: 6806a213d57dc7a4e9c83331cc7729f4, type: 2}

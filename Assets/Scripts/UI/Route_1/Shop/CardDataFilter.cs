@@ -67,10 +67,10 @@ public class CardDataFilter : MonoBehaviour
     {
         List<CardData> obj = new List<CardData>();
 
-        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Weapons"))
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Armors"))
         {
-            var weapon = (Armor)card;
-            if (weapon.upgradeLevel == 0) obj.Add(card);
+            var armor = (Armor)card;
+            if (armor.upgradeLevel == 0) obj.Add(card);
         }
 
         return obj;

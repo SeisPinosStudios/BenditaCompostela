@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_05_Agricultor Enfurecido
   m_EditorClassIdentifier: 
   name: Agricultor enfurecido
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7a1eff4a9825dc84fa4365b46458f5da, type: 3}
   HP: 45
   energy: 99
   enemyAttacks:
@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87e195003ac5ae54985d735375cf0f86, type: 2}
   boss: 0
   resistances: 
+  reward: 6

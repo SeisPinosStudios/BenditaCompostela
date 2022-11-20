@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_14_Meiga
   m_EditorClassIdentifier: 
   name: Meiga
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bd83ac9121f6ae240b516f659bcd4728, type: 3}
   HP: 120
   energy: 99
   enemyAttacks:
@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2809e02158c72e34ba51d1824f2af9f9, type: 2}
   boss: 0
   resistances: 00000000
+  reward: 8

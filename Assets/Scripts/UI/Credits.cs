@@ -22,7 +22,6 @@ public class Credits : MonoBehaviour
 
     public void Fade()
     {
-        Debug.Log("Mame");
         if(color.a < 1)
         {
             StartCoroutine(FadeOut());
@@ -74,6 +73,6 @@ public class Credits : MonoBehaviour
     {
         if(progress < credits.Length) GetComponentInChildren<TextMeshProUGUI>().text = credits[progress];
 
-        if (progress == credits.Length) SceneManager.LoadScene("Menu");
+        if (progress == credits.Length) SceneManager.LoadScene("MainMenu");
     }
 }
