@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         {
             case "PlayerScript":
                 SceneManager.LoadScene("DeathScene");
-                Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
+                //Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
                 break;
             case "EnemyScript":
                 UpdateNodeProgress();

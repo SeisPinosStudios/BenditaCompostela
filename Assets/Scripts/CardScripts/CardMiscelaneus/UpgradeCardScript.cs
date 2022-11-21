@@ -50,14 +50,14 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         if (GameManager.playerData.inventory.Find(weapon => weapon == card) != null)
         {
             GameManager.playerData.inventory.Remove(card);
-            GameManager.playerData.inventory.Add(card.improvedWeapon);
+            GameManager.playerData.inventory.Add(card);
             return;
         }
 
         if (GameManager.playerData.playerDeck.Find(weapon => weapon == card) != null)
         {
             GameManager.playerData.playerDeck.Remove(card);
-            GameManager.playerData.inventory.Add(card.improvedWeapon);
+            GameManager.playerData.inventory.Add(card);
             return;
         }
 
@@ -85,7 +85,7 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
         if (inCard) return;
-        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa carta cuesta " + cost + " monedas de oro... ¿Tenemos trato?";
+        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa mejora cuesta " + cost + " monedas de oro... ¿Tenemos trato?";
         inCard = true;
     }
     public void OnPointerExit(PointerEventData pointerEvent)

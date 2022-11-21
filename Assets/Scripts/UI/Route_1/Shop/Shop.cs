@@ -37,17 +37,24 @@ public class Shop : MonoBehaviour
         GenerateUpgrade(upgradePivots[1], CardDataFilter.OwnedArmors());
     }
     public void GenerateCards(Transform[] pivots, List<CardData> cardDataList)
-    {        
+    {
         for (int i = 0; i < pivots.Length; i++)
         {
+            if (pivots[i].transform.childCount > 0) Destroy(pivots[i].transform.GetChild(0));
             cardPrefab.GetComponent<CardDisplay>().cardData = cardDataList[Random.Range(0, cardDataList.Count)];
             Instantiate(cardPrefab, pivots[i]);
         }
     }
-    public void GenerateUpgrade(Transform pivot, List<CardData> card)
+    public void GenerateUpgrade(Transform pivot, List<CardData> cards)
     {
-        if(card.Count <= 0) return;
-        upgradePrefab.GetComponent<CardDisplay>().cardData = card[Random.Range(0, card.Count)];
+        if(cards.Count <= 0) return;
+        if (pivot.transform.childCount > 0) Destroy(pivot.transform.GetChild(0));
+
+        CardData card = cards[Random.Range(0, cards.Count)];
+
+        if (card.GetType() == typeof(Armor)) { var armorCard = (Armor)card; upgradePrefab.GetComponent<CardDisplay>().cardData = armorCard.improvedArmor; }
+        else if(card.GetType() == typeof(Weapon)) { var weaponCard = (Weapon)card; upgradePrefab.GetComponent<CardDisplay>().cardData = weaponCard.improvedWeapon; } 
+        
         Instantiate(upgradePrefab, pivot);
     }
 }
