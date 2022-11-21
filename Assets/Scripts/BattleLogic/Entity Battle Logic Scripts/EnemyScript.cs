@@ -11,6 +11,7 @@ public class EnemyScript : Entity
 
     public void Awake()
     {
+        SetupEntity();
         if(GameManager.nextEnemy != null) enemyData = GameManager.nextEnemy;
 
         HP = enemyData.HP;

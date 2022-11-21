@@ -54,6 +54,7 @@ public class PlayerScript : Entity
     }
     public void PlayerConfig()
     {
+        SetupEntity();
         playerData = GameManager.playerData;
         HP = playerData.maxHP;
         currentHP = playerData.currentHP;

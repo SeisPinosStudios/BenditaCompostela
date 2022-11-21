@@ -30,7 +30,7 @@ public class Card : MonoBehaviour
         }
         #endregion
 
-        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) >= 0  && cardData.GetType() != typeof(Weapon))
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon))
         {
             energyCost++;
             self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
@@ -43,7 +43,7 @@ public class Card : MonoBehaviour
         switch (cardData.GetType().ToString())
         {
             case "Weapon":
-                if (self.Suffering(CardData.TAlteredEffects.DISARMED) >= 0) return;
+                if (self.Suffering(CardData.TAlteredEffects.DISARMED)) return;
                 EquipWeapon();
                 break;
             case "Attack":

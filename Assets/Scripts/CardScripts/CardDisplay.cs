@@ -176,4 +176,11 @@ public class CardDisplay : MonoBehaviour
 
 
     }
+
+    public void Armor()
+    {
+        var armor = (Armor)cardData;
+        description.Append("Protege " + armor.defenseValue + "<br>");
+
+    }
 }
