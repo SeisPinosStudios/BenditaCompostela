@@ -95,6 +95,4 @@ public class TurnSystemScript : MonoBehaviour
         dialogueIndex++;
         Tutorial();
     }
-
-
 }

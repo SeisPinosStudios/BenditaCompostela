@@ -13,7 +13,7 @@ public class AttackDeck : MonoBehaviour
 
     public void Awake()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(DrawCard);
+        gameObject.GetComponent<Button>().onClick.AddListener(() => StartDrawCoroutine(1));
     }
     public void DrawCard()
     {
@@ -39,6 +39,11 @@ public class AttackDeck : MonoBehaviour
             Debug.Log("DRAW COROUTINE" + j);
             DrawFreeCard();
             yield return new WaitForSeconds(0.2f);
+        }
+
+        foreach (Transform card in hand.transform)
+        {
+            card.GetComponent<CardInspection>().canInspect = true;
         }
     }
     public void StartDrawCoroutine(int drawnCards)

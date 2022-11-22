@@ -48,6 +48,7 @@ public class PlayerScript : Entity
     }
     public IEnumerator OnTurnEnd()
     {
+        foreach (Transform child in GameObject.Find("HandPanel").transform) child.GetComponent<CardInspection>().canInspect = false;
         DeactivateCombatControl();
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
         GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().Turn();

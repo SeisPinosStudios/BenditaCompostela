@@ -15,12 +15,8 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     Vector3 originalScale;
     Vector3 originalPosition;
     private bool inspecting = false;
+    public bool canInspect = false;
     #endregion
-
-    public void Awake()
-    {
-        gameObject.GetComponent<CardInspection>().enabled = false;
-    }
 
     #region Inspection methods
     /* This methods control the inspection functionality of the cards. When
@@ -28,71 +24,51 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
      * easier inspection */
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
-        if (!isMobile())
-        {
-            originalScale = transform.localScale;
-            originalPosition = transform.localPosition;
-            transform.localScale = (transform.localScale) * scaleMultiplier;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
-                DisableHandPanel();
-            }
-
-            if(siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
-        }
+        if (!canInspect || inspecting) return;
+        if (!isMobile()) Inspecting();
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
-        if (!isMobile())
-        {
-            transform.localScale = originalScale;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = originalPosition;
-                EnableHandPanel();
-            }
-        } 
+        if (!canInspect || !inspecting) return;
+        if (!isMobile()) NotInspecting();
     }
-
     public void OnPointerClick(PointerEventData pointerEvent)
     {
         if (!isMobile()) return;
+        if (!canInspect) return;
 
-        if (inspecting)
+        if (inspecting) { NotInspecting(); inspecting = !inspecting; }
+        else if (!inspecting) { Inspecting(); inspecting = !inspecting; }
+    }
+    void Inspecting()
+    {
+        originalScale = transform.localScale;
+        originalPosition = transform.localPosition;
+        transform.localScale = (transform.localScale) * scaleMultiplier;
+
+        if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            transform.localScale = originalScale;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = originalPosition;
-                EnableHandPanel();
-            }
-
-            inspecting = !inspecting;
-            Debug.Log(isMobile().ToString());
+            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
+            DisableHandPanel();
         }
-        else if (!inspecting)
+
+        if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+
+        inspecting = !inspecting;
+    }
+    void NotInspecting()
+    {
+        transform.localScale = originalScale;
+
+        if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            originalScale = transform.localScale;
-            originalPosition = transform.localPosition;
-            transform.localScale = (transform.localScale) * scaleMultiplier;
-
-            if (SceneManager.GetActiveScene().name == "BattleScene")
-            {
-                transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
-                DisableHandPanel();
-            }
-
-            if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
-            inspecting = !inspecting;
-            Debug.Log(isMobile().ToString());
+            transform.localPosition = originalPosition;
+            EnableHandPanel();
         }
+
+        inspecting = !inspecting;
     }
     #endregion
-
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime
