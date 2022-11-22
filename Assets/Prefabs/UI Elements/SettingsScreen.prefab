@@ -784,6 +784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPrefab: {fileID: 0}
   pivot: {fileID: 0}
+  settingsScreen: {fileID: 0}
 --- !u!1 &4969505969356657140
 GameObject:
   m_ObjectHideFlags: 0

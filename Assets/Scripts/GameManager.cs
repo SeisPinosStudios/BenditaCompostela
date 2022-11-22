@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public static List<DialogueObject> tutorialText;
     #endregion
 
+    #region Combat and Routes
     public static Enemy nextEnemy;
     public static string ActualRoute = "Sevilla";
     public GameObject[] BattleCompletedUI = new GameObject[2];
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     public List<CardData> Debuginventory;
     public List<Sprite> backgrounds;
     public static Sprite activeBackground;
-
+    #endregion
 
     #region Debug
     static bool debug = false;
@@ -49,7 +50,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             playerData = player.copy();
-            //if (HasSavedData()) LoadGame();
         }
         else
         {
@@ -75,7 +75,8 @@ public class GameManager : MonoBehaviour
         {
             case "PlayerScript":
                 SceneManager.LoadScene("DeathScene");
-                Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
+                DumpSavedData();
+                //Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
                 break;
             case "EnemyScript":
                 UpdateNodeProgress();
@@ -198,6 +199,13 @@ public class GameManager : MonoBehaviour
     public static void DumpSavedData()
     {
         PlayerPrefs.DeleteAll();
+    }
+    public void ResetGameManager()
+    {
+        playerData = player.copy();
+        ActualRoute = "Sevilla";
+        completedNodes.Clear();
+        gameProgressContext = 0;
     }
     public void GetBackground()
     {

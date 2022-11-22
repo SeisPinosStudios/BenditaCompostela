@@ -131,11 +131,18 @@ public class Entity : MonoBehaviour
     } 
     public void RemoveAlteredEffect()
     {
+        List<CardData.TAlteredEffects> SufferingEffects = new List<CardData.TAlteredEffects>();
         foreach(KeyValuePair<CardData.TAlteredEffects,int> effect in alteredEffects)
         {
             if (effect.Key == CardData.TAlteredEffects.INVULNERABLE || effect.Key == CardData.TAlteredEffects.GUARDED) continue;
-            RemoveAlteredEffect(effect.Key);
+            if (Suffering(effect.Key)) SufferingEffects.Add(effect.Key);
         }
+
+        foreach(CardData.TAlteredEffects alteredEffect in SufferingEffects)
+        {
+            RemoveAlteredEffect(alteredEffect);
+        }
+
         UpdateEffectsDisplay();
     }
     public void ReduceAlteredEffect(CardData.TAlteredEffects alteredEffect, int charges)

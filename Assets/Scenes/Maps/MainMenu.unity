@@ -1047,6 +1047,7 @@ MonoBehaviour:
   title: {fileID: 1075529124}
   touchText: {fileID: 432953871}
   savedDataScreen: {fileID: 382076266}
+  gameManager: {fileID: 1793441828}
 --- !u!114 &363434133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,7 +4358,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5eae78f8d9ef06479965fed3a9bfe49, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

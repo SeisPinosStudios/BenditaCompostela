@@ -28,7 +28,6 @@ public class CardDisplay : MonoBehaviour
         cost.text = cardData.cost.ToString();
         if(cardData.GetType() == typeof(Armor) || cardData.GetType() == typeof(Weapon)) energyIcon.SetActive(false);
     }
-
     public void Description()
     {
         switch (cardData.GetType().ToString())
@@ -55,7 +54,6 @@ public class CardDisplay : MonoBehaviour
                 break;
         }
     }
-
     public void DamageText()
     {
         if (cardData.GetType() == typeof(Attack))
@@ -68,7 +66,6 @@ public class CardDisplay : MonoBehaviour
             if (card.damage > 0) description.Append("Daña " + card.damage.ToString() + "<br>");
         }
     }
-
     public void AlteredEffect()
     {
 
@@ -103,7 +100,6 @@ public class CardDisplay : MonoBehaviour
                 description.Append("<sprite index=" + (int)card.alteredEffects[i] + ">x" + card.aEffectValues[i] + " ");
         }
     }
-
     public void Effect()
     {
         if(cardData.GetType() == typeof(Special))
@@ -176,11 +172,9 @@ public class CardDisplay : MonoBehaviour
 
 
     }
-
     public void Armor()
     {
         var armor = (Armor)cardData;
         description.Append("Protege " + armor.defenseValue + "<br>");
-
     }
 }

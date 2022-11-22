@@ -19,7 +19,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void Awake()
     {
-
+        gameObject.GetComponent<CardInspection>().enabled = false;
     }
 
     #region Inspection methods
@@ -48,7 +48,6 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (!isMobile())
         {
             transform.localScale = originalScale;
-            
 
             if (SceneManager.GetActiveScene().name == "BattleScene")
             {
@@ -56,8 +55,8 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 EnableHandPanel();
             }
         } 
-    } 
-    #endregion
+    }
+
     public void OnPointerClick(PointerEventData pointerEvent)
     {
         if (!isMobile()) return;
@@ -92,6 +91,8 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             Debug.Log(isMobile().ToString());
         }
     }
+    #endregion
+
 
     #region Panel-related methods
     /* Panel-related methods. This methods disable and enable the hand panel everytime

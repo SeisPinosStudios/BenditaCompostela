@@ -28,17 +28,22 @@ public class AttackDeck : MonoBehaviour
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         Instantiate(card, hand.transform);
-
+        Debug.Log("DRAW CARD");
         GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("DrawCard");
     }
-    public IEnumerator DrawCardCoroutine(int drawnCards)
+    IEnumerator DrawCardCoroutine(int drawnCards)
     {
+        Debug.Log("DRAWN CARDS: " + drawnCards);
         for (int j = 0; j < drawnCards; j++)
         {
             Debug.Log("DRAW COROUTINE" + j);
             DrawFreeCard();
             yield return new WaitForSeconds(0.2f);
         }
+    }
+    public void StartDrawCoroutine(int drawnCards)
+    {
+        StartCoroutine(DrawCardCoroutine(drawnCards));
     }
     public void Update()
     {

@@ -27,7 +27,6 @@ public class DefaultDeck : MonoBehaviour
         
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
     }
-
     public void DrawCard()
     {
         if (deckQueue.Count <= 0) return;
@@ -38,8 +37,6 @@ public class DefaultDeck : MonoBehaviour
     }
     public IEnumerator DrawCardCorroutine(int drawnCards)
     {
-        card.GetComponent<CardInspection>().enabled = false;
-
         for (int j = 0; j < drawnCards; j++)
         {
             DrawCard();
@@ -49,10 +46,12 @@ public class DefaultDeck : MonoBehaviour
 
         foreach(Transform card in hand.transform)
         {
-            card.gameObject.GetComponent<CardInspection>().enabled = true;
+            card.GetComponent<CardInspection>().enabled = true;
         }
-
-        card.GetComponent<CardInspection>().enabled = true;
+    }
+    public void StartDrawCoroutine(int drawnCards)
+    {
+        StartCoroutine(DrawCardCorroutine(drawnCards));
     }
     public IEnumerator DiscardCorroutine()
     {

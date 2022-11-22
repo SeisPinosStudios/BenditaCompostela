@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject title;
     public GameObject touchText;
     public GameObject savedDataScreen;
+    public GameObject gameManager;
     Fade fade;
     SlideAnimCoroutines coroutines;
     #endregion
@@ -23,7 +24,7 @@ public class MainMenu : MonoBehaviour
         fade.FadeIn();
         coroutines = gameObject.GetComponent<SlideAnimCoroutines>();
         Invoke("EneableTitleAnim", 1f);
-
+        gameManager.GetComponent<GameManager>().ResetGameManager();
     }
     public void EneableTitleAnim() {
         title.SetActive(true);

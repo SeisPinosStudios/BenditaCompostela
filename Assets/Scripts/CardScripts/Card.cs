@@ -129,14 +129,14 @@ public class Card : MonoBehaviour
                 self.RestoreEnergy(value);
                 break;
             case CardData.TEffects.DRAW:
-                StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(value));
+                GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().StartDrawCoroutine(value);
                 break;
             case CardData.TEffects.CLEANSE:
                 self.RemoveAlteredEffect();
                 break;
             case CardData.TEffects.DRAWATTACK:
                 if (self.GetComponent<PlayerScript>().weapon == null) return;
-                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCoroutine(value));
+                GameObject.Find("AttackDeck").GetComponent<AttackDeck>().StartDrawCoroutine(value);
                 break;
             /*
             case CardData.TEffects.STEAL:
