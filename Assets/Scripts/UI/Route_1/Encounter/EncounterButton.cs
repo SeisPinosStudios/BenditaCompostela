@@ -13,7 +13,7 @@ public class EncounterButton : MonoBehaviour
     public List<ResponseEvent> events;
     private MapPathSelector mapController;
 
-    private void OnEnable()
+    private void Awake()
     {
         if(SceneManager.GetActiveScene().name != "Cinematic_1") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
@@ -31,6 +31,7 @@ public class EncounterButton : MonoBehaviour
     }
     IEnumerator Encounter()
     {
+        Debug.Log("ENCOUNTER");
         yield return new WaitForSeconds(1.5f);
 
         encounterPrefab.GetComponent<DialogueActivator>().dialogueObject = dialog;
@@ -59,7 +60,6 @@ public class EncounterButton : MonoBehaviour
     }
 
     #region Event Units
-
     public void ToSlideRoute() {
         GameObject.Find("Slide").GetComponent<RouteNavigator>().ToRoute();
     }

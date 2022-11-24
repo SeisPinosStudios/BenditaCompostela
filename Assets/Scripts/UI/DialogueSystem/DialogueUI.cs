@@ -20,7 +20,8 @@ public class DialogueUI : MonoBehaviour
     private TypeWriterEffect typeWriterEffect;
     private void Awake()
     {
-        characterImage.sprite = character;
+        if (characterImage.sprite != null) characterImage.sprite = character;
+        else characterImage.gameObject.SetActive(false);
         characterImage.SetNativeSize();
         if(SceneManager.GetActiveScene().name != "Cinematic_1") backgroundImage.sprite = GameManager.activeBackground;
         typeWriterEffect = GetComponent<TypeWriterEffect>();

@@ -113,7 +113,8 @@ public class Entity : MonoBehaviour
 
         if (alteredEffect == CardData.TAlteredEffects.INVULNERABLE)
             alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 2);
-
+        else if (alteredEffect == CardData.TAlteredEffects.BURN)
+            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 10);
         else
             alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
 
@@ -181,7 +182,7 @@ public class Entity : MonoBehaviour
     {
         if (!Suffering(CardData.TAlteredEffects.POISON)) return;
         
-        poisonTurns++;
+        poisonTurns += 2;
         var effectCharges = poisonTurns;
 
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
@@ -202,7 +203,8 @@ public class Entity : MonoBehaviour
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
         if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
 
-        SufferEffectDamage(effectCharges);
+        if(alteredEffects[CardData.TAlteredEffects.BURN] <= 5)SufferEffectDamage(effectCharges);
+        else if(alteredEffects[CardData.TAlteredEffects.BURN] > 5)SufferEffectDamage(effectCharges*2);
 
         ReduceAlteredEffect(CardData.TAlteredEffects.BURN, effectCharges);
 
@@ -227,9 +229,9 @@ public class Entity : MonoBehaviour
         UpdateEffectsDisplay();
 
         if(this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xVULNERABLE)
-            return damage += (int)Mathf.Round((float)damage * 0.6f);
+            return damage += (int)Mathf.Round((float)damage * (0.1f *alteredEffects[CardData.TAlteredEffects.VULNERABLE]));
 
-        return damage += (int)Mathf.Round((float)damage * 0.5f);
+        return damage += (int)Mathf.Round((float)damage * (0.1f * alteredEffects[CardData.TAlteredEffects.VULNERABLE]));
     }
     public int Guarded(int damage)
     {
@@ -242,7 +244,7 @@ public class Entity : MonoBehaviour
         UpdateEffectsDisplay();
 
         if (this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xGUARDED)
-            return damage -= (int)Mathf.Round((float)damage * 0.3f);
+            return damage -= (int)Mathf.Round((float)damage * 0.7f);
 
         return damage -= (int)Mathf.Round((float)damage * 0.5f);
     }

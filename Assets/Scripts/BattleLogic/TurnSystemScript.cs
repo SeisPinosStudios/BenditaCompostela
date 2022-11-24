@@ -28,19 +28,17 @@ public class TurnSystemScript : MonoBehaviour
     public void Start()
     {
         dialogueIndex = 0;
+        fade.GetComponent<Fade>().FadeIn();
         GameObject.Find("====CANVAS====").GetComponent<Image>().sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
-        fade.GetComponent<Fade>().FadeIn();
+        StartCoroutine(TurnCoroutine());
+    }
+    IEnumerator TurnCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("FIRST TURN BEGIN");
         Turn();
-        /*
-        if (GameManager.nextEnemy.name == "Bandido A")
-        {
-            Tutorial();         
-        }
-        else {
-            Turn();
-        }*/
     }
 
     public void Turn()
@@ -52,15 +50,11 @@ public class TurnSystemScript : MonoBehaviour
         current = next;
         next = temp;
 
-        Debug.Log("Turno de " + current);
+        Debug.Log("TURN:" + current.name);
 
-        if (current == player)
-        {
-            StartCoroutine(player.GetComponent<PlayerScript>().OnTurnBegin());
-        }
+        if (current == player) StartCoroutine(player.GetComponent<PlayerScript>().OnTurnBegin());
         else enemy.GetComponent<EnemyScript>().OnTurnBegin(); 
     }
-
     public void Tutorial()
     {
         if (dialogueIndex <= tutorialDialogue.Count - 1)
@@ -90,7 +84,6 @@ public class TurnSystemScript : MonoBehaviour
 
         
     }
-
     public void ClosedDialogueBox() {
         dialogueIndex++;
         Tutorial();

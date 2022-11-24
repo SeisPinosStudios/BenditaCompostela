@@ -7,9 +7,18 @@ using UnityEngine.EventSystems;
 public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Vector3 originalPosition;
+    GameObject deck;
+    GameObject hand;
+    private void Awake()
+    {
+        deck = GameObject.Find("DefaultDeck");
+        hand = GameObject.Find("HandPanel");
+    }
     public void OnBeginDrag(PointerEventData pointerEvent)
     {
         originalPosition = gameObject.transform.localPosition;
+
+        deck.GetComponent<DefaultDeck>().SetInspection(false);
     }
 
     public void OnDrag(PointerEventData pointerEvent)
@@ -27,8 +36,8 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else
         {
             gameObject.GetComponent<Card>().UseCard();
+            hand.GetComponent<HorizontalLayoutGroup>().enabled = true;
         }
-
-        GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
+        deck.GetComponent<DefaultDeck>().SetInspection(true);
     }
 }

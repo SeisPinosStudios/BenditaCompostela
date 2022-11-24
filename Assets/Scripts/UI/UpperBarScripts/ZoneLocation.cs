@@ -19,16 +19,8 @@ public class ZoneLocation : MonoBehaviour
     {
         switch (scene)
         {
-            case "Route_Andalucia":
-                return "Andalucia";
-            case "1":
-                return "Extremadura";
-            case "2":
-                return "León";
-            case "3":
-                return "Galicia";
             case "BattleScene":
-                return RouteCompute(GameManager.ActualRoute);
+                return GameObject.Find("Enemy").GetComponent<EnemyScript>().name;
             case "EquipmentScene":
                 return RouteCompute(GameManager.ActualRoute);
             case "DeckBuilderScene":

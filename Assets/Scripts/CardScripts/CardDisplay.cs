@@ -172,9 +172,32 @@ public class CardDisplay : MonoBehaviour
 
 
     }
-    public void Armor()
+    public void ArmorDescription()
     {
         var armor = (Armor)cardData;
         description.Append("Protege " + armor.defenseValue + "<br>");
+        description.Append("Sinergia con " + armor.synergyWeapon[0].name + ":");
+
+        switch (armor.synergy)
+        {
+            case Armor.TSynergy.xVULNERABLE:
+                description.Append("Haces " + (10 + armor.upgradeLevel * 5) + "% más de daño a <sprite index=5>");
+                break;
+            case Armor.TSynergy.DEFENCE:
+
+                break;
+            case Armor.TSynergy.HEALING:
+
+                break;
+            case Armor.TSynergy.ENERGY:
+
+                break;
+            case Armor.TSynergy.DAMAGE:
+
+                break;
+            case Armor.TSynergy.xGUARDED:
+
+                break;
+        }
     }
 }

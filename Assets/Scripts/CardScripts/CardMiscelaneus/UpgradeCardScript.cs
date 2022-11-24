@@ -15,12 +15,12 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         if (card.GetType() == typeof(Armor))
         {
             var armor = (Armor)card;
-            cost = 15 * (armor.upgradeLevel + 1);
+            cost = 15 * (armor.upgradeLevel);
         }
         else
         {
             var weapon = (Weapon)card;
-            cost = 15 * (weapon.upgradeLevel + 1);
+            cost = 15 * (weapon.upgradeLevel);
         }
         shopText = GameObject.Find("ShopTextSlot");
     }
@@ -32,12 +32,12 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         {
             case "Weapon":
                 var weapon = (Weapon)cardData;
-                if (GameManager.playerData.CoinDecrease(15 * (weapon.upgradeLevel + 1))) UpgradeWeapon();
+                if (GameManager.playerData.CoinDecrease(15 * weapon.upgradeLevel)) UpgradeWeapon();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];
                 break;
             case "Armor":
                 var armor = (Armor)cardData;
-                if(GameManager.playerData.CoinDecrease(15 * (armor.upgradeLevel + 1))) UpgradeArmor();
+                if(GameManager.playerData.CoinDecrease(15 * armor.upgradeLevel)) UpgradeArmor();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];
                 break;
         }
@@ -57,7 +57,7 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         if (GameManager.playerData.playerDeck.Find(weapon => weapon == card) != null)
         {
             GameManager.playerData.playerDeck.Remove(card);
-            GameManager.playerData.inventory.Add(card);
+            GameManager.playerData.playerDeck.Add(card);
             return;
         }
 
@@ -73,7 +73,7 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         if (GameManager.playerData.inventory.Find(weapon => weapon == card) != null)
         {
             GameManager.playerData.inventory.Remove(card);
-            GameManager.playerData.inventory.Add(card.improvedArmor);
+            GameManager.playerData.inventory.Add(card);
             return;
         }
 

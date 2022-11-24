@@ -7,7 +7,7 @@ public class HPTextScript : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
 
-    public void Start()
+    public void Update()
     {
         textComponent.text = GameManager.playerData.currentHP + "/" + GameManager.playerData.maxHP;
     }

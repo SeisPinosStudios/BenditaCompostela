@@ -27,7 +27,6 @@ public class DefaultDeck : MonoBehaviour
         
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
     }
-
     public void Shuffle()
     { 
         for(int i = 0; i < playerDeck.Count; i++)
@@ -70,10 +69,7 @@ public class DefaultDeck : MonoBehaviour
             if (deckQueue.Count <= 0) break;
         }
 
-        foreach (Transform card in hand.transform)
-        {
-            card.GetComponent<CardInspection>().canInspect = true;
-        }
+        SetInspection(true);
     }
     public void StartDrawCoroutine(int drawnCards)
     {
@@ -90,6 +86,13 @@ public class DefaultDeck : MonoBehaviour
         }
 
         Debug.Log("Salió del bucle");
+    }
+    #endregion
+
+    #region Card Inspection Control
+    public void SetInspection(bool inspect)
+    {
+        foreach (Transform card in hand.transform) card.GetComponent<CardInspection>().canInspect = inspect;
     }
     #endregion
 }
