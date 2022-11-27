@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New enemy asset", menuName = "BenditaCompostela/New enemy")]
-public class Enemy : ScriptableObject
+[CreateAssetMenu(fileName = "New enemy asset", menuName = "BenditaCompostela/New enemy TEST")]
+public class EnemyAnimationSOTest : ScriptableObject
 {
     public new string name;
     public Sprite sprite;

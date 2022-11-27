@@ -21,6 +21,8 @@ public class TypeWriterEffect : MonoBehaviour
         IsRunning = true;
         textLabel.text = string.Empty;       
 
+
+
         float t = 0;
         int charIndex = 0;
 

@@ -1155,6 +1155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: DebugScene
+  buttonImage: {fileID: 0}
+  sprites: []
 --- !u!114 &1693975862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,6 +1289,14 @@ MonoBehaviour:
   next: {fileID: 0}
   handPannel: {fileID: 1504785916}
   DefaultDeck: {fileID: 1117395791}
+  tutorialDialogue: []
+  pivotGameObject: []
+  dialogueBoxPrefab: {fileID: 0}
+  attackDeckShadow: {fileID: 0}
+  defDeck: {fileID: 0}
+  attDeck: {fileID: 0}
+  fade: {fileID: 0}
+  dialogueIndex: 0
 --- !u!1 &1873746584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1390,8 @@ MonoBehaviour:
   player: {fileID: 327742870}
   hand: {fileID: 1504785916}
   card: {fileID: 6344285022213485672, guid: b2f3be45166e6dd458ed65547b135076, type: 3}
+  images: []
+  image: {fileID: 0}
 --- !u!114 &1873746589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,13 +1465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd66b7c2b2873b43a3312ff8b27ad00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aux: []
-  auxGo: {fileID: 0}
   BattleCompletedUI:
   - {fileID: 7801811126854394682, guid: f141346628f2e0444b002f232e7ee13b, type: 3}
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
   player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
-  debug: 0
+  Debuginventory: []
+  backgrounds: []
 --- !u!4 &2024956697
 Transform:
   m_ObjectHideFlags: 0
@@ -1884,3 +1895,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
+--- !u!1 &5649096038336468771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8268430258849036870, guid: 06e5731569ec40141a0b9d00144f317f, type: 3}
+  m_PrefabInstance: {fileID: 5649096038336468770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &5649096038336468772
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649096038336468771}
+  m_CullTransparentMesh: 1
