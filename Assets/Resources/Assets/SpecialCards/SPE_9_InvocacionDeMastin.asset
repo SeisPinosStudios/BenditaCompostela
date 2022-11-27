@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Realiza 4 puntos de da\xF1o y aplica Sangradox2."
   artwork: {fileID: 21300000, guid: 88d5aedcfb1edb34583b931c901fea63, type: 3}
   cost: 6
+  money: 6
   damage: 8
   alteredEffects: 00000000
   aEffectValues: 03000000

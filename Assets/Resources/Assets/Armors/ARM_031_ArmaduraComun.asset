@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Potege 3<br>Sinergia con Espada: +5% de da\xF1o a <sprite index=4>"
   artwork: {fileID: 21300000, guid: e3612357f5b56014fb66b60bdd0a4684, type: 3}
   cost: 0
+  money: 20
   defenseValue: 4
   damageBonus: 0
   extraDefence: 0
@@ -27,4 +28,5 @@ MonoBehaviour:
   synergy: 4
   upgradeLevel: 1
   improvedArmor: {fileID: 11400000, guid: 93748d8e7939eb54a99d5808b7991dfb, type: 2}
+  previousArmor: {fileID: 11400000, guid: 915595cddd7bbef4c8c81c55c20ebac9, type: 2}
   armorId: 1

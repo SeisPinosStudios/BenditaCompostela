@@ -25,7 +25,6 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         gameObject.transform.position = pointerEvent.position;
     }
-
     public void OnEndDrag(PointerEventData pointerEvent)
     {
         if (pointerEvent.position.y <= 200)
@@ -39,5 +38,14 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             hand.GetComponent<HorizontalLayoutGroup>().enabled = true;
         }
         deck.GetComponent<DefaultDeck>().SetInspection(true);
+    }
+
+    public void ModifyDescription()
+    {
+
+    }
+    public void OriginalDescription()
+    {
+
     }
 }

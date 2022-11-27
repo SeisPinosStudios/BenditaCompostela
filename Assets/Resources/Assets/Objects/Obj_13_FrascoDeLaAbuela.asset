@@ -16,7 +16,9 @@ MonoBehaviour:
   description: Aplica Venenox2.
   artwork: {fileID: 21300000, guid: cab1d08607d972e40aba3cd5dfa342a4, type: 3}
   cost: 4
+  money: 5
   alteredEffects: 01000000
-  aEffectValues: 02000000
+  aEffectValues: 03000000
   effects: 
   eValues: 
+  zone: 3

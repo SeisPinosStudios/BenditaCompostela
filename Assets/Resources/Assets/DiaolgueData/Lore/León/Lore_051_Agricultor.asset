@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: Lore_051_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "AGRICULTOR\nY entonces lleg\xF3 ese peque\xF1o maleante, y me dijo que estaba
-    cerca, que era por aqu\xED, que no hab\xEDa problema. Y ahora no s\xE9 d\xF3nde
-    estoy, me han robado la carga, y todo por ese est\xFApido duende. "
-  - "AGRICULTOR\nMuchacho, si te encuentras con \xE9l, no le creas. No le des opci\xF3n
-    a que te engatuse, mach\xE1calo. Es peque\xF1o, piojoso y estafador."
-  - "AGRICULTOR\nSe me ha escapado, es muy r\xE1pido. Anda con mil ojos chico. Nunca
-    sabes de d\xF3nde puede salir. "
+  - "AGRICULTOR\n\xA1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!"
   responses: []
   character: {fileID: -669100558, guid: c210ad7b73842024daa9e847761f7298, type: 3}

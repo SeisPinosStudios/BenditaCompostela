@@ -13,6 +13,7 @@ public class Armor : CardData
     public TSynergy synergy;
     public int upgradeLevel;
     public Armor improvedArmor;
+    public Armor previousArmor;
     public enum TArmor 
         { CHEST, FEET}
 

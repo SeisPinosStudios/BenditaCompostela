@@ -16,6 +16,7 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 21300000, guid: 7d5d1a15e80994246a2fec11b8717a8a, type: 3}
   cost: 0
+  money: 5
   defenseValue: 2
   damageBonus: 1
   extraDefence: 0

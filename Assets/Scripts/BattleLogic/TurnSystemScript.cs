@@ -25,13 +25,14 @@ public class TurnSystemScript : MonoBehaviour
 
     public int dialogueIndex;
 
-    public void Start()
+    public void Awake()
     {
-        dialogueIndex = 0;
-        fade.GetComponent<Fade>().FadeIn();
         GameObject.Find("====CANVAS====").GetComponent<Image>().sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
+    }
+    public void Start()
+    {
         StartCoroutine(TurnCoroutine());
     }
     IEnumerator TurnCoroutine()
@@ -40,7 +41,6 @@ public class TurnSystemScript : MonoBehaviour
         Debug.Log("FIRST TURN BEGIN");
         Turn();
     }
-
     public void Turn()
     {
         current.GetComponent<Entity>().ReduceAlteredEffect(CardData.TAlteredEffects.DISARMED, 1);

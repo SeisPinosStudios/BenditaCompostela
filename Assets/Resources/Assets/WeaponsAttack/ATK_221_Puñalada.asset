@@ -15,7 +15,7 @@ MonoBehaviour:
   name: "Pu\xF1alada +"
   description: 
   artwork: {fileID: 21300000, guid: ca9cbf019d1226d47acfa4744d5bce5b, type: 3}
-  cost: 2
-  damage: 3
-  alteredEffects: 00000000
-  aEffectValues: 02000000
+  cost: 1
+  damage: 4
+  alteredEffects: 
+  aEffectValues: 

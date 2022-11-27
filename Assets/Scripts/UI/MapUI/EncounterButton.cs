@@ -87,10 +87,12 @@ public class EncounterButton : MonoBehaviour
     {
         GameManager.playerData.Heal(HP);
     }
-    public void TakeArmor()
+    public bool TakeArmor()
     {
         var armors = GameManager.playerData.inventory.Where(armor => armor.GetType() == typeof(Armor)).ToList();
+        if(armors.Count <= 0) return false;
         GameManager.playerData.inventory.Remove(armors[Random.Range(0,armors.Count)]);
+        return true;
     }
     public void TakeRandomCard()
     {
@@ -175,7 +177,7 @@ public class EncounterButton : MonoBehaviour
 
     public void HerreroGaliciaAceptar(CardData card)
     {
-        TakeArmor();
+        if(!TakeArmor()) return ;
         Heal(5);
         for(int i = 0; i < 4; i++)
         {

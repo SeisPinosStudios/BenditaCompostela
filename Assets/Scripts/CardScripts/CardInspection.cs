@@ -52,7 +52,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             DisableHandPanel();
         }
 
-        if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
+        /*if (siblingIndex != (GetComponentInParent<Transform>().childCount))*/ transform.SetAsLastSibling();
 
         inspecting = !inspecting;
     }

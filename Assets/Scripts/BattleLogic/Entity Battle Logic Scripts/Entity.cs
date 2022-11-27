@@ -21,7 +21,7 @@ public class Entity : MonoBehaviour
 
     #region Synergy Variables
     public int damageBoost = 0;
-    public int defence = 0;
+    public int defense = 0;
     public int extraHealing = 0;
     #endregion
 
@@ -77,6 +77,7 @@ public class Entity : MonoBehaviour
     }
     public void SufferEffectDamage(int damage)
     {
+        damage = Invulnerable(damage);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
@@ -111,13 +112,22 @@ public class Entity : MonoBehaviour
     {
         if (ResistanceTo(alteredEffect)) return;
 
-        if (alteredEffect == CardData.TAlteredEffects.INVULNERABLE)
-            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 2);
-        else if (alteredEffect == CardData.TAlteredEffects.BURN)
-            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 10);
-        else
-            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
-
+        switch (alteredEffect)
+        {
+            case CardData.TAlteredEffects.INVULNERABLE:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 2);
+                break;
+            case CardData.TAlteredEffects.BURN:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 10);
+                break;
+            case CardData.TAlteredEffects.VULNERABLE:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 3);
+                break;
+            default:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
+                break;
+        }
+        
         UpdateEffectsDisplay();
     }
     public void RemoveAlteredEffect(CardData.TAlteredEffects alteredEffect)
@@ -125,6 +135,8 @@ public class Entity : MonoBehaviour
         if (!Suffering(alteredEffect)) return;
 
         Debug.Log("INDEX IN LIST:" + Suffering(alteredEffect));
+
+        if(alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
 
         alteredEffects[alteredEffect] = 0;
 
@@ -143,6 +155,8 @@ public class Entity : MonoBehaviour
         {
             RemoveAlteredEffect(alteredEffect);
         }
+
+        poisonTurns = 0;
 
         UpdateEffectsDisplay();
     }
@@ -180,7 +194,7 @@ public class Entity : MonoBehaviour
     }
     public void Poison()
     {
-        if (!Suffering(CardData.TAlteredEffects.POISON)) return;
+        if (!Suffering(CardData.TAlteredEffects.POISON)) { poisonTurns = 0; return; }
         
         poisonTurns += 2;
         var effectCharges = poisonTurns;
@@ -206,7 +220,7 @@ public class Entity : MonoBehaviour
         if(alteredEffects[CardData.TAlteredEffects.BURN] <= 5)SufferEffectDamage(effectCharges);
         else if(alteredEffects[CardData.TAlteredEffects.BURN] > 5)SufferEffectDamage(effectCharges*2);
 
-        ReduceAlteredEffect(CardData.TAlteredEffects.BURN, effectCharges);
+        RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
 
         Debug.Log("EFFECT: Burn");
     }
@@ -224,14 +238,14 @@ public class Entity : MonoBehaviour
 
         Debug.Log("EFFECT: Vulnerable");
 
-        ReduceAlteredEffect(CardData.TAlteredEffects.VULNERABLE, 1);
+        RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
         UpdateEffectsDisplay();
 
         if(this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xVULNERABLE)
-            return damage += (int)Mathf.Round((float)damage * (0.1f *alteredEffects[CardData.TAlteredEffects.VULNERABLE]));
+            return damage += Mathf.Clamp((int)Mathf.Round((float)damage * (0.2f + (0.2f * (alteredEffects[CardData.TAlteredEffects.VULNERABLE] -1)))), 1, 99);
 
-        return damage += (int)Mathf.Round((float)damage * (0.1f * alteredEffects[CardData.TAlteredEffects.VULNERABLE]));
+        return damage += Mathf.Clamp((int)Mathf.Round((float)damage * (0.1f + (0.2f * (alteredEffects[CardData.TAlteredEffects.VULNERABLE] - 1)))), 1, 99);
     }
     public int Guarded(int damage)
     {
@@ -286,9 +300,11 @@ public class Entity : MonoBehaviour
         foreach (KeyValuePair<CardData.TAlteredEffects, int> effect in alteredEffects)
         {
             if (!Suffering(effect.Key)) continue;
-            alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect.Key];
+            //alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect.Key];
+            alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().effect = effect.Key;
+            alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().value = effect.Value;
             GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
-            newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + alteredEffects[effect.Key].ToString();
+            //newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + alteredEffects[effect.Key].ToString();
         }
     }
 
@@ -308,21 +324,19 @@ public class Entity : MonoBehaviour
 
         return false;
     }
-
     public bool IsBoss(Enemy.Boss isBoss)
     {
         if (this.GetType() != typeof(EnemyScript)) return false;
 
-        if (GetComponent<EnemyScript>().enemyData.IsBoss(Enemy.Boss.SANTIAGO)) return true;
+        if (GetComponent<EnemyScript>().enemyData.IsBoss(isBoss)) return true;
 
         return false;
     }
-
     public bool BossDebuff(Enemy.Boss isBoss)
     {
         if (this.GetType() != typeof(PlayerScript)) return false;
 
-        if (GetComponent<PlayerScript>().enemy.GetComponent<EnemyScript>().enemyData.IsBoss(Enemy.Boss.SANTIAGO)) return true;
+        if (GetComponent<PlayerScript>().enemy.GetComponent<EnemyScript>().enemyData.IsBoss(isBoss)) return true;
 
         return false;
     }

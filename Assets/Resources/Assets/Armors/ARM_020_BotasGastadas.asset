@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Son unas botas gastadas, no son muy \xFAtiles."
   artwork: {fileID: 21300000, guid: 2a9fc565062ea6b4196e3ea3fc05fd2b, type: 3}
   cost: 0
+  money: 5
   defenseValue: 0
   damageBonus: 0
   extraDefence: 0

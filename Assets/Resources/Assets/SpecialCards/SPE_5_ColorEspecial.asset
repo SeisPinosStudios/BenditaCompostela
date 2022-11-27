@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Realiza 8 puntos de da\xF1o y aplica Quemadurax4."
   artwork: {fileID: 21300000, guid: d6699c19ced84f2489f78fdf3f478832, type: 3}
   cost: 8
+  money: 6
   damage: 8
   alteredEffects: 02000000
   aEffectValues: 05000000

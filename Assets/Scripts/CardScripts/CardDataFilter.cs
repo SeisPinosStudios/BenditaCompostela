@@ -18,15 +18,26 @@ public class CardDataFilter : MonoBehaviour
     public static List<CardData> ArmorCardDataList()
     {
         List<CardData> obj = new List<CardData>();
-        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Armors")) obj.Add(card);
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Armors")) if(card.name != "Mantita de mamá" && card.name != "Botas gastadas") obj.Add(card);
         return obj;
     }
     public static List<CardData> ObjectsCardDataList()
     {
-        Debug.Log("En ObjectsCardDataList");
         List<CardData> obj = new List<CardData>();
         foreach (CardData card in Resources.LoadAll<CardData>("Assets/Objects")) obj.Add(card);
         return obj;
+    }
+    public static List<CardData> ObjectsCardDataListZone(Special.Zone zone)
+    {
+        List<CardData> cards = new List<CardData>();
+        foreach (CardData card in Resources.LoadAll<CardData>("Assets/Objects"))
+        {
+            Debug.Log(card.name);
+            var objectCard = (ObjectCard)card;
+            if (objectCard.zone == zone) cards.Add(card);
+        }
+
+        return cards;
     }
     public static List<CardData> SpecialCardDataList()
     {

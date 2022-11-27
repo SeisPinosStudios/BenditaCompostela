@@ -20,5 +20,7 @@ MonoBehaviour:
     a que te engatuse, mach\xE1calo. Es peque\xF1o, piojoso y estafador."
   - "AGRICULTOR\nSe me ha escapado, es muy r\xE1pido. Anda con mil ojos chico. Nunca
     sabes de d\xF3nde puede salir. "
-  responses: []
+  responses:
+  - responseText: Parece bastante enfadado...
+    dialogueObject: {fileID: 11400000, guid: 0f630f4e3b4da7f469f86b5958a12a81, type: 2}
   character: {fileID: -669100558, guid: c210ad7b73842024daa9e847761f7298, type: 3}

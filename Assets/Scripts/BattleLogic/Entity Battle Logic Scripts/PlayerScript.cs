@@ -63,8 +63,8 @@ public class PlayerScript : Entity
         playerDeck = playerData.playerDeck;
         chestArmor = playerData.chestArmor;
         feetArmor = playerData.feetArmor;
-        if (chestArmor != null) defence += chestArmor.defenseValue;
-        if (feetArmor != null) defence += feetArmor.defenseValue;
+        if (chestArmor != null) defense += chestArmor.defenseValue;
+        if (feetArmor != null) defense += feetArmor.defenseValue;
     }
     public void ActivateCombatControl()
     {
@@ -99,14 +99,14 @@ public class PlayerScript : Entity
     }
     public void CheckForSynergy()
     {
-        defence -= tempDefence;
+        defense -= tempDefence;
         damageBoost = 0;
         extraHealing = 0;
 
         ChestSynergy();
         FeetSynergy();
 
-        defence += tempDefence;
+        defense += tempDefence;
     }
     public void ChestSynergy()
     {

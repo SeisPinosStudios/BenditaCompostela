@@ -10,6 +10,7 @@ public class CardData : ScriptableObject
     public string description;
     public Sprite artwork;
     public int cost;
+    public int money;
     public enum TAlteredEffects 
         {BLEED, POISON, BURN, VULNERABLE, GUARDED, INVULNERABLE, CONFUSED, DISARMED}
 

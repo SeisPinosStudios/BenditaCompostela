@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Rayo expiador
   description: 
   artwork: {fileID: 21300000, guid: 16f42981be9841041876120095783f50, type: 3}
-  cost: 6
+  cost: 5
   damage: 7
   alteredEffects: 02000000
-  aEffectValues: 03000000
+  aEffectValues: 02000000

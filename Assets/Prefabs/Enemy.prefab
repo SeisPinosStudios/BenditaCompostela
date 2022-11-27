@@ -269,8 +269,6 @@ MonoBehaviour:
   currentHP: 0
   energy: 0
   currentEnergy: 0
-  alteredEffects: 
-  aEffectsValue: 
   alteredEffectsDisplayPrefab: {fileID: 7259979332579742689, guid: f98f3e57d97ce7941add4b3a6301efc8, type: 3}
   alteredEffectsImages: []
   damageBoost: 0
@@ -416,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -16}
+  m_AnchoredPosition: {x: -0.2, y: -15.999997}
   m_SizeDelta: {x: 163.6157, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4570351248306839583
@@ -509,7 +507,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79e073fb9073f544f84b82baf4b3e449, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d529833d7eef324c8112c46bf9301c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -556,7 +554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -4.0000005}
+  m_AnchoredPosition: {x: -0.2000122, y: -4}
   m_SizeDelta: {x: 131, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2224271630265100304

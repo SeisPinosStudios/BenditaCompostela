@@ -29,7 +29,7 @@ public class Shop : MonoBehaviour
     {
         cardDataFilter = GetComponent<CardDataFilter>();
 ;       
-        GenerateCards(objectPivots, CardDataFilter.ObjectsCardDataList());
+        GenerateCards(objectPivots, CardDataFilter.ObjectsCardDataListZone(zone));
         GenerateCards(specialObjectPivots, CardDataFilter.SpecialZoneCardList(zone));
         GenerateCards(weaponPivots, CardDataFilter.ShopWeapons());
         GenerateCards(armorPivots, CardDataFilter.ShopArmor());
@@ -38,10 +38,15 @@ public class Shop : MonoBehaviour
     }
     public void GenerateCards(Transform[] pivots, List<CardData> cardDataList)
     {
+        var cards = new List<CardData>();
+        foreach (CardData card in cardDataList) cards.Add(card);
+
         for (int i = 0; i < pivots.Length; i++)
         {
             if (pivots[i].transform.childCount > 0) Destroy(pivots[i].transform.GetChild(0));
-            cardPrefab.GetComponent<CardDisplay>().cardData = cardDataList[Random.Range(0, cardDataList.Count)];
+            var card = cards[Random.Range(0, cards.Count)];
+            cards.Remove(card);
+            cardPrefab.GetComponent<CardDisplay>().cardData = card;
             Instantiate(cardPrefab, pivots[i]);
         }
     }
