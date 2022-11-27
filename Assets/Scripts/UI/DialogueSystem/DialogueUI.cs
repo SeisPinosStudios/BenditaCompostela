@@ -49,11 +49,11 @@ public class DialogueUI : MonoBehaviour
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
-            string dialogue = dialogueObject.Dialogue[i];
+            string dialogue = dialogueObject.Dialogue[i];            
             yield return RunTypingEffect(dialogue);
-            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
-
             textLabel.text = dialogue;
+            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+            
             yield return null;
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
@@ -70,12 +70,13 @@ public class DialogueUI : MonoBehaviour
     {
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
-        {
+        {            
             string dialogue = dialogueObject.Dialogue[i];
+            
             yield return RunTypingEffect(dialogue);
-            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
-
             textLabel.text = dialogue;
+            if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+            
             yield return null;
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }

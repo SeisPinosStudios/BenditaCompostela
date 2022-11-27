@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class EnemyScript : Entity
+public class EnemyAnimationTest : Entity
 {
-    public Enemy enemyData;
+    public EnemyAnimationSOTest enemyData;
     public GameObject attack;
 
     public void Awake()
     {
         SetupEntity();
-        if(GameManager.nextEnemy != null) enemyData = GameManager.nextEnemy;
+        //if (GameManager.nextEnemy != null) enemyData = GameManager.nextEnemy;
+
+            
 
         HP = enemyData.HP;
         energy = enemyData.energy;
@@ -37,7 +39,7 @@ public class EnemyScript : Entity
         Debug.Log("Turno del enemigo.");
         currentEnergy = energy;
         Poison();
-        if(this.currentHP > 0) StartCoroutine(EnemyTurn());
+        if (this.currentHP > 0) StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
