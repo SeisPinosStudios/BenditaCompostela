@@ -38,7 +38,9 @@ public class TurnSystemScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         Debug.Log("FIRST TURN BEGIN");
-        Turn();
+
+        Tutorial();
+        //Turn();
     }
 
     public void Turn()
