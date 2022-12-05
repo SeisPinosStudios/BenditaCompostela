@@ -16,6 +16,7 @@ MonoBehaviour:
   description: Aplica Quemadurax5.
   artwork: {fileID: 21300000, guid: 47e15cbbfeefbd243914c2d31bdce9f9, type: 3}
   cost: 12
+  money: 10
   damage: 12
   alteredEffects: 0200000003000000
   aEffectValues: 0500000003000000

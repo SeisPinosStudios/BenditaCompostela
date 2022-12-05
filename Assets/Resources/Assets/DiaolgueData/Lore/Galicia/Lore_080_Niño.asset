@@ -33,4 +33,4 @@ MonoBehaviour:
   responses:
   - responseText: "\xA1Seguro que a\xFAn queda alguno!"
     dialogueObject: {fileID: 11400000, guid: 39f588b84725a8649a0779d6da088cee, type: 2}
-  character: {fileID: 21300000, guid: b6481caac59f6a54ea438feca484338b, type: 3}
+  character: {fileID: 21300000, guid: edf842c6c67d9cc48aa54185e8f23330, type: 3}

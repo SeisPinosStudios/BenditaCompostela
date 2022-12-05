@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ARM_051_PecheraDeCuero
   m_EditorClassIdentifier: 
   name: Pechera de cuero +
-  description: 
+  description: "Protege 2.<br>Sinergia con <color=#7B8118>Daga</color>: <color=#308a36>+3</color>
+    al l\xEDmite de da\xF1o de <sprite index=1> (5\u2192<color=#308a36>8</color>)."
   artwork: {fileID: 21300000, guid: c556d847338042c4ebbf07e1e3452290, type: 3}
   cost: 0
+  money: 20
   defenseValue: 1
   damageBonus: 0
   extraDefence: 0
@@ -24,7 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a14d72f77177d9c43ba044acb6378fd2, type: 2}
   - {fileID: 11400000, guid: ab9d17421d0fbb0408abc7754ae34af9, type: 2}
   armorType: 0
-  synergy: 3
+  synergy: 6
   upgradeLevel: 1
   improvedArmor: {fileID: 11400000, guid: 6799a11f6ca91144490f1f6ce84ffdb8, type: 2}
+  previousArmor: {fileID: 11400000, guid: 53bb06d37ed1f5e4aa4bb0a1a7caa631, type: 2}
   armorId: 2

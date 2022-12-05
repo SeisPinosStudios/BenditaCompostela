@@ -14,13 +14,20 @@ public class BattleWonScript : MonoBehaviour
     public List<Enemy> boss;
     public GameObject rewardText;
     public GameObject rewardMainText;
+    Special.Zone zone;
     public void Awake()
-    {   
-        var cards = CardDataFilter.ObjectsCardDataList();
+    {
+        GetZone();
+        Debug.Log("ROUTE: " + GameManager.ActualRoute);
+        var cards = new List<CardData>();
+        foreach(CardData card in CardDataFilter.ObjectsCardDataListZone(zone)) cards.Add(card);
         
         for(int i = 0; i < 3; i++)
         {
-            rewardPrefab.GetComponent<CardDisplay>().cardData = cards[Random.Range(0, cards.Count)];
+            Debug.Log(cards.Count);
+            var card = cards[Random.Range(0, cards.Count)];
+            cards.Remove(card);
+            rewardPrefab.GetComponent<CardDisplay>().cardData = card;
             Instantiate(rewardPrefab, pivot);
         }
 
@@ -147,5 +154,24 @@ public class BattleWonScript : MonoBehaviour
         GameManager.playerData.inventory.Add(card);
 
         rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
+    }
+    void GetZone()
+    {
+        Debug.Log(GameManager.ActualRoute);
+        switch (GameManager.ActualRoute)
+        {
+            case "Sevilla":
+                zone = Special.Zone.ANDALUCIA;
+                break;
+            case "Extremadura":
+                zone= Special.Zone.EXTREMADURA;
+                break;
+            case "Leon":
+                zone = Special.Zone.LEON;
+                break;
+            case "Galicia":
+                zone = Special.Zone.GALICIA;
+                break;
+        }
     }
 }

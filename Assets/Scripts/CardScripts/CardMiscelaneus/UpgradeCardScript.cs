@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 using TMPro;
 
 public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -11,17 +12,6 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     GameObject shopText;
     public void Awake()
     {
-        var card = GetComponent<CardDisplay>().cardData;
-        if (card.GetType() == typeof(Armor))
-        {
-            var armor = (Armor)card;
-            cost = 15 * (armor.upgradeLevel);
-        }
-        else
-        {
-            var weapon = (Weapon)card;
-            cost = 15 * (weapon.upgradeLevel);
-        }
         shopText = GameObject.Find("ShopTextSlot");
     }
     public void OnPointerClick(PointerEventData pointerEvet)
@@ -32,32 +22,32 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         {
             case "Weapon":
                 var weapon = (Weapon)cardData;
-                if (GameManager.playerData.CoinDecrease(15 * weapon.upgradeLevel)) UpgradeWeapon();
+                if (GameManager.playerData.CoinDecrease(weapon.money)) UpgradeWeapon();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];
                 break;
             case "Armor":
                 var armor = (Armor)cardData;
-                if(GameManager.playerData.CoinDecrease(15 * armor.upgradeLevel)) UpgradeArmor();
+                if(GameManager.playerData.CoinDecrease(armor.money)) UpgradeArmor();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];
                 break;
         }
     }
-
     public void UpgradeWeapon()
     {
-        var card = (Weapon)GetComponent<CardDisplay>().cardData;
+        var weapon = (Weapon)GetComponent<CardDisplay>().cardData;
+        var previousWeapon = weapon.previousWeapon;
 
-        if (GameManager.playerData.inventory.Find(weapon => weapon == card) != null)
+        if (GameManager.playerData.inventory.Find(weapon => weapon == previousWeapon) != null)
         {
-            GameManager.playerData.inventory.Remove(card);
-            GameManager.playerData.inventory.Add(card);
+            GameManager.playerData.inventory.Remove(previousWeapon);
+            GameManager.playerData.inventory.Add(weapon);
             return;
         }
 
-        if (GameManager.playerData.playerDeck.Find(weapon => weapon == card) != null)
+        if (GameManager.playerData.playerDeck.Find(weapon => weapon == previousWeapon) != null)
         {
-            GameManager.playerData.playerDeck.Remove(card);
-            GameManager.playerData.playerDeck.Add(card);
+            GameManager.playerData.playerDeck.Remove(previousWeapon);
+            GameManager.playerData.playerDeck.Add(weapon);
             return;
         }
 
@@ -65,15 +55,15 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
 
         Destroy(gameObject);
     }
-
     public void UpgradeArmor()
     {
-        var card = (Armor)GetComponent<CardDisplay>().cardData;
+        var armor = (Armor)GetComponent<CardDisplay>().cardData;
+        var previousArmor = armor.previousArmor;
 
-        if (GameManager.playerData.inventory.Find(weapon => weapon == card) != null)
+        if (GameManager.playerData.inventory.Find(armor => armor == previousArmor) != null)
         {
-            GameManager.playerData.inventory.Remove(card);
-            GameManager.playerData.inventory.Add(card);
+            GameManager.playerData.inventory.Remove(previousArmor);
+            GameManager.playerData.inventory.Add(armor);
             return;
         }
 
@@ -81,16 +71,20 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
 
         Destroy(gameObject);
     }
-
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
         if (inCard) return;
-        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa mejora cuesta " + cost + " monedas de oro... ¿Tenemos trato?";
+        var card = GetComponent<CardDisplay>().cardData;
+        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa mejora cuesta " + card.money + " monedas de oro... ¿Tenemos trato?";
         inCard = true;
     }
     public void OnPointerExit(PointerEventData pointerEvent)
     {
         shopText.GetComponentInChildren<TextMeshProUGUI>().text = "";
         inCard = false;
+    }
+    public static Weapon ConvertToWeapon(CardData card)
+    {
+        return (Weapon)card;
     }
 }

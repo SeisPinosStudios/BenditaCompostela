@@ -9,4 +9,5 @@ public class ObjectCard : CardData
     public int[] aEffectValues;
     public TEffects[] effects;
     public List<int> eValues;
+    public Special.Zone zone;
 }

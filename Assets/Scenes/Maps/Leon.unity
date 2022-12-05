@@ -1395,6 +1395,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1752099820}
     m_Modifications:
+    - target: {fileID: 7596014893746645180, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 2050908806}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1405,7 +1409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3636,7 +3640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1058.9637}
+  m_AnchoredPosition: {x: 0, y: 1058.9636}
   m_SizeDelta: {x: 1663.961, y: 3197.927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -4598,8 +4602,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: -0.00000011527339
-  m_Size: 0.33771816
+  m_Value: -0.000000057636687
+  m_Size: 0.33767763
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5161,6 +5165,38 @@ PrefabInstance:
       propertyPath: dialog
       value: 
       objectReference: {fileID: 11400000, guid: 0a41fb90ebcef9b44b275d8ed785da96, type: 2}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1046541167}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToRoute
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RouteNavigator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866508, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: m_Name
       value: LE_4_13_Lore
@@ -5732,8 +5768,8 @@ RectTransform:
   - {fileID: 1046541166}
   - {fileID: 49231523}
   - {fileID: 1520396826285701402}
-  - {fileID: 466848532}
   - {fileID: 2050908806}
+  - {fileID: 466848532}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6975,12 +7011,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1752099820}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2093081536 stripped
 GameObject:

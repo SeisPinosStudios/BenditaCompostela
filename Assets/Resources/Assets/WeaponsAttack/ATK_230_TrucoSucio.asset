@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Truco sucio
   description: "Realiza 3 puntos de da\xF1o y aplica Venenox1."
   artwork: {fileID: 21300000, guid: 8c05434f6c96db941a16007a8360d255, type: 3}
-  cost: 2
-  damage: 3
-  alteredEffects: 
-  aEffectValues: 
+  cost: 1
+  damage: 1
+  alteredEffects: 01000000
+  aEffectValues: 01000000

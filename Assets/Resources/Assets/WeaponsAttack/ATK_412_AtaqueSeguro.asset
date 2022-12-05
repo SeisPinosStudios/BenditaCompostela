@@ -18,4 +18,4 @@ MonoBehaviour:
   cost: 5
   damage: 6
   alteredEffects: 04000000
-  aEffectValues: 01000000
+  aEffectValues: 02000000

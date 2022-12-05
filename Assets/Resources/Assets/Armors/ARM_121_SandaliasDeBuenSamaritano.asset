@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ARM_121_SandaliasDeBuenSamaritano
   m_EditorClassIdentifier: 
   name: Sandalias de buen samaritano +
-  description: 
+  description: 'Protege 1.<br>Sinergia con <color=#f3f4eb>Cetro</color>: <color=#308a36>+2</color>
+    a las curaciones.'
   artwork: {fileID: 21300000, guid: 01a3e1fc96ecb434f8eeced6cd33a4d5, type: 3}
   cost: 0
+  money: 20
   defenseValue: 2
   damageBonus: 0
   extraDefence: 0
@@ -27,4 +29,5 @@ MonoBehaviour:
   synergy: 2
   upgradeLevel: 1
   improvedArmor: {fileID: 11400000, guid: baef84f68f2b6484f83a1cb3634e7e6c, type: 2}
+  previousArmor: {fileID: 11400000, guid: 4d87ff23112b0fb47b0b15fe31ef7385, type: 2}
   armorId: 5

@@ -16,6 +16,7 @@ MonoBehaviour:
   description: 
   artwork: {fileID: 21300000, guid: 496b72346b29e8a4d87139e10bf35e5b, type: 3}
   cost: 0
+  money: 30
   weaponId: 1
   attackList:
   - {fileID: 11400000, guid: bcdd4d45b76aab6409ff25152e01c05a, type: 2}
@@ -23,4 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b5a90a861eafc24894cd5580425467c, type: 2}
   - {fileID: 11400000, guid: 8ab9e3ea1cd867747a7096a360a8d58b, type: 2}
   improvedWeapon: {fileID: 0}
+  previousWeapon: {fileID: 11400000, guid: a14d72f77177d9c43ba044acb6378fd2, type: 2}
   upgradeLevel: 2

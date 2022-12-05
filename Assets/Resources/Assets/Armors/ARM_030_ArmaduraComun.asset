@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ARM_030_ArmaduraComun
   m_EditorClassIdentifier: 
   name: "Armadura com\xFAn"
-  description: "Potege 3<br>Sinergia con Espada: +5% de da\xF1o a <sprite index=4>"
+  description: "Protege 3.<br>Sinergia con <color=#9B4633>Espada</color>: <color=#308a36>+1</color>
+    al l\xEDmite de <sprite index=0> (5\u2192<color=#308a36>6</color>)."
   artwork: {fileID: 21300000, guid: e3612357f5b56014fb66b60bdd0a4684, type: 3}
   cost: 0
+  money: 5
   defenseValue: 3
   damageBonus: 0
   extraDefence: 0
@@ -24,7 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ceed9be057c73e41aec6bee3e417aef, type: 2}
   - {fileID: 11400000, guid: a6fa99c40062b5c4dab27d77649461a9, type: 2}
   armorType: 0
-  synergy: 4
+  synergy: 8
   upgradeLevel: 0
   improvedArmor: {fileID: 11400000, guid: 0961095aa5f0fe94ea119ae235445f8f, type: 2}
+  previousArmor: {fileID: 0}
   armorId: 1

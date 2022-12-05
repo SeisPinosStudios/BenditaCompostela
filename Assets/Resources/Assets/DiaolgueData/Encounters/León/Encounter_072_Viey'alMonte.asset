@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - "\xA1No, espera! \xBFQu\xE9 est\xE1s haciendo? "
   responses: []
-  character: {fileID: 21300000, guid: 1162e6facac5d1443bb3bffdea760a81, type: 3}
+  character: {fileID: 21300000, guid: 2965ecea1e46664478fda02a284d36d3, type: 3}

@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -277,10 +277,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Da\xF1a 3"
+  m_text: "Protege 2.<br>Sinergia con <color=#f3f4eb>Cetro</color>: da\xF1o extra
+    con <sprite index=2><br>(x1\u2192<color=#308a36>x1.25</color> x2\u2192<color=#308a36>x2.25</color>)."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
+  m_fontSize: 8.45
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 4, y: 4, z: 4, w: 4}
+  m_margin: {x: 4, y: 4, z: 4, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -445,7 +446,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   siblingIndex: 0
-  scaleMultiplier: 1
+  progress: 1
+  speed: 10
+  offset: 220
+  inspecting: 0
+  canInspect: 0
 --- !u!1 &8469054276301129820
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -591,8 +596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Puchero de la abuela
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

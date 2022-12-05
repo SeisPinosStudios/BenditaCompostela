@@ -20,7 +20,8 @@ public class EnemyAnimationTest : Entity
         energy = enemyData.energy;
         currentHP = HP;
 
-        //if (IsBoss(Enemy.Boss.SIERPE)) defence = 2;
+
+        if (IsBoss(Enemy.Boss.SIERPE)) defense = 2;
 
         gameObject.GetComponentInChildren<Image>().sprite = enemyData.sprite;
         gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemyData.enemyAnimatorController;

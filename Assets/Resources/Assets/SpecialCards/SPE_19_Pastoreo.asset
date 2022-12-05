@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Realiza 3 puntos de da\xF1o y aplica Vulnerablex2."
   artwork: {fileID: 21300000, guid: 97a4166871153064da880f781a9cd8a4, type: 3}
   cost: 6
+  money: 7
   damage: 8
   alteredEffects: 03000000
   aEffectValues: 02000000

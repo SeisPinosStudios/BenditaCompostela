@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - "\xA1Un placer hacer negocios!"
   responses: []
-  character: {fileID: 21300000, guid: 8b89400f7219445499d5e87c644615a6, type: 3}
+  character: {fileID: 21300000, guid: 4e8978448c353d04da05d559902139be, type: 3}

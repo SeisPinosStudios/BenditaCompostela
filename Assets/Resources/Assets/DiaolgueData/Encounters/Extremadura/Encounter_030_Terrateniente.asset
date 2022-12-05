@@ -33,4 +33,4 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 189b261dd1902464c9c8b629fd8a9fea, type: 2}
   - responseText: Rechazar trato
     dialogueObject: {fileID: 11400000, guid: 4a905de411ace5c409abfe9a2ca74020, type: 2}
-  character: {fileID: 21300000, guid: 6a263605203314143ad929e5b06f420e, type: 3}
+  character: {fileID: 21300000, guid: 0536df17dadc70e4080a236086b06dd0, type: 3}

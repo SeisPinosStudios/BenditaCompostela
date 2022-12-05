@@ -10,8 +10,8 @@ public class PlayerScript : Entity
     public Player playerData;
     public Weapon weapon;
     public List<CardData> playerDeck;
-    public Armor feetArmor;
-    public Armor chestArmor;
+    public static Armor feetArmor;
+    public static Armor chestArmor;
     public GameObject enemy;
     #endregion
 
@@ -20,7 +20,7 @@ public class PlayerScript : Entity
      * synergies between the weapons and the equiped armor.
      * Pending future modifications */
     int tempDefence = 0;
-    public Armor.TSynergy activeSynergy;
+    public static Armor.TSynergy activeSynergy;
     #endregion
 
     #region Other Variables
@@ -63,8 +63,8 @@ public class PlayerScript : Entity
         playerDeck = playerData.playerDeck;
         chestArmor = playerData.chestArmor;
         feetArmor = playerData.feetArmor;
-        if (chestArmor != null) defence += chestArmor.defenseValue;
-        if (feetArmor != null) defence += feetArmor.defenseValue;
+        if (chestArmor != null) defense += chestArmor.defenseValue;
+        if (feetArmor != null) defense += feetArmor.defenseValue;
     }
     public void ActivateCombatControl()
     {
@@ -99,14 +99,14 @@ public class PlayerScript : Entity
     }
     public void CheckForSynergy()
     {
-        defence -= tempDefence;
+        defense -= tempDefence;
         damageBoost = 0;
         extraHealing = 0;
 
         ChestSynergy();
         FeetSynergy();
 
-        defence += tempDefence;
+        defense += tempDefence;
     }
     public void ChestSynergy()
     {

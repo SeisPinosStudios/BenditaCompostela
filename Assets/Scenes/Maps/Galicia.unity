@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1003,11 +1003,11 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 185043290}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 185043290}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1026,11 +1026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToSlideRoute
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HerreroGaliciaRechazar
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1038,11 +1038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1051,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: 0718a258c7d896a46b4ec2bd198c74c1, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: CardData, Assembly-CSharp
@@ -1062,7 +1062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Enemy, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866508, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: m_Name
@@ -1190,6 +1190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 209201440}
   - component: {fileID: 209201439}
+  - component: {fileID: 209201441}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1214,7 +1215,11 @@ MonoBehaviour:
   - {fileID: 7801811126854394682, guid: 5293f14e5280b514899c257a7574a586, type: 3}
   player: {fileID: 11400000, guid: 991c38ec4a1463a4ba1ef16b669b63c0, type: 2}
   Debuginventory: []
-  backgrounds: []
+  backgrounds:
+  - {fileID: 21300000, guid: 6029fe4c41c11c0438b917fdcfe47d8a, type: 3}
+  - {fileID: 21300000, guid: e6f8651bbbc59704abf184e6744c8ce5, type: 3}
+  - {fileID: 21300000, guid: c7646ee3e969ab844a522dda58dcb104, type: 3}
+  - {fileID: 21300000, guid: dee30eef073971b409c73f9b89e2ecf4, type: 3}
 --- !u!4 &209201440
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,6 +1235,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &209201441
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209201438}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &273013330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1592,7 +1693,7 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: dialog
       value: 
-      objectReference: {fileID: 11400000, guid: 3d6005b2e83e016449fb68116d0a583f, type: 2}
+      objectReference: {fileID: 11400000, guid: dde6b19519bd419458ca8bb8ae0f665a, type: 2}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.size
       value: 2
@@ -1615,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1624,11 +1725,11 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 333812670}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 333812670}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1647,11 +1748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToSlideRoute
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CambiapielesGaliciaRechazar
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1659,11 +1760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1672,7 +1773,7 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: c6cf426ac77fb0b47968632c16d20317, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: CardData, Assembly-CSharp
@@ -1683,7 +1784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Enemy, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866508, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: m_Name
@@ -2129,6 +2230,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1752099820}
     m_Modifications:
+    - target: {fileID: 7596014893746645180, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 1428840690}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2466,6 +2571,14 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 11400000, guid: fb7ef70b6b294ff429664b393fcf5ebf, type: 2}
+    - target: {fileID: 1743755054152305980, guid: 69692d21890f95c449fa34af1be75546, type: 3}
+      propertyPath: nodeSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 41cc3ed083c5ac340880842d7261b233, type: 3}
+    - target: {fileID: 1743755054152305980, guid: 69692d21890f95c449fa34af1be75546, type: 3}
+      propertyPath: nodeSpriteHighlighted
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e16eba4423be3f4fa87f2a48bf35eca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69692d21890f95c449fa34af1be75546, type: 3}
 --- !u!224 &452042967 stripped
@@ -4117,7 +4230,7 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 980306259}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4140,7 +4253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ToSlideRoute
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4152,7 +4265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4523,7 +4636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1293.3861}
+  m_AnchoredPosition: {x: 0, y: 1293.386}
   m_SizeDelta: {x: 1663.961, y: 3666.772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -6121,8 +6234,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: -0.00000004719021
-  m_Size: 0.29453635
+  m_Value: 0
+  m_Size: 0.2945363
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6453,12 +6566,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1752099820}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1436274142
 GameObject:
@@ -8355,7 +8468,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1046541167}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1734451507}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
@@ -8363,15 +8484,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToRoute
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ToSlideRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RouteNavigator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: EncounterButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
+      propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866508, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
@@ -8702,8 +8839,8 @@ RectTransform:
   - {fileID: 1046541166}
   - {fileID: 49231523}
   - {fileID: 437458712}
-  - {fileID: 1520396826285701402}
   - {fileID: 1428840690}
+  - {fileID: 1520396826285701402}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10077,18 +10214,18 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2109770080}
+      objectReference: {fileID: 1046541167}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToSlideRoute
+      value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EncounterButton, Assembly-CSharp
+      value: RouteNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -10194,17 +10331,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6722202979871866508, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
   m_PrefabInstance: {fileID: 2109770077}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2109770080 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
-  m_PrefabInstance: {fileID: 2109770077}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109770079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea37061b98a1855478fca6a5934df4b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2145766714
 GameObject:
   m_ObjectHideFlags: 0
@@ -10302,7 +10428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940110662092568575, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8940110662092568575, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: m_AnchorMax.x

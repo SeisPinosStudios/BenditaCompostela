@@ -26,4 +26,4 @@ MonoBehaviour:
   responses:
   - responseText: Eso espero...
     dialogueObject: {fileID: 11400000, guid: 51252f9d056d4f54b83bdd3f56303097, type: 2}
-  character: {fileID: 21300000, guid: beb1affa6e8e4274a822e1fc1cb465ca, type: 3}
+  character: {fileID: 21300000, guid: 81ec2de79cbded94a932a7b30c139128, type: 3}

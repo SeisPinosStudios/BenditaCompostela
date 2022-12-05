@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using System.Text;
+using UnityEngine.SceneManagement;
 
 public class CardDisplay : MonoBehaviour
 {
@@ -17,10 +18,17 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI cost;
     public StringBuilder description = new StringBuilder();
     public GameObject energyIcon;
+    Entity user;
+    Entity enemy;
     #endregion
 
     void Start()
     {
+        if (InBattle())
+        {
+            user = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().current.GetComponent<Entity>();
+            enemy = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().next.GetComponent<Entity>();
+        }
         nameText.text = cardData.name;
         descText.text = cardData.description;
         Description();
@@ -30,6 +38,7 @@ public class CardDisplay : MonoBehaviour
     }
     public void Description()
     {
+        description.Clear();
         switch (cardData.GetType().ToString())
         {
             case "Attack":
@@ -49,6 +58,8 @@ public class CardDisplay : MonoBehaviour
                 descText.text = description.ToString();
                 break;
             case "Armor":
+                //ArmorDescription();
+                //descText.text = description.ToString();
                 break;
             case "Weapon":
                 break;
@@ -56,15 +67,34 @@ public class CardDisplay : MonoBehaviour
     }
     public void DamageText()
     {
+        var vulnerable = 0;
+        var originalDamage = 0;
+        var finalDamage = 0;
+        if(SceneManager.GetActiveScene().name == "BattleScene")
+        {
+            var enemy = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().next.GetComponent<Entity>();
+            if (enemy.Suffering(CardData.TAlteredEffects.VULNERABLE)) vulnerable = enemy.alteredEffects[CardData.TAlteredEffects.VULNERABLE];
+        }
+
         if (cardData.GetType() == typeof(Attack))
         {
             var card = (Attack)cardData;
-            if(card.damage > 0) description.Append("Daña " + card.damage.ToString() + "<br>");
+            finalDamage += GetVulnerable(card.damage, vulnerable);
+            originalDamage = card.damage;
         }
         else if (cardData.GetType() == typeof(Special)){
             var card = (Special)cardData;
-            if (card.damage > 0) description.Append("Daña " + card.damage.ToString() + "<br>");
+            finalDamage += GetVulnerable(card.damage, vulnerable);
+            originalDamage = card.damage;
         }
+
+        if (InBattle()) finalDamage += user.damageBoost - enemy.defense;
+
+        if (originalDamage <= 0) return;
+
+        if (finalDamage == originalDamage) description.Append("Daña " + finalDamage.ToString() + "<br>");
+        else if (finalDamage > originalDamage) description.Append("Daña <color=green>" + finalDamage.ToString() + "</color><br>");
+        else description.Append("Daña <color=red>" + finalDamage.ToString() + "</color><br>");
     }
     public void AlteredEffect()
     {
@@ -176,7 +206,7 @@ public class CardDisplay : MonoBehaviour
     {
         var armor = (Armor)cardData;
         description.Append("Protege " + armor.defenseValue + "<br>");
-        description.Append("Sinergia con " + armor.synergyWeapon[0].name + ":");
+        if(armor.synergyWeapon[0] != null) description.Append("Sinergia con " + armor.synergyWeapon[0].name + ":");
 
         switch (armor.synergy)
         {
@@ -184,20 +214,71 @@ public class CardDisplay : MonoBehaviour
                 description.Append("Haces " + (10 + armor.upgradeLevel * 5) + "% más de daño a <sprite index=5>");
                 break;
             case Armor.TSynergy.DEFENCE:
-
+                description.Append("Protege " + armor.extraDefence + " extra.");
                 break;
             case Armor.TSynergy.HEALING:
-
+                description.Append("Curas extra");
                 break;
             case Armor.TSynergy.ENERGY:
-
+                description.Append("Tienes más energía");
                 break;
             case Armor.TSynergy.DAMAGE:
-
+                description.Append("Dañas " + armor.damageBonus + " extra con ataques.");
                 break;
             case Armor.TSynergy.xGUARDED:
-
+                description.Append("<sprite index=5> bloquea " + (10 + armor.upgradeLevel * 5) + " extra.");
                 break;
         }
     }
+    public bool InBattle()
+    {
+        if (SceneManager.GetActiveScene().name == "BattleScene") return true;
+        return false;
+
+    }
+    public void Update()
+    {
+        Description();
+    }
+
+    #region Math
+    public int GetVulnerable(int damage, int charges)
+    {
+        if (charges == 0) return damage;
+
+        var multiplier = 0.0f;
+
+        switch (charges)
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if (!user.IsPlayer())
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+
+        Debug.Log("DAMAGE:" + damage);
+        return damage += Mathf.Clamp((int)Mathf.Round((float)damage * multiplier), 1, 99);
+    }
+    #endregion
 }

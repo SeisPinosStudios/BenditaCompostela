@@ -37,4 +37,4 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 8f6eb8feaf752364a8a77c15856029ab, type: 2}
   - responseText: Ataca a la Vieja, no es trigo limpio.
     dialogueObject: {fileID: 11400000, guid: 44b7ed1d64276e544ae0d06d46029b8b, type: 2}
-  character: {fileID: 21300000, guid: 1162e6facac5d1443bb3bffdea760a81, type: 3}
+  character: {fileID: 21300000, guid: 2965ecea1e46664478fda02a284d36d3, type: 3}

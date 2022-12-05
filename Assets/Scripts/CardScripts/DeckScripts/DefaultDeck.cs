@@ -88,7 +88,6 @@ public class DefaultDeck : MonoBehaviour
         Debug.Log("Salió del bucle");
     }
     #endregion
-
     #region Card Inspection Control
     public void SetInspection(bool inspect)
     {

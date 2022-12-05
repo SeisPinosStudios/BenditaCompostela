@@ -11,12 +11,19 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     #region Other Variables
     /* Functionality variables. */
     public int siblingIndex;
-    public float scaleMultiplier = 2.0f;
+    public float progress;
+    public float speed = 0.5f;
     Vector3 originalScale;
     Vector3 originalPosition;
-    private bool inspecting = false;
+    public int offset;
+    public bool inspecting = false;
     public bool canInspect = false;
     #endregion
+
+    public void Start()
+    {
+        originalPosition = transform.position;
+    }
 
     #region Inspection methods
     /* This methods control the inspection functionality of the cards. When
@@ -43,26 +50,24 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Inspecting()
     {
         originalScale = transform.localScale;
-        originalPosition = transform.localPosition;
-        transform.localScale = (transform.localScale) * scaleMultiplier;
+        originalPosition.x = transform.localPosition.x;
 
         if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + 220, 2.0f);
+            transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y + offset, 1.0f);
             DisableHandPanel();
         }
 
-        if (siblingIndex != (GetComponentInParent<Transform>().childCount)) transform.SetAsLastSibling();
-
+        progress = 0.0f;
+        /*if (siblingIndex != (GetComponentInParent<Transform>().childCount))*/ transform.SetAsLastSibling();
         inspecting = !inspecting;
     }
     void NotInspecting()
     {
-        transform.localScale = originalScale;
-
+        Debug.Log("NOT INSPECTING");
         if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            transform.localPosition = originalPosition;
+            //transform.localPosition = originalPosition;
             EnableHandPanel();
         }
 
@@ -85,6 +90,20 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         GameObject.Find("HandPanel").GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
     #endregion
+
+    void Update()
+    {
+        //if(progress >= 1 && canInspect) transform.position = new Vector3(transform.localPosition.x, originalPosition.y, 1.0f); 
+
+        if(progress < 1 && !inspecting)
+        {
+            Debug.Log("MOVING CARD");
+            var position = Mathf.Lerp(originalPosition.y + offset, originalPosition.y, progress);
+            progress += speed * Time.deltaTime;
+            transform.localPosition = new Vector3(transform.localPosition.x, position, 1.0f);
+            Debug.Log("PROGRESS: " + progress);
+        }
+    }
 
     #region Mobile Detection
     [DllImport("__Internal")]

@@ -15,8 +15,7 @@ MonoBehaviour:
   name: "Pu\xF1alada"
   description: "Realiza 3 puntos de da\xF1o y aplica Sangradox1."
   artwork: {fileID: 21300000, guid: ca9cbf019d1226d47acfa4744d5bce5b, type: 3}
-  cost: 2
-  type: 0
+  cost: 1
   damage: 3
-  alteredEffects: 00000000
-  aEffectValues: 01000000
+  alteredEffects: 
+  aEffectValues: 
