@@ -18,7 +18,7 @@ public class Armor : CardData
         { CHEST, FEET}
 
     public enum TSynergy
-        { DAMAGE, DEFENCE, HEALING, ENERGY, xVULNERABLE, xGUARDED}
+        { DAMAGE, DEFENCE, HEALING, ENERGY, xVULNERABLE, xGUARDED, xPOISON, xBURN, xBLEED}
 
     public int armorId;
 }

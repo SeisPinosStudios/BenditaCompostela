@@ -18,7 +18,7 @@ MonoBehaviour:
   cost: 3
   money: 3
   alteredEffects: 02000000
-  aEffectValues: 03000000
+  aEffectValues: 04000000
   effects: 
   eValues: 
   zone: 1

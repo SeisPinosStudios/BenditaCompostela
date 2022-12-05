@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dardo envenenado
   description: Aplica Venenox1
   artwork: {fileID: 21300000, guid: 79d3ba4ecbc18944c86351e3f2f00472, type: 3}
-  cost: 1
+  cost: 2
   money: 2
   alteredEffects: 01000000
   aEffectValues: 01000000

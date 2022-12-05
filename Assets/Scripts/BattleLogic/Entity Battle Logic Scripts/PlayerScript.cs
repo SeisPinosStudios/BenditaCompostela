@@ -10,8 +10,8 @@ public class PlayerScript : Entity
     public Player playerData;
     public Weapon weapon;
     public List<CardData> playerDeck;
-    public Armor feetArmor;
-    public Armor chestArmor;
+    public static Armor feetArmor;
+    public static Armor chestArmor;
     public GameObject enemy;
     #endregion
 
@@ -20,7 +20,7 @@ public class PlayerScript : Entity
      * synergies between the weapons and the equiped armor.
      * Pending future modifications */
     int tempDefence = 0;
-    public Armor.TSynergy activeSynergy;
+    public static Armor.TSynergy activeSynergy;
     #endregion
 
     #region Other Variables

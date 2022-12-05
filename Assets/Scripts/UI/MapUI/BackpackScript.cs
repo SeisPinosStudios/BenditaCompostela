@@ -11,6 +11,10 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     public float lerpDuration;
     public int separation;
 
+    public GameObject equipmentPrefab;
+    public GameObject deckPrefab;
+    public Transform pivot;
+
     public void Awake()
     {
         mitopedia = transform.GetChild(0).gameObject;
@@ -91,5 +95,19 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         }
 
         open = false;
+    }
+
+    public void Equipment()
+    {
+        if (pivot.transform.childCount > 0) Destroy(pivot.transform.GetChild(0).gameObject);
+        StartCoroutine(CloseBackpack());
+        Instantiate(equipmentPrefab, pivot);
+    }
+
+    public void DeckBuilder()
+    {
+        if (pivot.transform.childCount > 0) Destroy(pivot.transform.GetChild(0).gameObject);
+        StartCoroutine(CloseBackpack());
+        Instantiate(deckPrefab, pivot);
     }
 }

@@ -15,10 +15,10 @@ MonoBehaviour:
   name: "Ung\xFCento improvisado"
   description: Restaura 4 puntos de vida.
   artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
-  cost: 2
+  cost: 1
   money: 8
   alteredEffects: 
   aEffectValues: 
   effects: 00000000
-  eValues: 03000000
+  eValues: 04000000
   zone: 1

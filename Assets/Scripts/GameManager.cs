@@ -229,6 +229,10 @@ public class GameManager : MonoBehaviour
     {
         ActualRoute = route;
     }
+    public static void SceneChange(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
     public void Update()
     {
         GetBackground();

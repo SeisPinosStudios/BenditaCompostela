@@ -123,6 +123,13 @@ public class Entity : MonoBehaviour
             case CardData.TAlteredEffects.VULNERABLE:
                 alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 3);
                 break;
+            case CardData.TAlteredEffects.GUARDED:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 3);
+                break;
+            case CardData.TAlteredEffects.BLEED:
+                var limit = !IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xBLEED ? (5 + 1 * (PlayerScript.chestArmor.upgradeLevel + 1)) : 5;
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, limit);
+                break;
             default:
                 alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
                 break;
@@ -168,11 +175,6 @@ public class Entity : MonoBehaviour
 
         Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
 
-        /*
-        if (aEffectsValue[Suffering(alteredEffect)] <= 0)
-            RemoveAlteredEffect(alteredEffect);
-        */
-
         UpdateEffectsDisplay();
     }
 
@@ -196,7 +198,7 @@ public class Entity : MonoBehaviour
     {
         if (!Suffering(CardData.TAlteredEffects.POISON)) { poisonTurns = 0; return; }
         
-        poisonTurns += 2;
+        poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, 6);
         var effectCharges = poisonTurns;
 
         if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
@@ -214,11 +216,7 @@ public class Entity : MonoBehaviour
 
         var effectCharges = alteredEffects[CardData.TAlteredEffects.BURN];
 
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
-
-        if(alteredEffects[CardData.TAlteredEffects.BURN] <= 5)SufferEffectDamage(effectCharges);
-        else if(alteredEffects[CardData.TAlteredEffects.BURN] > 5)SufferEffectDamage(effectCharges*2);
+        SufferEffectDamage((int)GetBurn());
 
         RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
 
@@ -233,19 +231,14 @@ public class Entity : MonoBehaviour
     }
     public int Vulnerable(int damage)
     {
-        
-        if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage;
+ 
+        if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage; 
 
         Debug.Log("EFFECT: Vulnerable");
 
         RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
-        UpdateEffectsDisplay();
-
-        if(this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xVULNERABLE)
-            return damage += Mathf.Clamp((int)Mathf.Round((float)damage * (0.2f + (0.2f * (alteredEffects[CardData.TAlteredEffects.VULNERABLE] -1)))), 1, 99);
-
-        return damage += Mathf.Clamp((int)Mathf.Round((float)damage * (0.1f + (0.2f * (alteredEffects[CardData.TAlteredEffects.VULNERABLE] - 1)))), 1, 99);
+        return damage += Mathf.Clamp((int)Mathf.Round(damage * GetVulnerable()), 1, 99);
     }
     public int Guarded(int damage)
     {
@@ -255,12 +248,7 @@ public class Entity : MonoBehaviour
 
         ReduceAlteredEffect(CardData.TAlteredEffects.GUARDED, 1);
 
-        UpdateEffectsDisplay();
-
-        if (this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xGUARDED)
-            return damage -= (int)Mathf.Round((float)damage * 0.7f);
-
-        return damage -= (int)Mathf.Round((float)damage * 0.5f);
+        return damage -= Mathf.Clamp((int)Mathf.Round(damage * GetGuarded()),1,99);
     }
     public int Invulnerable(int damage)
     {
@@ -341,5 +329,121 @@ public class Entity : MonoBehaviour
         return false;
     }
 
+    #endregion
+
+    #region Entity Type
+    public bool IsPlayer()
+    {
+        return this.GetType() == typeof(PlayerScript);
+    }
+    #endregion
+
+    #region Math
+    /* Various math methods placed here to avoid overcrowd of effect methods */
+    public float GetVulnerable()
+    {
+        /*
+         * 1 Stack = 10%, 2 stack = 25%, 3 stack = 50%
+         * 1 armor = 15, 30, 55
+         * 2 armor = 15, 33, 66
+         * 3 armor = 25, 50, 75
+         */
+
+        var multiplier = 0.0f;
+
+        switch (alteredEffects[CardData.TAlteredEffects.VULNERABLE])
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if(!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xVULNERABLE)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+        return multiplier;
+    }
+    public float GetGuarded()
+    {
+        var multiplier = 0.0f;
+
+        switch (alteredEffects[CardData.TAlteredEffects.GUARDED])
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if (!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xGUARDED)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+        return multiplier;
+    }
+    public float GetBurn()
+    {
+        var multiplier = 1.0f;
+        var stacks = alteredEffects[CardData.TAlteredEffects.BURN];
+
+        if (stacks > 5) multiplier = 2.0f;
+
+        if(!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xBURN)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.25f;
+                    break;
+                case 1:
+                    multiplier += 0.5f;
+                    break;
+                case 2:
+                    multiplier += 1.0f;
+                    break;
+            }
+        }
+
+        var damage = stacks * multiplier;
+
+        if (IsBoss(Enemy.Boss.SANTIAGO)) damage--;
+        if (BossDebuff(Enemy.Boss.SANTIAGO)) damage += 3;
+
+        return Mathf.Round(damage);
+    }
     #endregion
 }

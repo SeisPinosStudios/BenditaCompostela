@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ARM_072_PecheraDeAcero
   m_EditorClassIdentifier: 
   name: Pechera de acero ++
-  description: 
+  description: "Protege 4.<br>Sinergia con <color=#322B28>Martillo</color>: da\xF1o
+    extra a <sprite index=3><br>(10%\u2192<color=#308a36>25%</color> 25%\u2192<color=#308a36>50%</color>
+    50\u2192<color=#308a36>75%</color>)."
   artwork: {fileID: 21300000, guid: 76e0b3f96e3f2ea44bc23c6e1a7bddc6, type: 3}
   cost: 0
   money: 30
@@ -25,7 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c87154e71edac4f4e85c72cd475fc696, type: 2}
   - {fileID: 11400000, guid: 2c406a5a4642c7f49945cc0ab81eb691, type: 2}
   armorType: 0
-  synergy: 0
+  synergy: 4
   upgradeLevel: 2
   improvedArmor: {fileID: 0}
   previousArmor: {fileID: 11400000, guid: 5ae8d59406ccbf74585e32dce797a600, type: 2}

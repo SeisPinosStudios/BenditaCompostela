@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - "\xA1Ah! \xBFQue no te la vas a llevar? Pues entonces, ella se ir\xE1 contigo. "
   responses: []
-  character: {fileID: -1797045276, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
+  character: {fileID: 21300000, guid: d25b02b731154c54da0d1dc978bc278c, type: 3}

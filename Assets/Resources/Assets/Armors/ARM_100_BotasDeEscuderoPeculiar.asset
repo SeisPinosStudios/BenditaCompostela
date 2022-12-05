@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ARM_100_BotasDeEscuderoPeculiar
   m_EditorClassIdentifier: 
   name: Botas de escudero peculiar
-  description: 
+  description: "Protege 2.<br>Sinergia con <color=#5C819A>Lanza</color>: <color=#308a36>+2</color>
+    de da\xF1o con ataques de arma."
   artwork: {fileID: 21300000, guid: 5e2329e4d38be234895e2a97deca75a8, type: 3}
   cost: 0
   money: 5
@@ -28,4 +29,5 @@ MonoBehaviour:
   synergy: 0
   upgradeLevel: 0
   improvedArmor: {fileID: 11400000, guid: 1b172a61e9b31c6479e25cf60bad8b9d, type: 2}
+  previousArmor: {fileID: 0}
   armorId: 4

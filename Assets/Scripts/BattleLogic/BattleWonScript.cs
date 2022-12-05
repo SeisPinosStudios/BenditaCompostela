@@ -18,12 +18,13 @@ public class BattleWonScript : MonoBehaviour
     public void Awake()
     {
         GetZone();
-
+        Debug.Log("ROUTE: " + GameManager.ActualRoute);
         var cards = new List<CardData>();
         foreach(CardData card in CardDataFilter.ObjectsCardDataListZone(zone)) cards.Add(card);
         
         for(int i = 0; i < 3; i++)
         {
+            Debug.Log(cards.Count);
             var card = cards[Random.Range(0, cards.Count)];
             cards.Remove(card);
             rewardPrefab.GetComponent<CardDisplay>().cardData = card;
@@ -156,6 +157,7 @@ public class BattleWonScript : MonoBehaviour
     }
     void GetZone()
     {
+        Debug.Log(GameManager.ActualRoute);
         switch (GameManager.ActualRoute)
         {
             case "Sevilla":

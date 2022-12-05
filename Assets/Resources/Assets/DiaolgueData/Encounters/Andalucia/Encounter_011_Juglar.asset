@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogue:
   - "JUGLAR\nJeje, buena elecci\xF3n..."
   responses: []
-  character: {fileID: 21300000, guid: 7c36b5b41d7a9be4c99cb714aa23d11d, type: 3}
+  character: {fileID: 21300000, guid: 972257207d48605409052f56e06e08af, type: 3}

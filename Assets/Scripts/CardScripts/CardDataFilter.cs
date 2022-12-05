@@ -32,7 +32,6 @@ public class CardDataFilter : MonoBehaviour
         List<CardData> cards = new List<CardData>();
         foreach (CardData card in Resources.LoadAll<CardData>("Assets/Objects"))
         {
-            Debug.Log(card.name);
             var objectCard = (ObjectCard)card;
             if (objectCard.zone == zone) cards.Add(card);
         }

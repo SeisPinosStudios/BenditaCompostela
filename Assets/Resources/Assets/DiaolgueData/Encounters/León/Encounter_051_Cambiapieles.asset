@@ -27,4 +27,4 @@ MonoBehaviour:
   - "Mira chico, si te doy esto \xBFTe ir\xE1s y dejar\xE1s de juzgarme? \xBFS\xED?
     Pues anda toma, tampoco preguntes de d\xF3nde ha salido. "
   responses: []
-  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}
+  character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}

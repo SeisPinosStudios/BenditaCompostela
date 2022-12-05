@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ARM_111_TunicaDeApostol
   m_EditorClassIdentifier: 
   name: "T\xFAnica de ap\xF3stol +"
-  description: 
+  description: "Protege 3.<br>Sinergia con <color=#f3f4eb>Cetro</color>: da\xF1o
+    extra con <sprite index=2><br>(x1\u2192<color=#308a36>x1.50</color> x2\u2192<color=#308a36>x2.50</color>)."
   artwork: {fileID: 21300000, guid: d69b8a0c56ad912439e5c14efb8377d2, type: 3}
   cost: 0
   money: 20
@@ -25,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e29ed41b88d6db49b53d8507a76eaa3, type: 2}
   - {fileID: 11400000, guid: ca6c26723dc72764c849440c65901c48, type: 2}
   armorType: 0
-  synergy: 2
+  synergy: 7
   upgradeLevel: 1
   improvedArmor: {fileID: 11400000, guid: 6bdfa801833cac14aa66a26121dd089b, type: 2}
   previousArmor: {fileID: 11400000, guid: 9f88bdd9a25dd154da71b096a1238155, type: 2}

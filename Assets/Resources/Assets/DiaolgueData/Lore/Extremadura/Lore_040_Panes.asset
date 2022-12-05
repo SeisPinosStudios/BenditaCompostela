@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Lore_040_Panes
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Al parecer, por lo que escuchas a otros viajeros por el camino, est\xE1s cerca
+    de llegar a Alcu\xE9scar, un pueblo en mitad de esta regi\xF3n."
+  - "Los dem\xE1s viajeros hablan de una caba\xF1a que est\xE1 antes de llegar al
+    pueblo. En ella, una anciana se pasa el d\xEDa preparando unos panes y bollos
+    irresistibles."
+  - "Nadie del pueblo sabe nada de esta anciana, no tiene familia ni nadie que la
+    reconozca. Ella deja los panes encima del alf\xE9izar de la ventana, sin vigilancia.
+    Si alguien coge alguno, deja las monedas correspondientes en su lugar."
+  - "Finalmente, llegas a la caba\xF1a. Se te ocurre coger uno, pero necesitas el
+    dinero para otras cosas m\xE1s all\xE1 de un capricho. Podr\xEDas cogerlo y salir
+    corriendo, pero temes las represalias de la anciana, a lo mejor no es ni una
+    anciana, al fin y al cabo, nadie la ha visto nunca."
+  - "Por miedo a lo que pueda pasar, simplemente acercas la nariz para oler. Tienen
+    un olor incre\xEDble, contin\xFAas tu camino. Has recuperado un poco de salud."
+  responses:
+  - responseText: "Qui\xE9n pudiera..."
+    dialogueObject: {fileID: 11400000, guid: 04cb364f425ed3642a9e2f575a23f8bc, type: 2}
+  character: {fileID: 0}

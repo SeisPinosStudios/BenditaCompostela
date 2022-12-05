@@ -20,13 +20,13 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         deck.GetComponent<DefaultDeck>().SetInspection(false);
     }
-
     public void OnDrag(PointerEventData pointerEvent)
     {
         gameObject.transform.position = pointerEvent.position;
     }
     public void OnEndDrag(PointerEventData pointerEvent)
     {
+        Debug.Log("ON END DRAG");
         if (pointerEvent.position.y <= 200)
         {
             Debug.Log(originalPosition.y.ToString());
@@ -38,14 +38,5 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             hand.GetComponent<HorizontalLayoutGroup>().enabled = true;
         }
         deck.GetComponent<DefaultDeck>().SetInspection(true);
-    }
-
-    public void ModifyDescription()
-    {
-
-    }
-    public void OriginalDescription()
-    {
-
     }
 }

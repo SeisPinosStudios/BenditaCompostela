@@ -492,7 +492,6 @@ GameObject:
   - component: {fileID: 1119461520}
   - component: {fileID: 1119461523}
   - component: {fileID: 1119461522}
-  - component: {fileID: 1119461521}
   - component: {fileID: 1119461524}
   m_Layer: 5
   m_Name: SkipIntro
@@ -522,21 +521,6 @@ RectTransform:
   m_AnchoredPosition: {x: 129, y: -62}
   m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1119461521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119461519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7611d291556e6b342b6a9cdcb785ef63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: Sevilla
-  buttonImage: {fileID: 0}
-  sprites: []
 --- !u!114 &1119461522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +602,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1119461522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1704342909}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Sevilla
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1169781937
 GameObject:
   m_ObjectHideFlags: 0

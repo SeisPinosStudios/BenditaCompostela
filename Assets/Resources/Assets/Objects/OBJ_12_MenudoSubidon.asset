@@ -15,10 +15,10 @@ MonoBehaviour:
   name: "Menudo subid\xF3n"
   description: "Concede 8 puntos de energ\xEDa."
   artwork: {fileID: 21300000, guid: 8de796d17578b3c43a54b3e3ab329808, type: 3}
-  cost: 0
+  cost: 4
   money: 5
   alteredEffects: 
   aEffectValues: 
   effects: 01000000
-  eValues: 03000000
+  eValues: 09000000
   zone: 1

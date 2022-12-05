@@ -17,4 +17,4 @@ MonoBehaviour:
   responses:
   - responseText: 
     dialogueObject: {fileID: 11400000, guid: 011c52844a8cafd469214a0a586d2d04, type: 2}
-  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}
+  character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}

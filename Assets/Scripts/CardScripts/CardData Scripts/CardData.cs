@@ -7,6 +7,7 @@ public class CardData : ScriptableObject
     #region General variables
     /* Variables shared between cards */
     public new string name;
+    [TextArea(5, 20)]
     public string description;
     public Sprite artwork;
     public int cost;

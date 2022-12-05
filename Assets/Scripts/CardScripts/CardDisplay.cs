@@ -27,7 +27,7 @@ public class CardDisplay : MonoBehaviour
         if (InBattle())
         {
             user = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().current.GetComponent<Entity>();
-            enemy = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().current.GetComponent<Entity>();
+            enemy = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().next.GetComponent<Entity>();
         }
         nameText.text = cardData.name;
         descText.text = cardData.description;
@@ -58,8 +58,8 @@ public class CardDisplay : MonoBehaviour
                 descText.text = description.ToString();
                 break;
             case "Armor":
-                ArmorDescription();
-                descText.text = description.ToString();
+                //ArmorDescription();
+                //descText.text = description.ToString();
                 break;
             case "Weapon":
                 break;
@@ -94,7 +94,7 @@ public class CardDisplay : MonoBehaviour
 
         if (finalDamage == originalDamage) description.Append("Daña " + finalDamage.ToString() + "<br>");
         else if (finalDamage > originalDamage) description.Append("Daña <color=green>" + finalDamage.ToString() + "</color><br>");
-        else description.Append("Daña <color=green>" + finalDamage.ToString() + "</color><br>");
+        else description.Append("Daña <color=red>" + finalDamage.ToString() + "</color><br>");
     }
     public void AlteredEffect()
     {
@@ -230,11 +230,6 @@ public class CardDisplay : MonoBehaviour
                 break;
         }
     }
-    public int GetVulnerable(int damage, int charges)
-    {
-        if (charges == 0) return damage;
-        return damage += Mathf.Clamp((int)Mathf.Round((float)damage * (0.1f + (0.2f * (charges - 1)))), 1, 99);
-    }
     public bool InBattle()
     {
         if (SceneManager.GetActiveScene().name == "BattleScene") return true;
@@ -245,4 +240,45 @@ public class CardDisplay : MonoBehaviour
     {
         Description();
     }
+
+    #region Math
+    public int GetVulnerable(int damage, int charges)
+    {
+        if (charges == 0) return damage;
+
+        var multiplier = 0.0f;
+
+        switch (charges)
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if (!user.IsPlayer())
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+
+        Debug.Log("DAMAGE:" + damage);
+        return damage += Mathf.Clamp((int)Mathf.Round((float)damage * multiplier), 1, 99);
+    }
+    #endregion
 }

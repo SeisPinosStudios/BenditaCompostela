@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7596014892146907813}
   - component: {fileID: 7596014892146907814}
   - component: {fileID: 8840878431710498451}
-  - component: {fileID: 3335710239551021645}
   m_Layer: 5
   m_Name: DeckBuilder
   m_TagString: Untagged
@@ -121,22 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7596014892146907814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3335710239551021645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596014892146907808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7611d291556e6b342b6a9cdcb785ef63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: DeckBuilder
-  buttonImage: {fileID: 0}
-  sprites: []
+      m_Calls:
+      - m_Target: {fileID: 7596014893746645180}
+        m_TargetAssemblyTypeName: BackpackScript, Assembly-CSharp
+        m_MethodName: DeckBuilder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7596014893325634557
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +145,6 @@ GameObject:
   - component: {fileID: 7596014893325634530}
   - component: {fileID: 7596014893325634531}
   - component: {fileID: 7796175419507195903}
-  - component: {fileID: 1080863343691097316}
   m_Layer: 5
   m_Name: Equipment
   m_TagString: Untagged
@@ -258,22 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7596014893325634531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1080863343691097316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596014893325634557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7611d291556e6b342b6a9cdcb785ef63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: EquipmentScene
-  buttonImage: {fileID: 0}
-  sprites: []
+      m_Calls:
+      - m_Target: {fileID: 7596014893746645180}
+        m_TargetAssemblyTypeName: BackpackScript, Assembly-CSharp
+        m_MethodName: Equipment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7596014893746645182
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +330,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpDuration: 0.15
   separation: 125
+  equipmentPrefab: {fileID: 619096891399882603, guid: 495bb44ea4ccb7549b90239529a30c13, type: 3}
+  deckPrefab: {fileID: 8152125756888892587, guid: 3b67b623ec739734abc4dd2ba6009858, type: 3}
+  pivot: {fileID: 0}
 --- !u!1 &7596014893918286103
 GameObject:
   m_ObjectHideFlags: 0

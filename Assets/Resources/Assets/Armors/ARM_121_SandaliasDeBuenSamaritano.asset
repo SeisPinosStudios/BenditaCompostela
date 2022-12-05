@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ARM_121_SandaliasDeBuenSamaritano
   m_EditorClassIdentifier: 
   name: Sandalias de buen samaritano +
-  description: 
+  description: 'Protege 1.<br>Sinergia con <color=#f3f4eb>Cetro</color>: <color=#308a36>+2</color>
+    a las curaciones.'
   artwork: {fileID: 21300000, guid: 01a3e1fc96ecb434f8eeced6cd33a4d5, type: 3}
   cost: 0
   money: 20

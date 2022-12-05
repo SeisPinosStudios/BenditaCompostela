@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ARM_010_MantitaDeMama
   m_EditorClassIdentifier: 
   name: "Mantita de mam\xE1"
-  description: Protege 1
+  description: Protege 1.
   artwork: {fileID: 21300000, guid: 38d6db941f2cd3242824a49bf6985beb, type: 3}
   cost: 0
   money: 5
@@ -26,4 +26,5 @@ MonoBehaviour:
   synergy: 1
   upgradeLevel: 0
   improvedArmor: {fileID: 0}
+  previousArmor: {fileID: 0}
   armorId: 0

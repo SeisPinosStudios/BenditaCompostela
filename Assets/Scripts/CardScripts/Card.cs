@@ -69,9 +69,9 @@ public class Card : MonoBehaviour
     {
         Attack attack = (Attack)cardData;
 
-        enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost);
+        if(attack.damage > 0) enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost);
 
-        if (attack.alteredEffects.Length != 0)
+        if (attack.alteredEffects.Length > 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)
                 if (attack.alteredEffects[i] == CardData.TAlteredEffects.INVULNERABLE || attack.alteredEffects[i] == CardData.TAlteredEffects.GUARDED)
                     self.ApplyAlteredEffect(attack.alteredEffects[i], attack.aEffectValues[i]);

@@ -9,8 +9,10 @@ public class BuyCardSystem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     int cost;
     bool inCard;
     GameObject shopText;
+    public TextMeshProUGUI costText;
     private void Awake()
     {
+        costText.text = "x" + GetComponent<CardDisplay>().cardData.cost.ToString();
         shopText = GameObject.Find("ShopTextSlot");
     }
     public void OnPointerClick(PointerEventData pointer) {
