@@ -519,7 +519,7 @@ Animator:
   m_GameObject: {fileID: 398178127}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 4598f3ca88253df4f8e9d13fb8584e44, type: 2}
+  m_Controller: {fileID: 22100000, guid: 68e3aa833820d1749b22a622e9ed3b88, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1317528461}
         m_TargetAssemblyTypeName: AlteredEffectTriggerTest, Assembly-CSharp
         m_MethodName: Poisoned
         m_Mode: 1

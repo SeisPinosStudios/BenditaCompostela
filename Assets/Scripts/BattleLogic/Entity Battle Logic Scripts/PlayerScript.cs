@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -159,5 +160,13 @@ public class PlayerScript : Entity
                 }
             }
         }
+    }
+    public CardData GetStolableCard()
+    {
+        var specialDeck = playerDeck.Where((card) => card.GetType() == typeof(Special)).ToList().OfType<Special>().Where((card) => card.effects.Contains(CardData.TEffects.rHEALTH) || card.effects.Contains(CardData.TEffects.CLEANSE) || card.effects.Length == 0).ToList().OfType<CardData>();
+        var objectDeck = playerDeck.Where((card) => card.GetType() == typeof(ObjectCard)).ToList().OfType<ObjectCard>().Where((card) => card.effects.Contains(CardData.TEffects.rHEALTH) || card.effects.Contains(CardData.TEffects.CLEANSE) || card.effects.Length == 0).ToList().OfType<CardData>();
+        var deck = specialDeck.Concat(objectDeck).ToList();
+
+        return deck[Random.Range(0, deck.Count)];
     }
 }

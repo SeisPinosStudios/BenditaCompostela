@@ -11,6 +11,7 @@ public class RouteNavigator : MonoBehaviour
     public GameObject fadeGo;
     Fade fade;
     public SlideAnimCoroutines coroutines;
+    public TutorialButton tutorialButton;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class RouteNavigator : MonoBehaviour
     public void ToShop() {
         fade.FadeOut();
         fade.lateFadeIn();
+        tutorialButton.tutorial = "shop";
         shop.SetActive(true);
         Destroy(GameObject.Find("EncounterPrefab(Clone)"));
         StopAllCoroutines();
@@ -28,7 +30,7 @@ public class RouteNavigator : MonoBehaviour
     public void ToRoute() {
         fade.FadeOut();
         fade.lateFadeIn();
-
+        tutorialButton.tutorial = "map";
         Invoke("CloseWindows",1f);
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, 0, 0), 100f));
@@ -44,7 +46,7 @@ public class RouteNavigator : MonoBehaviour
     public void ToEncounter() {
         fade.FadeOut();
         fade.lateFadeIn();
-
+        tutorialButton.tutorial = "encounter";
         //encounterList[encounterId].SetActive(true);
 
         StopAllCoroutines();
@@ -58,7 +60,7 @@ public class RouteNavigator : MonoBehaviour
     {
         fade.FadeOut();
         fade.lateFadeIn();
-
+        tutorialButton.tutorial = "lore";
         StopAllCoroutines();
         StartCoroutine(coroutines.animPos(new Vector3(0, -3000, 0), 100f));
     }

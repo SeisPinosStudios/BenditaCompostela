@@ -14,22 +14,27 @@ public class AlteredEffectTriggerTest : MonoBehaviour
 
     public void Attack() 
     {
+        if (CharacterAnController == null) return;
         StartCoroutine(AnimationCancel("isAttacking"));        
     }
     public void Damaged()
     {
+        if (CharacterAnController == null) return;
         StartCoroutine(AnimationCancel("isDamaged"));
     }
     public void Poisoned()
     {
+        if (CharacterAnController == null) return;
         CharacterAnController.SetBool("isPoisoned", true);
     }
     public void OnFire()
     {
+        if (CharacterAnController == null) return;
         CharacterAnController.SetBool("isOnFire", true);
     }
     public void Vulnerable() 
     {
+        if (CharacterAnController == null) return;
         CharacterAnController.SetBool("isVulnerable", true);    
     }
 

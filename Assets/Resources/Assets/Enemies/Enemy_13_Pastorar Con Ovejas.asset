@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pastora con ovejas
   sprite: {fileID: 21300000, guid: f62785c7b70f0b24695e5079677309fd, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: f7f66ccd0a6410b448c47534706fed18, type: 2}
   HP: 80
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
+  - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
+  - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
+  - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
+  - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
+  - {fileID: 11400000, guid: d0f38803ad0a96a48ae552dd23362e34, type: 2}
   - {fileID: 11400000, guid: 1d4eca0f0cac23541a43375cedd3f157, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: 1d4eca0f0cac23541a43375cedd3f157, type: 2}
+  - {fileID: 11400000, guid: 1d4eca0f0cac23541a43375cedd3f157, type: 2}
+  - {fileID: 11400000, guid: 1d4eca0f0cac23541a43375cedd3f157, type: 2}
+  passives: 
   reward: 8

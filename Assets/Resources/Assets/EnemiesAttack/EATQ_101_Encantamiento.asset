@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Encantamiento
   description: 
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 51dde658e5c03654b834bbb6a18cbe05, type: 3}
   cost: 0
-  damage: 7
+  money: 0
+  enemy: 1
+  damage: 15
   alteredEffects: 07000000
   aEffectValues: 01000000
   effects: 
   eValues: 
+  zone: 0

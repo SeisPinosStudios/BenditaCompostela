@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Santiago
   sprite: {fileID: 21300000, guid: a64634c9c9fe8564d8c33d31ac3649b3, type: 3}
-  HP: 120
+  enemyAnimatorController: {fileID: 0}
+  HP: 220
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 80e4c0ceb3951664abe368ad6df208fb, type: 2}
   - {fileID: 11400000, guid: 82d4313b0a4f78c49a64cc746f66ccab, type: 2}
+  - {fileID: 11400000, guid: 82d4313b0a4f78c49a64cc746f66ccab, type: 2}
+  - {fileID: 11400000, guid: 82d4313b0a4f78c49a64cc746f66ccab, type: 2}
+  - {fileID: 11400000, guid: 82d4313b0a4f78c49a64cc746f66ccab, type: 2}
+  - {fileID: 11400000, guid: 82d4313b0a4f78c49a64cc746f66ccab, type: 2}
   - {fileID: 11400000, guid: e06958218d105f441a432d213727b1d1, type: 2}
-  boss: 4
-  resistances: 
+  - {fileID: 11400000, guid: e06958218d105f441a432d213727b1d1, type: 2}
+  - {fileID: 11400000, guid: e06958218d105f441a432d213727b1d1, type: 2}
+  - {fileID: 11400000, guid: e19674cd33d18bd4d9d6aec057ebcfbe, type: 2}
+  passives: 0300000004000000
   reward: 0

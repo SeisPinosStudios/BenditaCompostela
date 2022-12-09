@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bandido G
   sprite: {fileID: 21300000, guid: dc4d1aa6248aaf343b4849ef091dc594, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: 68e3aa833820d1749b22a622e9ed3b88, type: 2}
   HP: 110
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
+  - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
+  - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
+  - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
+  - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
+  - {fileID: 11400000, guid: fea01fc2b7ef4934e95bd2302ba8cab8, type: 2}
   - {fileID: 11400000, guid: 2c2fc32f3618da8478ced1ac3a762a12, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: 2c2fc32f3618da8478ced1ac3a762a12, type: 2}
+  - {fileID: 11400000, guid: 2c2fc32f3618da8478ced1ac3a762a12, type: 2}
+  - {fileID: 11400000, guid: 2c2fc32f3618da8478ced1ac3a762a12, type: 2}
+  passives: 
   reward: 8

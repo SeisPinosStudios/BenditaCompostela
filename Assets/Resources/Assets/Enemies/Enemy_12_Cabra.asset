@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Cabra
   sprite: {fileID: 21300000, guid: 3f6a6c89dcb866843ba9782ad42ad8f5, type: 3}
-  HP: 50
+  enemyAnimatorController: {fileID: 22100000, guid: e1af2a48c4e23464294e4368cb0d5987, type: 2}
+  HP: 70
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: eaae7417c881e9e48887eb7e4f8b79de, type: 2}
-  boss: 0
-  resistances: 
+  passives: 05000000
   reward: 8

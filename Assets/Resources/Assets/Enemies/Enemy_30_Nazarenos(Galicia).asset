@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_30_Nazarenos(Galicia)
+  m_EditorClassIdentifier: 
+  name: Nazarenos
+  sprite: {fileID: -1453973947, guid: b41f52c45bbf80e41af10cfc153a256a, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: 2644bbafe4417be458e97b8f86c2b275, type: 2}
+  HP: 90
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: a0adaf43ecbefe3419184373511412ee, type: 2}
+  - {fileID: 11400000, guid: a0adaf43ecbefe3419184373511412ee, type: 2}
+  - {fileID: 11400000, guid: a0adaf43ecbefe3419184373511412ee, type: 2}
+  - {fileID: 11400000, guid: a0adaf43ecbefe3419184373511412ee, type: 2}
+  - {fileID: 11400000, guid: e790ef81b38be544d82b93d25e7fc5ab, type: 2}
+  - {fileID: 11400000, guid: e790ef81b38be544d82b93d25e7fc5ab, type: 2}
+  - {fileID: 11400000, guid: e790ef81b38be544d82b93d25e7fc5ab, type: 2}
+  - {fileID: 11400000, guid: 4abc711769866f0498c4b75f077f4477, type: 2}
+  - {fileID: 11400000, guid: 4abc711769866f0498c4b75f077f4477, type: 2}
+  - {fileID: 11400000, guid: 4abc711769866f0498c4b75f077f4477, type: 2}
+  passives: 06000000
+  reward: 0

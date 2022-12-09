@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     }
     public static void NewRoute()
     {
+        Debug.Log("NEW ROUTE");
         gameProgressContext = 0;
         completedNodes.Clear();
     }

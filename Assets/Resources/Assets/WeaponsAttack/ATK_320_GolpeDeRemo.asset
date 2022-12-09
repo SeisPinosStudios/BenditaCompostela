@@ -16,6 +16,7 @@ MonoBehaviour:
   description: "Realiza <b>6</b> puntos de da\xF1o."
   artwork: {fileID: 21300000, guid: 30e2aeb56b89ce94f8f3ca643a45ed75, type: 3}
   cost: 4
-  damage: 5
+  money: 0
+  damage: 6
   alteredEffects: 
   aEffectValues: 

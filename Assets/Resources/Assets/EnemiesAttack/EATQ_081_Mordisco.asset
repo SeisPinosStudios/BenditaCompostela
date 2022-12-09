@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mordisco
   description: "Realiza 7 puntos de da\xF1o y aplica Sangradox1"
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 52b98c7e5106ef74687b3620f2b43a67, type: 3}
   cost: 0
-  damage: 7
+  money: 0
+  enemy: 1
+  damage: 11
   alteredEffects: 00000000
-  aEffectValues: 01000000
+  aEffectValues: 02000000
   effects: 
   eValues: 
+  zone: 0

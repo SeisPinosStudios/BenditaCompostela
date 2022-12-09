@@ -24,6 +24,7 @@ public class CardDisplay : MonoBehaviour
 
     void Start()
     {
+        
         if (InBattle())
         {
             user = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().current.GetComponent<Entity>();
@@ -32,9 +33,10 @@ public class CardDisplay : MonoBehaviour
         nameText.text = cardData.name;
         descText.text = cardData.description;
         Description();
+        Cost();
         sprite.sprite = cardData.artwork;
-        cost.text = cardData.cost.ToString();
         if(cardData.GetType() == typeof(Armor) || cardData.GetType() == typeof(Weapon)) energyIcon.SetActive(false);
+        if (cardData.enemy) { nameText.color = Color.white; descText.color = Color.white; }
     }
     public void Description()
     {
@@ -88,13 +90,18 @@ public class CardDisplay : MonoBehaviour
             originalDamage = card.damage;
         }
 
-        if (InBattle()) finalDamage += user.damageBoost - enemy.defense;
+        if (InBattle()) finalDamage = Mathf.Clamp( finalDamage + user.damageBoost - enemy.defense, 0, 99);
 
         if (originalDamage <= 0) return;
 
         if (finalDamage == originalDamage) description.Append("Daña " + finalDamage.ToString() + "<br>");
         else if (finalDamage > originalDamage) description.Append("Daña <color=green>" + finalDamage.ToString() + "</color><br>");
         else description.Append("Daña <color=red>" + finalDamage.ToString() + "</color><br>");
+    }
+    public void Cost()
+    {
+        if(InBattle()) cost.text = user.Suffering(CardData.TAlteredEffects.CONFUSED) ? (cardData.cost + 1).ToString() : cardData.cost.ToString();
+        else cost.text = cardData.cost.ToString();
     }
     public void AlteredEffect()
     {

@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Herrero L
   sprite: {fileID: 21300000, guid: 1e3cc814eb62abb45acea3ee283e8326, type: 3}
-  HP: 90
+  enemyAnimatorController: {fileID: 22100000, guid: b1f2c1ed8d5293c4cb8ba8aeab27be77, type: 2}
+  HP: 80
   energy: 99
   enemyAttacks:
-  - {fileID: 11400000, guid: c08ee803611d86b448714252bdca6fa8, type: 2}
-  - {fileID: 11400000, guid: e6fe971c6b9641c468eaea55ab59afde, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: a3a55d4a9ebc0f84e92df0d5b396dad1, type: 2}
+  - {fileID: 11400000, guid: 8f495c0754c61b7429f447b3623f8c69, type: 2}
+  - {fileID: 11400000, guid: 8f495c0754c61b7429f447b3623f8c69, type: 2}
+  - {fileID: 11400000, guid: 8f495c0754c61b7429f447b3623f8c69, type: 2}
+  passives: 06000000
   reward: 7

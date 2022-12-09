@@ -13,11 +13,55 @@ MonoBehaviour:
   m_Name: CombatTutorial
   m_EditorClassIdentifier: 
   text:
-  - Esto es una prueba de tutorial.
-  - Edson mama pinga
+  - "\xA1Te acabas de encontrar con un enemigo! En combate, deber\xE1s derrotar al
+    enemigo que est\xE1 frente a ti utilizando tu ingenio y tus cartas."
+  - En Bendita Compostela cuentas con dos mazos diferenciados.
+  - "El mazo de la derecha es el mazo que has dise\xF1ado y personalizado en la mochila,
+    de \xE9l robar\xE1s 5 cartas al principio de tu turno, pero no podr\xE1s robar
+    m\xE1s durante el mismo."
+  - "Una vez te quedes sin cartas en el mazo este se oscurecer\xE1 para indicarlo.
+    Aquellas cartas que no utilices durante tu turno volver\xE1n al fondo de tu mazo
+    y volver\xE1n a tu mano en los siguientes turnos."
+  - "A la izquierda se encuentra el mazo de ataques. Al equiparte un arma podr\xE1s
+    comenzar a robar ataques de este mazo. Este mazo no tiene un l\xEDmite, pero
+    robar de \xE9l te costar\xE1 una carga de energ\xEDa y las ataques que no utilices
+    se destruir\xE1n al final del turno."
+  - "\xA1Los ataques ser\xE1n tu principal herramienta durante el combate, as\xED
+    que piensa bien qu\xE9 armas quieres usar y cu\xE1ndo equip\xE1rtelas!"
+  - "Aqu\xED abajo se encuentra tu mano con las cartas disponibles en el turno. Al
+    pasar el puntero del rat\xF3n por encima o pulsar en m\xF3vil podr\xE1s inspeccionar
+    la carta para conocer sus efectos, as\xED como utilizarla arrastr\xE1ndola hacia
+    el centro de la pantalla."
+  - "Debajo de los personajes podr\xE1s encontrar las barras de vida y, en tu caso,
+    tambi\xE9n la de energ\xEDa. La energ\xEDa es el recurso m\xE1s importante durante
+    el combate, si te quedas sin energ\xEDa, no podr\xE1s usar m\xE1s cartas. \xA1\xDAsalo
+    sabiamente!"
+  - "En Bendita Compostela tambi\xE9n existen habilidades, pasivas y efectos que
+    se mostrar\xE1n como iconos debajo de las barras de vida. Al pasar el rat\xF3n
+    por encima o pulsar una vez en m\xF3vil podr\xE1s conocer qu\xE9 hace cada efecto."
+  - "El combate en Bendita Compsotela cuenta con gran profundidad y multitud de interesantes
+    alternativas que har\xE1n cada partida diferente. Plantea bien tu estrategia
+    para derrotar a todos los enemigos que te encuentres en tu camino.<br><br>\xA1Mucha
+    suerte!"
   x:
   - 0
-  - 480
+  - 0
+  - 600
+  - 600
+  - -600
+  - -600
+  - 0
+  - 0
+  - 0
+  - 0
   y:
   - 0
-  - 480
+  - 0
+  - 360
+  - 360
+  - 360
+  - 360
+  - -200
+  - 300
+  - 300
+  - 0

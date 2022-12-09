@@ -80,7 +80,7 @@ public class CardDataFilter : MonoBehaviour
         foreach (CardData card in Resources.LoadAll<CardData>("Assets/Armors"))
         {
             var armor = (Armor)card;
-            if (armor.upgradeLevel == 0) obj.Add(card);
+            if (armor.upgradeLevel == 0 && armor.armorId != 0) obj.Add(card);
         }
 
         return obj;

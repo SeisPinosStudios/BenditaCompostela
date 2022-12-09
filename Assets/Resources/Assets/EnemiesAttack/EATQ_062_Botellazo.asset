@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Botellazo
   description: "Realiza 8 puntos de da\xF1o y aplica Sangradox1"
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 0999d7fd6e228ac439d62472c014eafa, type: 3}
   cost: 0
-  damage: 8
+  money: 0
+  enemy: 1
+  damage: 4
   alteredEffects: 00000000
-  aEffectValues: 01000000
+  aEffectValues: 04000000
   effects: 
   eValues: 
+  zone: 0

@@ -10,9 +10,12 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     int cost;
     bool inCard;
     GameObject shopText;
+    CardData originalCard;
     public void Awake()
     {
         shopText = GameObject.Find("ShopTextSlot");
+        originalCard = gameObject.GetComponent<CardDisplay>().cardData;
+        ShowUpgrade();
     }
     public void OnPointerClick(PointerEventData pointerEvet)
     {
@@ -35,20 +38,16 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     public void UpgradeWeapon()
     {
         var weapon = (Weapon)GetComponent<CardDisplay>().cardData;
-        var previousWeapon = weapon.previousWeapon;
 
-        if (GameManager.playerData.inventory.Find(weapon => weapon == previousWeapon) != null)
+        if (GameManager.playerData.inventory.Contains(originalCard))
         {
-            GameManager.playerData.inventory.Remove(previousWeapon);
+            GameManager.playerData.inventory.Remove(originalCard);
             GameManager.playerData.inventory.Add(weapon);
-            return;
         }
-
-        if (GameManager.playerData.playerDeck.Find(weapon => weapon == previousWeapon) != null)
+        else if (GameManager.playerData.playerDeck.Contains(originalCard))
         {
-            GameManager.playerData.playerDeck.Remove(previousWeapon);
+            GameManager.playerData.playerDeck.Remove(originalCard);
             GameManager.playerData.playerDeck.Add(weapon);
-            return;
         }
 
         shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().weaponBuy[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().weaponBuy.Count)];
@@ -58,13 +57,11 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     public void UpgradeArmor()
     {
         var armor = (Armor)GetComponent<CardDisplay>().cardData;
-        var previousArmor = armor.previousArmor;
 
-        if (GameManager.playerData.inventory.Find(armor => armor == previousArmor) != null)
+        if (GameManager.playerData.inventory.Contains(originalCard))
         {
-            GameManager.playerData.inventory.Remove(previousArmor);
+            GameManager.playerData.inventory.Remove(originalCard);
             GameManager.playerData.inventory.Add(armor);
-            return;
         }
 
         shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().armorBuy[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().armorBuy.Count)];
@@ -86,5 +83,18 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     public static Weapon ConvertToWeapon(CardData card)
     {
         return (Weapon)card;
+    }
+    public void ShowUpgrade()
+    {
+        if(originalCard.GetType() == typeof(Weapon))
+        {
+            var card = (Weapon)originalCard;
+            gameObject.GetComponent<CardDisplay>().cardData = card.improvedWeapon;
+        }
+        else if(originalCard.GetType() == typeof(Armor))
+        {
+            var card = (Armor)originalCard;
+            gameObject.GetComponent<CardDisplay>().cardData = card.improvedArmor;
+        }
     }
 }

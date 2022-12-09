@@ -14,7 +14,14 @@ public class CharacterDisplay : MonoBehaviour
     public Image feetImage;
     public Image weaponImage;
 
-    public GameObject player;
+    public PlayerScript player;
+    public GameObject cardPrefab;
+    public GameObject cardDisplay;
+
+    public void Awake()
+    {
+
+    }
 
     private void Update()
     {
@@ -23,7 +30,7 @@ public class CharacterDisplay : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "BattleScene") return;
 
-        if (player.GetComponent<PlayerScript>().weapon == null) weaponImage.sprite = weapon[5];
+        if (player.weapon == null) weaponImage.sprite = weapon[5];
         else weaponImage.sprite = weapon[player.GetComponent<PlayerScript>().weapon.weaponId];
     }
 }

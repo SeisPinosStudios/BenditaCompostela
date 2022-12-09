@@ -57,8 +57,8 @@ public class Shop : MonoBehaviour
 
         CardData card = cards[Random.Range(0, cards.Count)];
 
-        if (card.GetType() == typeof(Armor)) { var armorCard = (Armor)card; upgradePrefab.GetComponent<CardDisplay>().cardData = armorCard.improvedArmor; }
-        else if(card.GetType() == typeof(Weapon)) { var weaponCard = (Weapon)card; upgradePrefab.GetComponent<CardDisplay>().cardData = weaponCard.improvedWeapon; } 
+        if (card.GetType() == typeof(Armor)) { var armorCard = (Armor)card; upgradePrefab.GetComponent<CardDisplay>().cardData = armorCard; }
+        else if(card.GetType() == typeof(Weapon)) { var weaponCard = (Weapon)card; upgradePrefab.GetComponent<CardDisplay>().cardData = weaponCard; } 
         
         Instantiate(upgradePrefab, pivot);
     }

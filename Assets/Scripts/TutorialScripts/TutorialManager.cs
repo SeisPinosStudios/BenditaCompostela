@@ -21,7 +21,7 @@ public class TutorialManager : MonoBehaviour
         if (scenes.Count != tutorials.Count) return;
         textPrefab = textPrefabAux;
         textPrefab.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
-        for(int i = 0; i < scenes.Count; i++) tutorialDictionary.Add(scenes[i], tutorials[i]);
+        for(int i = 0; i < scenes.Count; i++) if(!tutorialDictionary.ContainsKey(scenes[i])) tutorialDictionary.Add(scenes[i], tutorials[i]);
     }
 
     public static void ShowTutorial(string tutorialName)
@@ -29,6 +29,7 @@ public class TutorialManager : MonoBehaviour
         showingTutorial = true;
         if(text != null) Destroy(text);
         if (!tutorialDictionary.ContainsKey(tutorialName)) return;
+        textIndex = 0;
         tutorial = tutorialDictionary[tutorialName];
         text = Instantiate(textPrefab, GameObject.Find("====CANVAS====").transform);
         text.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = tutorial.text[textIndex];

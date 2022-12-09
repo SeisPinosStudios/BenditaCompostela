@@ -66,7 +66,7 @@ public class MainMenu : MonoBehaviour
     }
     public void AnimSound()
     {
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("MainAnimation");
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("Title");
     }
     #endregion
 

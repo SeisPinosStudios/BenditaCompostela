@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Juglar
   sprite: {fileID: 21300000, guid: 4a40841f7d3ab5940b1e82c1ae829b65, type: 3}
-  HP: 32
+  enemyAnimatorController: {fileID: 9100000, guid: b23d8d75d7293d545b7e973c263f7671, type: 2}
+  HP: 50
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
+  - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
+  - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
+  - {fileID: 11400000, guid: a56b4b54fd3aae1418a5b279320a041d, type: 2}
   - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  - {fileID: 11400000, guid: debf55c44b163fd4b9aacd63a5df5a79, type: 2}
+  passives: 
   reward: 5

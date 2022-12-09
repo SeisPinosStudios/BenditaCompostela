@@ -44,12 +44,14 @@ public class Player : ScriptableObject
     public Player copy()
     {
         Player player = CreateInstance<Player>();
+        
         player.maxHP = maxHP;
         player.currentHP = currentHP;
         player.energy = energy;
         player.coins = coins;
         player.playerDeck = playerDeck.Select((card) => Instantiate(card)).ToList();
         player.inventory = inventory.Select((card) => Instantiate(card)).ToList();
+        if (this.name == "BasicPlayer") player.inventory.Add(CardDataFilter.ShopWeapons()[Random.Range(0, CardDataFilter.ShopWeapons().Count)]);
         player.chestArmor = Instantiate(chestArmor);
         player.feetArmor = Instantiate(feetArmor);
         return player;

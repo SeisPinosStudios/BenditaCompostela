@@ -94,4 +94,8 @@ public class DefaultDeck : MonoBehaviour
         foreach (Transform card in hand.transform) card.GetComponent<CardInspection>().canInspect = inspect;
     }
     #endregion
+    private void Update()
+    {
+        if (deckQueue.Count <= 0) GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+    }
 }

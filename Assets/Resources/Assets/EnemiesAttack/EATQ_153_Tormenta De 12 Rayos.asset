@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 7970d7152e1b78a4fad4a9e198a4449d, type: 3}
   cost: 0
+  money: 0
+  enemy: 1
   damage: 30
-  alteredEffects: 0200000006000000
-  aEffectValues: 0500000001000000
+  alteredEffects: 06000000
+  aEffectValues: 01000000
   effects: 
   eValues: 
+  zone: 0

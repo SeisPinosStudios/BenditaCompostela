@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Agricultor enfurecido
   sprite: {fileID: 21300000, guid: 7a1eff4a9825dc84fa4365b46458f5da, type: 3}
+  enemyAnimatorController: {fileID: 0}
   HP: 45
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
+  - {fileID: 11400000, guid: 57c7de7a951e59d4cb72a3f6be5242f4, type: 2}
   - {fileID: 11400000, guid: 87e195003ac5ae54985d735375cf0f86, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: 87e195003ac5ae54985d735375cf0f86, type: 2}
+  - {fileID: 11400000, guid: 87e195003ac5ae54985d735375cf0f86, type: 2}
+  passives: 
   reward: 6

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class Card : MonoBehaviour
@@ -8,6 +9,7 @@ public class Card : MonoBehaviour
     Entity enemy;
     Entity self;
     CardData cardData;
+    AudioManager audioManager;
 
     public void Awake()
     {
@@ -15,7 +17,7 @@ public class Card : MonoBehaviour
             self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
         }
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         cardData = gameObject.GetComponent<CardDisplay>().cardData;
     }
     public void UseCard()
@@ -23,12 +25,15 @@ public class Card : MonoBehaviour
         var energyCost = cardData.cost;
 
         #region Trasgu's Passive
-        if (enemy.GetComponent<Entity>().IsBoss(Enemy.Boss.TRASGU) && Random.Range(0,9) >= 8)
+        if (enemy.HasPassive(Enemy.Passive.TRASGU) && Random.Range(0,9) >= 8)
         {
+            enemy.GetComponent<EnemyScript>().TrasguPassive();
             Destroy(gameObject);
             return; 
         }
         #endregion
+
+        Debug.Log("USED CARD: " + cardData.name);
 
         if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon))
         {
@@ -39,6 +44,7 @@ public class Card : MonoBehaviour
         if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
         self.Bleeding();
+        if(self.HasPassive(Enemy.Passive.HERNAN)) enemy.ApplyAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
 
         switch (cardData.GetType().ToString())
         {
@@ -47,9 +53,12 @@ public class Card : MonoBehaviour
                 EquipWeapon();
                 break;
             case "Attack":
+                self.animationTrigger.Attack();
                 Attack();
                 break;
             case "Special":
+                Debug.Log("SELF: " + self.name);
+                self.animationTrigger.Attack();
                 Special();
                 break;
             case "ObjectCard":
@@ -69,7 +78,7 @@ public class Card : MonoBehaviour
     {
         Attack attack = (Attack)cardData;
 
-        if(attack.damage > 0) enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost);
+        if (attack.damage > 0) { enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost); audioManager.PlaySound("SwordHit"); }
 
         if (attack.alteredEffects.Length > 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)
@@ -98,6 +107,8 @@ public class Card : MonoBehaviour
             {
                 ComputeEffect(special.effects[i], special.eValues[i]);
             }
+
+        GameManager.playerData.playerDeck.Remove(special);
     }
     public void Object()
     {
@@ -138,13 +149,17 @@ public class Card : MonoBehaviour
                 if (self.GetComponent<PlayerScript>().weapon == null) return;
                 GameObject.Find("AttackDeck").GetComponent<AttackDeck>().StartDrawCoroutine(value);
                 break;
-            /*
             case CardData.TEffects.STEAL:
-                StartCoroutine(self.GetComponent<EnemyScript>().Steal
-                break;*/
+                var card = enemy.gameObject.GetComponent<PlayerScript>().GetStolableCard();
+                self.gameObject.GetComponent<EnemyScript>().UseCard(self.gameObject.GetComponent<EnemyScript>().ShowCard(card));
+                break;
             default:
                 Debug.Log("Default.");
                 break;
         }
+    }
+    void Sound()
+    {
+        
     }
 }

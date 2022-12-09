@@ -904,7 +904,7 @@ PrefabInstance:
     - target: {fileID: 1743755054152305979, guid: 69692d21890f95c449fa34af1be75546, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 11400000, guid: 842ed64ec09e2e14a809616e2669e809, type: 2}
+      objectReference: {fileID: 11400000, guid: b02b16aefa5bfeb429b8cf7e1a2f2d2f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69692d21890f95c449fa34af1be75546, type: 3}
 --- !u!224 &162526945 stripped
@@ -2052,7 +2052,7 @@ PrefabInstance:
     - target: {fileID: 1743755054152305979, guid: 69692d21890f95c449fa34af1be75546, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 11400000, guid: 918b8c8d2985ab34b898f3e3f370946c, type: 2}
+      objectReference: {fileID: 11400000, guid: 637c17f49785f40488343ddbe3145884, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69692d21890f95c449fa34af1be75546, type: 3}
 --- !u!224 &728569350 stripped
@@ -3743,6 +3743,7 @@ MonoBehaviour:
   mapController: {fileID: 958117488}
   fadeGo: {fileID: 49231522}
   coroutines: {fileID: 0}
+  tutorialButton: {fileID: 0}
 --- !u!114 &1046541168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4603,7 +4604,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
   m_Value: -0.000000057636687
-  m_Size: 0.33767763
+  m_Size: 0.16885926
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5400,7 +5401,7 @@ PrefabInstance:
     - target: {fileID: 1743755054152305979, guid: 69692d21890f95c449fa34af1be75546, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 11400000, guid: 595dd52932c4a014bb7be0ea5ba2a43e, type: 2}
+      objectReference: {fileID: 11400000, guid: b2a9109c5481bdc429858362381ed38f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69692d21890f95c449fa34af1be75546, type: 3}
 --- !u!224 &1673036561 stripped
@@ -7083,6 +7084,10 @@ PrefabInstance:
       propertyPath: pivot
       value: 
       objectReference: {fileID: 1046541166}
+    - target: {fileID: 3127199712803853661, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 41.30005
+      objectReference: {fileID: 0}
     - target: {fileID: 4524492715786947720, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

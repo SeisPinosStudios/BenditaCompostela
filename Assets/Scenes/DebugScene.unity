@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -534,6 +534,7 @@ RectTransform:
   - {fileID: 781181641}
   - {fileID: 881432377}
   - {fileID: 1568237799}
+  - {fileID: 426245082}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -542,6 +543,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &426245081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426245082}
+  m_Layer: 5
+  m_Name: PIVOT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &426245082
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426245081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 365615241}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &501586513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 365615241}
     m_Modifications:
+    - target: {fileID: 7596014893746645180, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
+      propertyPath: pivot
+      value: 
+      objectReference: {fileID: 426245082}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1521,6 +1562,7 @@ GameObject:
   - component: {fileID: 1123608500}
   - component: {fileID: 1123608499}
   - component: {fileID: 1123608501}
+  - component: {fileID: 1123608502}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1661,6 +1703,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1123608502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123608497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2fdb9c643a8524abeda6abe2dd6b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenes:
+  - map
+  - shop
+  - deckbuilder
+  - equipment
+  - encounter
+  - lore
+  - combat
+  tutorials:
+  - {fileID: 11400000, guid: f6d674b738de27d4fbfc708cc7f520ff, type: 2}
+  - {fileID: 11400000, guid: 7043c73ae6e830f48a10ca41118ea760, type: 2}
+  - {fileID: 11400000, guid: 40a67c60fa95bd742bdee017c8da01f9, type: 2}
+  - {fileID: 11400000, guid: f00012bb26edc564f81fce07ff4d6928, type: 2}
+  - {fileID: 11400000, guid: 7febc708a20422b45aac1e2e9b5d020e, type: 2}
+  - {fileID: 11400000, guid: f45880c3cee158140ad433ba40d1e2ce, type: 2}
+  - {fileID: 11400000, guid: e2725b27d2fc76547ad08e38c3871c40, type: 2}
+  textPrefabAux: {fileID: 6360817619058803975, guid: a9c477e338d4d294d977855635095b94, type: 3}
 --- !u!1 &1417447013
 GameObject:
   m_ObjectHideFlags: 0

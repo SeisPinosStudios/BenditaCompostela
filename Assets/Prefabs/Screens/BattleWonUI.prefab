@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xA1Has vencido!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -337,8 +337,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xA1Buen trabajo!\nElige una de las siguientes recompensas:"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -938,6 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: Back
+  buttonImage: {fileID: 0}
+  sprites: []
 --- !u!1 &9073969819894977361
 GameObject:
   m_ObjectHideFlags: 0

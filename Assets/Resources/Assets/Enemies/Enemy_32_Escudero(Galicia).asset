@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
+  m_Name: Enemy_32_Escudero(Galicia)
+  m_EditorClassIdentifier: 
+  name: Escudero
+  sprite: {fileID: 335613098, guid: 02ff3af451ef01d47a37e28485950805, type: 3}
+  enemyAnimatorController: {fileID: 0}
+  HP: 180
+  energy: 99
+  enemyAttacks:
+  - {fileID: 11400000, guid: daba4ce3c5543c24d802f217d762030b, type: 2}
+  - {fileID: 11400000, guid: daba4ce3c5543c24d802f217d762030b, type: 2}
+  - {fileID: 11400000, guid: daba4ce3c5543c24d802f217d762030b, type: 2}
+  - {fileID: 11400000, guid: daba4ce3c5543c24d802f217d762030b, type: 2}
+  - {fileID: 11400000, guid: 416601efada535f429eff4e485726b13, type: 2}
+  - {fileID: 11400000, guid: 416601efada535f429eff4e485726b13, type: 2}
+  - {fileID: 11400000, guid: 416601efada535f429eff4e485726b13, type: 2}
+  - {fileID: 11400000, guid: 416601efada535f429eff4e485726b13, type: 2}
+  - {fileID: 11400000, guid: 9eb729cefb09be849afdbe36461e02e7, type: 2}
+  - {fileID: 11400000, guid: 9eb729cefb09be849afdbe36461e02e7, type: 2}
+  passives: 05000000
+  reward: 0

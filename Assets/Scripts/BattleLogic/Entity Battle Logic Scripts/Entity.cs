@@ -14,15 +14,20 @@ public class Entity : MonoBehaviour
     //public List<CardData.TAlteredEffects> alteredEffects;
     //public List<int> aEffectsValue;
     public GameObject alteredEffectsDisplayPrefab;
-    public Sprite[] alteredEffectsImages;
     public Dictionary<CardData.TAlteredEffects, int> alteredEffects = new Dictionary<CardData.TAlteredEffects, int>();
     int poisonTurns;
+    public AlteredEffectTriggerTest animationTrigger;
     #endregion
 
     #region Synergy Variables
     public int damageBoost = 0;
     public int defense = 0;
     public int extraHealing = 0;
+    #endregion
+
+    #region Boss and Enemy Passives
+    public List<Enemy.Passive> passives;
+    public GameObject passivePrefab;
     #endregion
 
     #region Entity Setup
@@ -71,6 +76,8 @@ public class Entity : MonoBehaviour
         damage = Mathf.Clamp(damage, 0, 99);
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
+        if (damage > 0) animationTrigger.Damaged();
+
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
         if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
@@ -78,9 +85,11 @@ public class Entity : MonoBehaviour
     public void SufferEffectDamage(int damage)
     {
         damage = Invulnerable(damage);
+        if (passives.Contains(Enemy.Passive.SANTIAGO)) damage = Mathf.Clamp(damage - 2, 0, 99);
+        if (BossDebuff(Enemy.Passive.SANTIAGO_2)) damage += 3;
         this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
 
-        if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
+        if (IsPlayer()) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
         if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
@@ -185,9 +194,6 @@ public class Entity : MonoBehaviour
 
         var effectCharges = alteredEffects[CardData.TAlteredEffects.BLEED];
 
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
-
         SufferEffectDamage(effectCharges);
 
         ReduceAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
@@ -201,10 +207,9 @@ public class Entity : MonoBehaviour
         poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, 6);
         var effectCharges = poisonTurns;
 
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
-
         SufferEffectDamage(effectCharges);
+
+        animationTrigger.Poisoned();
 
         ReduceAlteredEffect(CardData.TAlteredEffects.POISON, 1);
 
@@ -217,6 +222,8 @@ public class Entity : MonoBehaviour
         var effectCharges = alteredEffects[CardData.TAlteredEffects.BURN];
 
         SufferEffectDamage((int)GetBurn());
+
+        animationTrigger.OnFire();
 
         RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
 
@@ -235,6 +242,8 @@ public class Entity : MonoBehaviour
         if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage; 
 
         Debug.Log("EFFECT: Vulnerable");
+
+        animationTrigger.Vulnerable();
 
         RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
@@ -270,17 +279,22 @@ public class Entity : MonoBehaviour
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
         float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
         gameObject.transform.GetChild(1).GetComponent<Slider>().value = healthBar;
-        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
-        if (this.GetType() == typeof(PlayerScript))
+        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString() + "/" + HP.ToString();
+        if (IsPlayer())
         {
-            gameObject.transform.GetChild(3).GetComponent<Slider>().value = energyBar;
-            gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
+            gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
+            gameObject.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
         }
+        gameObject.GetComponentInChildren<Image>().SetNativeSize();
     }
-
     public void UpdateEffectsDisplay()
     {
-        foreach(Transform child in transform.GetChild(2).GetComponentInChildren<Transform>())
+        Transform parent;
+
+        if (IsPlayer()) parent = transform.GetChild(transform.childCount - 1);
+        else parent = transform.GetChild(2);
+
+        foreach (Transform child in parent)
         {
             Destroy(child.gameObject);
         }
@@ -288,47 +302,54 @@ public class Entity : MonoBehaviour
         foreach (KeyValuePair<CardData.TAlteredEffects, int> effect in alteredEffects)
         {
             if (!Suffering(effect.Key)) continue;
-            //alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect.Key];
             alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().effect = effect.Key;
             alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().value = effect.Value;
-            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
-            //newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + alteredEffects[effect.Key].ToString();
+            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, parent);
         }
     }
-
     public void AttackAnimation(bool state)
     {
         GetComponent<Animator>().SetBool("Attack", state);
+    }
+    public void PassivesDisplay()
+    {
+        if (IsPlayer()) return;
+        foreach(Enemy.Passive passive in passives)
+        {
+            passivePrefab.GetComponent<PassiveDisplay>().passive = passive;
+            Instantiate(passivePrefab, transform.GetChild(3));
+        }
     }
     #endregion
 
     #region Boss And Resistances
 
-    public bool ResistanceTo(CardData.TAlteredEffects aEffect)
+    public bool BossDebuff(Enemy.Passive passive)
     {
-        if (this.GetType() != typeof(EnemyScript)) return false;
-
-        if (this.GetComponent<EnemyScript>().enemyData.resistances.Contains(aEffect)) return true;
-
+        if (!IsPlayer()) return false;
+        return GetComponent<PlayerScript>().enemy.GetComponent<Entity>().passives.Contains(passive);
+    }
+    public bool HasPassive(Enemy.Passive passive)
+    {
+        return passives.Contains(passive);
+    }
+    public bool ResistanceTo(CardData.TAlteredEffects effect)
+    {
+        switch (effect)
+        {
+            case CardData.TAlteredEffects.BLEED:
+                return passives.Contains(Enemy.Passive.rBLEED);
+            case CardData.TAlteredEffects.POISON:
+                return passives.Contains(Enemy.Passive.rPOISON);
+            case CardData.TAlteredEffects.BURN:
+                return passives.Contains(Enemy.Passive.rBURN);
+            case CardData.TAlteredEffects.VULNERABLE:
+                return passives.Contains(Enemy.Passive.rVULNERABLE);
+            case CardData.TAlteredEffects.GUARDED:
+                return passives.Contains(Enemy.Passive.rGUARDED);
+        }
         return false;
     }
-    public bool IsBoss(Enemy.Boss isBoss)
-    {
-        if (this.GetType() != typeof(EnemyScript)) return false;
-
-        if (GetComponent<EnemyScript>().enemyData.IsBoss(isBoss)) return true;
-
-        return false;
-    }
-    public bool BossDebuff(Enemy.Boss isBoss)
-    {
-        if (this.GetType() != typeof(PlayerScript)) return false;
-
-        if (GetComponent<PlayerScript>().enemy.GetComponent<EnemyScript>().enemyData.IsBoss(isBoss)) return true;
-
-        return false;
-    }
-
     #endregion
 
     #region Entity Type
@@ -439,9 +460,6 @@ public class Entity : MonoBehaviour
         }
 
         var damage = stacks * multiplier;
-
-        if (IsBoss(Enemy.Boss.SANTIAGO)) damage--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) damage += 3;
 
         return Mathf.Round(damage);
     }

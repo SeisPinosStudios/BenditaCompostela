@@ -280,6 +280,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &80427135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8221133797641209594, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+  m_PrefabInstance: {fileID: 1520396826285701401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af46a521bee12e4fb24b4a867ffeb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &107799069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 304139452946569063, guid: 6f40ee7707243094fb0c2a55b542d6e7, type: 3}
@@ -311,6 +322,10 @@ PrefabInstance:
       propertyPath: pivot
       value: 
       objectReference: {fileID: 441479319}
+    - target: {fileID: 7596014893746645180, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 80427135}
     - target: {fileID: 7596014893746645181, guid: 46ecc9d7dea106f4095188c44fa9aa95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -519,6 +534,51 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 49ef7ded6e88d684687e68dbbe655134, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f40ee7707243094fb0c2a55b542d6e7, type: 3}
+--- !u!1 &171839569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171839571}
+  - component: {fileID: 171839570}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171839570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171839569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5602df828cef8914580fba38a075fc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+--- !u!4 &171839571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171839569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 791.58417, y: 490.9168, z: -0.28884155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177575956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 304139452946569063, guid: 6f40ee7707243094fb0c2a55b542d6e7, type: 3}
@@ -689,7 +749,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - map
+  - shop
+  - deckbuilder
+  - equipment
+  - encounter
+  - lore
+  - combat
   tutorials:
+  - {fileID: 11400000, guid: f6d674b738de27d4fbfc708cc7f520ff, type: 2}
+  - {fileID: 11400000, guid: 7043c73ae6e830f48a10ca41118ea760, type: 2}
+  - {fileID: 11400000, guid: 40a67c60fa95bd742bdee017c8da01f9, type: 2}
+  - {fileID: 11400000, guid: f00012bb26edc564f81fce07ff4d6928, type: 2}
+  - {fileID: 11400000, guid: 7febc708a20422b45aac1e2e9b5d020e, type: 2}
+  - {fileID: 11400000, guid: f45880c3cee158140ad433ba40d1e2ce, type: 2}
   - {fileID: 11400000, guid: e2725b27d2fc76547ad08e38c3871c40, type: 2}
   textPrefabAux: {fileID: 6360817619058803975, guid: a9c477e338d4d294d977855635095b94, type: 3}
 --- !u!224 &209201444
@@ -2918,7 +2990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 699.81024}
+  m_AnchoredPosition: {x: 0, y: 746.2164}
   m_SizeDelta: {x: 1663.961, y: 2479.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -3016,6 +3088,7 @@ MonoBehaviour:
   mapController: {fileID: 958117488}
   fadeGo: {fileID: 49231522}
   coroutines: {fileID: 0}
+  tutorialButton: {fileID: 80427135}
 --- !u!114 &1046541168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3422,8 +3495,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: -0.0000001744335
-  m_Size: 0.43554962
+  m_Value: -0.033156317
+  m_Size: 0.21777509
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4803,6 +4876,18 @@ PrefabInstance:
     - target: {fileID: 4524492715786947720, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720377585306400951, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720377585306400951, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720377585306400951, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8221133797641209594, guid: d10679f9ba8077144a359a8d261cb212, type: 3}
       propertyPath: tutorial

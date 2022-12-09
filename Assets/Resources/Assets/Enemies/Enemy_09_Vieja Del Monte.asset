@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Vieja del monte
   sprite: {fileID: 21300000, guid: 067d127ba0e4e6a4e9633261cbe7e203, type: 3}
-  HP: 60
+  enemyAnimatorController: {fileID: 22100000, guid: ccd86346ccbd2bf46b47659b2c6d8919, type: 2}
+  HP: 90
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: dd98e1553fa9c70439cc1f14a22af757, type: 2}
+  - {fileID: 11400000, guid: dd98e1553fa9c70439cc1f14a22af757, type: 2}
+  - {fileID: 11400000, guid: dd98e1553fa9c70439cc1f14a22af757, type: 2}
+  - {fileID: 11400000, guid: 87a1f7f758740fa43aa70bc5b71c2deb, type: 2}
+  - {fileID: 11400000, guid: 87a1f7f758740fa43aa70bc5b71c2deb, type: 2}
   - {fileID: 11400000, guid: 87a1f7f758740fa43aa70bc5b71c2deb, type: 2}
   - {fileID: 11400000, guid: ba3a6d852caae684a88f6827093489c3, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: ba3a6d852caae684a88f6827093489c3, type: 2}
+  - {fileID: 11400000, guid: ba3a6d852caae684a88f6827093489c3, type: 2}
+  - {fileID: 11400000, guid: ba3a6d852caae684a88f6827093489c3, type: 2}
+  passives: 
   reward: 7

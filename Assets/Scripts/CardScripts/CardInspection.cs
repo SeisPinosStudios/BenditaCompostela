@@ -18,11 +18,13 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public int offset;
     public bool inspecting = false;
     public bool canInspect = false;
+    AudioManager audioManager; 
     #endregion
 
     public void Start()
     {
         originalPosition = transform.position;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     #region Inspection methods
@@ -59,7 +61,7 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
 
         progress = 0.0f;
-        /*if (siblingIndex != (GetComponentInParent<Transform>().childCount))*/ transform.SetAsLastSibling();
+        transform.SetAsLastSibling();
         inspecting = !inspecting;
     }
     void NotInspecting()
@@ -97,11 +99,9 @@ public class CardInspection : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if(progress < 1 && !inspecting)
         {
-            Debug.Log("MOVING CARD");
             var position = Mathf.Lerp(originalPosition.y + offset, originalPosition.y, progress);
             progress += speed * Time.deltaTime;
             transform.localPosition = new Vector3(transform.localPosition.x, position, 1.0f);
-            Debug.Log("PROGRESS: " + progress);
         }
     }
 

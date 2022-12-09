@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 public class BackpackScript : MonoBehaviour, IPointerClickHandler
 {
     GameObject mitopedia, deckBuilder, equipment;
@@ -14,6 +15,10 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     public GameObject equipmentPrefab;
     public GameObject deckPrefab;
     public Transform pivot;
+    GameObject screen;
+
+    public TutorialButton tutorial;
+    string prevTutorial;
 
     public void Awake()
     {
@@ -25,14 +30,15 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
 
         equipment = transform.GetChild(2).gameObject;
         equipmentOP = equipment.transform.localPosition;
-    }
 
+        
+        
+    }
     public void OnPointerClick(PointerEventData pointerEvent)
     {
         if (!open) StartCoroutine(OpenBackpack());
         else if (open) StartCoroutine(CloseBackpack());
     }
-
     public IEnumerator OpenBackpack()
     {
         float timeElapsed = 0;
@@ -64,7 +70,6 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         
         open = true;
     }
-
     public IEnumerator CloseBackpack()
     {
         float timeElapsed = 0;
@@ -96,18 +101,27 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
 
         open = false;
     }
-
     public void Equipment()
     {
         if (pivot.transform.childCount > 0) Destroy(pivot.transform.GetChild(0).gameObject);
         StartCoroutine(CloseBackpack());
-        Instantiate(equipmentPrefab, pivot);
+        prevTutorial = tutorial.tutorial;
+        tutorial.tutorial = "equipment";
+        equipmentPrefab.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(DestroyScreen);
+        screen = Instantiate(equipmentPrefab, pivot);
     }
-
     public void DeckBuilder()
     {
         if (pivot.transform.childCount > 0) Destroy(pivot.transform.GetChild(0).gameObject);
         StartCoroutine(CloseBackpack());
-        Instantiate(deckPrefab, pivot);
+        prevTutorial = tutorial.tutorial;
+        tutorial.tutorial = "deckbuilder";
+        
+        screen = Instantiate(deckPrefab, pivot);
+        screen.GetComponentInChildren<Button>().onClick.AddListener(DestroyScreen);
+    }
+    public void DestroyScreen()
+    {
+        Destroy(pivot.transform.GetChild(0).gameObject);
     }
 }

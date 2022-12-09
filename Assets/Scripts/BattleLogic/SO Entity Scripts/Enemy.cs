@@ -9,24 +9,15 @@ public class Enemy : ScriptableObject
     public new string name;
     public Sprite sprite;
     public RuntimeAnimatorController enemyAnimatorController;
-
     public int HP;
     public int energy;
     public List<CardData> enemyAttacks;
-
-    public Boss boss;
-    public List<CardData.TAlteredEffects> resistances;
+    public enum Passive { SIERPE, HERNAN, TRASGU, SANTIAGO, SANTIAGO_2, rVULNERABLE, rGUARDED, rPOISON, rBURN, rBLEED }
+    public List<Passive> passives;
 
     public enum Boss
     {
         NOT_BOSS, SIERPE, HERNAN, TRASGU, SANTIAGO
-    }
-
-    public bool IsBoss(Boss isBoss)
-    {
-        if (boss == isBoss) return true;
-
-        return false;
     }
 
     public int reward;
