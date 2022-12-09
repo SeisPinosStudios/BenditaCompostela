@@ -38,9 +38,14 @@ public class AlteredEffectTriggerTest : MonoBehaviour
         CharacterAnController.SetBool("isVulnerable", true);    
     }
 
+    public void Bleed() {
+        StartCoroutine(AnimationCancel("isBleeding"));
+    }
+
     IEnumerator AnimationCancel(string AnBool) {
         CharacterAnController.SetBool(AnBool, false);
         yield return null;
+        CharacterAnController.SetInteger("isDamagedIndex", Random.Range(0,7));
         CharacterAnController.SetBool(AnBool, true);
         StartCoroutine(DelayedAnimation(AnBool, CharacterAnController.GetCurrentAnimatorStateInfo(0).length));
     }

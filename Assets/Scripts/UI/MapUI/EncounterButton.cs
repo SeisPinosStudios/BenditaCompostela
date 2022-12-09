@@ -49,6 +49,7 @@ public class EncounterButton : MonoBehaviour
         foreach (ResponseEvent responseEvent in events) encounterPrefab.GetComponent<DialogueResponseEvents>().Events.Add(responseEvent);
         encounterPrefab.GetComponentInChildren<DialogueUI>().character = dialog.character;
         var encounter = Instantiate(encounterPrefab, pivot);
+        encounter.transform.localScale = encounter.transform.localScale * 1.2f;
         encounter.GetComponentInChildren<DialogTriggerScript>().Interctable = encounter.GetComponent<DialogueActivator>();
         encounter.GetComponent<DialogueActivator>().ActivateDialogue();
     }

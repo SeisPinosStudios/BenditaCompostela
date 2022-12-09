@@ -14,6 +14,8 @@ public class DialogueUI : MonoBehaviour
     public Image characterImage;
     public GameObject parent;
 
+    private CinematicCharacterDisplay cinematicCharacterDisplay;
+
     public bool IsOpen { get; private set; }
 
     private ResponseHandler responseHandler;
@@ -23,7 +25,14 @@ public class DialogueUI : MonoBehaviour
         if (characterImage.sprite != null) characterImage.sprite = character;
         else characterImage.gameObject.SetActive(false);
         characterImage.SetNativeSize();
-        if(SceneManager.GetActiveScene().name != "Cinematic_1") backgroundImage.sprite = GameManager.activeBackground;
+        if (SceneManager.GetActiveScene().name != "Cinematic_1") backgroundImage.sprite = GameManager.activeBackground;
+        else 
+        {
+            characterImage.gameObject.SetActive(false);
+            cinematicCharacterDisplay = GameObject.Find("CinematicCharacterDisplay").GetComponent<CinematicCharacterDisplay>();
+            cinematicCharacterDisplay.EneableBackground();
+        }
+
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogBox();
@@ -49,7 +58,8 @@ public class DialogueUI : MonoBehaviour
 
         for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
-            string dialogue = dialogueObject.Dialogue[i];            
+            string dialogue = dialogueObject.Dialogue[i];
+            if (SceneManager.GetActiveScene().name == "Cinematic_1") cinematicCharacterDisplay.CharacterSelector(dialogue);
             yield return RunTypingEffect(dialogue);
             textLabel.text = dialogue;
             if (i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;

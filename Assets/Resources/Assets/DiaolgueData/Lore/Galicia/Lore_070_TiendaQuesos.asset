@@ -26,4 +26,4 @@ MonoBehaviour:
   responses:
   - responseText: Huele a muerto...
     dialogueObject: {fileID: 11400000, guid: edece10b9eb89754da8f47ea66ee25e3, type: 2}
-  character: {fileID: 0}
+  character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}

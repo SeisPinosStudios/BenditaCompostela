@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd680ce483b31f14fb88e92f9cd4ffa5
+guid: 609a46176fd2c7e4884f7cd7edb7e255
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,30 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -143,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c32b6c217b0cfd94cba4aec626e3571b
-      internalID: -450495611
+      spriteID: 1840aad4a6af64d499c22510f40af7c8
+      internalID: 199959029
       vertices: []
       indices: 
       edges: []
@@ -164,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1165dcc0602b7d46b561d52dff5959e
-      internalID: -1709822779
+      spriteID: a0ab37021347d324eb8ddb35f251532e
+      internalID: -2033741638
       vertices: []
       indices: 
       edges: []
@@ -185,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b08eef5d88da557458a50edc62de85e5
-      internalID: 391583328
+      spriteID: e65c6c7239d346a4383b80ca3c4ef55c
+      internalID: 730914969
       vertices: []
       indices: 
       edges: []
@@ -206,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0cebb94d596c524dbf3221c9a33717e
-      internalID: -1511885053
+      spriteID: 7379e6c5382af414b8882200970e0121
+      internalID: 1847456958
       vertices: []
       indices: 
       edges: []
@@ -227,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 537ff87b5dbb93449bab692acc89b002
-      internalID: -626758139
+      spriteID: a42ca0cbc626c904d95f26a510b57305
+      internalID: -592098994
       vertices: []
       indices: 
       edges: []
@@ -248,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9461488f92e182a46995cf0ede91398b
-      internalID: -479381153
+      spriteID: af1f7aa2d7def6c4d8607299e574cf3a
+      internalID: -1963278488
       vertices: []
       indices: 
       edges: []
@@ -265,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_BandidoGrande-Sheet_2: 391583328
-      Idle_BandidoGrande-Sheet_3: -1511885053
-      Idle_BandidoGrande-Sheet_0: -450495611
-      Idle_BandidoGrande-Sheet_1: -1709822779
-      Idle_BandidoGrande-Sheet_5: -479381153
-      Idle_BandidoGrande-Sheet_4: -626758139
+      Idle_BandidoGrande-Sheet_2: 730914969
+      Idle_BandidoGrande-Sheet_3: 1847456958
+      Idle_BandidoGrande-Sheet_0: 199959029
+      Idle_BandidoGrande-Sheet_1: -2033741638
+      Idle_BandidoGrande-Sheet_5: -1963278488
+      Idle_BandidoGrande-Sheet_4: -592098994
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

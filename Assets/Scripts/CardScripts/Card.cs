@@ -7,15 +7,16 @@ using UnityEngine.SceneManagement;
 public class Card : MonoBehaviour
 {
     Entity enemy;
-    Entity self;
-    CardData cardData;
     AudioManager audioManager;
+    public Entity self;
+    public CardData cardData;
 
     public void Awake()
     {
         if (SceneManager.GetActiveScene().name == "BattleScene") {
             self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+            
         }
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         cardData = gameObject.GetComponent<CardDisplay>().cardData;

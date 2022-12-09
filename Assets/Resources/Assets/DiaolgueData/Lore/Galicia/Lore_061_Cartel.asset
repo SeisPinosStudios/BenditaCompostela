@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: []
   responses: []
-  character: {fileID: 0}
+  character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}

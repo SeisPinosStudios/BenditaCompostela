@@ -75,4 +75,4 @@ MonoBehaviour:
   responses:
   - responseText: (He de tomar cartas en el asunto...)
     dialogueObject: {fileID: 0}
-  character: {fileID: -491165686, guid: 33e4b07a2868a8546a43a07c7aaa4c94, type: 3}
+  character: {fileID: 0}
