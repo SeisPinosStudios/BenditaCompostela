@@ -6,7 +6,9 @@ using TMPro;
 public class BlinkingText : MonoBehaviour
 {
     public TMP_Text text;
+    public float vel = 1;
     private bool r;
+
     void Start()
     {
         
@@ -20,11 +22,11 @@ public class BlinkingText : MonoBehaviour
     {
         if (r)
         {
-            text.alpha -= 1 * Time.deltaTime;
+            text.alpha -= vel * Time.deltaTime;
             if (text.alpha <= 0) r = false;            
         }
         else {
-            text.alpha += 1 * Time.deltaTime;
+            text.alpha += vel * Time.deltaTime;
             if (text.alpha >= 1) r = true;
         }
     }

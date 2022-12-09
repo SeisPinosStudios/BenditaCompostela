@@ -59,6 +59,10 @@ public class Entity : MonoBehaviour
         Debug.Log(currentEnergy);
         return true;
     }
+
+    public bool IsPlayable(int energyConsumed) {
+        return this.currentEnergy >= energyConsumed;
+    }
     public void RefillEnergy()
     {
         this.currentEnergy = this.energy;

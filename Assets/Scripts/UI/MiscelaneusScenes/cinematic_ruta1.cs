@@ -13,6 +13,8 @@ public class cinematic_ruta1 : MonoBehaviour
     public bool VideoHasEnded;
     public UnityEvent startDialogueEvent;
 
+    public GameObject bg;
+    public GameObject characters;
 
     void Start()
     {
@@ -21,14 +23,13 @@ public class cinematic_ruta1 : MonoBehaviour
         secondCinematic.loopPointReached += ToRoute;
     }
     void startDialogue(VideoPlayer vp) {
-        /*
-        gameObject.GetComponent<DialogueActivator>().ActivateDialogue();
-        VideoHasEnded = true;*/
         startDialogueEvent.Invoke();
     }
 
     public void startSecondCinematic()
     {
+        bg.SetActive(false);
+        characters.SetActive(false);
         GameObject.Find("Cinematica1").SetActive(false);
         Destroy(GameObject.Find("DialogPivot"));
         secondCinematic.Play();
@@ -37,9 +38,5 @@ public class cinematic_ruta1 : MonoBehaviour
     public void ToRoute(VideoPlayer vp)
     {
         SceneManager.LoadScene("Sevilla");
-    }
-    private void Update()
-    {
-
     }
 }

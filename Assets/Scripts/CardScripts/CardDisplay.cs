@@ -20,14 +20,22 @@ public class CardDisplay : MonoBehaviour
     public GameObject energyIcon;
     Entity user;
     Entity enemy;
+    private CardBorderDisplay cardBorderDisplay;
+    private Card card;
+    private CardDragSystem cardDragSystem;
+    Vector3 originalPosition;
     #endregion
 
     void Start()
     {
         if (InBattle())
         {
+            originalPosition = gameObject.transform.localPosition;
             user = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().next.GetComponent<Entity>();
+            cardBorderDisplay = gameObject.GetComponentInChildren<CardBorderDisplay>();
+            cardDragSystem = gameObject.GetComponent<CardDragSystem>();
+            card = gameObject.GetComponent<Card>();
         }
         nameText.text = cardData.name;
         descText.text = cardData.description;
@@ -238,7 +246,18 @@ public class CardDisplay : MonoBehaviour
     }
     public void Update()
     {
+        BorderDisplay();
         Description();
+    }
+
+    public void BorderDisplay() {
+
+        if (!InBattle() || cardBorderDisplay == null || !card.self.IsPlayer()) return;
+
+        if (cardDragSystem.cardOnDrag) return;
+
+        if (card.self.IsPlayable(card.cardData.cost)) cardBorderDisplay.CardPlayable();
+        else cardBorderDisplay.CardUnplayable();        
     }
 
     #region Math

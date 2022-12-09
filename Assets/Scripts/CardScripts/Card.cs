@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 public class Card : MonoBehaviour
 {
     Entity enemy;
-    Entity self;
-    CardData cardData;
+    public Entity self;
+    public CardData cardData;
+    
 
     public void Awake()
     {
         if (SceneManager.GetActiveScene().name == "BattleScene") {
             self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+            
         }
 
         cardData = gameObject.GetComponent<CardDisplay>().cardData;
