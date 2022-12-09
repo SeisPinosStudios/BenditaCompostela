@@ -27,12 +27,11 @@ public class DialogueUI : MonoBehaviour
         characterImage.SetNativeSize();
         if (SceneManager.GetActiveScene().name != "Cinematic_1") backgroundImage.sprite = GameManager.activeBackground;
         else 
-        { 
-
+        {
+            characterImage.gameObject.SetActive(false);
             cinematicCharacterDisplay = GameObject.Find("CinematicCharacterDisplay").GetComponent<CinematicCharacterDisplay>();
             cinematicCharacterDisplay.EneableBackground();
         }
-        
 
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
