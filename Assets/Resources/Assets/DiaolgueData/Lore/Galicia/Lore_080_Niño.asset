@@ -31,6 +31,6 @@ MonoBehaviour:
     con el coraz\xF3n puro, y resulta que ya no quedan de esos \xBFNo significa esto
     que el Santo est\xE1 de vacaciones permanentes? "
   responses:
-  - responseText: "\xA1Seguro que a\xFAn queda alguno!"
+  - responseText: 'Ten esperanza, seguro que alguno queda. '
     dialogueObject: {fileID: 11400000, guid: 39f588b84725a8649a0779d6da088cee, type: 2}
   character: {fileID: 21300000, guid: edf842c6c67d9cc48aa54185e8f23330, type: 3}

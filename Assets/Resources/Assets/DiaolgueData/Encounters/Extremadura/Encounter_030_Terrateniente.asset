@@ -29,8 +29,8 @@ MonoBehaviour:
     solo te dejar\xE9 pasar, sino que tambi\xE9n te pagar\xE9 un sueldo muy generoso
     \xBFQu\xE9 te parece? "
   responses:
-  - responseText: Aceptar trato
+  - responseText: "Pareces alguien honrado, lo har\xE9. "
     dialogueObject: {fileID: 11400000, guid: 189b261dd1902464c9c8b629fd8a9fea, type: 2}
-  - responseText: Rechazar trato
+  - responseText: "Desconf\xEDo de la gente adinerada. "
     dialogueObject: {fileID: 11400000, guid: 4a905de411ace5c409abfe9a2ca74020, type: 2}
   character: {fileID: 21300000, guid: 0536df17dadc70e4080a236086b06dd0, type: 3}

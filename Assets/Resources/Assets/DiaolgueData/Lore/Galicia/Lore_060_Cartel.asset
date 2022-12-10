@@ -21,6 +21,6 @@ MonoBehaviour:
   - "Cuidado con los embrujos y dem\xE1s maleficios que puedas sufrir. Advertido
     quedas. \""
   responses:
-  - responseText: No me queda otra, tengo que seguir...
+  - responseText: 'Demasiado lejos como para dar la vuelta. '
     dialogueObject: {fileID: 11400000, guid: 8282fe70ecee862438f78b4e843111d5, type: 2}
   character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}

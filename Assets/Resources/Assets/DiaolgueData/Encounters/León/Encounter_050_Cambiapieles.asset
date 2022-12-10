@@ -17,8 +17,8 @@ MonoBehaviour:
     de que te ha visto, no parece tener una reacci\xF3n agresiva \xBFQu\xE9 decides
     hacer?"
   responses:
-  - responseText: "Acercarte a \xE9l"
+  - responseText: Echemos un vistazo.
     dialogueObject: {fileID: 0}
-  - responseText: "\xA1Luchar!"
+  - responseText: "Ser\xE9 m\xE1s r\xE1pido, dar\xE9 el primer golpe. "
     dialogueObject: {fileID: 0}
   character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}
