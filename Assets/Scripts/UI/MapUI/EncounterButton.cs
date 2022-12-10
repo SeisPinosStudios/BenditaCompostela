@@ -96,9 +96,16 @@ public class EncounterButton : MonoBehaviour
     }
     public bool TakeArmor()
     {
-        var armors = GameManager.playerData.inventory.Where(armor => armor.GetType() == typeof(Armor)).ToList();
+        var armors = GameManager.playerData.inventory.Where((armor) => armor.GetType() == typeof(Armor) && armor != GameManager.playerData.chestArmor && armor != GameManager.playerData.feetArmor).ToList();
         if(armors.Count <= 0) return false;
         GameManager.playerData.inventory.Remove(armors[Random.Range(0,armors.Count)]);
+        return true;
+    }
+    public bool TakeWeapon()
+    {
+        var weapons = GameManager.playerData.inventory.Where((weapon) => weapon.GetType() == typeof(Weapon)).ToList();
+        if (weapons.Count < 2) return false;
+        GameManager.playerData.inventory.Remove(weapons[Random.Range(0,weapons.Count)]);
         return true;
     }
     public void TakeRandomCard()
@@ -111,19 +118,18 @@ public class EncounterButton : MonoBehaviour
     #region Events
     public void JuglarAceptar(CardData card)
     {
-        if (TakeMoney(3)) GiveCard(card);
+        TakeMoney(3);
+        GiveCard(card);
     }
     public void JuglarRechazar(Enemy enemy)
     {
         ToBattleScene(enemy);
     }
 
-    public void AgricultorAceptar()
+    public void AgricultorAceptar(CardData card)
     {
-        if (loseHP(7))
-        {
-            GiveMoney(10);
-        }
+        loseHP(7);
+        GiveCard(card);
     }
     public void AgricultorRechazar(Enemy enemy)
     {
@@ -133,6 +139,7 @@ public class EncounterButton : MonoBehaviour
     public void TerratenienteAceptar()
     {
         GiveMoney(1);
+        loseHP(5);
     }
     public void TerratenienteRechazar(Enemy enemy)
     {
@@ -142,16 +149,16 @@ public class EncounterButton : MonoBehaviour
     public void BandidoAceptar()
     {
         GiveMoney(20);
+        loseHP(10);
     }
     public void BandidoRechazar(Enemy enemy)
     {
         ToBattleScene(enemy);
     }
 
-    public void CambiapielesAceptar()
+    public void CambiapielesAceptar(CardData card)
     {
-        GiveMoney(5);
-        Heal(5);
+        GiveCard(card);
     }
     public void CambiapielesRechazar(Enemy enemy)
     {
@@ -160,22 +167,17 @@ public class EncounterButton : MonoBehaviour
 
     public void HerreroAceptar()
     {
-        for(int i = 0; i < 4; i++)
-        {
-            GiveRandomCard();
-        }
+        if (!TakeWeapon()) return;
+        GiveMoney(10);
     }
     public void HerreroRechazar(Enemy enemy)
     {
         ToBattleScene(enemy);
     }
 
-    public void ViejaAceptar(CardData card, CardData card2)
+    public void ViejaAceptar(CardData card)
     {
         GiveCard(card);
-        GiveCard(card);
-        GiveCard(card2);
-        GiveCard(card2);
     }
     public void ViejaRechazar(Enemy enemy)
     {
@@ -185,13 +187,7 @@ public class EncounterButton : MonoBehaviour
     public void HerreroGaliciaAceptar(CardData card)
     {
         if(!TakeArmor()) return ;
-        Heal(5);
-        for(int i = 0; i < 4; i++)
-        {
-            GiveRandomCard();
-        }
-        GiveCard(card);
-        GiveCard(card);
+        GiveMoney(12);
     }
     public void HerreroGaliciaRechazar(Enemy enemy)
     {
@@ -200,11 +196,8 @@ public class EncounterButton : MonoBehaviour
     
     public void PastorAceptar(CardData card)
     {
-        TakeRandomCard();
-        TakeRandomCard();
-        GiveMoney(5);
-        Heal(5);
-        GiveRandomCard();
+        loseHP(10);
+        GiveCard(card);
         GiveCard(card);
     }
     public void PastorRechazar(Enemy enemy)
@@ -212,13 +205,11 @@ public class EncounterButton : MonoBehaviour
         ToBattleScene(enemy);
     }
 
-    public void CambiapielesGaliciaAceptar(CardData card)
+    public void CambiapielesGaliciaAceptar()
     {
         TakeRandomCard();
-        GiveCard(card);
-        GiveCard(card);
-        GiveRandomCard();
-        GiveRandomCard();
+        TakeRandomCard();
+        Heal(5);
     }
     public void CambiapielesGaliciaRechazar(Enemy enemy)
     {

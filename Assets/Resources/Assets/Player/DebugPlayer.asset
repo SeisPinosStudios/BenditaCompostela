@@ -15,9 +15,9 @@ MonoBehaviour:
   maxHP: 35
   currentHP: 35
   energy: 10
-  coins: 99
+  coins: 0
   playerDeck:
-  - {fileID: 11400000, guid: 553adaf9f8bbb874c9bc3c6d0f01c9cf, type: 2}
+  - {fileID: 11400000, guid: 4e29ed41b88d6db49b53d8507a76eaa3, type: 2}
   - {fileID: 11400000, guid: 5c5560f66241e734b8a811d4d9702b27, type: 2}
   - {fileID: 11400000, guid: 348e904085a60304e8d86a8891ea8d1a, type: 2}
   - {fileID: 11400000, guid: 4c7fa1ecb00b9504fb5db4c04a18fbd4, type: 2}
@@ -28,5 +28,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 915595cddd7bbef4c8c81c55c20ebac9, type: 2}
   - {fileID: 11400000, guid: 53bb06d37ed1f5e4aa4bb0a1a7caa631, type: 2}
   - {fileID: 11400000, guid: 1ea9764669fff1b4fb2be572b2705cff, type: 2}
-  chestArmor: {fileID: 11400000, guid: 003342c37eaa96041b6ba62ae767bf32, type: 2}
-  feetArmor: {fileID: 11400000, guid: 6806a213d57dc7a4e9c83331cc7729f4, type: 2}
+  - {fileID: 11400000, guid: 45b869c0a8648844d995498d103a32fe, type: 2}
+  - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
+  - {fileID: 11400000, guid: e86a21114fade32429dab25d6b4984fe, type: 2}
+  - {fileID: 11400000, guid: 5c5560f66241e734b8a811d4d9702b27, type: 2}
+  - {fileID: 11400000, guid: 8b238346f9846fb4ca9f26a1d1e42ce9, type: 2}
+  - {fileID: 11400000, guid: f740c02bf91aa1b46a78dd9e2b536907, type: 2}
+  - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
+  - {fileID: 11400000, guid: 497c26c0dab16b54ebb29d282001d20a, type: 2}
+  - {fileID: 11400000, guid: ebc8fe99e301a5241be83a21ad585a43, type: 2}
+  chestArmor: {fileID: 11400000, guid: 53bb06d37ed1f5e4aa4bb0a1a7caa631, type: 2}
+  feetArmor: {fileID: 11400000, guid: 09d16f098338b894e8d2d2f79c238157, type: 2}

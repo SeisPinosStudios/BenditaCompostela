@@ -18,6 +18,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: d69b8a0c56ad912439e5c14efb8377d2, type: 3}
   cost: 0
   money: 5
+  enemy: 0
   defenseValue: 2
   damageBonus: 0
   extraDefence: 0
@@ -26,7 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e29ed41b88d6db49b53d8507a76eaa3, type: 2}
   - {fileID: 11400000, guid: ca6c26723dc72764c849440c65901c48, type: 2}
   armorType: 0
-  synergy: 2
+  synergy: 7
   upgradeLevel: 0
   improvedArmor: {fileID: 11400000, guid: fe3469ee95201ce4194c52c87fb90af7, type: 2}
   previousArmor: {fileID: 0}

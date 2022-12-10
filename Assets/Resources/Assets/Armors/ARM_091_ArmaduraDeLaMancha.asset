@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: ARM_091_ArmaduraDeLaMancha
   m_EditorClassIdentifier: 
   name: Armadura de La Mancha +
-  description: "Protege 3.<br>Sinergia con <color=#5C819A>Lanza</color>: defensa
+  description: "Protege 4.<br>Sinergia con <color=#5C819A>Lanza</color>: defensa
     extra con <sprite index=4><br>(10%\u2192<color=#308a36>15%</color> 25%\u2192<color=#308a36>33%</color>
     50\u2192<color=#308a36>66%</color>)."
   artwork: {fileID: 21300000, guid: 04f89dc90f46d04418df6e5d97f61d2e, type: 3}
   cost: 0
   money: 20
+  enemy: 0
   defenseValue: 4
   damageBonus: 0
   extraDefence: 0

@@ -21,7 +21,7 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         cardBorderDisplay = gameObject.GetComponentInChildren<CardBorderDisplay>();
     }
     public void OnBeginDrag(PointerEventData pointerEvent)
-    {        
+    {
         originalPosition = gameObject.transform.localPosition;
         cardOnDrag = true;
         deck.GetComponent<DefaultDeck>().SetInspection(false);
@@ -40,8 +40,10 @@ public class CardDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 cardBorderDisplay.CardPlayable();
                 cardBorderDisplay.CardInactive();
             }
-        }        
-        gameObject.transform.position = pointerEvent.position;
+        }
+
+        if (GameManager.isMobile()) gameObject.transform.position = new Vector3(pointerEvent.position.x, pointerEvent.position.y + 232, 0.0f);
+        else gameObject.transform.position = pointerEvent.position;
     }
     public void OnEndDrag(PointerEventData pointerEvent)
     {

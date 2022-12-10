@@ -937,7 +937,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3930533074419074582}
   - component: {fileID: 4653012357544816075}
-  - component: {fileID: 5603339843160661443}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1019,7 +1018,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5603339843160661443}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 0
@@ -1031,19 +1030,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5603339843160661443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8224817343512828035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0900d03c5e3a5b04c8ed9762b9f95fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 4653012357544816075}
 --- !u!1 &8397038093640088970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1041,7 @@ GameObject:
   - component: {fileID: 8185180086628985854}
   - component: {fileID: 6100761971380831836}
   - component: {fileID: 379225362633960501}
-  - component: {fileID: 4742794854987906598}
+  - component: {fileID: 5393717110887306305}
   m_Layer: 5
   m_Name: SettingsScreen
   m_TagString: Untagged
@@ -1127,7 +1113,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.5
---- !u!114 &4742794854987906598
+--- !u!114 &5393717110887306305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1136,13 +1122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8397038093640088970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf62ebdbbad2e3b468afa7bea32eab1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0900d03c5e3a5b04c8ed9762b9f95fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPrefab: {fileID: 0}
-  pivot: {fileID: 0}
-  settingsScreen: {fileID: 0}
-  audioManager: {fileID: 0}
+  MusicSlider: {fileID: 4653012357544816075}
+  SFXSlider: {fileID: 9057886857183876123}
 --- !u!1 &8917457672113239957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1385,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9057886857183876121}
   - component: {fileID: 9057886857183876123}
-  - component: {fileID: 9057886857183876120}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -1483,7 +1466,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9057886857183876120}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VolumeController, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 0
@@ -1495,19 +1478,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9057886857183876120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9057886857183876126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0900d03c5e3a5b04c8ed9762b9f95fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 9057886857183876123}
 --- !u!1 &9057886857331646897
 GameObject:
   m_ObjectHideFlags: 0

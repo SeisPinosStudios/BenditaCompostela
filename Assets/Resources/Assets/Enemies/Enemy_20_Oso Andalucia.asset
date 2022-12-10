@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb090ffd7672134dac37dfaac7b0f62, type: 3}
   m_Name: Enemy_20_Oso Andalucia
   m_EditorClassIdentifier: 
-  name: Oso A
+  name: Oso
   sprite: {fileID: 21300000, guid: 9ef8b563c2c2e1b49a26245cb0c5d301, type: 3}
   enemyAnimatorController: {fileID: 0}
   HP: 50
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 651a96b7238566b4daf333cd1da349d3, type: 2}
-  passives: 
+  passives: 09000000
   reward: 5
