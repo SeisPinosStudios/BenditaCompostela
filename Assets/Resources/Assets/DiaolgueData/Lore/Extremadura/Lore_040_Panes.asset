@@ -28,6 +28,6 @@ MonoBehaviour:
   - "Por miedo a lo que pueda pasar, simplemente acercas la nariz para oler. Tienen
     un olor incre\xEDble, contin\xFAas tu camino. Has recuperado un poco de salud."
   responses:
-  - responseText: "Qui\xE9n pudiera..."
+  - responseText: "Ojal\xE1, en otra ocasi\xF3n ser\xE1. "
     dialogueObject: {fileID: 11400000, guid: 04cb364f425ed3642a9e2f575a23f8bc, type: 2}
   character: {fileID: 0}

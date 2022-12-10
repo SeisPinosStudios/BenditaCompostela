@@ -22,8 +22,8 @@ MonoBehaviour:
   - "Bueno, y entiendo que puede ser un trabajo peligroso, tambi\xE9n te dar\xE9
     una recompensa."
   responses:
-  - responseText: Aceptar trato
+  - responseText: "Te echar\xE9 una mano. "
     dialogueObject: {fileID: 11400000, guid: 1946ef74018b1234b878733d2ae1cf47, type: 2}
-  - responseText: Rechazar trato
+  - responseText: "No es mi problema, se\xF1or."
     dialogueObject: {fileID: 11400000, guid: 3da0accce1856d044ba69d3afe46a470, type: 2}
   character: {fileID: 21300000, guid: 38c6ca504ca557347baeee06f6897c48, type: 3}

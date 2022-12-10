@@ -30,8 +30,8 @@ MonoBehaviour:
   - "As\xED que, agradecer\xEDa que, a cambio de estas suculentas recompensas, me
     dieras algo que pudiera comer. "
   responses:
-  - responseText: Ea, un poquito pan.
+  - responseText: "Aqu\xED tienes, buen churrusco. "
     dialogueObject: {fileID: 11400000, guid: 3d6005b2e83e016449fb68116d0a583f, type: 2}
-  - responseText: No tengo nada...
+  - responseText: "Mejor me voy, que se\xF1or m\xE1s raro. "
     dialogueObject: {fileID: 11400000, guid: 011c52844a8cafd469214a0a586d2d04, type: 2}
   character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}
