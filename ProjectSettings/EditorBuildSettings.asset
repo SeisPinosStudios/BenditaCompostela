@@ -6,42 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Maps/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 96300dc88acad8e45a85db23db24fa82
   - enabled: 1
-    path: Assets/Scenes/Maps/Cinematic_1.unity
+    path: Assets/Scenes/Cinematics/Cinematic_1.unity
     guid: 96ce98cafd01d9b43861572b7ed68782
   - enabled: 1
-    path: Assets/Scenes/DebugScene.unity
+    path: Assets/Scenes/Debug/DebugScene.unity
     guid: 88d2811d8a130654a8bb5c4390114c8d
   - enabled: 1
-    path: Assets/Scenes/DeckBuilder.unity
+    path: Assets/Scenes/Menus/DeckBuilder.unity
     guid: 2d4c2ba2261cdb947a3ecc9d5d294d2b
   - enabled: 1
-    path: Assets/Scenes/EquipmentScene.unity
+    path: Assets/Scenes/Menus/EquipmentScene.unity
     guid: ad71d81650b1e1e488b91408e13082f4
   - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
+    path: Assets/Scenes/Battle/BattleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Maps/Extremadura.unity
+    path: Assets/Scenes/Routes/Extremadura.unity
     guid: bdfd6de3db602d346afb6f1cae2df6e2
   - enabled: 1
-    path: Assets/Scenes/Maps/Galicia.unity
+    path: Assets/Scenes/Routes/Galicia.unity
     guid: e9ed175133c17ac4c9a3311fab70e3ab
   - enabled: 1
-    path: Assets/Scenes/Maps/Leon.unity
+    path: Assets/Scenes/Routes/Leon.unity
     guid: 46f8eac3634536a4fbbd0eaa96e2793c
   - enabled: 1
-    path: Assets/Scenes/Maps/Sevilla.unity
+    path: Assets/Scenes/Routes/Sevilla.unity
     guid: dab65ad2b03971f45970d784a8923bb9
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/Cinematics/Credits.unity
     guid: a50417d9cb7c4f6439e71be659492617
   - enabled: 1
-    path: Assets/Scenes/FinalScene.unity
+    path: Assets/Scenes/Cinematics/FinalScene.unity
     guid: b0076d46d7b025a4883dc8a604b7829f
   - enabled: 1
-    path: Assets/Scenes/DeathScene.unity
+    path: Assets/Scenes/Battle/DeathScene.unity
     guid: c2f9df2bf191d2d41bfb87cdcf98857d
   m_configObjects: {}

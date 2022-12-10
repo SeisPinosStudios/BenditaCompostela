@@ -35,6 +35,7 @@ public class Player : ScriptableObject
     public bool loseHP(int HP)
     {
         if (currentHP < HP) return false;
+        currentHP -= HP;
         return true;
     }
     public void Heal(int HP)

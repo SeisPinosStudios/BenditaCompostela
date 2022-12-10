@@ -52,7 +52,9 @@ public class CardDisplay : MonoBehaviour
         switch (cardData.GetType().ToString())
         {
             case "Attack":
-                DamageText();
+                var card = (Attack)cardData;
+                if(card.damage >= 0) DamageText();
+                else HealAttackText();
                 AlteredEffect();
                 descText.text = description.ToString();
                 break;
@@ -68,8 +70,6 @@ public class CardDisplay : MonoBehaviour
                 descText.text = description.ToString();
                 break;
             case "Armor":
-                //ArmorDescription();
-                //descText.text = description.ToString();
                 break;
             case "Weapon":
                 break;
@@ -103,8 +103,13 @@ public class CardDisplay : MonoBehaviour
         if (originalDamage <= 0) return;
 
         if (finalDamage == originalDamage) description.Append("Daña " + finalDamage.ToString() + "<br>");
-        else if (finalDamage > originalDamage) description.Append("Daña <color=green>" + finalDamage.ToString() + "</color><br>");
+        else if (finalDamage > originalDamage) description.Append("Daña <color=#308a36>" + finalDamage.ToString() + "</color><br>");
         else description.Append("Daña <color=red>" + finalDamage.ToString() + "</color><br>");
+    }
+    public void HealAttackText()
+    {
+        var card = (Attack)cardData;
+        description.Append("Cura " + (-card.damage).ToString() + ".<br>");
     }
     public void Cost()
     {

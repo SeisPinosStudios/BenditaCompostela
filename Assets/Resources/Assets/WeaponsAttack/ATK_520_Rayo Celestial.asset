@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rayo celestial
   description: 
-  artwork: {fileID: 21300000, guid: 16f42981be9841041876120095783f50, type: 3}
+  artwork: {fileID: 21300000, guid: 6f2600fd673fec44cbc19bd86ab86f82, type: 3}
   cost: 3
+  money: 0
+  enemy: 0
   damage: 5
   alteredEffects: 02000000
   aEffectValues: 01000000

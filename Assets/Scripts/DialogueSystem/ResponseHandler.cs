@@ -33,8 +33,10 @@ public class ResponseHandler : MonoBehaviour
 
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.gameObject.SetActive(true);
-            responseButton.GetComponent<TMP_Text>().text = response.ResponseText;
-            responseButton.GetComponent<Button>().onClick.AddListener(() => onPickedResponse(response, responseIndex));
+            responseButton.GetComponentInChildren<TMP_Text>().text = response.ResponseText;
+
+            if(response.CheckConditions()) responseButton.GetComponent<Button>().onClick.AddListener(() => onPickedResponse(response, responseIndex));
+            else { responseButton.GetComponent<Button>().enabled = false; responseButton.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.5f); }
 
             tempResponseButtons.Add(responseButton);
 

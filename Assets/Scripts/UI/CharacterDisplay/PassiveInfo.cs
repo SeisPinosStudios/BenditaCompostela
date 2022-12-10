@@ -21,7 +21,7 @@ public class PassiveInfo : MonoBehaviour
                 text.text = "<sprite index=8>: las duras escamas que rodean el cuerpo de la sierpe hacen que sufra 2 puntos menos de daño con cada ataque.";
                 break;
             case Enemy.Passive.HERNAN:
-                text.text = "<sripte index=9>: la habilidad de Hernán con la espada hace que sus ataques vayan bien dirijidos y certeros, provocando x1 de sangrado con cada ataque";
+                text.text = "<sprite index=9>: la habilidad de Hernán con la espada hace que sus ataques vayan bien dirijidos y certeros, provocando x1 de sangrado con cada ataque";
                 break;
             case Enemy.Passive.TRASGU:
                 text.text = "<sprite index=10>: el trasgu es una criatura perversa y escurridiza, cada vez que laces una carta tienes un 10% de posibilidades de fallarla.";

@@ -33,7 +33,7 @@ public class CardDataFilter : MonoBehaviour
         foreach (CardData card in Resources.LoadAll<CardData>("Assets/Objects"))
         {
             var objectCard = (ObjectCard)card;
-            if (objectCard.zone == zone) cards.Add(card);
+            if ((int)objectCard.zone <= (int)zone) cards.Add(card);
         }
 
         return cards;

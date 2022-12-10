@@ -36,11 +36,7 @@ public class Card : MonoBehaviour
 
         Debug.Log("USED CARD: " + cardData.name);
 
-        if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon))
-        {
-            energyCost++;
-            self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
-        }
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon)) energyCost++;
 
         if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
@@ -68,6 +64,9 @@ public class Card : MonoBehaviour
             default:
                 break;
         }
+
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) && cardData.GetType() != typeof(Weapon)) self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
+
         Destroy(gameObject);
     }
     public void EquipWeapon()
@@ -81,6 +80,7 @@ public class Card : MonoBehaviour
         Attack attack = (Attack)cardData;
 
         if (attack.damage > 0) { enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost); audioManager.PlaySound("SwordHit"); }
+        else if(attack.damage < 0) { self.RestoreHealth(-attack.damage); }
 
         if (attack.alteredEffects.Length > 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)

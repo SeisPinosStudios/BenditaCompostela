@@ -19,8 +19,9 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 76e0b3f96e3f2ea44bc23c6e1a7bddc6, type: 3}
   cost: 0
   money: 5
+  enemy: 0
   defenseValue: 2
-  damageBonus: 2
+  damageBonus: 0
   extraDefence: 0
   synergyWeapon:
   - {fileID: 11400000, guid: 91bd69417fc4794458425cb91fc6aae3, type: 2}

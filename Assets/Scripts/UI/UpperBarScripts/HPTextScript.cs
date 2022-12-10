@@ -10,7 +10,7 @@ public class HPTextScript : MonoBehaviour
 
     public void Update()
     {
-        if(SceneManager.GetActiveScene().name != "BattleScene") textComponent.text = GameManager.playerData.currentHP + "/" + GameManager.playerData.maxHP;
-        else textComponent.text = GameObject.Find("Player").GetComponent<PlayerScript>().currentHP + "/" + GameManager.playerData.currentHP;
+        if(SceneManager.GetActiveScene().name == "BattleScene") textComponent.text = GameObject.Find("Player").GetComponent<PlayerScript>().currentHP + "/" + GameManager.playerData.maxHP; 
+        else textComponent.text = GameManager.playerData.currentHP + "/" + GameManager.playerData.maxHP;
     }
 }

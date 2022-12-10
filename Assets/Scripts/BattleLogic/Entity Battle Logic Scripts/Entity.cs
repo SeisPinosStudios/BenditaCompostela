@@ -64,7 +64,6 @@ public class Entity : MonoBehaviour
         Debug.Log(currentEnergy);
         return true;
     }
-
     public bool IsPlayable(int energyConsumed) {
         return this.currentEnergy >= energyConsumed;
     }
@@ -102,10 +101,10 @@ public class Entity : MonoBehaviour
         healthRestored += extraHealing;
         if(Suffering(CardData.TAlteredEffects.BLEED)) 
         {
-            this.currentHP = Mathf.Clamp(this.currentHP + (healthRestored / 2), 0, HP);
+            currentHP = Mathf.Clamp(currentHP + (healthRestored / 2), 0, HP);
             return;
         }
-        this.currentHP = Mathf.Clamp(this.currentHP + healthRestored, 0, HP);
+        currentHP = Mathf.Clamp(currentHP + healthRestored, 0, HP);
     }
     public bool IsDead()
     {
@@ -124,6 +123,8 @@ public class Entity : MonoBehaviour
     public void ApplyAlteredEffect(CardData.TAlteredEffects alteredEffect, int value)
     {
         if (ResistanceTo(alteredEffect)) return;
+
+        if (IsPlayer() && EnemyHasPassive(Enemy.Passive.rGUARDED)) return;
 
         switch (alteredEffect)
         {
@@ -185,6 +186,8 @@ public class Entity : MonoBehaviour
         if (!Suffering(alteredEffect)) return;
 
         alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] - charges, 0, 5);
+
+        if (alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
 
         Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
 
@@ -343,6 +346,10 @@ public class Entity : MonoBehaviour
     public bool HasPassive(Enemy.Passive passive)
     {
         return passives.Contains(passive);
+    }
+    public bool EnemyHasPassive(Enemy.Passive passive)
+    {
+        return GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().enemy.GetComponent<EnemyScript>().passives.Contains(passive);
     }
     public bool ResistanceTo(CardData.TAlteredEffects effect)
     {
