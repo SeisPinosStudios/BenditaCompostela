@@ -20,6 +20,10 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     public TutorialButton tutorial;
     string prevTutorial;
 
+    public AudioManager audioManager;
+
+    [SerializeField] private Animator backpackAnController;
+
     public void Awake()
     {
         mitopedia = transform.GetChild(0).gameObject;
@@ -31,8 +35,8 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         equipment = transform.GetChild(2).gameObject;
         equipmentOP = equipment.transform.localPosition;
 
-        
-        
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();        
+
     }
     public void OnPointerClick(PointerEventData pointerEvent)
     {
@@ -41,6 +45,9 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     }
     public IEnumerator OpenBackpack()
     {
+        audioManager.PlaySound("Mochila");
+        backpackAnController.SetBool("OpenBackpack", true);
+        yield return new WaitForSeconds(0.3f);        
         float timeElapsed = 0;
         var mitopediaPosition = mitopedia.transform.localPosition;
         var deckBuilderPosition = deckBuilder.transform.localPosition;
@@ -72,6 +79,7 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     }
     public IEnumerator CloseBackpack()
     {
+        backpackAnController.SetBool("OpenBackpack", false);        
         float timeElapsed = 0;
         var mitopediaPosition = mitopedia.transform.localPosition;
         var deckBuilderPosition = deckBuilder.transform.localPosition;
@@ -125,4 +133,6 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         tutorial.tutorial = prevTutorial;
         Destroy(screen);
     }
+
+
 }

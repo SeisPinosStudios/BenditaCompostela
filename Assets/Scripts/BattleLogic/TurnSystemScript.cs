@@ -28,6 +28,7 @@ public class TurnSystemScript : MonoBehaviour
 
     public void Awake()
     {
+        Debug.Log("AAAAAAAAWAAAAAAAAAAAKe");
         background.sprite = GameManager.activeBackground;
         current = enemy;
         next = player;

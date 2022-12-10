@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 476555212}
   - component: {fileID: 476555211}
   m_Layer: 5
-  m_Name: BackGround
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   attackDeckShadow: {fileID: 0}
   defDeck: {fileID: 1117395791}
   attDeck: {fileID: 1873746584}
-  background: {fileID: 476555209}
+  background: {fileID: 476555211}
   fade: {fileID: 2109749999}
   dialogueIndex: 0
 --- !u!1 &1727095872

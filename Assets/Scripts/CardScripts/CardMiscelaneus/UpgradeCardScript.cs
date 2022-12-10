@@ -11,8 +11,11 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     bool inCard;
     GameObject shopText;
     CardData originalCard;
+
+    public AudioManager audioManager;
     public void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         shopText = GameObject.Find("ShopTextSlot");
         originalCard = gameObject.GetComponent<CardDisplay>().cardData;
         ShowUpgrade();
@@ -24,11 +27,13 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
         switch (cardData.GetType().ToString())
         {
             case "Weapon":
+                audioManager.PlaySound("MejoraArma");
                 var weapon = (Weapon)cardData;
                 if (GameManager.playerData.CoinDecrease(weapon.money)) UpgradeWeapon();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];
                 break;
             case "Armor":
+                audioManager.PlaySound("MejoraArmadura");
                 var armor = (Armor)cardData;
                 if(GameManager.playerData.CoinDecrease(armor.money)) UpgradeArmor();
                 else shopText.GetComponentInChildren<TextMeshProUGUI>().text = GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney[Random.Range(0, GameObject.Find("===SHOP===").GetComponent<Shop>().noMoney.Count)];

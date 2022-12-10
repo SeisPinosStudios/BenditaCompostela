@@ -5,9 +5,15 @@ using UnityEngine;
 public class DestroyButton : MonoBehaviour
 {
     public GameObject destroyingObject;
+    public AudioManager audioManager;
 
+    public void Awake()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
     public void DestroyObject()
     {
-        if(gameObject != null) Destroy(gameObject);
+        audioManager.PlaySound("BEstandar");
+        if (gameObject != null) Destroy(gameObject);
     }
 }

@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 
 public class DeckBuilderSlotScript : MonoBehaviour, IPointerClickHandler
 {
+    public AudioManager audioManager;
+    public void Awake()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
     public void OnPointerClick(PointerEventData pointerEvent)
     {
+        audioManager.PlaySound("HCartas");
         var card = gameObject.GetComponent<DeckSlotDisplay>().cardData;
         var cardList = GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().cards;
 

@@ -5,10 +5,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
 
-public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler
+public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
+    public AudioManager audioManager;
+
+    public void Awake()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
     public void OnPointerClick(PointerEventData pointerEvent)
     {
+        audioManager.PlaySound("RCartas");
         var card = gameObject.GetComponent<CardDisplay>().cardData;
         var cardList = GameObject.Find("DeckBuilderDisplayController").GetComponent<DeckBuilderDisplay>().cards;
         var cardName = this.GetComponent<CardDisplay>().cardData.name;
@@ -33,5 +40,10 @@ public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler
             Destroy(gameObject);
         }
         else gameObject.GetComponent<CardDisplay>().cardData = duplicatedCard;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        audioManager.PlaySound("HCartas");
     }
 }

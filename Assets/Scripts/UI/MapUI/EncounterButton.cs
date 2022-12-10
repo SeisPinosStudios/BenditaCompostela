@@ -12,14 +12,20 @@ public class EncounterButton : MonoBehaviour
     public GameObject encounterPrefab;
     public List<ResponseEvent> events;
     private MapPathSelector mapController;
+    public AudioManager audioManager;
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().name != "Cinematic_1") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        if (SceneManager.GetActiveScene().name != "Cinematic_1") {
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
+        }
+        
         gameObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelAndTransition());
     }
     public void SetCurrentLevelAndTransition()
     {
+        audioManager.PlaySound("Evento");
         if (SceneManager.GetActiveScene().name != "test")
         {
             GameManager.currentNode = mapController.GetGoIndex(gameObject);

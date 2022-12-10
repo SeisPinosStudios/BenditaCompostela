@@ -137,7 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   dialogueBoxPrefab: {fileID: 5546955327972843826, guid: cae2ca2804746c94abb5c82c815bd6c8, type: 3}
+  pivot: {fileID: 0}
   warning: {fileID: 11400000, guid: 302acf84ff7ec3b47bee54b6b964bbde, type: 2}
+  audioManager: {fileID: 0}
 --- !u!114 &1743755054152305980
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &67956441446132388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67956441446132390}
+  - component: {fileID: 67956441446132391}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67956441446132390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67956441446132388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 791.58417, y: 490.9168, z: -0.28884155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67956441446132391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67956441446132388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5602df828cef8914580fba38a075fc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Evento
+    clip: {fileID: 8300000, guid: 50d55f429749efb4092b4945cff79a57, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Tienda
+    clip: {fileID: 8300000, guid: 08522b40ad0ac55469ad6cfad12e4bd6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Mochila
+    clip: {fileID: 8300000, guid: 3b9331d793b6e4543b90c202fce592d9, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Armadura
+    clip: {fileID: 8300000, guid: 007be3952f28027419ac90f261556cba, type: 3}
+    volume: 1
+    pitch: 2
+    source: {fileID: 0}
+  - name: HCartas
+    clip: {fileID: 8300000, guid: fd24a0ee38a606944a4d0d7eb1911ddb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RCartas
+    clip: {fileID: 8300000, guid: d59c6ace2192435438d124567f3ff89f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BEstandar
+    clip: {fileID: 8300000, guid: 9e4f22bb86ffe8b4eb17a306880e5cdc, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MejoraArma
+    clip: {fileID: 8300000, guid: 1ffd6eef33f2ed14d88c8e68d8037d0c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MejoraArmadura
+    clip: {fileID: 8300000, guid: 015c9da1e6a448846b425609c1479bfb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
