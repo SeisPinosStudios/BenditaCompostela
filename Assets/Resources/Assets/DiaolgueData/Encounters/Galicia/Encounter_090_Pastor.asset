@@ -33,7 +33,7 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 80e4f1d08d4b9d94682693b19d73ac2e, type: 2}
     conditions: 00000000
     conditionsValue: 0a000000
-  - responseText: No gracias, soy vegano.
+  - responseText: 'Lo siento, no es de mi gusto. '
     dialogueObject: {fileID: 11400000, guid: 1b9e79b0d1e204046bb815e33cef8c4c, type: 2}
     conditions: 
     conditionsValue: 

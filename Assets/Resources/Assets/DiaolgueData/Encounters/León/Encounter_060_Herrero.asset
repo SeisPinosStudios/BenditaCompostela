@@ -30,11 +30,11 @@ MonoBehaviour:
   - "Pero seguro que, en tu peregrinaje, has conseguido bienes que me pueden ser
     \xFAtiles. Si me das alguno, te lo recompensar\xE9 muy bien."
   responses:
-  - responseText: Acepta el trato.
+  - responseText: "Aqu\xED tiene, espero que le sirva. "
     dialogueObject: {fileID: 11400000, guid: fbe072866d3e4cc4e87218d212a001ed, type: 2}
     conditions: 03000000
     conditionsValue: 01000000
-  - responseText: Rechaza el trato.
+  - responseText: "No estoy en posici\xF3n de regalar mis armas. "
     dialogueObject: {fileID: 11400000, guid: f1b2947c96110a743ba4184e57279789, type: 2}
     conditions: 
     conditionsValue: 

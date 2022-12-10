@@ -27,11 +27,11 @@ MonoBehaviour:
     cuenta."
   - "De hecho, te dar\xE9 un buen precio por tu parte del bot\xEDn."
   responses:
-  - responseText: Aceptar trato
+  - responseText: "Se lo merecen, all\xE1 vamos. "
     dialogueObject: {fileID: 11400000, guid: f5bac2cef6b011344be2182849b49b90, type: 2}
     conditions: 00000000
     conditionsValue: 0a000000
-  - responseText: Rechazar trato
+  - responseText: "Lo siento, no soy un ladr\xF3n. "
     dialogueObject: {fileID: 11400000, guid: 852b547de0922324b967ec7b514166ca, type: 2}
     conditions: 
     conditionsValue: 

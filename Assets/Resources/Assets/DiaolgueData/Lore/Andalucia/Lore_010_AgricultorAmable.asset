@@ -28,6 +28,6 @@ MonoBehaviour:
   - "AGRICULTOR \nQue tengas suerte y ll\xE9vate esto, es lo m\xE1ximo que puedo
     ofrecerte como ayuda. "
   responses:
-  - responseText: '!Muchas gracias!'
+  - responseText: "\xA1Gracias! Lo tendr\xE9 en cuenta. "
     dialogueObject: {fileID: 11400000, guid: 9e528c8a7eefcde448055643493e4934, type: 2}
   character: {fileID: 21300000, guid: 4486221392d694b46a763da0a15a4374, type: 3}

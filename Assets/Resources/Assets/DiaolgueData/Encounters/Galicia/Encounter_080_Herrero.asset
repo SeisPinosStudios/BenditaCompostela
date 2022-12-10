@@ -30,11 +30,11 @@ MonoBehaviour:
   - "Puedo recompensaros bien, a cambio de piezas de equipamiento para poder trabajar
     \xBFAceptar\xEDas este trato? "
   responses:
-  - responseText: Acepta el trato.
+  - responseText: "Si no nos ayudamos, nadie lo har\xE1. "
     dialogueObject: {fileID: 11400000, guid: e573b0557877ed847bdc3f4d566fe870, type: 2}
     conditions: 02000000
     conditionsValue: 01000000
-  - responseText: Rechaza el trato.
+  - responseText: 'La pechera me queda muy bien, no pienso soltarla. '
     dialogueObject: {fileID: 11400000, guid: b2ccaccf6198e104998468cdd44bd0c2, type: 2}
     conditions: 
     conditionsValue: 

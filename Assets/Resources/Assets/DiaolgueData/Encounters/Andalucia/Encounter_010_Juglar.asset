@@ -25,11 +25,11 @@ MonoBehaviour:
     por algo tuyo. "
   - 'Aceptar trato:  , obtienes <color=#308a36>Bolazo de la Giralda</color>'
   responses:
-  - responseText: Aceptar Trato
+  - responseText: Me parece justo.
     dialogueObject: {fileID: 11400000, guid: c4826270cb751ba42be60f139777d29d, type: 2}
     conditions: 01000000
     conditionsValue: 03000000
-  - responseText: Rechazarlo
+  - responseText: "No me f\xEDo."
     dialogueObject: {fileID: 11400000, guid: fe31ea81ffc0539498aca84315dec887, type: 2}
     conditions: 
     conditionsValue: 
