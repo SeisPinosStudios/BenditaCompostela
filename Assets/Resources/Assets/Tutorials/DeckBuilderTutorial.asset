@@ -17,7 +17,8 @@ MonoBehaviour:
     tu mazo con las cartas que hayas ido obteniendo a lo largo de la aventura."
   - "En esta secci\xF3n de la izquierda aparecer\xE1n aquellas cartas que tengas
     disponibles en tu inventario. Para a\xF1adir una carta a tu mazo s\xF3lo tienes
-    que pulsar encima. Si la carta desaparece es que ya no te quedan m\xE1s copias."
+    que pulsar encima. Si la carta desaparece significa que ya no te quedan m\xE1s
+    copias."
   - "En la barra de la derecha aparecer\xE1n las cartas que ya tienes dentro de tu
     mazo. Si quieres retirar una carta de tu mazo s\xF3lo tendr\xE1s que pulsar encima
     de su nombre y volver\xE1 a la zona de selecci\xF3n de cartas."
@@ -25,11 +26,11 @@ MonoBehaviour:
     al mapa y continuar con tu viaje."
   x:
   - 0
-  - 0
-  - 0
-  - 0
+  - -300
+  - 600
+  - 600
   y:
   - 0
-  - 0
-  - 0
-  - 0
+  - 400
+  - 400
+  - -400

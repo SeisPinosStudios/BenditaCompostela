@@ -107,8 +107,8 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         StartCoroutine(CloseBackpack());
         prevTutorial = tutorial.tutorial;
         tutorial.tutorial = "equipment";
-        equipmentPrefab.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(DestroyScreen);
         screen = Instantiate(equipmentPrefab, pivot);
+        screen.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(DestroyScreen);
     }
     public void DeckBuilder()
     {
@@ -118,10 +118,11 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
         tutorial.tutorial = "deckbuilder";
         
         screen = Instantiate(deckPrefab, pivot);
-        screen.GetComponentInChildren<Button>().onClick.AddListener(DestroyScreen);
+        screen.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(DestroyScreen);
     }
     public void DestroyScreen()
     {
-        Destroy(pivot.transform.GetChild(0).gameObject);
+        tutorial.tutorial = prevTutorial;
+        Destroy(screen);
     }
 }

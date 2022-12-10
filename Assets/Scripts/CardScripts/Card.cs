@@ -73,7 +73,8 @@ public class Card : MonoBehaviour
     public void EquipWeapon()
     {
         Weapon weapon = (Weapon)cardData;
-        self.GetComponent<PlayerScript>().OnWeaponEquiped(weapon);   
+        self.GetComponent<PlayerScript>().OnWeaponEquiped(weapon);
+        audioManager.PlaySound("Sword");
     }
     public void Attack()
     {

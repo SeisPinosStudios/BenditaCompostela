@@ -303,6 +303,12 @@ public class Entity : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        foreach (Enemy.Passive passive in passives)
+        {
+            passivePrefab.GetComponent<PassiveDisplay>().passive = passive;
+            Instantiate(passivePrefab, transform.GetChild(2));
+        }
+
         foreach (KeyValuePair<CardData.TAlteredEffects, int> effect in alteredEffects)
         {
             if (!Suffering(effect.Key)) continue;
@@ -310,6 +316,7 @@ public class Entity : MonoBehaviour
             alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().value = effect.Value;
             GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, parent);
         }
+
     }
     public void AttackAnimation(bool state)
     {
@@ -318,10 +325,10 @@ public class Entity : MonoBehaviour
     public void PassivesDisplay()
     {
         if (IsPlayer()) return;
-        foreach(Enemy.Passive passive in passives)
+        foreach (Enemy.Passive passive in passives)
         {
             passivePrefab.GetComponent<PassiveDisplay>().passive = passive;
-            Instantiate(passivePrefab, transform.GetChild(3));
+            Instantiate(passivePrefab, transform.GetChild(2));
         }
     }
     #endregion

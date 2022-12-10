@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf62ebdbbad2e3b468afa7bea32eab1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPrefab: {fileID: 4668818670804331006, guid: e91c807396078c24890f3a16a3751e0d, type: 3}
+  settingsPrefab: {fileID: 8397038093640088970, guid: e91c807396078c24890f3a16a3751e0d, type: 3}
   pivot: {fileID: 0}
   settingsScreen: {fileID: 0}
 --- !u!1 &5001647182969362179

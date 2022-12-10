@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
   m_Name: EncounterTutorial
   m_EditorClassIdentifier: 
-  text: []
+  text:
+  - "\xA1Acabas de encontrarte con uno de los curiosos personajes que habitan en
+    el mundo de Bendita Compostela! "
   x: []
   y: []

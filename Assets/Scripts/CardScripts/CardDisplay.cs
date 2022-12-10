@@ -255,8 +255,8 @@ public class CardDisplay : MonoBehaviour
     {
         BorderDisplay();
         Description();
+        Cost();
     }
-
     public void BorderDisplay() {
 
         if (!InBattle() || cardBorderDisplay == null || !card.self.IsPlayer()) return;

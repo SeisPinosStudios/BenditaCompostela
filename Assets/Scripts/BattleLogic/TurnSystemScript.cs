@@ -20,6 +20,7 @@ public class TurnSystemScript : MonoBehaviour
     public GameObject attackDeckShadow;
     public GameObject defDeck;
     public GameObject attDeck;
+    public Image background;
 
     public GameObject fade;
 
@@ -27,7 +28,7 @@ public class TurnSystemScript : MonoBehaviour
 
     public void Awake()
     {
-        GameObject.Find("====CANVAS====").GetComponent<Image>().sprite = GameManager.activeBackground;
+        background.sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
     }

@@ -1588,7 +1588,7 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 413bce28f8493ad4695474e4afc29a4d, type: 2}
   Debuginventory: []
   backgrounds:
-  - {fileID: 21300000, guid: 6029fe4c41c11c0438b917fdcfe47d8a, type: 3}
+  - {fileID: 21300000, guid: ff1a7bdcc1f69c845b94c2dec8a009c9, type: 3}
   - {fileID: 21300000, guid: e6f8651bbbc59704abf184e6744c8ce5, type: 3}
   - {fileID: 21300000, guid: c7646ee3e969ab844a522dda58dcb104, type: 3}
   - {fileID: 21300000, guid: dee30eef073971b409c73f9b89e2ecf4, type: 3}

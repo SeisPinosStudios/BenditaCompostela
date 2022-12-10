@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
   m_Name: LoreTutorial
   m_EditorClassIdentifier: 
-  text: []
-  x: []
-  y: []
+  text:
+  - "Acabas de entrar en un encuentro de \"lore\" o historia. Estos encuentros son
+    similares a los encuentros anteriores que ya has tenido que pasar pero se centran
+    en darte informaci\xF3n \xFAtil y recursos para avanzar en el juego sin que tengas
+    que tomar una decisi\xF3n."
+  x:
+  - 0
+  y:
+  - 0

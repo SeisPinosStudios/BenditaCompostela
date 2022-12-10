@@ -10,7 +10,6 @@ public class ZoneLocation : MonoBehaviour
     public void Awake()
     {
         textComponent = GetComponent<TextMeshProUGUI>();
-
         textComponent.text = SceneManager.GetActiveScene().name;
         textComponent.text = RouteCompute(SceneManager.GetActiveScene().name);
     }
@@ -20,7 +19,7 @@ public class ZoneLocation : MonoBehaviour
         switch (scene)
         {
             case "BattleScene":
-                return GameObject.Find("Enemy").GetComponent<EnemyScript>().name;
+                return GameObject.Find("Enemy").GetComponent<EnemyScript>().enemyData.name;
             case "EquipmentScene":
                 return RouteCompute(GameManager.ActualRoute);
             case "DeckBuilderScene":
