@@ -29,6 +29,8 @@ public class EnemyScript : Entity
 
         attack.GetComponent<CardDragSystem>().enabled = true;
         attack.GetComponent<CardInspection>().enabled = true;
+
+        imageList = gameObject.GetComponentsInChildren<Image>();
     }
     public void Start()
     {
@@ -48,6 +50,9 @@ public class EnemyScript : Entity
         card.UseCard();
         yield return new WaitForSeconds(1.0f);
         Debug.Log("ENEMY TURN");
+        Burn();
+        if (Suffering(CardData.TAlteredEffects.BURN)) yield return new WaitForSeconds(1);
+        if (IsDead()) yield return new WaitForSeconds(2);
         FindObjectOfType<TurnSystemScript>().GetComponent<TurnSystemScript>().Turn();
     }
     public void UseCard(Card card)

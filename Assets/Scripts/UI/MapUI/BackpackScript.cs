@@ -11,6 +11,7 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
 
     public float lerpDuration;
     public int separation;
+    public bool clicked;
 
     public GameObject equipmentPrefab;
     public GameObject deckPrefab;
@@ -26,6 +27,7 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
 
     public void Awake()
     {
+        clicked = false;
         mitopedia = transform.GetChild(0).gameObject;
         mitopediaOP = mitopedia.transform.localPosition;
 
@@ -46,68 +48,77 @@ public class BackpackScript : MonoBehaviour, IPointerClickHandler
     public IEnumerator OpenBackpack()
     {
         audioManager.PlaySound("Mochila");
-        backpackAnController.SetBool("OpenBackpack", true);
-        yield return new WaitForSeconds(0.3f);        
-        float timeElapsed = 0;
-        var mitopediaPosition = mitopedia.transform.localPosition;
-        var deckBuilderPosition = deckBuilder.transform.localPosition;
-        var equipmentPosition = equipment.transform.localPosition;
+        backpackAnController.SetBool("OpenBackpack", true);        
+        yield return new WaitForSeconds(0.3f);
+        if (!clicked) {
+            clicked = true;
+            float timeElapsed = 0;
+            var mitopediaPosition = mitopedia.transform.localPosition;
+            var deckBuilderPosition = deckBuilder.transform.localPosition;
+            var equipmentPosition = equipment.transform.localPosition;
+            while (timeElapsed < lerpDuration)
+            {
+                #region Mitopedia
+                mitopediaPosition.y = Mathf.Lerp(mitopediaOP.y, mitopediaOP.y + separation, timeElapsed / lerpDuration);
+                mitopedia.transform.localPosition = mitopediaPosition;
+                #endregion
 
-        while (timeElapsed < lerpDuration)
-        {
-            #region Mitopedia
-            mitopediaPosition.y = Mathf.Lerp(mitopediaOP.y, mitopediaOP.y + separation, timeElapsed / lerpDuration);
-            mitopedia.transform.localPosition = mitopediaPosition;
-            #endregion
+                #region DeckBuilder
+                deckBuilderPosition.x = Mathf.Lerp(deckBuilderOP.x, deckBuilderOP.x + (separation * Mathf.Cos(Mathf.PI / 4)), timeElapsed / lerpDuration);
+                deckBuilderPosition.y = Mathf.Lerp(deckBuilderOP.y, deckBuilderOP.y + (separation * Mathf.Cos(Mathf.PI / 4)), timeElapsed / lerpDuration);
+                deckBuilder.transform.localPosition = deckBuilderPosition;
+                #endregion
 
-            #region DeckBuilder
-            deckBuilderPosition.x = Mathf.Lerp(deckBuilderOP.x, deckBuilderOP.x + (separation * Mathf.Cos(Mathf.PI / 4)), timeElapsed / lerpDuration);
-            deckBuilderPosition.y = Mathf.Lerp(deckBuilderOP.y, deckBuilderOP.y + (separation * Mathf.Cos(Mathf.PI / 4)), timeElapsed / lerpDuration);
-            deckBuilder.transform.localPosition = deckBuilderPosition;
-            #endregion
+                #region Equipment
+                equipmentPosition.x = Mathf.Lerp(equipmentOP.x, equipmentOP.x + separation, timeElapsed / lerpDuration);
+                equipment.transform.localPosition = equipmentPosition;
+                #endregion
 
-            #region Equipment
-            equipmentPosition.x = Mathf.Lerp(equipmentOP.x, equipmentOP.x + separation, timeElapsed / lerpDuration);
-            equipment.transform.localPosition = equipmentPosition;
-            #endregion
-
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        } 
         
+        yield return new WaitForSeconds(backpackAnController.GetNextAnimatorStateInfo(0).length);
         open = true;
+        clicked = false;
     }
     public IEnumerator CloseBackpack()
     {
-        backpackAnController.SetBool("OpenBackpack", false);        
-        float timeElapsed = 0;
-        var mitopediaPosition = mitopedia.transform.localPosition;
-        var deckBuilderPosition = deckBuilder.transform.localPosition;
-        var equipmentPosition = equipment.transform.localPosition;
+        audioManager.PlaySound("Mochila");
+        backpackAnController.SetBool("OpenBackpack", false);
+        if (!clicked) {
+            clicked = true;
+            float timeElapsed = 0;
+            var mitopediaPosition = mitopedia.transform.localPosition;
+            var deckBuilderPosition = deckBuilder.transform.localPosition;
+            var equipmentPosition = equipment.transform.localPosition;
 
-        while(timeElapsed < lerpDuration)
-        {
-            #region Mitopedia
-            mitopediaPosition.y = Mathf.Lerp(mitopediaOP.y + separation, mitopediaOP.y, timeElapsed / lerpDuration);
-            mitopedia.transform.localPosition = mitopediaPosition;
-            #endregion
+            while (timeElapsed < lerpDuration)
+            {
+                #region Mitopedia
+                mitopediaPosition.y = Mathf.Lerp(mitopediaOP.y + separation, mitopediaOP.y, timeElapsed / lerpDuration);
+                mitopedia.transform.localPosition = mitopediaPosition;
+                #endregion
 
-            #region DeckBuilder
-            deckBuilderPosition.x = Mathf.Lerp(deckBuilderOP.x + (separation * Mathf.Cos(Mathf.PI / 4)), deckBuilderOP.x, timeElapsed / lerpDuration);
-            deckBuilderPosition.y = Mathf.Lerp(deckBuilderOP.y + (separation * Mathf.Cos(Mathf.PI / 4)), deckBuilderOP.y, timeElapsed / lerpDuration);
-            deckBuilder.transform.localPosition = deckBuilderPosition;
-            #endregion
+                #region DeckBuilder
+                deckBuilderPosition.x = Mathf.Lerp(deckBuilderOP.x + (separation * Mathf.Cos(Mathf.PI / 4)), deckBuilderOP.x, timeElapsed / lerpDuration);
+                deckBuilderPosition.y = Mathf.Lerp(deckBuilderOP.y + (separation * Mathf.Cos(Mathf.PI / 4)), deckBuilderOP.y, timeElapsed / lerpDuration);
+                deckBuilder.transform.localPosition = deckBuilderPosition;
+                #endregion
 
-            #region Equipment
-            equipmentPosition.x = Mathf.Lerp(equipmentOP.x + separation, equipmentOP.x, timeElapsed / lerpDuration);
-            equipment.transform.localPosition = equipmentPosition;
-            #endregion
+                #region Equipment
+                equipmentPosition.x = Mathf.Lerp(equipmentOP.x + separation, equipmentOP.x, timeElapsed / lerpDuration);
+                equipment.transform.localPosition = equipmentPosition;
+                #endregion
 
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        }        
+        yield return new WaitForSeconds(backpackAnController.GetNextAnimatorStateInfo(0).length);
         open = false;
+        clicked = false;
     }
     public void Equipment()
     {

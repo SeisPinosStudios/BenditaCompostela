@@ -352,6 +352,8 @@ MonoBehaviour:
   extraHealing: 0
   passives: 
   passivePrefab: {fileID: 7259979332579742689, guid: 129e89cbee2a3444faa9c0f902372254, type: 3}
+  fadeDuration: 2
+  imageList: []
   enemyData: {fileID: 0}
   attack: {fileID: 6344285022213485672, guid: b2f3be45166e6dd458ed65547b135076, type: 3}
   trasguPrefab: {fileID: 3573217847118127547, guid: 09bf0a07b4119d744a45b46070af48e9, type: 3}

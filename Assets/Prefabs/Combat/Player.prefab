@@ -347,6 +347,8 @@ MonoBehaviour:
   extraHealing: 0
   passives: 
   passivePrefab: {fileID: 0}
+  fadeDuration: 2
+  imageList: []
   playerData: {fileID: 0}
   weapon: {fileID: 0}
   playerDeck: []
