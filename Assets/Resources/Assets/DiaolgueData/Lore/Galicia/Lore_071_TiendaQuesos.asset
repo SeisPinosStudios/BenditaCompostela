@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - "Por supuesto. \xBFDe qu\xE9 crees que est\xE1 hecho el queso?"
+  - Has recuperado <color=#99322b>5 puntos de vida</color>.
   responses: []
   character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}

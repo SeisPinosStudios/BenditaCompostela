@@ -28,6 +28,7 @@ public class BattleWonScript : MonoBehaviour
         rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
 
         GameManager.SaveGame();
+        GameManager.PlayBattleEnd(true);
     }
     public void CleanRewards()
     {

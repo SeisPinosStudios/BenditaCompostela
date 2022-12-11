@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Encounter_012_Juglar
   m_EditorClassIdentifier: 
   dialogue:
-  - "JUGLAR \r\nNo sabr\xEDas reconocer una ganga ni aunque te la agitaran delante
+  - "JUGLAR JUAN\nNo sabr\xEDas reconocer una ganga ni aunque te la agitaran delante
     de tus narices de ni\xF1ato insolente. "
-  - "JUGLAR \r\nEsto es de rigurosa mofa. "
+  - 'JUGLAR JUAN
+
+    Esto es de rigurosa mofa. '
   responses: []
   character: {fileID: 21300000, guid: 972257207d48605409052f56e06e08af, type: 3}

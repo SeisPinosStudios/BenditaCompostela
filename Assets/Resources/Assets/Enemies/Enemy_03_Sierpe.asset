@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sierpe
   sprite: {fileID: 21300000, guid: 0d529833d7eef324c8112c46bf9301c2, type: 3}
-  enemyAnimatorController: {fileID: 0}
-  HP: 90
+  enemyAnimatorController: {fileID: 22100000, guid: 16fc39dca03882a46bdd37d67e14c9f8, type: 2}
+  HP: 70
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 7525caf9a3cdd4e46818993a1875af05, type: 2}

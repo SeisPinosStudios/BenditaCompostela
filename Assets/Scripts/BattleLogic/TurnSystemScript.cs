@@ -32,6 +32,7 @@ public class TurnSystemScript : MonoBehaviour
         background.sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
+        GameManager.StopSong();
     }
     public void Start()
     {

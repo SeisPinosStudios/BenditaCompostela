@@ -529,7 +529,7 @@ RectTransform:
   m_GameObject: {fileID: 159693637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 592963487}
@@ -539,7 +539,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -612, y: -376}
-  m_SizeDelta: {x: 91.42857, y: 36.57143}
+  m_SizeDelta: {x: 160, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159693639
 MonoBehaviour:
@@ -951,7 +951,7 @@ RectTransform:
   m_GameObject: {fileID: 355197481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99998873, y: 0.99998873, z: 0.99998873}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1575582409}
@@ -959,8 +959,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -607.00037, y: 235.99997}
-  m_SizeDelta: {x: 521.4286, y: 192.85715}
+  m_AnchoredPosition: {x: -604, y: 249}
+  m_SizeDelta: {x: 146, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &355197483
 MonoBehaviour:
@@ -1613,7 +1613,7 @@ RectTransform:
   m_GameObject: {fileID: 592963486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 159693638}
@@ -1621,8 +1621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
-  m_SizeDelta: {x: 91.42857, y: 36.57143}
+  m_AnchoredPosition: {x: 3, y: -0.000010173}
+  m_SizeDelta: {x: 160, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &592963488
 MonoBehaviour:
@@ -3832,7 +3832,7 @@ RectTransform:
   m_GameObject: {fileID: 1442227560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99998873, y: 0.99998873, z: 0.99998873}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1575582409}
@@ -3840,8 +3840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604, y: 61.000305}
-  m_SizeDelta: {x: 500, y: 171.42857}
+  m_AnchoredPosition: {x: -601, y: 50}
+  m_SizeDelta: {x: 140, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442227562
 MonoBehaviour:
@@ -3964,6 +3964,7 @@ MonoBehaviour:
   settingsPrefab: {fileID: 8397038093640088970, guid: e91c807396078c24890f3a16a3751e0d, type: 3}
   pivot: {fileID: 1575582409}
   settingsScreen: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &1442227567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4039,7 +4040,7 @@ RectTransform:
   m_GameObject: {fileID: 1469328750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99998873, y: 0.99998873, z: 0.99998873}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1575582409}
@@ -4047,8 +4048,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604, y: -141.00006}
-  m_SizeDelta: {x: 628.5714, y: 228.57143}
+  m_AnchoredPosition: {x: -589, y: -141.00006}
+  m_SizeDelta: {x: 176, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469328752
 MonoBehaviour:
@@ -5014,10 +5015,11 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 991c38ec4a1463a4ba1ef16b669b63c0, type: 2}
   Debuginventory: []
   backgrounds:
-  - {fileID: 21300000, guid: 6029fe4c41c11c0438b917fdcfe47d8a, type: 3}
+  - {fileID: 21300000, guid: ff1a7bdcc1f69c845b94c2dec8a009c9, type: 3}
   - {fileID: 21300000, guid: e6f8651bbbc59704abf184e6744c8ce5, type: 3}
   - {fileID: 21300000, guid: c7646ee3e969ab844a522dda58dcb104, type: 3}
-  - {fileID: 21300000, guid: dee30eef073971b409c73f9b89e2ecf4, type: 3}
+  - {fileID: 21300000, guid: cadf6451c58cf3d4b8be6e90631e2531, type: 3}
+  - {fileID: 21300000, guid: df797fcec102f4f4e8e412854abc83b6, type: 3}
 --- !u!114 &1793441832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5059,25 +5061,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970d2682a597bcd469568629833396cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme_1
-    clip: {fileID: 8300000, guid: ff645c7328c0ab348a13ceb083078f4c, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-  - name: Theme_2
-    clip: {fileID: 8300000, guid: a187233543a85ec4184dcbd00d4d39db, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-  - name: Theme_3
-    clip: {fileID: 8300000, guid: 30fb73b18900c7e4f989ce642e1d2d5f, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-  audioSources: []
-  battleSource: {fileID: 0}
-  shopSource: {fileID: 0}
+  songs:
+  - {fileID: 8300000, guid: ff645c7328c0ab348a13ceb083078f4c, type: 3}
+  - {fileID: 8300000, guid: a187233543a85ec4184dcbd00d4d39db, type: 3}
+  - {fileID: 8300000, guid: 30fb73b18900c7e4f989ce642e1d2d5f, type: 3}
+  - {fileID: 8300000, guid: f75ff48f21859c0428bef37d18fd5482, type: 3}
+  battleMusic:
+  - {fileID: 8300000, guid: 2f085603389f2c14180582482e6dec26, type: 3}
+  - {fileID: 8300000, guid: 584168b6fb9018247ba8a0558748fa15, type: 3}
+  shopMusic: {fileID: 8300000, guid: 6a4bed45e57abe04d8baf98608d9a796, type: 3}
+  audioSource: {fileID: 0}
+  battleEndMusic: []
 --- !u!1 &1820426476
 GameObject:
   m_ObjectHideFlags: 0

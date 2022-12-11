@@ -12,6 +12,7 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     GameObject shopText;
     CardData originalCard;
 
+    public TextMeshProUGUI costText;
     public AudioManager audioManager;
     public void Awake()
     {
@@ -91,15 +92,18 @@ public class UpgradeCardScript : MonoBehaviour, IPointerClickHandler, IPointerEn
     }
     public void ShowUpgrade()
     {
+        
         if(originalCard.GetType() == typeof(Weapon))
         {
             var card = (Weapon)originalCard;
             gameObject.GetComponent<CardDisplay>().cardData = card.improvedWeapon;
+            costText.text = "x" + GetComponent<CardDisplay>().cardData.money.ToString();
         }
         else if(originalCard.GetType() == typeof(Armor))
         {
             var card = (Armor)originalCard;
             gameObject.GetComponent<CardDisplay>().cardData = card.improvedArmor;
+            costText.text = "x" + GetComponent<CardDisplay>().cardData.money.ToString();
         }
     }
 }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Encounter_082_Herrero
   m_EditorClassIdentifier: 
   dialogue:
-  - 'Espero que no me tengas en cuenta lo que voy a hacer, joven peregrino. Es por
-    estricta necesidad. '
+  - 'HERRERO HORTENCIO
+
+    Espero que no me tengas en cuenta lo que voy a hacer,
+    joven peregrino. Es por estricta necesidad. '
   responses: []
   character: {fileID: 21300000, guid: 16fe2730741ab784d844e9bd352a6888, type: 3}

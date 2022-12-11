@@ -37,5 +37,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96dddcc454e637d4c831ed348f47d7c4, type: 2}
   - {fileID: 11400000, guid: 497c26c0dab16b54ebb29d282001d20a, type: 2}
   - {fileID: 11400000, guid: ebc8fe99e301a5241be83a21ad585a43, type: 2}
+  - {fileID: 11400000, guid: 553adaf9f8bbb874c9bc3c6d0f01c9cf, type: 2}
   chestArmor: {fileID: 11400000, guid: 53bb06d37ed1f5e4aa4bb0a1a7caa631, type: 2}
   feetArmor: {fileID: 11400000, guid: 09d16f098338b894e8d2d2f79c238157, type: 2}

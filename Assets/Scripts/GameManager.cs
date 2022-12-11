@@ -105,13 +105,21 @@ public class GameManager : MonoBehaviour
         SFXVolume = volume;
         GameObject.Find("AudioManager").GetComponent<AudioManager>().SetVolume(SFXVolume);
     }
-    public static void PlayBattleMusic()
-    {
-        musicManager.BattleMusic();
-    }
-    public static void PlayShopMusic()
+    public static void ShopMusic()
     {
         musicManager.ShopMusic();
+    }
+    public static void StopSong()
+    {
+        musicManager.StopSong();
+    }
+    public static void PlayBattleEnd(bool won)
+    {
+        musicManager.PlayBattleEnd(won);
+    }
+    public static void BattleMusic()
+    {
+        musicManager.BattleMusic();
     }
     #endregion
 
@@ -266,6 +274,8 @@ public class GameManager : MonoBehaviour
                 activeBackground = backgrounds[3];
                 break;
         }
+
+        if (SceneManager.GetActiveScene().name == "BattleScene" && nextEnemy.name == "Santiago") activeBackground = backgrounds[4];
     }
     public void BattleEnd(Entity loser)
     {
@@ -278,8 +288,8 @@ public class GameManager : MonoBehaviour
                 break;
             case "EnemyScript":
                 UpdateNodeProgress();
-                Instantiate(BattleCompletedUI[0], GameObject.Find("====CANVAS====").transform);
-                GameManager.playerData.currentHP = GameObject.Find("Player").GetComponent<PlayerScript>().currentHP;
+                playerData.currentHP = GameObject.Find("Player").GetComponent<PlayerScript>().currentHP;
+                SceneManager.LoadScene("VictoryScene");
                 break;
         }
     }

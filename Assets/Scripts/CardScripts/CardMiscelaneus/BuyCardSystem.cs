@@ -12,7 +12,7 @@ public class BuyCardSystem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public TextMeshProUGUI costText;
     private void Awake()
     {
-        costText.text = "x" + GetComponent<CardDisplay>().cardData.cost.ToString();
+        costText.text = "x" + GetComponent<CardDisplay>().cardData.money.ToString();
         shopText = GameObject.Find("ShopTextSlot");
     }
     public void OnPointerClick(PointerEventData pointer) {

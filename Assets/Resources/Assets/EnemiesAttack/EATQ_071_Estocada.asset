@@ -19,8 +19,8 @@ MonoBehaviour:
   money: 0
   enemy: 1
   damage: 10
-  alteredEffects: 00000000
-  aEffectValues: 01000000
+  alteredEffects: 
+  aEffectValues: 
   effects: 
   eValues: 
   zone: 0

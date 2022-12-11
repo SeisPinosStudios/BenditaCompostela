@@ -13,21 +13,27 @@ MonoBehaviour:
   m_Name: Encounter_030_Terrateniente
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1Alto ah\xED muchacho! \xBFAcaso sabes por d\xF3nde andas? "
-  - "Forastero \xBFVerdad? Bueno, en ese caso, por si nadie te lo ha dicho, todo
-    lo que hay al norte del pueblo es de mi propiedad."
-  - "Tenemos alg\xFAn disidente que piensa lo contrario, que no se preocupe, ya se
-    lo explicar\xE9. "
-  - "La tierra es de quien la trabaja, y aqu\xED el que m\xE1s trabaja soy yo, que
-    me tiro todo el d\xEDa buscando gente que me trabaje la tierra, nadie piensa
-    en lo dura que es la vida de un terrateniente. "
-  - "Los j\xF3venes de hoy en d\xEDa quer\xE9is vivir como se\xF1ores, pero trabajar
-    poco, as\xED no funciona el mundo."
-  - "Pero bueno, podr\xEDa ser peor, podr\xEDas querer entrar en una propiedad privada
-    como si nada, justo como est\xE1s haciendo t\xFA."
-  - "Mira chico, te ofrezco un trato, trabaja para m\xED durante una jornada y no
-    solo te dejar\xE9 pasar, sino que tambi\xE9n te pagar\xE9 un sueldo muy generoso
-    \xBFQu\xE9 te parece? "
+  - "TERRATENIENTE TORRES\n\xA1Alto ah\xED muchacho! \xBFAcaso sabes por d\xF3nde
+    andas? "
+  - "TERRATENIENTE TORRES\nForastero \xBFVerdad? Bueno, en ese caso, por si nadie
+    te lo ha dicho, todo lo que hay al norte del pueblo es de mi propiedad."
+  - "TERRATENIENTE TORRES\nTenemos alg\xFAn disidente que piensa lo contrario, que
+    no se preocupe, ya se lo explicar\xE9. "
+  - "TERRATENIENTE TORRES\nLa tierra es de quien la trabaja, y aqu\xED el que m\xE1s
+    trabaja soy yo, que me tiro todo el d\xEDa buscando gente que me trabaje la tierra,
+    nadie piensa en lo dura que es la vida de un terrateniente. "
+  - "TERRATENIENTE TORRES\nLos j\xF3venes de hoy en d\xEDa quer\xE9is vivir como
+    se\xF1ores, pero trabajar poco, as\xED no funciona el mundo."
+  - "TERRATENIENTE TORRES\nPero bueno, podr\xEDa ser peor, podr\xEDas querer entrar
+    en una propiedad privada como si nada, justo como est\xE1s haciendo t\xFA."
+  - "TERRATENIENTE TORRES\nMira chico, te ofrezco un trato, trabaja para m\xED durante
+    una jornada y no solo te dejar\xE9 pasar, sino que tambi\xE9n te pagar\xE9 un
+    sueldo muy generoso \xBFQu\xE9 te parece? "
+  - 'Aceptar trato: trabajar mucho y cobrar poco... La vida del currante. <color=#99322b>[Vida--]</color>
+    <color=#c49a16>[Dinero+]</color>
+
+    Rechazar trato: combate contra Terrateniente
+    agresivo.'
   responses:
   - responseText: "Pareces alguien honrado, lo har\xE9. "
     dialogueObject: {fileID: 11400000, guid: 189b261dd1902464c9c8b629fd8a9fea, type: 2}

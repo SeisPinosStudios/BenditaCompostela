@@ -13,22 +13,29 @@ MonoBehaviour:
   m_Name: Encounter_060_Herrero
   m_EditorClassIdentifier: 
   dialogue:
-  - "Vaya chico, est\xE1s muy lejos de casa. \xBFNo eres demasiado joven para hacer
-    un viaje tan largo?"
-  - "Los j\xF3venes y vuestros sue\xF1os, completamente ajenos a la realidad que
-    vivimos. Mientras otros intentamos ganarnos el pan, vosotros no ten\xE9is otra
-    cosa que hacer que ir dando tumbos por ah\xED."
-  - "Aun as\xED, creo que puedes ayudarme. Ver\xE1s chico, son tiempos duros para
-    la profesi\xF3n, apenas llegan recursos para poder trabajar. "
-  - "Aquellos que se dedican a explotar las minas, se guardan los materiales y los
-    ponen a precios desorbitados. As\xED los humildes herreros como yo no podemos
-    trabajar."
-  - "La situaci\xF3n no parece que vaya a cambiar, el hierro y otros minerales son
-    bienes de primera necesidad, y siempre hay compradores, sin importar que el precio
-    sea abusivo."
-  - 'Se necesitan para seguir fabricando armas. Las guerras nunca terminan. '
-  - "Pero seguro que, en tu peregrinaje, has conseguido bienes que me pueden ser
-    \xFAtiles. Si me das alguno, te lo recompensar\xE9 muy bien."
+  - "HERRERO HORACIO\nVaya chico, est\xE1s muy lejos de casa. \xBFNo eres demasiado
+    joven para hacer un viaje tan largo?"
+  - "HERRERO HORACIO\nLos j\xF3venes y vuestros sue\xF1os, completamente ajenos a
+    la realidad que vivimos. Mientras otros intentamos ganarnos el pan, vosotros
+    no ten\xE9is otra cosa que hacer que ir dando tumbos por ah\xED."
+  - "HERRERO HORACIO\nAun as\xED, creo que puedes ayudarme. Ver\xE1s chico, son tiempos
+    duros para la profesi\xF3n, apenas llegan recursos para poder trabajar. "
+  - "HERRERO HORACIO\nAquellos que se dedican a explotar las minas, se guardan los
+    materiales y los ponen a precios desorbitados. As\xED los humildes herreros como
+    yo no podemos trabajar."
+  - "HERRERO HORACIO\nLa situaci\xF3n no parece que vaya a cambiar, el hierro y otros
+    minerales son bienes de primera necesidad, y siempre hay compradores, sin importar
+    que el precio sea abusivo."
+  - 'HERRERO HORACIO
+
+    Se necesitan para seguir fabricando armas. Las guerras
+    nunca terminan. '
+  - "HERRERO HORACIO\nPero seguro que, en tu peregrinaje, has conseguido bienes que
+    me pueden ser \xFAtiles. Si me das alguno, te lo recompensar\xE9 muy bien."
+  - 'Aceptar trato: pierdes <color=#6a7f91>1 arma aleatoria</color>, obtienes <color=#c49a16>10
+    monedas</color>.
+
+    Rechazar trato: combate contra Herrero.'
   responses:
   - responseText: "Aqu\xED tiene, espero que le sirva. "
     dialogueObject: {fileID: 11400000, guid: fbe072866d3e4cc4e87218d212a001ed, type: 2}

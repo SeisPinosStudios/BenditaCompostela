@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Encounter_021_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "No est\xE1 mal chico, aqu\xED tienes tu recompensa. \xA1Oh! Y no te preocupes
-    por esos ara\xF1azos. Estos animales no suelen tener enfermedades. "
+  - "AGRICULTOR ENFURECIDO\nNo est\xE1 mal chico, aqu\xED tienes tu recompensa. \xA1Oh!
+    Y no te preocupes por esos ara\xF1azos. Estos animales no suelen tener enfermedades. "
+  - 'Has perdido <color=#99322b>7 puntos de vida</color>.
+
+    Has obtenido la carta
+    <color=#ebc934>Poder de bellota</color>. '
   responses: []
   character: {fileID: 21300000, guid: 38c6ca504ca557347baeee06f6897c48, type: 3}

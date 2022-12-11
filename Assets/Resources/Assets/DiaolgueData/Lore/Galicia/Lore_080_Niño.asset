@@ -13,24 +13,26 @@ MonoBehaviour:
   m_Name: "Lore_080_Ni\xF1o"
   m_EditorClassIdentifier: 
   dialogue:
-  - "NI\xD1O\n\xBFEres un peregrino? \xA1Que bien! Tranquilo, tu viaje ya casi ha
-    terminado. M\xE1s adelante, encontrar\xE1s la catedral de nuestro Santo, Santiago
-    Ap\xF3stol."
-  - "NI\xD1O\nImagino que vienes a rogarle algo. Varios vienen por eso. Y otros muchos
-    afirman que, efectivamente, dentro de la catedral, el esp\xEDritu del ap\xF3stol
-    les recibi\xF3, pero que solo escuchar\xE1 las plegarias de aquellos de coraz\xF3n
-    puro."
-  - "NI\xD1O\nA mi padre esto le parece una tonter\xEDa. Dice que es imposible que
-    exista alguien de coraz\xF3n puro, que si hay alguien as\xED, el mundo cruel
+  - "NI\xD1O MARTI\xD1O\n\xBFEres un peregrino? \xA1Que bien! Tranquilo, tu viaje
+    ya casi ha terminado. M\xE1s adelante, encontrar\xE1s la catedral de nuestro
+    Santo, Santiago Ap\xF3stol."
+  - "NI\xD1O MARTI\xD1O\nImagino que vienes a rogarle algo. Varios vienen por eso.
+    Y otros muchos afirman que, efectivamente, dentro de la catedral, el esp\xEDritu
+    del ap\xF3stol les recibi\xF3, pero que solo escuchar\xE1 las plegarias de aquellos
+    de coraz\xF3n puro."
+  - "NI\xD1O MARTI\xD1O\nA mi padre esto le parece una tonter\xEDa. Dice que es imposible
+    que exista alguien de coraz\xF3n puro, que si hay alguien as\xED, el mundo cruel
     en el que vivimos lo engullir\xE1. "
-  - "NI\xD1O\nNo entiendo a qu\xE9 se refiere con eso de que el mundo te engulle.
-    Bueno, es cierto que cerca de aqu\xED, donde empieza el mar, dicen que est\xE1
-    el fin del mundo. Quiz\xE1s el fin del mundo sea una boca gigante en mitad del
-    oc\xE9ano."
-  - "NI\xD1O\nPero, aun as\xED, si el Santo solo escucha las plegarias de hombres
-    con el coraz\xF3n puro, y resulta que ya no quedan de esos \xBFNo significa esto
-    que el Santo est\xE1 de vacaciones permanentes? "
+  - "NI\xD1O MARTI\xD1O\nNo entiendo a qu\xE9 se refiere con eso de que el mundo
+    te engulle. Bueno, es cierto que cerca de aqu\xED, donde empieza el mar, dicen
+    que est\xE1 el fin del mundo. Quiz\xE1s el fin del mundo sea una boca gigante
+    en mitad del oc\xE9ano."
+  - "NI\xD1O MARTI\xD1O\nPero, aun as\xED, si el Santo solo escucha las plegarias
+    de hombres con el coraz\xF3n puro, y resulta que ya no quedan de esos \xBFNo
+    significa esto que el Santo est\xE1 de vacaciones permanentes? "
   responses:
   - responseText: 'Ten esperanza, seguro que alguno queda. '
     dialogueObject: {fileID: 11400000, guid: 39f588b84725a8649a0779d6da088cee, type: 2}
+    conditions: 
+    conditionsValue: 
   character: {fileID: 21300000, guid: edf842c6c67d9cc48aa54185e8f23330, type: 3}

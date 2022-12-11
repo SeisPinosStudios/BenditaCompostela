@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Escudero
   sprite: {fileID: 335613098, guid: 02ff3af451ef01d47a37e28485950805, type: 3}
-  enemyAnimatorController: {fileID: 0}
+  enemyAnimatorController: {fileID: 22100000, guid: 231164dc647557b4cb5389bfc0846be1, type: 2}
   HP: 180
   energy: 99
   enemyAttacks:

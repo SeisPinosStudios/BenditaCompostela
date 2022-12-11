@@ -28,9 +28,9 @@ MonoBehaviour:
     te aportar\xE1 beneficios adicionales."
   x:
   - 0
-  - 300
-  - -600
-  - -600
+  - -300
+  - 600
+  - 600
   - 0
   y:
   - 0

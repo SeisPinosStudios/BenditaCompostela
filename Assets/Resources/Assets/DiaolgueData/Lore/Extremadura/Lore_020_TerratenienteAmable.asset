@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: Lore_020_TerratenienteAmable
   m_EditorClassIdentifier: 
   dialogue:
-  - "TERRATENIENTE\nBuenos d\xEDas, chico. Esta zona forma parte de una ruta para
-    peregrinos, debes estar lejos de casa."
-  - "TERRATENIENTE\nBueno, tranquilo, no desistas, al final de este camino est\xE1
-    Alcu\xE9scar, all\xED podr\xE1s descansar. "
-  - "TERRATENIENTE\nPero tengo que advertirte que m\xE1s all\xE1 del pueblo. La zona
-    se vuelve m\xE1s peligrosa."
-  - "TERRATENIENTE\nGran parte de las tierras que hay all\xED las regenta mi hermano,
-    y ha dejado que el desorden y el crimen campen a sus anchas. "
-  - "TERRATENIENTE\nA parte de que no sabe gestionar lo que tiene, su actitud es
-    pr\xE1cticamente tir\xE1nica. Que tengas fortuna en el resto de tu viaje, chico. "
+  - "TERRATENIENTE ROQUE\nBuenos d\xEDas, chico. Esta zona forma parte de una ruta
+    para peregrinos, debes estar lejos de casa."
+  - "TERRATENIENTE ROQUE\nBueno, tranquilo, no desistas, al final de este camino
+    est\xE1 Alcu\xE9scar, all\xED podr\xE1s descansar. "
+  - "TERRATENIENTE ROQUE\nPero tengo que advertirte que m\xE1s all\xE1 del pueblo.
+    La zona se vuelve m\xE1s peligrosa."
+  - "TERRATENIENTE ROQUE\nGran parte de las tierras que hay all\xED las regenta mi
+    hermano, y ha dejado que el desorden y el crimen campen a sus anchas. "
+  - "TERRATENIENTE ROQUE\nA parte de que no sabe gestionar lo que tiene, su actitud
+    es pr\xE1cticamente tir\xE1nica. Que tengas fortuna en el resto de tu viaje,
+    chico. "
   responses:
   - responseText: Cosas de hermanos, supongo.
     dialogueObject: {fileID: 11400000, guid: 51252f9d056d4f54b83bdd3f56303097, type: 2}
+    conditions: 
+    conditionsValue: 
   character: {fileID: 21300000, guid: 81ec2de79cbded94a932a7b30c139128, type: 3}

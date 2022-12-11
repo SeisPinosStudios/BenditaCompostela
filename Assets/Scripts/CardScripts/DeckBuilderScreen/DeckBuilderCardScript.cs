@@ -22,6 +22,8 @@ public class DeckBuilderCardScript : MonoBehaviour, IPointerClickHandler, IPoint
 
         if (GameManager.playerData.playerDeck.Count >= 20) return;
 
+        if (GameManager.playerData.playerDeck.Where((card) => card.name == cardName).ToList().Count() >= 3) return;
+
         /* Adds the selected card to the player deck and removes it from the inventory */
         GameManager.playerData.inventory.Remove(card);
         GameManager.playerData.playerDeck.Add(card);

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lore_011_AgricultorAmable
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1De nada!"
+  - "AGRICULTOR AMABLE\n\xA1De nada!"
+  - Has obtenido <color=#c49a16>3 monedas</color>.
   responses: []
   character: {fileID: 21300000, guid: 4486221392d694b46a763da0a15a4374, type: 3}

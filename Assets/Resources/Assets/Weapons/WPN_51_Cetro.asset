@@ -23,6 +23,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f058d5f35b7a2ce49b156e3378e6836f, type: 2}
   - {fileID: 11400000, guid: c7fa866d651dfa5448088631f9015f80, type: 2}
   - {fileID: 11400000, guid: 04b505e20acbf5842b218e4529eaf0bb, type: 2}
-  improvedWeapon: {fileID: 11400000}
+  improvedWeapon: {fileID: 11400000, guid: ca6c26723dc72764c849440c65901c48, type: 2}
   previousWeapon: {fileID: 11400000, guid: c4b7d41ed2896fe4db9ba48a3acfc27c, type: 2}
   upgradeLevel: 1

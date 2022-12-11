@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Encounter_022_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "Lo sab\xEDa \xA1Solo ven\xEDas a fisgonear! O a robarme, o peor a\xFAn, hacerme
-    perder el tiempo. "
+  - "AGRICULTOR ENFURECIDO\nLo sab\xEDa \xA1Solo ven\xEDas a fisgonear! O a robarme,
+    o peor a\xFAn, hacerme perder el tiempo. "
   responses: []
   character: {fileID: 21300000, guid: 38c6ca504ca557347baeee06f6897c48, type: 3}

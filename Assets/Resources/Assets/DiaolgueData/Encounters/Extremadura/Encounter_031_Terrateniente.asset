@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Encounter_031_Terrateniente
   m_EditorClassIdentifier: 
   dialogue:
-  - "Te lo dije, un jornal m\xE1s que generoso. Y, adem\xE1s, te permito adentrarte
-    en mis tierras. \xA1Buena suerte para lo que te aguarde m\xE1s adelante!"
+  - "TERRATENIENTE TORRES\nTe lo dije, un jornal m\xE1s que generoso. Y, adem\xE1s,
+    te permito adentrarte en mis tierras. \xA1Buena suerte para lo que te aguarde
+    m\xE1s adelante!"
+  - 'Has perdido <color=#99322b>5 puntos de vida</color>.
+
+    Has obtenido <color=#c49a16>1
+    moneda</color>.'
   responses: []
   character: {fileID: 21300000, guid: 0536df17dadc70e4080a236086b06dd0, type: 3}

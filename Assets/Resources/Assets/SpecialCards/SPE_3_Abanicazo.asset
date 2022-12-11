@@ -17,7 +17,8 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 00c6ff8c8fabca6439834449f46a0d44, type: 3}
   cost: 4
   money: 5
-  damage: 6
+  enemy: 0
+  damage: 7
   alteredEffects: 03000000
   aEffectValues: 02000000
   effects: 
