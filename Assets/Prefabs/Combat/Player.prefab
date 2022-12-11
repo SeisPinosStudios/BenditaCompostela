@@ -348,7 +348,11 @@ MonoBehaviour:
   passives: 
   passivePrefab: {fileID: 0}
   fadeDuration: 2
-  imageList: []
+  imageList:
+  - {fileID: 3985229009968563950}
+  - {fileID: 2823583248857414664}
+  - {fileID: 6066237076720966137}
+  - {fileID: 2428457658356853889}
   playerData: {fileID: 0}
   weapon: {fileID: 0}
   playerDeck: []

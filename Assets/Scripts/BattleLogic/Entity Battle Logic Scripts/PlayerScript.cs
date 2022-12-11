@@ -52,8 +52,11 @@ public class PlayerScript : Entity
         DeactivateCombatControl();
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
         Burn();
-        if (Suffering(CardData.TAlteredEffects.BURN)) yield return new WaitForSeconds(1);
-        if (IsDead()) yield return new WaitForSeconds(2);
+        if (Suffering(CardData.TAlteredEffects.BURN))
+        {
+            yield return new WaitForSeconds(1);
+            if (IsDead()) yield return new WaitForSeconds(2);
+        }
         GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().Turn();
     }
     public void PlayerConfig()
