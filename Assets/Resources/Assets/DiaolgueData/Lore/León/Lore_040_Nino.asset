@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Lore_040_Nino
   m_EditorClassIdentifier: 
   dialogue:
-  - "NI\xD1O\n\xA1Hola! \xBFQu\xE9 haces por aqu\xED? \xBFT\xFA tambi\xE9n est\xE1s
-    buscando a la Vieja del Monte? "
-  - "NI\xD1O\nUna vez, cuando me perd\xED por el bosque, me encontr\xE9 con ella. "
-  - "NI\xD1O\nMe dio un trozo de pan y me ense\xF1\xF3 el camino de vuelta. Sab\xEDa
-    mucho mejor que el pan que hace el hombre de la plaza. Se notaba que era diferente."
-  - "NI\xD1O\nLos otros ni\xF1os del pueblo dicen que vive en una cueva en las monta\xF1as.
-    He salido a buscarla, pero no doy con ella. "
-  - "NI\xD1O\nSi consigues encontrarla, av\xEDsame por favor, quiero m\xE1s pan como
-    el que me dio, aquella vez.  "
-  - "NI\xD1O\nA saber qu\xE9 m\xE1s cosas hace en esa cueva..."
+  - "RAPAZ RA\xDAL\n\xA1Hola! \xBFQu\xE9 haces por aqu\xED? \xBFT\xFA tambi\xE9n
+    est\xE1s buscando a la Vieja del Monte? "
+  - "RAPAZ RA\xDAL\nUna vez, cuando me perd\xED por el bosque, me encontr\xE9 con
+    ella. "
+  - "RAPAZ RA\xDAL\nMe dio un trozo de pan y me ense\xF1\xF3 el camino de vuelta.
+    Sab\xEDa mucho mejor que el pan que hace el hombre de la plaza. Se notaba que
+    era diferente."
+  - "RAPAZ RA\xDAL\nLos otros ni\xF1os del pueblo dicen que vive en una cueva en
+    las monta\xF1as. He salido a buscarla, pero no doy con ella. "
+  - "RAPAZ RA\xDAL\nSi consigues encontrarla, av\xEDsame por favor, quiero m\xE1s
+    pan como el que me dio, aquella vez.  "
+  - "RAPAZ RA\xDAL\nA saber qu\xE9 m\xE1s cosas hace en esa cueva..."
   responses:
   - responseText: "\xBFNo deber\xEDas estar trabajando?"
     dialogueObject: {fileID: 11400000, guid: 42fbcac13fe80524f91d374d8acfceab, type: 2}
-  character: {fileID: 21300000, guid: b6481caac59f6a54ea438feca484338b, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: edf842c6c67d9cc48aa54185e8f23330, type: 3}

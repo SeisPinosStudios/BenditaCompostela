@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Hern\xE1n Cort\xE9s"
   sprite: {fileID: 21300000, guid: 237e620ffd727bf45a8dffc909a8044b, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: e37bfffda6246a449b8b247eaaf5ed59, type: 2}
   HP: 110
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 1f133845d30a7424ca3734a60a8043d8, type: 2}
+  - {fileID: 11400000, guid: 1f133845d30a7424ca3734a60a8043d8, type: 2}
+  - {fileID: 11400000, guid: 1f133845d30a7424ca3734a60a8043d8, type: 2}
+  - {fileID: 11400000, guid: 1f133845d30a7424ca3734a60a8043d8, type: 2}
+  - {fileID: 11400000, guid: 09c1b7171807dd44b8044b885c3901bd, type: 2}
+  - {fileID: 11400000, guid: 09c1b7171807dd44b8044b885c3901bd, type: 2}
   - {fileID: 11400000, guid: 09c1b7171807dd44b8044b885c3901bd, type: 2}
   - {fileID: 11400000, guid: 28dea12a4a09ddd48961f2a56be29ee7, type: 2}
+  - {fileID: 11400000, guid: 28dea12a4a09ddd48961f2a56be29ee7, type: 2}
   - {fileID: 11400000, guid: 577c7fd60ac16d44998ee84f6bb0ceae, type: 2}
-  boss: 2
-  resistances: 
-  reward: 0
+  passives: 01000000
+  reward: 5

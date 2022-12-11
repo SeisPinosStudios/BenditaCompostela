@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
+  m_Name: MapTutorial
+  m_EditorClassIdentifier: 
+  text:
+  - "\xA1Bienvenido a Bendita Compostela! En esta aventura tomar\xE1s el papel de
+    Mat\xEDas, un j\xF3ven que busca utilizar la bendici\xF3n del apostol Santiago
+    para salvar a su madre de una terrible enfermedad."
+  - "Este es el mapa principal. Gracias a este mapa podr\xE1s avanzar en la aventura
+    derrotando enemigos, hablando con curiosos individuos o adquiriendo nuevas herramientas
+    para el combate."
+  - 'Existen 5 tipos diferentes de localizaciones en el mapa.<br><br><sprite index=1>
+    - Combate<br><br><sprite index=2> - Encuentro<br><br><sprite index=3> - Evento<br><br><sprite
+    index=4> - Tienda<br><br><sprite index=0> - Jefe final de ruta.<br> '
+  - "Esta es la mochila. Aqu\xED podr\xE1s acceder a tu cartas y equipamiento y personalizar
+    tu estilo de juego."
+  - "La barra superior contiene informaci\xF3n \xFAtil sobre tu aventura como tu
+    dinero, tu vida, tu equipamiento y la ruta en la que te encuentras."
+  - "A este lado podr\xE1s encontrar el bot\xF3n de opciones y el bot\xF3n de tutorial,
+    con el que podr\xE1s volver a ver el tutorial siempre que quieras y acceder a
+    los tutoriales del resto de pantallas."
+  - "\xA1Esperamos que disfrut\xE9is de vuestra estancia en el mundo de Bendita Compostela!"
+  x:
+  - 0
+  - 0
+  - 0
+  - -600
+  - -600
+  - 600
+  - 0
+  y:
+  - 0
+  - 0
+  - 0
+  - -200
+  - 360
+  - 360
+  - 0

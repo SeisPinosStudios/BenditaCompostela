@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0803875f84960a242a51bf7d481f3d8d, type: 3}
   m_Name: EATQ_131_Golpe En Manada
   m_EditorClassIdentifier: 
-  name: Golpe en manaza
+  name: Golpe en manada
   description: 
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 59f562dba3dbdef4e92d39f94083199b, type: 3}
   cost: 0
-  damage: 12
+  money: 0
+  enemy: 1
+  damage: 17
   alteredEffects: 07000000
   aEffectValues: 01000000
   effects: 
   eValues: 
+  zone: 0

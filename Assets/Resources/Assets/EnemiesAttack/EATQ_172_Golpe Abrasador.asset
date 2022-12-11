@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Golpe Abrasador
   description: 
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: d0210bfca6fc3b44286682ca083d47ce, type: 3}
   cost: 0
-  damage: 9
+  money: 0
+  enemy: 1
+  damage: 5
   alteredEffects: 02000000
-  aEffectValues: 02000000
+  aEffectValues: 06000000
   effects: 
   eValues: 
+  zone: 0

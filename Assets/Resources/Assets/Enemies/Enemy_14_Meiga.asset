@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Meiga
   sprite: {fileID: 21300000, guid: bd83ac9121f6ae240b516f659bcd4728, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: 57c7a3eebcc69824d91d16fd7a175d3c, type: 2}
   HP: 120
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
+  - {fileID: 11400000, guid: 2652b81826bfc934cba9c8a1a3d323a2, type: 2}
   - {fileID: 11400000, guid: 2809e02158c72e34ba51d1824f2af9f9, type: 2}
-  boss: 0
-  resistances: 00000000
+  - {fileID: 11400000, guid: 2809e02158c72e34ba51d1824f2af9f9, type: 2}
+  - {fileID: 11400000, guid: 2809e02158c72e34ba51d1824f2af9f9, type: 2}
+  passives: 09000000
   reward: 8

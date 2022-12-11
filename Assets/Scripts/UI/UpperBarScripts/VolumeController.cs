@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class VolumeController : MonoBehaviour
 {
-    public Slider volumeSlider;
+    public Slider MusicSlider;
+    public Slider SFXSlider;
     public void Awake()
     {
-        volumeSlider.value = AudioListener.volume;
-        volumeSlider.onValueChanged.AddListener(ChangeVolume);
+        MusicSlider.value = GameManager.musicVolume;
+        SFXSlider.value = GameManager.SFXVolume;
+        MusicSlider.onValueChanged.AddListener(MusicVolume);
+        SFXSlider.onValueChanged.AddListener(SFXVolumen);
     }
 
-    public void ChangeVolume(float volume)
+    public void MusicVolume(float volume)
     {
-        Debug.Log(volume);
-        AudioListener.volume = volume;
+        GameManager.SetMusicVolume(volume);
+    }
+
+    public void SFXVolumen(float volume)
+    {
+        GameManager.SetSFXVolume(volume);
     }
 }

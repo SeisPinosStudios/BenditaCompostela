@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: ARM_020_BotasGastadas
   m_EditorClassIdentifier: 
   name: Botas gastadas
-  description: "Un par de botas, no son muy \xFAtiles."
+  description: "Unas botas gastadas, no son muy \xFAtiles..."
   artwork: {fileID: 21300000, guid: 2a9fc565062ea6b4196e3ea3fc05fd2b, type: 3}
   cost: 0
+  money: 5
   defenseValue: 0
   damageBonus: 0
   extraDefence: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   synergy: 0
   upgradeLevel: 0
   improvedArmor: {fileID: 0}
+  previousArmor: {fileID: 0}
   armorId: 0

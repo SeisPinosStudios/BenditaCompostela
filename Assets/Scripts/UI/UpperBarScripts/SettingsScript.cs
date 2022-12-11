@@ -9,19 +9,22 @@ public class SettingsScript : MonoBehaviour
     public GameObject settingsPrefab;
     public Transform pivot;
     public GameObject settingsScreen;
+    public AudioManager audioManager;
     public void Awake()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     public void Settings()
     {
-        Debug.Log("A");
+        SettingsSound();
+        Debug.Log("Settings");
         if (settingsScreen == null) OpenSettings();
         else settingsScreen.gameObject.SetActive(true);
     }
 
     public void OpenSettings()
-    {
+    {        
         open = !open;
         settingsScreen = Instantiate(settingsPrefab, pivot);
     }
@@ -30,5 +33,8 @@ public class SettingsScript : MonoBehaviour
     {
         open = !open;
         Destroy(settingsScreen);
+    }
+    public void SettingsSound() {
+        audioManager.PlaySound("BEstandar");
     }
 }

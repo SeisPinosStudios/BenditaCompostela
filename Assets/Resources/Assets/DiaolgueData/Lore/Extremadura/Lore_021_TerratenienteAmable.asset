@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lore_021_TerratenienteAmable
   m_EditorClassIdentifier: 
   dialogue:
-  - 'TERRATENIENTE
+  - 'TERRATENIENTE ROQUE
 
     ...'
   responses: []
-  character: {fileID: 21300000, guid: beb1affa6e8e4274a822e1fc1cb465ca, type: 3}
+  character: {fileID: 21300000, guid: 81ec2de79cbded94a932a7b30c139128, type: 3}

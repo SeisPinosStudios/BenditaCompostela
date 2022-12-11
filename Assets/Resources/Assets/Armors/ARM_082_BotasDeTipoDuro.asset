@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: ARM_082_BotasDeTipoDuro
   m_EditorClassIdentifier: 
   name: Botas de tipo duro ++
-  description: 
+  description: "Protege 2.<br>Sinergia con <color=#322B28>Martillo</color>: <color=#308a36>+3</color>
+    de da\xF1o con ataques de arma."
   artwork: {fileID: 21300000, guid: 7d5d1a15e80994246a2fec11b8717a8a, type: 3}
   cost: 0
-  defenseValue: 0
+  money: 30
+  enemy: 0
+  defenseValue: 2
   damageBonus: 3
-  extraDefence: 3
+  extraDefence: 0
   synergyWeapon:
   - {fileID: 11400000, guid: 91bd69417fc4794458425cb91fc6aae3, type: 2}
   - {fileID: 11400000, guid: c87154e71edac4f4e85c72cd475fc696, type: 2}
@@ -27,4 +30,5 @@ MonoBehaviour:
   synergy: 0
   upgradeLevel: 2
   improvedArmor: {fileID: 0}
+  previousArmor: {fileID: 11400000, guid: 5eeabcd3cb325864383cf96253a04628, type: 2}
   armorId: 3

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
+  m_Name: EquipmentTutorial
+  m_EditorClassIdentifier: 
+  text:
+  - "Esta es la pantalla de equipamiento. Aqu\xED podr\xE1s inspeccionar las armaduras
+    que tienes en tu inventario y equiparte las que consideres oportunas."
+  - "A este lado puede ver una lista con todas las armaduras que tienes en tu inventario,
+    si cuentas con dos copias de la misma armadura siempre aparecer\xE1 la copia
+    con mayor nivel de mejora. Para equiparte una armadura s\xF3lo debes pulsar encima."
+  - "En esta secci\xF3n puedes ver el equipamiento que tienes equipado actualmente
+    con sus efectos."
+  - "Una vez hayas terminado, puedes darle al bot\xF3n de listo para cerrar esta
+    pantalla."
+  - "Las armaduras son una de las herramientas m\xE1s importantes en combate. Las
+    armaduras te aportan defensa que reducir\xE1 el da\xF1o de ataques enemigos,
+    adem\xE1s, todas las armaduras hacen sinergia con un arma en espec\xEDfico que
+    te aportar\xE1 beneficios adicionales."
+  x:
+  - 0
+  - -300
+  - 600
+  - 600
+  - 0
+  y:
+  - 0
+  - 400
+  - 400
+  - -400
+  - 0

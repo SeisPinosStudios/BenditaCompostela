@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84956423caf2a54ab580c444821b1f4, type: 3}
+  m_Name: Lore_090_Santiago
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'APOSTOL SANTIAGO
+
+    Un joven peregrino, ha llegado al final de su viaje.'
+  - 'APOSTOL SANTIAGO
+
+    Un joven peregrino, que ha tenido que hacer frente a todo
+    tipo de peligros.'
+  - "APOSTOL SANTIAGO\nUn joven peregrino, de nombre Mat\xEDas."
+  - 'APOSTOL SANTIAGO
+
+    Un joven peregrino, cuya madre yace en su cama enferma.'
+  - 'APOSTOL SANTIAGO
+
+    Un joven peregrino, que viene a rogarme que salve a su
+    pobre madre de la enfermedad que pudre su cuerpo.'
+  - 'APOSTOL SANTIAGO
+
+    Un joven peregrino, con deseos puros, en principio.'
+  - "APOSTOL SANTIAGO\nPero que debe conocer, que su coraz\xF3n, apenas se acerca
+    a la pureza de esos deseos."
+  - "APOSTOL SANTIAGO\nLo siento, joven peregrino, pero no puedes venir a Casa Santa,
+    a pedir que cumpla tus anhelos despu\xE9s de haber causado todo el caos que arrastras
+    a tus espaldas."
+  responses:
+  - responseText: "No puede ser... \xA1Dejeme explicarlo!"
+    dialogueObject: {fileID: 11400000, guid: 6f79f703ccf35e8429aefe1e5309bed1, type: 2}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: f007248a3059dec498bd3c19fad5c59e, type: 3}

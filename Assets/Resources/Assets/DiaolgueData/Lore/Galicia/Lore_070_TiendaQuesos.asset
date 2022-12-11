@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: Lore_070_TiendaQuesos
   m_EditorClassIdentifier: 
   dialogue:
-  - "\"M\xE1s adelante, se encuentra una tienda de quesos abandonada. Se trata de
-    una caba\xF1a cochambrosa en mitad de la nada.\""
-  - "\"A pesar de que no parece haber nadie, el cartel pone que est\xE1 abierto.
-    En uno de los lados del edificio, hay una repisa con lo que parecen ser diferentes
-    quesos.\""
-  - "\"Podr\xEDas coger un pedazo, pero lo de que los quesos sean de color verde
-    y el olor que tienen sea sospechoso, no convence a Mat\xEDas y decide ignorar
-    la idea.\""
-  - "\"El camino es largo, pero con esta decisi\xF3n, probablemente Mat\xEDas haya
-    ganado en salud.\""
+  - "M\xE1s adelante, se encuentra una tienda de quesos abandonada. Se trata de una
+    caba\xF1a cochambrosa en mitad de la nada."
+  - "A pesar de que no parece haber nadie, el cartel pone que est\xE1 abierto. En
+    uno de los lados del edificio, hay una repisa con lo que parecen ser diferentes
+    quesos."
+  - "Podr\xEDas coger un pedazo, pero lo de que los quesos sean de color verde y
+    el olor que tienen sea sospechoso, no convence a Mat\xEDas y decide ignorar la
+    idea."
+  - "El camino es largo, pero con esta decisi\xF3n, probablemente Mat\xEDas haya
+    ganado en salud."
   responses:
-  - responseText: Huele a muerto...
+  - responseText: 'Los muertos huelen mejor que esto. '
     dialogueObject: {fileID: 11400000, guid: edece10b9eb89754da8f47ea66ee25e3, type: 2}
-  character: {fileID: 0}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}

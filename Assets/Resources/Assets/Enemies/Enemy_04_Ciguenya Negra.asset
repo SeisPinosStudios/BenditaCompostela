@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Cing\xFCe\xF1a negra"
   sprite: {fileID: 21300000, guid: 9b3812b4fd538894dba21f07a4521529, type: 3}
-  HP: 30
+  enemyAnimatorController: {fileID: 22100000, guid: 939c4bb3f5a6b704ba62cfc4e31ea80e, type: 2}
+  HP: 40
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: bc91c5d8d22ac704ea5348419ad12021, type: 2}
-  boss: 0
-  resistances: 
+  passives: 05000000
   reward: 6

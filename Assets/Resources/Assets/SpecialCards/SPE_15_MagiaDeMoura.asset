@@ -15,10 +15,11 @@ MonoBehaviour:
   name: Magia de moura
   description: "Realiza 5 puntos de da\xF1o y aplica Quemadurax2."
   artwork: {fileID: 21300000, guid: 237f6d0939d8de54a91f38dd1693c5ef, type: 3}
-  cost: 8
-  damage: 5
-  alteredEffects: 02000000
-  aEffectValues: 03000000
+  cost: 11
+  money: 10
+  damage: 7
+  alteredEffects: 0300000005000000
+  aEffectValues: 0200000002000000
   effects: 
   eValues: 
   zone: 3

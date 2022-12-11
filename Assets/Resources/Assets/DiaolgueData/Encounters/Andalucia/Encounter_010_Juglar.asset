@@ -13,19 +13,27 @@ MonoBehaviour:
   m_Name: Encounter_010_Juglar
   m_EditorClassIdentifier: 
   dialogue:
-  - 'JUGLAR
+  - 'JUGLAR JUAN
 
-    Bienaventurado muchacho. Dichosos los ojos de ver a alguien tan
-    joven merodeando por estos lares.  '
-  - "JUGLAR\nPor mi siempre noble pero mal valorada profesi\xF3n, grandes rutas debo
-    adentrarme a recorrer,"
-  - "JUGLAR\nexplorando los diferentes pueblos que hay por ver, entreteniendo a sus
-    gentes me hallar\xE9is. "
-  - "JUGLAR\nAhora bien muchacho, te ofrezco un trato. Un intercambio, algo m\xEDo
-    por algo tuyo. "
+    Bienaventurado muchacho. Dichosos los ojos de ver a alguien
+    tan joven merodeando por estos lares.  '
+  - "JUGLAR JUAN\nPor mi siempre noble pero mal valorada profesi\xF3n, grandes rutas
+    debo adentrarme a recorrer,"
+  - "JUGLAR JUAN\nexplorando los diferentes pueblos que hay por ver, entreteniendo
+    a sus gentes me hallar\xE9is. "
+  - "JUGLAR JUAN\nAhora bien muchacho, te ofrezco un trato. Un intercambio, algo
+    m\xEDo por algo tuyo. "
+  - 'Aceptar trato: pagas <color=#c49a16>3 monedas</color>, obtienes <color=#308a36>Bolazo
+    de la Giralda</color>.
+
+    Rechazar trato: combate contra Juglar.'
   responses:
-  - responseText: Aceptar Trato
+  - responseText: Me parece justo.
     dialogueObject: {fileID: 11400000, guid: c4826270cb751ba42be60f139777d29d, type: 2}
-  - responseText: Rechazarlo
+    conditions: 01000000
+    conditionsValue: 03000000
+  - responseText: "No me f\xEDo."
     dialogueObject: {fileID: 11400000, guid: fe31ea81ffc0539498aca84315dec887, type: 2}
-  character: {fileID: 21300000, guid: 7c36b5b41d7a9be4c99cb714aa23d11d, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: 972257207d48605409052f56e06e08af, type: 3}

@@ -8,6 +8,7 @@ public class EnemyScript : Entity
 {
     public Enemy enemyData;
     public GameObject attack;
+    public GameObject trasguPrefab;
 
     public void Awake()
     {
@@ -17,20 +18,22 @@ public class EnemyScript : Entity
         HP = enemyData.HP;
         energy = enemyData.energy;
         currentHP = HP;
+        passives = enemyData.passives;
 
-        if (IsBoss(Enemy.Boss.SIERPE)) defence = 2;
+        PassivesDisplay();
+
+        if (HasPassive(Enemy.Passive.SIERPE)) defense = 2;
 
         gameObject.GetComponentInChildren<Image>().sprite = enemyData.sprite;
+        gameObject.GetComponentInChildren<Animator>().runtimeAnimatorController = enemyData.enemyAnimatorController;
 
         attack.GetComponent<CardDragSystem>().enabled = true;
         attack.GetComponent<CardInspection>().enabled = true;
     }
-
     public void Start()
     {
         gameObject.GetComponentInChildren<Image>().SetNativeSize();
     }
-
     public void OnTurnBegin()
     {
         Debug.Log("Turno del enemigo.");
@@ -38,27 +41,47 @@ public class EnemyScript : Entity
         Poison();
         if(this.currentHP > 0) StartCoroutine(EnemyTurn());
     }
-
     IEnumerator EnemyTurn()
     {
-        attack.GetComponent<CardDisplay>().cardData = enemyData.enemyAttacks[Random.Range(0, enemyData.enemyAttacks.Count - 1)];
-        GameObject attackCard = Instantiate(attack, FindObjectOfType<Canvas>().GetComponent<Canvas>().transform);
-
-        /*  Disables the interaction with the card used by the enemy creature   */
-        attackCard.GetComponent<CardDragSystem>().enabled = false;
-        attackCard.GetComponent<CardInspection>().enabled = false;
-        /*                                                                      */
-
-
-        attackCard.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+        Card card = ShowCard(enemyData.enemyAttacks[Random.Range(0, enemyData.enemyAttacks.Count - 1)]);
         yield return new WaitForSeconds(1.0f);
-        attackCard.GetComponent<Card>().UseCard();
-        yield return new WaitForSeconds(2.0f);
+        card.UseCard();
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("ENEMY TURN");
+        Burn();
+        if (Suffering(CardData.TAlteredEffects.BURN)) 
+        {
+            yield return new WaitForSeconds(1);
+            if (IsDead()) yield return new WaitForSeconds(2);
+        }
+        
+        
         FindObjectOfType<TurnSystemScript>().GetComponent<TurnSystemScript>().Turn();
     }
+    public void UseCard(Card card)
+    {
+        StartCoroutine(UseCardCoroutine(card));
+    }
+    public IEnumerator UseCardCoroutine(Card card)
+    {
+        yield return new WaitForSeconds(1.0f);
+        card.UseCard();
+    }
+    public Card ShowCard(CardData card)
+    {
+        attack.GetComponent<CardDisplay>().cardData = card;
+        GameObject attackCard = Instantiate(attack, FindObjectOfType<Canvas>().GetComponent<Canvas>().transform);
 
-    #region Boss Section
+        attackCard.GetComponent<CardDragSystem>().enabled = false;
+        attackCard.GetComponent<CardInspection>().enabled = false;
 
-    #endregion
+        attackCard.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
 
+        return attackCard.GetComponent<Card>();
+    }
+    public void TrasguPassive()
+    {
+        Debug.Log("TRASGU");
+        Instantiate(trasguPrefab, FindObjectOfType<Canvas>().GetComponent<Canvas>().transform);
+    }
 }

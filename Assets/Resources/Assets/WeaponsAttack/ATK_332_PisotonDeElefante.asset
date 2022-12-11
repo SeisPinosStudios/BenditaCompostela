@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Pisoton de elefante ++
   description: 
   artwork: {fileID: 21300000, guid: 7e274cfb36aa7494fa31416e9dcc973f, type: 3}
-  cost: 10
+  cost: 8
+  money: 0
   damage: 15
-  alteredEffects: 03000000
-  aEffectValues: 02000000
+  alteredEffects: 
+  aEffectValues: 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Encounter_032_Terrateniente
   m_EditorClassIdentifier: 
   dialogue:
-  - "Lo sab\xEDa, eres como el resto. No tienes la voluntad de ganarte la vida de
-    forma honrada. No soy de los que da segundas oportunidades, te quedaste sin salario
-    y sin la posibilidad de cruzar. "
+  - "TERRATENIENTE TORRES\nLo sab\xEDa, eres como el resto. No tienes la voluntad
+    de ganarte la vida de forma honrada. No soy de los que da segundas oportunidades,
+    te quedaste sin salario y sin la posibilidad de cruzar. "
   responses: []
-  character: {fileID: 21300000, guid: 6a263605203314143ad929e5b06f420e, type: 3}
+  character: {fileID: 21300000, guid: 0536df17dadc70e4080a236086b06dd0, type: 3}

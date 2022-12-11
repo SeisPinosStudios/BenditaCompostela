@@ -15,7 +15,8 @@ MonoBehaviour:
   name: "Carrer\xF3n de puntera ++"
   description: 
   artwork: {fileID: 21300000, guid: 7c52e3747978f7a4e863ef665569dcf0, type: 3}
-  cost: 8
-  damage: 12
-  alteredEffects: 03000000
-  aEffectValues: 02000000
+  cost: 6
+  money: 0
+  damage: 10
+  alteredEffects: 
+  aEffectValues: 

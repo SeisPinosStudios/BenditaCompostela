@@ -13,25 +13,36 @@ MonoBehaviour:
   m_Name: Encounter_080_Herrero
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xBFUn joven peregrino? Supongo que deseas llegar a la catedral. Todos los que
-    vienen por aqu\xED buscan rezar sus plegarias al Santo."
-  - "Si quieres saber las buenas noticias, est\xE1s cerca de tu destino. En cambio,
-    las malas noticias son que esta tierra es hostil con los extranjeros. "
-  - "Esa catedral atrae demasiada gente, los lugare\xF1os no suelen estar conformes
-    con ello. Mis antepasados hablaban de que esta tierra era un remanso de paz,
-    alejado de toda creencia espiritual. "
-  - "Desde hace siglos, la religi\xF3n regenta este lugar y es la principal se\xF1a
-    de atenci\xF3n para viajeros. Pero tambi\xE9n, fuerzas misteriosas contrarias
-    a ella se han hecho su hueco."
-  - Joven peregrino, preciso de tu ayuda. No quiero actuar como un mendigo, pero
-    es por pura necesidad.
-  - "Las materias primas escasean, las grandes miner\xEDas venden a precios desorbitados.
-    Y no puedo acceder al trabajo en estas condiciones."
-  - "Puedo recompensaros bien, a cambio de piezas de equipamiento para poder trabajar
-    \xBFAceptar\xEDas este trato? "
+  - "HERRERO HORTENCIO\n\xBFUn joven peregrino? Supongo que deseas llegar a la catedral.
+    Todos los que vienen por aqu\xED buscan rezar sus plegarias al Santo."
+  - "HERRERO HORTENCIO\nSi quieres saber las buenas noticias, est\xE1s cerca de tu
+    destino. En cambio, las malas noticias son que esta tierra es hostil con los
+    extranjeros. "
+  - "HERRERO HORTENCIO\nEsa catedral atrae demasiada gente, los lugare\xF1os no suelen
+    estar conformes con ello. Mis antepasados hablaban de que esta tierra era un
+    remanso de paz, alejado de toda creencia espiritual. "
+  - "HERRERO HORTENCIO\nDesde hace siglos, la religi\xF3n regenta este lugar y es
+    la principal se\xF1a de atenci\xF3n para viajeros. Pero tambi\xE9n, fuerzas misteriosas
+    contrarias a ella se han hecho su hueco."
+  - 'HERRERO HORTENCIO
+
+    Joven peregrino, preciso de tu ayuda. No quiero actuar
+    como un mendigo, pero es por pura necesidad.'
+  - "HERRERO HORTENCIO\nLas materias primas escasean, las grandes miner\xEDas venden
+    a precios desorbitados. Y no puedo acceder al trabajo en estas condiciones."
+  - "HERRERO HORTENCIO\nPuedo recompensaros bien, a cambio de piezas de equipamiento
+    para poder trabajar \xBFAceptar\xEDas este trato? "
+  - 'Aceptar trato: pierdes <color=#6a7f91>1 armadura aleatoria</color>, obtienes
+    <color=#c49a16>12 monedas</color>.
+
+    Rechazar trato: combate contra Herrero.'
   responses:
-  - responseText: Acepta el trato.
+  - responseText: "Si no nos ayudamos, nadie lo har\xE1. "
     dialogueObject: {fileID: 11400000, guid: e573b0557877ed847bdc3f4d566fe870, type: 2}
-  - responseText: Rechaza el trato.
+    conditions: 02000000
+    conditionsValue: 01000000
+  - responseText: 'La pechera me queda muy bien, no pienso soltarla. '
     dialogueObject: {fileID: 11400000, guid: b2ccaccf6198e104998468cdd44bd0c2, type: 2}
-  character: {fileID: 21300000, guid: 702289f6f457ada438c875066a0f51d0, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: 16fe2730741ab784d844e9bd352a6888, type: 3}

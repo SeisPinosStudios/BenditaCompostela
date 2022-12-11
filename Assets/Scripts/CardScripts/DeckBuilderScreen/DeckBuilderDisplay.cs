@@ -9,6 +9,7 @@ public class DeckBuilderDisplay: MonoBehaviour
     public GameObject cardPrefab;
     public GameObject deckSlotPrefab;
     public List<CardData> cards;
+    public List<CardData> cardsInDeck;
     int cardAmount;
     float scrollPosition;
 
@@ -31,13 +32,30 @@ public class DeckBuilderDisplay: MonoBehaviour
 
     public void InsertCardInDeck(CardData card)
     {
-        deckSlotPrefab.GetComponent<DeckSlotDisplay>().cardData = card;
-        Instantiate(deckSlotPrefab, GameObject.Find("DeckPanel").transform);
+        cardsInDeck.Add(card);
+        ClearCardsInDeck();
+        ShowCardsInDeck();
+    }
+
+    public void ClearCardsInDeck()
+    {
+        foreach(Transform child in GameObject.Find("DeckPanel").transform) Destroy(child.gameObject);
+    }
+
+    public void ShowCardsInDeck()
+    {
+        cardsInDeck.Sort((card1, card2) => card1.cost.CompareTo(card2.cost));
+        foreach(CardData card in cardsInDeck)
+        {
+            deckSlotPrefab.GetComponent<DeckSlotDisplay>().cardData = card;
+            Instantiate(deckSlotPrefab, GameObject.Find("DeckPanel").transform);
+        }
     }
 
     public void RemoveCardFromDeck(CardData card)
     {
         cardPrefab.GetComponent<CardDisplay>().cardData = card;
+        cardsInDeck.Remove(card);
         var duplicatedCard = cards.Find(dupCard => dupCard.name == card.name);
         if (duplicatedCard == null) Instantiate(cardPrefab, GameObject.Find("Content").transform);
     }

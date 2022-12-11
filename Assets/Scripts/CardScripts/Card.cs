@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class Card : MonoBehaviour
 {
     Entity enemy;
-    Entity self;
-    CardData cardData;
+    AudioManager audioManager;
+    public Entity self;
+    public CardData cardData;
 
     public void Awake()
     {
         if (SceneManager.GetActiveScene().name == "BattleScene") {
             self = FindObjectOfType<TurnSystemScript>().current.GetComponent<Entity>();
             enemy = FindObjectOfType<TurnSystemScript>().next.GetComponent<Entity>();
+            
         }
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         cardData = gameObject.GetComponent<CardDisplay>().cardData;
     }
     public void UseCard()
@@ -23,22 +26,21 @@ public class Card : MonoBehaviour
         var energyCost = cardData.cost;
 
         #region Trasgu's Passive
-        if (enemy.GetComponent<Entity>().IsBoss(Enemy.Boss.TRASGU) && Random.Range(0,9) >= 8)
+        if (enemy.HasPassive(Enemy.Passive.TRASGU) && Random.Range(0,9) >= 8)
         {
+            enemy.GetComponent<EnemyScript>().TrasguPassive();
             Destroy(gameObject);
             return; 
         }
         #endregion
 
-        if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon))
-        {
-            energyCost++;
-            self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
-        }
+        Debug.Log("USED CARD: " + cardData.name);
+
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED)  && cardData.GetType() != typeof(Weapon)) energyCost++;
 
         if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
-        self.Bleeding();
+        if(self.HasPassive(Enemy.Passive.HERNAN)) enemy.ApplyAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
 
         switch (cardData.GetType().ToString())
         {
@@ -47,9 +49,12 @@ public class Card : MonoBehaviour
                 EquipWeapon();
                 break;
             case "Attack":
+                if(!self.Suffering(CardData.TAlteredEffects.BLEED)) self.animationTrigger.Attack();
                 Attack();
                 break;
             case "Special":
+                Debug.Log("SELF: " + self.name);
+                if (!self.Suffering(CardData.TAlteredEffects.BLEED)) self.animationTrigger.Attack();
                 Special();
                 break;
             case "ObjectCard":
@@ -58,20 +63,27 @@ public class Card : MonoBehaviour
             default:
                 break;
         }
+
+        if (self.Suffering(CardData.TAlteredEffects.CONFUSED) && cardData.GetType() != typeof(Weapon)) self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
+
+        self.Bleeding();
+
         Destroy(gameObject);
     }
     public void EquipWeapon()
     {
         Weapon weapon = (Weapon)cardData;
-        self.GetComponent<PlayerScript>().OnWeaponEquiped(weapon);   
+        self.GetComponent<PlayerScript>().OnWeaponEquiped(weapon);
+        audioManager.PlaySound("Sword");
     }
     public void Attack()
     {
         Attack attack = (Attack)cardData;
 
-        enemy.SufferDamage(attack.damage - enemy.defence + self.damageBoost);
+        if (attack.damage > 0) { audioManager.PlaySound("SwordHit"); enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost); }
+        else if(attack.damage < 0) { self.RestoreHealth(-attack.damage); }
 
-        if (attack.alteredEffects.Length != 0)
+        if (attack.alteredEffects.Length > 0)
             for(int i = 0; i < attack.alteredEffects.Length; i++)
                 if (attack.alteredEffects[i] == CardData.TAlteredEffects.INVULNERABLE || attack.alteredEffects[i] == CardData.TAlteredEffects.GUARDED)
                     self.ApplyAlteredEffect(attack.alteredEffects[i], attack.aEffectValues[i]);
@@ -81,7 +93,7 @@ public class Card : MonoBehaviour
     public void Special()
     {
         Special special = (Special)cardData;
-        if (special.damage > 0) enemy.SufferDamage(special.damage - enemy.defence + self.damageBoost);
+        if (special.damage > 0) enemy.SufferDamage(special.damage - enemy.defense + self.damageBoost);
 
         if (special.alteredEffects.Length != 0)
             for (int i = 0; i < special.alteredEffects.Length; i++)
@@ -98,6 +110,8 @@ public class Card : MonoBehaviour
             {
                 ComputeEffect(special.effects[i], special.eValues[i]);
             }
+
+        GameManager.playerData.playerDeck.Remove(special);
     }
     public void Object()
     {
@@ -129,19 +143,19 @@ public class Card : MonoBehaviour
                 self.RestoreEnergy(value);
                 break;
             case CardData.TEffects.DRAW:
-                StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(value));
+                GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().StartDrawCoroutine(value);
                 break;
             case CardData.TEffects.CLEANSE:
                 self.RemoveAlteredEffect();
                 break;
             case CardData.TEffects.DRAWATTACK:
                 if (self.GetComponent<PlayerScript>().weapon == null) return;
-                StartCoroutine(GameObject.Find("AttackDeck").GetComponent<AttackDeck>().DrawCardCoroutine(value));
+                GameObject.Find("AttackDeck").GetComponent<AttackDeck>().StartDrawCoroutine(value);
                 break;
-            /*
             case CardData.TEffects.STEAL:
-                StartCoroutine(self.GetComponent<EnemyScript>().Steal
-                break;*/
+                var card = enemy.gameObject.GetComponent<PlayerScript>().GetStolableCard();
+                self.gameObject.GetComponent<EnemyScript>().UseCard(self.gameObject.GetComponent<EnemyScript>().ShowCard(card));
+                break;
             default:
                 Debug.Log("Default.");
                 break;

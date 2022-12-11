@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Golpe de remo ++
   description: 
   artwork: {fileID: 21300000, guid: 30e2aeb56b89ce94f8f3ca643a45ed75, type: 3}
-  cost: 8
-  damage: 12
-  alteredEffects: 03000000
-  aEffectValues: 01000000
+  cost: 7
+  money: 0
+  damage: 10
+  alteredEffects: 
+  aEffectValues: 

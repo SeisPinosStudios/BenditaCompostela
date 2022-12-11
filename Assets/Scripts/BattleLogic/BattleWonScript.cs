@@ -14,29 +14,21 @@ public class BattleWonScript : MonoBehaviour
     public List<Enemy> boss;
     public GameObject rewardText;
     public GameObject rewardMainText;
+    Special.Zone zone;
+    StringBuilder desc = new StringBuilder();
     public void Awake()
-    {   
-        var cards = CardDataFilter.ObjectsCardDataList();
-        
-        for(int i = 0; i < 3; i++)
-        {
-            rewardPrefab.GetComponent<CardDisplay>().cardData = cards[Random.Range(0, cards.Count)];
-            Instantiate(rewardPrefab, pivot);
-        }
+    {
+        GetZone();
+        Debug.Log("ROUTE: " + GameManager.ActualRoute);
 
-        if (GameManager.nextEnemy == boss[0]) Sierpe();
+        CardReward(IsBoss());
+        if (IsBoss()) BossReward();
+        else DefaultEnemy();
 
-        if (GameManager.nextEnemy == boss[1]) Hernan();
-
-        if (GameManager.nextEnemy == boss[2]) Trasgu();
-
-        if (GameManager.nextEnemy == boss[3]) Santiago();
-
-        if (GameManager.nextEnemy.name == "Bandido A") BandidoTutorial();
-
-        if (!boss.Contains(GameManager.nextEnemy) && GameManager.nextEnemy.name != "Bandido A") DefaultEnemy();
+        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
 
         GameManager.SaveGame();
+        GameManager.PlayBattleEnd(true);
     }
     public void CleanRewards()
     {
@@ -51,101 +43,101 @@ public class BattleWonScript : MonoBehaviour
     {
         SceneManager.LoadScene(GameManager.ActualRoute);    
     }
-    public bool CheckForBoss()
+    public bool IsBoss()
     {
         if (boss.Contains(GameManager.nextEnemy)) return true;
         return false;
     }
+    
+    void GetZone()
+    {
+        Debug.Log(GameManager.ActualRoute);
+        switch (GameManager.ActualRoute)
+        {
+            case "Sevilla":
+                zone = Special.Zone.ANDALUCIA;
+                break;
+            case "Extremadura":
+                zone= Special.Zone.EXTREMADURA;
+                break;
+            case "Leon":
+                zone = Special.Zone.LEON;
+                break;
+            case "Galicia":
+                zone = Special.Zone.GALICIA;
+                break;
+        }
+    }
+    void CardReward(bool special)
+    {
+        var cards = new List<CardData>();
+
+        if(special) foreach (CardData card in CardDataFilter.SpecialZoneCardList(zone)) cards.Add(card);
+        else foreach (CardData card in CardDataFilter.ObjectsCardDataListZone(zone)) cards.Add(card);
+
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log(cards.Count);
+            var card = cards[Random.Range(0, cards.Count)];
+            cards.Remove(card);
+            rewardPrefab.GetComponent<CardDisplay>().cardData = card;
+            Instantiate(rewardPrefab, pivot);
+        }
+    }
+    void AddReward(int HP, int energy, int coin)
+    {
+        GameManager.playerData.maxHP += HP;
+        GameManager.playerData.currentHP += HP;
+        GameManager.playerData.energy += energy;
+        GameManager.playerData.CoinIncrease(coin);
+    }
     void DefaultEnemy()
     {
-        StringBuilder desc = new StringBuilder();
         desc.Append("Has conseguido derrotar a tu rival y obtenido las siguientes recompensas: " + GameManager.nextEnemy.reward + " monedas.");
         GameManager.playerData.CoinIncrease(GameManager.nextEnemy.reward);
-
-        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
     }
-    void Sierpe()
+
+    #region Boss Rewards
+    void BossReward()
     {
-        GameManager.ActualRoute = "Extremadura";
-        GameManager.NewRoute();
+        var rewards = new int[] { 0, 0, 0 };
+        Debug.Log(GameManager.nextEnemy.name);
+        switch (boss.IndexOf(GameManager.nextEnemy))
+        {
+            
+            case 0:
+                rewards[0] = 10;
+                rewards[1] = 3;
+                rewards[2] = 20;
+                desc.Append("Has conseguido derrotar a la temible sierpe y obtenido las siguientes recompensas:<br>");
+                GameManager.ActualRoute = "Extremadura";
+                GameManager.NewRoute();
+                break;
+            case 1:
+                rewards[0] = 10;
+                rewards[1] = 3;
+                rewards[2] = 25;
+                desc.Append("¿Realmente deberías estar orgulloso de apalizar a un niño? Sea como fuere, has conseguido las siguientes recompensas:<br>");
+                GameManager.ActualRoute = "Leon";
+                GameManager.NewRoute();
+                break;
+            case 2:
+                rewards[0] = 10;
+                rewards[1] = 3;
+                rewards[2] = 35;
+                desc.Append("La agilidad del trasgu no ha sido rival para la agilidad de tu muñeca y has acabado haciéndole unos cuantos agujeros más, ¡enhorabuena! Has conseguido las siguientes recompensas:<br>");
+                GameManager.ActualRoute = "Galicia";
+                GameManager.NewRoute();
+                break;
+            case 3:
+                GameManager.StopSong();
+                GameManager.DumpSavedData();
+                SceneManager.LoadScene("FinalCinematic");
+                break;
+        }
 
-        StringBuilder desc = new StringBuilder();
-        desc.Append("Has conseguido derrotar a la temible sierpe y obtenido las siguientes recompensas:<br>+5 vida - +3 energía - +35 monedas -");
-        GameManager.playerData.maxHP += 5;
-        GameManager.playerData.currentHP += 5;
-        GameManager.playerData.energy += 2;
-        GameManager.playerData.CoinIncrease(35);
-
-        var card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA).Count)];
-        desc.Append(card.name+" - ");
-        GameManager.playerData.inventory.Add(card);
-
-        card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
+        AddReward(rewards[0], rewards[1], rewards[2]);
+        desc.Append("+" + rewards[0] + " vida - +" + rewards[1] + " energía - +" + rewards[2] + " monedas.");
     }
-    void Hernan()
-    {
-        GameManager.ActualRoute = "Leon";
-        GameManager.NewRoute();
-
-        StringBuilder desc = new StringBuilder();
-        desc.Append("¿Realmente deberías estar orgulloso de apalizar a un niño? Sea como fuere, has conseguido las siguientes recompensas:<br>+5 vida - +3 energía - +50 monedas - ");
-        GameManager.playerData.maxHP += 5;
-        GameManager.playerData.currentHP += 5;
-        GameManager.playerData.energy += 2;
-        GameManager.playerData.CoinIncrease(50);
-
-        var card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.EXTREMADURA).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.EXTREMADURA).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
-    }
-    void Trasgu()
-    {
-        GameManager.ActualRoute = "Galicia";
-        GameManager.NewRoute();
-
-        StringBuilder desc = new StringBuilder();
-        desc.Append("La agilidad del trasgu no ha sido rival para la agilidad de tu muñeca y has acabado haciéndole unos cuantos agujeros más, ¡enhorabuena! Has conseguido las siguientes recompensas:<br>+5 vida - +3 energía - +65 monedas - ");
-        GameManager.playerData.maxHP += 5;
-        GameManager.playerData.currentHP += 5;
-        GameManager.playerData.energy += 2;
-        GameManager.playerData.CoinIncrease(65);
-
-        var card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.LEON).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.LEON).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        card = CardDataFilter.SpecialZoneCardList(Special.Zone.ANDALUCIA)[Random.Range(0, CardDataFilter.SpecialZoneCardList(Special.Zone.LEON).Count)];
-        desc.Append(card.name + " - ");
-        GameManager.playerData.inventory.Add(card);
-
-        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
-    }
-    void Santiago()
-    {
-        SceneManager.LoadScene("FinalScene");
-    }
-    void BandidoTutorial()
-    {
-        StringBuilder desc = new StringBuilder();
-        desc.Append("Has conseguido derrotar a tu rival y obtenido las siguientes recompensas: " + GameManager.nextEnemy.reward + " monedas.");
-        var card = CardDataFilter.WeaponCardDataList().Find(weapon => weapon.name == "Daga");
-        desc.Append(card.name);
-        GameManager.playerData.inventory.Add(card);
-
-        rewardText.GetComponent<TextMeshProUGUI>().text = desc.ToString();
-    }
+    #endregion
 }

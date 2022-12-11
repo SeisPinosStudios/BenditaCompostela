@@ -20,47 +20,44 @@ public class TurnSystemScript : MonoBehaviour
     public GameObject attackDeckShadow;
     public GameObject defDeck;
     public GameObject attDeck;
+    public Image background;
 
     public GameObject fade;
 
     public int dialogueIndex;
 
-    public void Start()
+    public void Awake()
     {
-        dialogueIndex = 0;
-        GameObject.Find("====CANVAS====").GetComponent<Image>().sprite = GameManager.activeBackground;
+        Debug.Log("AAAAAAAAWAAAAAAAAAAAKe");
+        background.sprite = GameManager.activeBackground;
         current = enemy;
         next = player;
-        fade.GetComponent<Fade>().FadeIn();
-        Turn();
-        /*
-        if (GameManager.nextEnemy.name == "Bandido A")
-        {
-            Tutorial();         
-        }
-        else {
-            Turn();
-        }*/
+        GameManager.BattleMusic();
     }
-
+    public void Start()
+    {
+        StartCoroutine(TurnCoroutine());
+    }
+    IEnumerator TurnCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("FIRST TURN BEGIN");
+        Turn();
+    }
     public void Turn()
     {
         current.GetComponent<Entity>().ReduceAlteredEffect(CardData.TAlteredEffects.DISARMED, 1);
-        current.GetComponent<Entity>().Burn();
+        //current.GetComponent<Entity>().Burn();
 
         var temp = current;
         current = next;
         next = temp;
 
-        Debug.Log("Turno de " + current);
+        Debug.Log("TURN:" + current.name);
 
-        if (current == player)
-        {
-            StartCoroutine(player.GetComponent<PlayerScript>().OnTurnBegin());
-        }
+        if (current == player) StartCoroutine(player.GetComponent<PlayerScript>().OnTurnBegin());
         else enemy.GetComponent<EnemyScript>().OnTurnBegin(); 
     }
-
     public void Tutorial()
     {
         if (dialogueIndex <= tutorialDialogue.Count - 1)
@@ -90,11 +87,13 @@ public class TurnSystemScript : MonoBehaviour
 
         
     }
-
     public void ClosedDialogueBox() {
         dialogueIndex++;
         Tutorial();
     }
 
-
+    public void Update()
+    {
+        background.sprite = GameManager.activeBackground;
+    }
 }

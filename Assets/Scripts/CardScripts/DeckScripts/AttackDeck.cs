@@ -20,6 +20,7 @@ public class AttackDeck : MonoBehaviour
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         if (player.GetComponent<PlayerScript>().ConsumeEnergy(1)) Instantiate(card, hand.transform);
+        SetInspection(true);
 
         GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("DrawCard");
     }
@@ -28,17 +29,24 @@ public class AttackDeck : MonoBehaviour
         Weapon weapon = player.GetComponent<PlayerScript>().weapon;
         card.GetComponent<CardDisplay>().cardData = weapon.attackList[Random.Range(0, weapon.attackList.Count)];
         Instantiate(card, hand.transform);
-
+        Debug.Log("DRAW CARD");
         GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("DrawCard");
     }
-    public IEnumerator DrawCardCoroutine(int drawnCards)
+    IEnumerator DrawCardCoroutine(int drawnCards)
     {
+        Debug.Log("DRAWN CARDS: " + drawnCards);
         for (int j = 0; j < drawnCards; j++)
         {
             Debug.Log("DRAW COROUTINE" + j);
             DrawFreeCard();
             yield return new WaitForSeconds(0.2f);
         }
+
+        SetInspection(true);
+    }
+    public void StartDrawCoroutine(int drawnCards)
+    {
+        StartCoroutine(DrawCardCoroutine(drawnCards));
     }
     public void Update()
     {
@@ -46,5 +54,9 @@ public class AttackDeck : MonoBehaviour
 
         if (GameObject.Find("Player").GetComponent<PlayerScript>().weapon == null) image.sprite = images[5];
         else image.sprite = images[GameObject.Find("Player").GetComponent<PlayerScript>().weapon.weaponId];
+    }
+    public void SetInspection(bool inspect)
+    {
+        foreach (Transform card in hand.transform) card.GetComponent<CardInspection>().canInspect = inspect;
     }
 }

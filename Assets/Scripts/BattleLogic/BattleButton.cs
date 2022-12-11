@@ -12,15 +12,18 @@ public class BattleButton : MonoBehaviour
     public GameObject dialogueBoxPrefab;
     public Transform pivot;
     public DialogueObject warning;
+    public AudioManager audioManager;
     void Start()
     {
         if (SceneManager.GetActiveScene().name != "DebugScene") pivot = GameObject.Find("WarningTrigger").transform;
         if(SceneManager.GetActiveScene().name != "DebugScene") mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapPathSelector>();
         gameObject.GetComponent<Button>()?.onClick.AddListener(() => ToBattleScene(enemy));
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     public void ToBattleScene(Enemy enemy)
     {
+        audioManager.PlaySound("Evento");
         if (GameManager.playerData.playerDeck.Count < 5 || GameManager.playerData.playerDeck.Find(card => card.GetType() == typeof(Weapon)) == null) {
             NotEnoughCards(warning);
             return;

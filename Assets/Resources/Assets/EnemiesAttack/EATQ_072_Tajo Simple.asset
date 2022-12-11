@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tajo simple
   description: "Realiza 7 puntos de da\xF1o y aplica Sangradox2"
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 555082e0d1158ec4fa689cfd2ae6707f, type: 3}
   cost: 0
-  damage: 7
+  money: 0
+  enemy: 1
+  damage: 4
   alteredEffects: 00000000
   aEffectValues: 02000000
   effects: 
   eValues: 
+  zone: 0

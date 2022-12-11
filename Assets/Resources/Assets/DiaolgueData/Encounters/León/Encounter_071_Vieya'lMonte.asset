@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Encounter_071_Vieya'lMonte
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1S\xED! Ya ver\xE1s, no te arrepentir\xE1s."
+  - "VIEYA'L MONTE\n\xA1S\xED! Ya ver\xE1s, no te arrepentir\xE1s."
+  - Has obtenido la carta <color=#c9a73e>Pan de vieja</color>.
   responses: []
-  character: {fileID: 21300000, guid: 1162e6facac5d1443bb3bffdea760a81, type: 3}
+  character: {fileID: 21300000, guid: 2965ecea1e46664478fda02a284d36d3, type: 3}

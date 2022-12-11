@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lore_031_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "AGRICULTOR\n\xA1A tu servicio!"
+  - "AGRICULTOR ARTURO\n\xA1A tu servicio!"
   responses: []
-  character: {fileID: -669100558, guid: c210ad7b73842024daa9e847761f7298, type: 3}
+  character: {fileID: 21300000, guid: 4486221392d694b46a763da0a15a4374, type: 3}

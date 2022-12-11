@@ -13,22 +13,30 @@ MonoBehaviour:
   m_Name: Encounter_040_Bandido
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xBFQu\xE9 pasa? Venga, ya. Me est\xE1s mirando raro, solo estoy de paso. En
-    serio, simplemente iba por aqu\xED, sin molestar a nadie."
-  - "Veo que no te convence esta versi\xF3n del relato. Comprensible. Escucha, no
-    he tenido una buena racha \xFAltimamente \xBFComprendes? Cada uno se busca la
-    vida como puede. "
-  - "De hecho, d\xE9jame explicarte. A la vuelta de esa colina, hay un granero. Es
-    de uno de esos rufianes, los terratenientes."
-  - "Esc\xFAchame atentamente, podemos ir sin que nos vean, aprovisionarnos y que
-    cada uno siga su camino."
-  - "Cambia ese gesto. No nos ver\xE1n \xBFY qu\xE9? \xBFQu\xE9 va a pasar por que
-    les robemos un poco de trigo? No van a hacer nada, tienen de sobra, ni se dar\xE1n
-    cuenta."
-  - "De hecho, te dar\xE9 un buen precio por tu parte del bot\xEDn."
+  - "BANDIDO BANDERAS\n\xBFQu\xE9 pasa? Venga, ya. Me est\xE1s mirando raro, solo
+    estoy de paso. En serio, simplemente iba por aqu\xED, sin molestar a nadie."
+  - "BANDIDO BANDERAS\nVeo que no te convence esta versi\xF3n del relato. Comprensible.
+    Escucha, no he tenido una buena racha \xFAltimamente \xBFComprendes? Cada uno
+    se busca la vida como puede. "
+  - "BANDIDO BANDERAS\nDe hecho, d\xE9jame explicarte. A la vuelta de esa colina,
+    hay un granero. Es de uno de esos rufianes, los terratenientes."
+  - "BANDIDO BANDERAS\nEsc\xFAchame atentamente, podemos ir sin que nos vean, aprovisionarnos
+    y que cada uno siga su camino."
+  - "BANDIDO BANDERAS\nCambia ese gesto. No nos ver\xE1n \xBFY qu\xE9? \xBFQu\xE9
+    va a pasar por que les robemos un poco de trigo? No van a hacer nada, tienen
+    de sobra, ni se dar\xE1n cuenta."
+  - "BANDIDO BANDERAS\nDe hecho, te dar\xE9 un buen precio por tu parte del bot\xEDn."
+  - 'Aceptar trato: sin riesgo no hay recompensa. <color=#99322b>[Vida--]</color>
+    <color=#c49a16>[Dinero+++]</color>
+
+    Rechazar trato: combate contra Bandido.'
   responses:
-  - responseText: Aceptar trato
+  - responseText: "Se lo merecen, all\xE1 vamos. "
     dialogueObject: {fileID: 11400000, guid: f5bac2cef6b011344be2182849b49b90, type: 2}
-  - responseText: Rechazar trato
+    conditions: 00000000
+    conditionsValue: 0a000000
+  - responseText: "Lo siento, no soy un ladr\xF3n. "
     dialogueObject: {fileID: 11400000, guid: 852b547de0922324b967ec7b514166ca, type: 2}
-  character: {fileID: 21300000, guid: 8b89400f7219445499d5e87c644615a6, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: 4e8978448c353d04da05d559902139be, type: 3}

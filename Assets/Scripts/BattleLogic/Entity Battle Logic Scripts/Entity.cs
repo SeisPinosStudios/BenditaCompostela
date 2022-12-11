@@ -14,15 +14,25 @@ public class Entity : MonoBehaviour
     //public List<CardData.TAlteredEffects> alteredEffects;
     //public List<int> aEffectsValue;
     public GameObject alteredEffectsDisplayPrefab;
-    public Sprite[] alteredEffectsImages;
     public Dictionary<CardData.TAlteredEffects, int> alteredEffects = new Dictionary<CardData.TAlteredEffects, int>();
     int poisonTurns;
+    public AlteredEffectTriggerTest animationTrigger;
     #endregion
 
     #region Synergy Variables
     public int damageBoost = 0;
-    public int defence = 0;
+    public int defense = 0;
     public int extraHealing = 0;
+    #endregion
+
+    #region Boss and Enemy Passives
+    public List<Enemy.Passive> passives;
+    public GameObject passivePrefab;
+    #endregion
+
+    #region Dead Fade Variables
+    public float fadeDuration;
+    public Image[] imageList;
     #endregion
 
     #region Entity Setup
@@ -38,7 +48,7 @@ public class Entity : MonoBehaviour
         {
             Debug.Log(effect.Key + " - " + effect.Value);
         }
-    }
+    } 
     #endregion
 
     #region Basic Entity Logic Methods
@@ -59,44 +69,82 @@ public class Entity : MonoBehaviour
         Debug.Log(currentEnergy);
         return true;
     }
+    public bool IsPlayable(int energyConsumed) {
+        return this.currentEnergy >= energyConsumed;
+    }
     public void RefillEnergy()
     {
         this.currentEnergy = this.energy;
     }
     public void SufferDamage(int damage)
     {
-        damage = Vulnerable(damage);
-        damage = Guarded(damage);
         damage = Invulnerable(damage);
+
+        if (!Suffering(CardData.TAlteredEffects.INVULNERABLE))
+        {
+            damage = Vulnerable(damage);
+            damage = Guarded(damage);
+        }
+        
         damage = Mathf.Clamp(damage, 0, 99);
-        this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+        currentHP = Mathf.Clamp(currentHP - damage, 0, HP);
+
+        if (damage > 0) animationTrigger.Damaged();
 
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
-        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
+        if (IsDead()) StartCoroutine(Fade());                    
+            
+    }
+    private IEnumerator Fade()
+    {        
+        Color[] initialColor = new Color[imageList.Length];
+        Color[] targetColor = new Color[imageList.Length];
+        for (int i = 0; i < imageList.Length; i++)
+        {
+            initialColor[i] = imageList[i].color;
+            targetColor[i] = new Color(initialColor[i].r, initialColor[i].g, initialColor[i].b, 0f);
+            if (imageList[i].gameObject.TryGetComponent(out Animator anController)) anController.enabled = false;
+        }       
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            for (int i = 0; i < imageList.Length; i++)
+            {                
+                imageList[i].color = Color.Lerp(initialColor[i], targetColor[i], elapsedTime / fadeDuration);
+                Debug.Log("IMAGEN EN FADE: " + imageList[i] + "  || COLOR: " + imageList[i].color);
+            }            
+            yield return null;
+        }
+        GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
     public void SufferEffectDamage(int damage)
     {
-        this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+        if (passives.Contains(Enemy.Passive.SANTIAGO)) damage = Mathf.Clamp(damage - 2, 0, 99);
+        if (BossDebuff(Enemy.Passive.SANTIAGO_2)) damage += 3;
+        damage = Invulnerable(damage);
+        currentHP = Mathf.Clamp(currentHP - damage, 0, HP);
 
-        if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
+        if (IsPlayer()) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
-        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
+        if (IsDead()) StartCoroutine(Fade());
     }
     public void RestoreHealth(int healthRestored)
     {
         healthRestored += extraHealing;
         if(Suffering(CardData.TAlteredEffects.BLEED)) 
         {
-            this.currentHP = Mathf.Clamp(this.currentHP + (healthRestored / 2), 0, HP);
+            currentHP = Mathf.Clamp(currentHP + (healthRestored / 2), 0, HP);
             return;
         }
-        this.currentHP = Mathf.Clamp(this.currentHP + healthRestored, 0, HP);
+        currentHP = Mathf.Clamp(currentHP + healthRestored, 0, HP);
     }
     public bool IsDead()
     {
-        if (this.currentHP <= 0) return true;
-        else return false;
+        return this.currentHP <= 0;        
     }
     #endregion
 
@@ -111,12 +159,31 @@ public class Entity : MonoBehaviour
     {
         if (ResistanceTo(alteredEffect)) return;
 
-        if (alteredEffect == CardData.TAlteredEffects.INVULNERABLE)
-            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 2);
+        if (IsPlayer() && alteredEffect == CardData.TAlteredEffects.GUARDED && EnemyHasPassive(Enemy.Passive.rGUARDED)) return;
 
-        else
-            alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
-
+        switch (alteredEffect)
+        {
+            case CardData.TAlteredEffects.INVULNERABLE:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 2);
+                break;
+            case CardData.TAlteredEffects.BURN:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 10);
+                break;
+            case CardData.TAlteredEffects.VULNERABLE:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 3);
+                break;
+            case CardData.TAlteredEffects.GUARDED:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 3);
+                break;
+            case CardData.TAlteredEffects.BLEED:
+                var limit = !IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xBLEED ? (5 + 1 * (PlayerScript.chestArmor.upgradeLevel + 1)) : 5;
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, limit);
+                break;
+            default:
+                alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] + value, 0, 5);
+                break;
+        }
+        
         UpdateEffectsDisplay();
     }
     public void RemoveAlteredEffect(CardData.TAlteredEffects alteredEffect)
@@ -125,17 +192,28 @@ public class Entity : MonoBehaviour
 
         Debug.Log("INDEX IN LIST:" + Suffering(alteredEffect));
 
+        if(alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
+
         alteredEffects[alteredEffect] = 0;
 
         UpdateEffectsDisplay();
     } 
     public void RemoveAlteredEffect()
     {
+        List<CardData.TAlteredEffects> SufferingEffects = new List<CardData.TAlteredEffects>();
         foreach(KeyValuePair<CardData.TAlteredEffects,int> effect in alteredEffects)
         {
             if (effect.Key == CardData.TAlteredEffects.INVULNERABLE || effect.Key == CardData.TAlteredEffects.GUARDED) continue;
-            RemoveAlteredEffect(effect.Key);
+            if (Suffering(effect.Key)) SufferingEffects.Add(effect.Key);
         }
+
+        foreach(CardData.TAlteredEffects alteredEffect in SufferingEffects)
+        {
+            RemoveAlteredEffect(alteredEffect);
+        }
+
+        poisonTurns = 0;
+
         UpdateEffectsDisplay();
     }
     public void ReduceAlteredEffect(CardData.TAlteredEffects alteredEffect, int charges)
@@ -144,12 +222,9 @@ public class Entity : MonoBehaviour
 
         alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] - charges, 0, 5);
 
-        Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
+        if (alteredEffect == CardData.TAlteredEffects.POISON && alteredEffects[alteredEffect] == 0) poisonTurns = 0;
 
-        /*
-        if (aEffectsValue[Suffering(alteredEffect)] <= 0)
-            RemoveAlteredEffect(alteredEffect);
-        */
+        Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
 
         UpdateEffectsDisplay();
     }
@@ -161,10 +236,9 @@ public class Entity : MonoBehaviour
 
         var effectCharges = alteredEffects[CardData.TAlteredEffects.BLEED];
 
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
-
         SufferEffectDamage(effectCharges);
+
+        animationTrigger.Bleed();
 
         ReduceAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
 
@@ -172,33 +246,35 @@ public class Entity : MonoBehaviour
     }
     public void Poison()
     {
-        if (!Suffering(CardData.TAlteredEffects.POISON)) return;
-        
-        poisonTurns++;
+        if (!Suffering(CardData.TAlteredEffects.POISON)) { poisonTurns = 0; return; }
+
+        var limit = 6;
+        if (IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xPOISON) limit += (2 + GameManager.playerData.chestArmor.upgradeLevel);
+        poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, limit);
         var effectCharges = poisonTurns;
 
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
+        animationTrigger.Poisoned();
+        StartCoroutine(PoisonSufferEffectDamage(animationTrigger.AnimationDelay(), effectCharges));
 
+        
+    }
+    private IEnumerator PoisonSufferEffectDamage(float delay, int effectCharges)
+    {
+        yield return new WaitForSeconds(delay);
         SufferEffectDamage(effectCharges);
-
         ReduceAlteredEffect(CardData.TAlteredEffects.POISON, 1);
-
         Debug.Log("EFFECT: Poison");
     }
     public void Burn()
     {
-        if (!Suffering(CardData.TAlteredEffects.BURN)) return;
-
-        var effectCharges = alteredEffects[CardData.TAlteredEffects.BURN];
-
-        if (IsBoss(Enemy.Boss.SANTIAGO)) effectCharges--;
-        if (BossDebuff(Enemy.Boss.SANTIAGO)) effectCharges += 3;
-
-        SufferEffectDamage(effectCharges);
-
-        ReduceAlteredEffect(CardData.TAlteredEffects.BURN, effectCharges);
-
+        if (!Suffering(CardData.TAlteredEffects.BURN)) return;        
+        animationTrigger.OnFire();        
+        StartCoroutine(BurnSufferEffectDamage(animationTrigger.AnimationDelay()));        
+    }
+    private IEnumerator BurnSufferEffectDamage(float delay) {        
+        yield return new WaitForSeconds(delay);        
+        SufferEffectDamage((int)GetBurn());
+        RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
         Debug.Log("EFFECT: Burn");
     }
     public bool Disarmed()
@@ -210,19 +286,15 @@ public class Entity : MonoBehaviour
     }
     public int Vulnerable(int damage)
     {
-        
-        if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage;
+        if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage; 
 
         Debug.Log("EFFECT: Vulnerable");
 
-        ReduceAlteredEffect(CardData.TAlteredEffects.VULNERABLE, 1);
+        animationTrigger.Vulnerable();
 
-        UpdateEffectsDisplay();
+        RemoveAlteredEffect(CardData.TAlteredEffects.VULNERABLE);
 
-        if(this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xVULNERABLE)
-            return damage += (int)Mathf.Round((float)damage * 0.6f);
-
-        return damage += (int)Mathf.Round((float)damage * 0.5f);
+        return damage += Mathf.Clamp((int)Mathf.Round(damage * GetVulnerable()), 1, 99);
     }
     public int Guarded(int damage)
     {
@@ -230,14 +302,9 @@ public class Entity : MonoBehaviour
 
         Debug.Log("EFFECT: Guarded");
 
-        ReduceAlteredEffect(CardData.TAlteredEffects.GUARDED, 1);
+        RemoveAlteredEffect(CardData.TAlteredEffects.GUARDED);
 
-        UpdateEffectsDisplay();
-
-        if (this.GetType() == typeof(Enemy) && GameObject.Find("Player").GetComponent<PlayerScript>().activeSynergy == Armor.TSynergy.xGUARDED)
-            return damage -= (int)Mathf.Round((float)damage * 0.3f);
-
-        return damage -= (int)Mathf.Round((float)damage * 0.5f);
+        return damage -= Mathf.Clamp((int)Mathf.Round(damage * GetGuarded()),1,99);
     }
     public int Invulnerable(int damage)
     {
@@ -259,64 +326,200 @@ public class Entity : MonoBehaviour
         float healthBar = (float)((float)currentHP / (float)HP) * 100;
         float energyBar = (float)((float)currentEnergy / (float)energy) * 100;
         gameObject.transform.GetChild(1).GetComponent<Slider>().value = healthBar;
-        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString();
-        if (this.GetType() == typeof(PlayerScript))
+        gameObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = currentHP.ToString() + "/" + HP.ToString();
+        if (IsPlayer())
         {
-            gameObject.transform.GetChild(3).GetComponent<Slider>().value = energyBar;
-            gameObject.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
+            gameObject.transform.GetChild(2).GetComponent<Slider>().value = energyBar;
+            gameObject.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = currentEnergy.ToString();
         }
+        gameObject.GetComponentInChildren<Image>().SetNativeSize();
     }
-
     public void UpdateEffectsDisplay()
     {
-        foreach(Transform child in transform.GetChild(2).GetComponentInChildren<Transform>())
+        Transform parent;
+
+        if (IsPlayer()) parent = transform.GetChild(transform.childCount - 1);
+        else parent = transform.GetChild(2);
+
+        foreach (Transform child in parent)
         {
             Destroy(child.gameObject);
+        }
+
+        foreach (Enemy.Passive passive in passives)
+        {
+            passivePrefab.GetComponent<PassiveDisplay>().passive = passive;
+            Instantiate(passivePrefab, transform.GetChild(2));
         }
 
         foreach (KeyValuePair<CardData.TAlteredEffects, int> effect in alteredEffects)
         {
             if (!Suffering(effect.Key)) continue;
-            alteredEffectsDisplayPrefab.GetComponentInChildren<Image>().sprite = alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().sprites[(int)effect.Key];
-            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, transform.GetChild(2));
-            newImage.GetComponentInChildren<TextMeshProUGUI>().text = "x" + alteredEffects[effect.Key].ToString();
+            alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().effect = effect.Key;
+            alteredEffectsDisplayPrefab.GetComponent<AlteredEffectsSprites>().value = effect.Value;
+            GameObject newImage = Instantiate(alteredEffectsDisplayPrefab, parent);
         }
-    }
 
+    }
     public void AttackAnimation(bool state)
     {
         GetComponent<Animator>().SetBool("Attack", state);
+    }
+    public void PassivesDisplay()
+    {
+        if (IsPlayer()) return;
+        foreach (Enemy.Passive passive in passives)
+        {
+            passivePrefab.GetComponent<PassiveDisplay>().passive = passive;
+            Instantiate(passivePrefab, transform.GetChild(2));
+        }
     }
     #endregion
 
     #region Boss And Resistances
 
-    public bool ResistanceTo(CardData.TAlteredEffects aEffect)
+    public bool BossDebuff(Enemy.Passive passive)
     {
-        if (this.GetType() != typeof(EnemyScript)) return false;
-
-        if (this.GetComponent<EnemyScript>().enemyData.resistances.Contains(aEffect)) return true;
-
+        if (!IsPlayer()) return false;
+        return GetComponent<PlayerScript>().enemy.GetComponent<Entity>().passives.Contains(passive);
+    }
+    public bool HasPassive(Enemy.Passive passive)
+    {
+        return passives.Contains(passive);
+    }
+    public bool EnemyHasPassive(Enemy.Passive passive)
+    {
+        return GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().enemy.GetComponent<EnemyScript>().passives.Contains(passive);
+    }
+    public bool ResistanceTo(CardData.TAlteredEffects effect)
+    {
+        switch (effect)
+        {
+            case CardData.TAlteredEffects.BLEED:
+                return passives.Contains(Enemy.Passive.rBLEED);
+            case CardData.TAlteredEffects.POISON:
+                return passives.Contains(Enemy.Passive.rPOISON);
+            case CardData.TAlteredEffects.BURN:
+                return passives.Contains(Enemy.Passive.rBURN);
+            case CardData.TAlteredEffects.VULNERABLE:
+                return passives.Contains(Enemy.Passive.rVULNERABLE);
+            case CardData.TAlteredEffects.GUARDED:
+                return passives.Contains(Enemy.Passive.rGUARDED);
+        }
         return false;
     }
+    #endregion
 
-    public bool IsBoss(Enemy.Boss isBoss)
+    #region Entity Type
+    public bool IsPlayer()
     {
-        if (this.GetType() != typeof(EnemyScript)) return false;
-
-        if (GetComponent<EnemyScript>().enemyData.IsBoss(Enemy.Boss.SANTIAGO)) return true;
-
-        return false;
+        return this.GetType() == typeof(PlayerScript);
     }
+    #endregion
 
-    public bool BossDebuff(Enemy.Boss isBoss)
+    #region Math
+    /* Various math methods placed here to avoid overcrowd of effect methods */
+    public float GetVulnerable()
     {
-        if (this.GetType() != typeof(PlayerScript)) return false;
+        /*
+         * 1 Stack = 10%, 2 stack = 25%, 3 stack = 50%
+         * 1 armor = 15, 30, 55
+         * 2 armor = 15, 33, 66
+         * 3 armor = 25, 50, 75
+         */
 
-        if (GetComponent<PlayerScript>().enemy.GetComponent<EnemyScript>().enemyData.IsBoss(Enemy.Boss.SANTIAGO)) return true;
+        var multiplier = 0.0f;
 
-        return false;
+        switch (alteredEffects[CardData.TAlteredEffects.VULNERABLE])
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if(!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xVULNERABLE)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+        return multiplier;
     }
+    public float GetGuarded()
+    {
+        var multiplier = 0.0f;
 
+        switch (alteredEffects[CardData.TAlteredEffects.GUARDED])
+        {
+            case 1:
+                multiplier += 0.1f;
+                break;
+            case 2:
+                multiplier += 0.25f;
+                break;
+            case 3:
+                multiplier += 0.50f;
+                break;
+        }
+
+        if (!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xGUARDED)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.05f;
+                    break;
+                case 1:
+                    multiplier += 0.08f;
+                    break;
+                case 2:
+                    multiplier += 0.25f;
+                    break;
+            }
+        }
+        return multiplier;
+    }
+    public float GetBurn()
+    {
+        var multiplier = 1.0f;
+        var stacks = alteredEffects[CardData.TAlteredEffects.BURN];
+
+        if (stacks > 5) multiplier = 2.0f;
+
+        if(!IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xBURN)
+        {
+            switch (PlayerScript.chestArmor.upgradeLevel)
+            {
+                case 0:
+                    multiplier += 0.25f;
+                    break;
+                case 1:
+                    multiplier += 0.5f;
+                    break;
+                case 2:
+                    multiplier += 1.0f;
+                    break;
+            }
+        }
+
+        var damage = stacks * multiplier;
+
+        return Mathf.Round(damage);
+    }
     #endregion
 }

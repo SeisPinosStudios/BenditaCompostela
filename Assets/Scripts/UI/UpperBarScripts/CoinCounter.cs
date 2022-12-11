@@ -10,11 +10,9 @@ public class CoinCounter : MonoBehaviour
     {
         updateCoinCounter(GameManager.playerData.coins.ToString());
     }
-
     public void updateCoinCounter(string newCoins) {
-        coinText.text = GameManager.playerData.coins.ToString();
+        coinText.text = newCoins;
     }
-
     public void Update()
     {
         updateCoinCounter(GameManager.playerData.coins.ToString());

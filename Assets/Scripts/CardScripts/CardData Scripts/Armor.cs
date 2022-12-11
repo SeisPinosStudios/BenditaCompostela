@@ -13,11 +13,12 @@ public class Armor : CardData
     public TSynergy synergy;
     public int upgradeLevel;
     public Armor improvedArmor;
+    public Armor previousArmor;
     public enum TArmor 
         { CHEST, FEET}
 
     public enum TSynergy
-        { DAMAGE, DEFENCE, HEALING, ENERGY, xVULNERABLE, xGUARDED}
+        { DAMAGE, DEFENCE, HEALING, ENERGY, xVULNERABLE, xGUARDED, xPOISON, xBURN, xBLEED}
 
     public int armorId;
 }

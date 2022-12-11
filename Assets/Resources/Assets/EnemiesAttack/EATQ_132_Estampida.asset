@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Estampida
   description: 
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: 0999d7fd6e228ac439d62472c014eafa, type: 3}
   cost: 0
-  damage: 15
-  alteredEffects: 06000000
-  aEffectValues: 03000000
+  money: 0
+  enemy: 1
+  damage: 10
+  alteredEffects: 0600000003000000
+  aEffectValues: 0300000002000000
   effects: 
   eValues: 
+  zone: 0

@@ -13,24 +13,39 @@ MonoBehaviour:
   m_Name: Encounter_090_Pastor
   m_EditorClassIdentifier: 
   dialogue:
-  - "Terca, cabezona y sin ning\xFAn valor. Maldito el d\xEDa en el que naciste,
-    oveja. No puedo vender tu lana, ahuyentas a los compradores. "
-  - "\xA1Pero bueno! \xBFQu\xE9 ven mis ojos? Un joven peregrino, disculpa, corrijo.
-    Un joven y solitario peregrino. Quiz\xE1s busque una c\xE1lida compa\xF1\xEDa. "
-  - "Alguien que le d\xE9 conversaci\xF3n durante las largas caminatas y que caliente
-    su cama durante las noches. Alguien tan apuesto no se merece ir solo por la vida. "
-  - "Tranquilo, joven peregrino, yo te guardo una soluci\xF3n a tu soledad. "
-  - "\xA1Y esa es esta oveja! M\xEDrala, es ideal \xBFQui\xE9n no querr\xEDa llev\xE1rsela? "
-  - "(\u2026)"
-  - "(\u2026)"
-  - "(\u2026)"
-  - "Vale, vale. Veo que la idea no te hace gracia. Esc\xFAchame, estoy harto de
-    esta oveja, solo da problemas y no me sirve para nada. "
-  - 'No hace falta que te la lleves, simplemente, deshazte de ella. Puedo recompensarte
-    por ello. '
+  - "PASTORA PAOLA\nTerca, cabezona y sin ning\xFAn valor. Maldito el d\xEDa en el
+    que naciste, oveja. No puedo vender tu lana, ahuyentas a los compradores. "
+  - "PASTORA PAOLA\n\xA1Pero bueno! \xBFQu\xE9 ven mis ojos? Un joven peregrino,
+    disculpa, corrijo. Un joven y solitario peregrino. Quiz\xE1s busque una c\xE1lida
+    compa\xF1\xEDa. "
+  - "PASTORA PAOLA\nAlguien que le d\xE9 conversaci\xF3n durante las largas caminatas
+    y que caliente su cama durante las noches. Alguien tan apuesto no se merece ir
+    solo por la vida. "
+  - "PASTORA PAOLA\nTranquilo, joven peregrino, yo te guardo una soluci\xF3n a tu
+    soledad. "
+  - "PASTORA PAOLA\n\xA1Y esa es esta oveja! M\xEDrala, es ideal \xBFQui\xE9n no
+    querr\xEDa llev\xE1rsela? "
+  - "PASTORA PAOLA\n(\u2026)"
+  - "PASTORA PAOLA\n(\u2026)"
+  - "PASTORA PAOLA\n(\u2026)"
+  - "PASTORA PAOLA\nVale, vale. Veo que la idea no te hace gracia. Esc\xFAchame,
+    estoy harta de esta oveja, solo da problemas y no me sirve para nada. "
+  - 'PASTORA PAOLA
+
+    No hace falta que te la lleves, simplemente, deshazte de
+    ella. Puedo recompensarte por ello. '
+  - 'Aceptar trato: esta condenada oveja no deja de patalear. <color=#99322b>[Vida---]</color>
+    <color=#ebc934>[Carta especial x2]</color>.
+
+    Rechazar trato: combate contra
+    Pastora.'
   responses:
   - responseText: Cordero para cenar.
     dialogueObject: {fileID: 11400000, guid: 80e4f1d08d4b9d94682693b19d73ac2e, type: 2}
-  - responseText: No gracias, soy vegano.
+    conditions: 00000000
+    conditionsValue: 0a000000
+  - responseText: 'Lo siento, no es de mi gusto. '
     dialogueObject: {fileID: 11400000, guid: 1b9e79b0d1e204046bb815e33cef8c4c, type: 2}
-  character: {fileID: -1797045276, guid: 8134c65bbd7f4154797635ae53cf3462, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: d25b02b731154c54da0d1dc978bc278c, type: 3}

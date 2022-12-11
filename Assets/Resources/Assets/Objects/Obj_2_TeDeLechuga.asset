@@ -16,7 +16,9 @@ MonoBehaviour:
   description: Cura 8 puntos de vida.
   artwork: {fileID: 21300000, guid: 6fa0c3c5383ba7b42b1bbed13d956173, type: 3}
   cost: 4
+  money: 12
   alteredEffects: 
   aEffectValues: 
   effects: 00000000
   eValues: 08000000
+  zone: 3

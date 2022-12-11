@@ -13,18 +13,22 @@ MonoBehaviour:
   m_Name: ARM_061_BotasDeTruhan
   m_EditorClassIdentifier: 
   name: Botas de truhan +
-  description: 
+  description: "Protege 1.<br>Sinergia con <color=#7B8118>Daga</color>: <color=#308a36>+3</color>
+    cargas de energ\xEDa."
   artwork: {fileID: 21300000, guid: c9ba83eeda38a3041bbe679bb180dd9e, type: 3}
   cost: 0
+  money: 20
+  enemy: 0
   defenseValue: 2
   damageBonus: 0
-  extraDefence: 1
+  extraDefence: 0
   synergyWeapon:
   - {fileID: 11400000, guid: 553adaf9f8bbb874c9bc3c6d0f01c9cf, type: 2}
   - {fileID: 11400000, guid: a14d72f77177d9c43ba044acb6378fd2, type: 2}
   - {fileID: 11400000, guid: ab9d17421d0fbb0408abc7754ae34af9, type: 2}
   armorType: 1
-  synergy: 1
+  synergy: 3
   upgradeLevel: 1
   improvedArmor: {fileID: 11400000, guid: 521182bee7a67b346bf7af5fb80699e9, type: 2}
+  previousArmor: {fileID: 11400000, guid: 1ea9764669fff1b4fb2be572b2705cff, type: 2}
   armorId: 2

@@ -27,45 +27,6 @@ public class DefaultDeck : MonoBehaviour
         
         foreach(CardData card in playerDeck) deckQueue.Enqueue(card);
     }
-
-    public void DrawCard()
-    {
-        if (deckQueue.Count <= 0) return;
-        card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
-        Instantiate(card, hand.transform);
-
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("DrawCard");
-    }
-    public IEnumerator DrawCardCorroutine(int drawnCards)
-    {
-        card.GetComponent<CardInspection>().enabled = false;
-
-        for (int j = 0; j < drawnCards; j++)
-        {
-            DrawCard();
-            yield return new WaitForSeconds(0.2f);
-            if (deckQueue.Count <= 0) break;
-        }
-
-        foreach(Transform card in hand.transform)
-        {
-            card.gameObject.GetComponent<CardInspection>().enabled = true;
-        }
-
-        card.GetComponent<CardInspection>().enabled = true;
-    }
-    public IEnumerator DiscardCorroutine()
-    {
-        while (hand.transform.childCount > 0)
-        {
-            if(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData.GetType() != typeof(Attack)) 
-                deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
-            Destroy(hand.transform.GetChild(0).gameObject);
-            yield return new WaitForSeconds(0.3f);
-        }
-
-        Debug.Log("Salió del bucle");
-    }
     public void Shuffle()
     { 
         for(int i = 0; i < playerDeck.Count; i++)
@@ -88,5 +49,53 @@ public class DefaultDeck : MonoBehaviour
         }
 
         return false;
+    }
+
+    #region Card Drawing Methods
+    public void DrawCard()
+    {
+        if (deckQueue.Count <= 0) return;
+        card.GetComponent<CardDisplay>().cardData = deckQueue.Dequeue();
+        Instantiate(card, hand.transform);
+
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("DrawCard");
+    }
+    public IEnumerator DrawCardCorroutine(int drawnCards)
+    {
+        for (int j = 0; j < drawnCards; j++)
+        {
+            DrawCard();
+            yield return new WaitForSeconds(0.2f);
+            if (deckQueue.Count <= 0) break;
+        }
+
+        SetInspection(true);
+    }
+    public void StartDrawCoroutine(int drawnCards)
+    {
+        StartCoroutine(DrawCardCorroutine(drawnCards));
+    }
+    public IEnumerator DiscardCorroutine()
+    {
+        while (hand.transform.childCount > 0)
+        {
+            if (hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData.GetType() != typeof(Attack))
+                deckQueue.Enqueue(hand.transform.GetChild(0).GetComponent<CardDisplay>().cardData);
+            Destroy(hand.transform.GetChild(0).gameObject);
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        Debug.Log("Salió del bucle");
+    }
+    #endregion
+    #region Card Inspection Control
+    public void SetInspection(bool inspect)
+    {
+        foreach (Transform card in hand.transform) card.GetComponent<CardInspection>().canInspect = inspect;
+    }
+    #endregion
+    private void Update()
+    {
+        if (deckQueue.Count <= 0) GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     }
 }

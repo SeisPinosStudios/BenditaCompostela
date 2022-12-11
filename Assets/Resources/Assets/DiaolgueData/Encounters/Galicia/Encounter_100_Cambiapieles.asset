@@ -13,25 +13,36 @@ MonoBehaviour:
   m_Name: Encounter_100_Cambiapieles
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1Joven e insolente peregrino! \xBFTe has atrevido a acercarte a un oso? En
-    ese caso, he de confesar, que los osos no hablan. Evidentemente, soy un humano."
-  - "No podr\xE1s negarme que mi atuendo es convincente, al resto de animales se
-    lo parece. "
-  - "\xBFQu\xE9 te ocurre? \xBFPor qu\xE9 me miras as\xED? Es como si me estuvieras
-    juzgando. No es la primera vez que ves a otras personas disfraz\xE1ndose de mam\xEDferos.
-    Es imposible. "
-  - "Es algo bastante com\xFAn, lo hace mucha gente. Es una forma, de expresarse
-    como cualquier otra. No hacemos da\xF1o a nadie. "
-  - "Mira chico, d\xE9jame vivir, te ofrezco esto y haces como si nunca me hubieras
-    visto \xBFTe parece? "
-  - "\xA1Pero espera! \xBFQu\xE9 te crees? \xBFQue te lo iba a dar gratis? "
-  - "Antes de eso, te explico. Como entender\xE1s. La dieta que siguen mis compa\xF1eros
-    es dif\xEDcil de digerir para nosotros, los humanos."
-  - "As\xED que, agradecer\xEDa que, a cambio de estas suculentas recompensas, me
-    dieras algo que pudiera comer. "
+  - "OSO PARLANCH\xCDN\n\xA1Joven e insolente peregrino! \xBFTe has atrevido a acercarte
+    a un oso? En ese caso, he de confesar, que los osos no hablan. Evidentemente,
+    soy un humano."
+  - "OSO PARLANCH\xCDN\nNo podr\xE1s negarme que mi atuendo es convincente, al resto
+    de animales se lo parece. "
+  - "OSO PARLANCH\xCDN\n\xBFQu\xE9 te ocurre? \xBFPor qu\xE9 me miras as\xED? Es
+    como si me estuvieras juzgando. No es la primera vez que ves a otras personas
+    disfraz\xE1ndose de mam\xEDferos. Es imposible. "
+  - "OSO PARLANCH\xCDN\nEs algo bastante com\xFAn, lo hace mucha gente. Es una forma,
+    de expresarse como cualquier otra. No hacemos da\xF1o a nadie. "
+  - "OSO PARLANCH\xCDN\nMira chico, d\xE9jame vivir, te ofrezco esto y haces como
+    si nunca me hubieras visto \xBFTe parece? "
+  - "OSO PARLANCH\xCDN\n\xA1Pero espera! \xBFQu\xE9 te crees? \xBFQue te lo iba a
+    dar gratis? "
+  - "OSO PARLANCH\xCDN\nAntes de eso, te explico. Como entender\xE1s. La dieta que
+    siguen mis compa\xF1eros es dif\xEDcil de digerir para nosotros, los humanos."
+  - "OSO PARLANCH\xCDN\nAs\xED que, agradecer\xEDa que, a cambio de estas suculentas
+    recompensas, me dieras algo que pudiera comer. "
+  - 'Aceptar trato: pierdes <color=#c28b38>2 cartas objeto aleatorias</color>, recuperas
+    <color=#99322b>5 puntos de vida</color>.
+
+    Rechazar trato: combate contra
+    cambiapieles.'
   responses:
-  - responseText: Ea, un poquito pan.
+  - responseText: "Aqu\xED tienes, buen churrusco. "
     dialogueObject: {fileID: 11400000, guid: 3d6005b2e83e016449fb68116d0a583f, type: 2}
-  - responseText: No tengo nada...
+    conditions: 04000000
+    conditionsValue: 02000000
+  - responseText: "Mejor me voy, que se\xF1or m\xE1s raro. "
     dialogueObject: {fileID: 11400000, guid: 011c52844a8cafd469214a0a586d2d04, type: 2}
-  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}

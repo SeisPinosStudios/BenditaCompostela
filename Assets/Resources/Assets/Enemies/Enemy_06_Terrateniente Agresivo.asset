@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Terrateniente agresivo
   sprite: {fileID: 21300000, guid: 33871f2380c85fd42a73fbf59286c104, type: 3}
-  HP: 60
+  enemyAnimatorController: {fileID: 22100000, guid: e86b367a1c8afef4997b1c9a9c80b07a, type: 2}
+  HP: 70
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
+  - {fileID: 11400000, guid: 99bde669ab9fe7f40894a3ecec4e47c9, type: 2}
   - {fileID: 11400000, guid: 12921f3c81fd3e54aa46ffa923665167, type: 2}
-  boss: 0
-  resistances: 
+  - {fileID: 11400000, guid: 12921f3c81fd3e54aa46ffa923665167, type: 2}
+  - {fileID: 11400000, guid: 12921f3c81fd3e54aa46ffa923665167, type: 2}
+  passives: 06000000
   reward: 6

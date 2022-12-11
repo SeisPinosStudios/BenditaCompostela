@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Encounter_061_Herrero
   m_EditorClassIdentifier: 
   dialogue:
-  - "Aqu\xED tienes muchacho. Que Dios te acompa\xF1e lo que resta de tu camino. "
+  - "HERRERO HORACIO\nAqu\xED tienes muchacho. Que Dios te acompa\xF1e lo que resta
+    de tu camino. "
+  - 'Has perdido <color=#6a7f91>1 arma aleatoria</color>.
+
+    Has obtenido <color=#c49a16>10
+    monedas</color>.'
   responses: []
-  character: {fileID: 21300000, guid: 702289f6f457ada438c875066a0f51d0, type: 3}
+  character: {fileID: 21300000, guid: 16fe2730741ab784d844e9bd352a6888, type: 3}

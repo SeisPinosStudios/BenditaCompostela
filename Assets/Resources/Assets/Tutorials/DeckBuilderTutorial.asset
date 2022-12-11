@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
+  m_Name: DeckBuilderTutorial
+  m_EditorClassIdentifier: 
+  text:
+  - "Esta es la pantalla de creaci\xF3n de mazos. En esta pantalla podr\xE1s personalizar
+    tu mazo con las cartas que hayas ido obteniendo a lo largo de la aventura."
+  - "En esta secci\xF3n de la izquierda aparecer\xE1n aquellas cartas que tengas
+    disponibles en tu inventario. Para a\xF1adir una carta a tu mazo s\xF3lo tienes
+    que pulsar encima. Si la carta desaparece significa que ya no te quedan m\xE1s
+    copias."
+  - "En la barra de la derecha aparecer\xE1n las cartas que ya tienes dentro de tu
+    mazo. Si quieres retirar una carta de tu mazo s\xF3lo tendr\xE1s que pulsar encima
+    de su nombre y volver\xE1 a la zona de selecci\xF3n de cartas."
+  - "Una vez hayas terminado tu mazo puedes darle al bot\xF3n de listo para volver
+    al mapa y continuar con tu viaje."
+  x:
+  - 0
+  - -300
+  - 600
+  - 600
+  y:
+  - 0
+  - 400
+  - 400
+  - -400

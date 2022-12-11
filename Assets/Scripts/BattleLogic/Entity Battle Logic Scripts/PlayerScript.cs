@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,8 +11,8 @@ public class PlayerScript : Entity
     public Player playerData;
     public Weapon weapon;
     public List<CardData> playerDeck;
-    public Armor feetArmor;
-    public Armor chestArmor;
+    public static Armor feetArmor;
+    public static Armor chestArmor;
     public GameObject enemy;
     #endregion
 
@@ -20,7 +21,9 @@ public class PlayerScript : Entity
      * synergies between the weapons and the equiped armor.
      * Pending future modifications */
     int tempDefence = 0;
-    public Armor.TSynergy activeSynergy;
+    int extraEnergy = 0;
+    public static Armor.TSynergy activeSynergy;
+    public  Armor.TSynergy synergy;
     #endregion
 
     #region Other Variables
@@ -32,15 +35,13 @@ public class PlayerScript : Entity
         PlayerConfig();
         if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            Debug.Log("Hola");
-            GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));
+            GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));            
         }
     }
     public IEnumerator OnTurnBegin()
     {
         DeactivateCombatControl();
-        currentEnergy = energy;
-        if (activeSynergy == Armor.TSynergy.ENERGY) currentEnergy += 3 * (chestArmor.upgradeLevel + 1);
+        currentEnergy = energy + extraEnergy;
         yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(5));
         this.Poison();
@@ -48,8 +49,15 @@ public class PlayerScript : Entity
     }
     public IEnumerator OnTurnEnd()
     {
+        foreach (Transform child in GameObject.Find("HandPanel").transform) child.GetComponent<CardInspection>().canInspect = false;
         DeactivateCombatControl();
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
+        Burn();
+        if (Suffering(CardData.TAlteredEffects.BURN))
+        {
+            yield return new WaitForSeconds(1);
+            if (IsDead()) yield return new WaitForSeconds(2);
+        }
         GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().Turn();
     }
     public void PlayerConfig()
@@ -63,8 +71,8 @@ public class PlayerScript : Entity
         playerDeck = playerData.playerDeck;
         chestArmor = playerData.chestArmor;
         feetArmor = playerData.feetArmor;
-        if (chestArmor != null) defence += chestArmor.defenseValue;
-        if (feetArmor != null) defence += feetArmor.defenseValue;
+        if (chestArmor != null) defense += chestArmor.defenseValue;
+        if (feetArmor != null) defense += feetArmor.defenseValue;
     }
     public void ActivateCombatControl()
     {
@@ -99,14 +107,16 @@ public class PlayerScript : Entity
     }
     public void CheckForSynergy()
     {
-        defence -= tempDefence;
+        defense -= tempDefence;
         damageBoost = 0;
         extraHealing = 0;
+        extraEnergy = 0;
 
         ChestSynergy();
         FeetSynergy();
 
-        defence += tempDefence;
+        defense += tempDefence;
+        synergy = activeSynergy;
     }
     public void ChestSynergy()
     {
@@ -156,8 +166,19 @@ public class PlayerScript : Entity
                     case "HEALING":
                         extraHealing += (1+feetArmor.upgradeLevel);
                         break;
+                    case "ENERGY":
+                        extraEnergy += (2 + feetArmor.upgradeLevel);
+                        break;
                 }
             }
         }
+    }
+    public CardData GetStolableCard()
+    {
+        var specialDeck = playerDeck.Where((card) => card.GetType() == typeof(Special)).ToList().OfType<Special>().Where((card) => card.effects.Contains(CardData.TEffects.rHEALTH) || card.effects.Contains(CardData.TEffects.CLEANSE) || card.effects.Length == 0).ToList().OfType<CardData>();
+        var objectDeck = playerDeck.Where((card) => card.GetType() == typeof(ObjectCard)).ToList().OfType<ObjectCard>().Where((card) => card.effects.Contains(CardData.TEffects.rHEALTH) || card.effects.Contains(CardData.TEffects.CLEANSE) || card.effects.Length == 0).ToList().OfType<CardData>();
+        var deck = specialDeck.Concat(objectDeck).ToList();
+
+        return deck[Random.Range(0, deck.Count)];
     }
 }

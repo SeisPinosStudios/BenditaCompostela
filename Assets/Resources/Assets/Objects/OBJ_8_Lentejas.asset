@@ -16,7 +16,9 @@ MonoBehaviour:
   description: Limpia todos los efectos de estado que sufras.
   artwork: {fileID: 21300000, guid: ca3b76eab5f83f147901f32357d3f6cf, type: 3}
   cost: 5
+  money: 8
   alteredEffects: 
   aEffectValues: 
   effects: 0500000000000000
   eValues: 0000000004000000
+  zone: 2

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe9e245a00589547aff00c12d5416ef, type: 3}
+  m_Name: ShopTutorial
+  m_EditorClassIdentifier: 
+  text:
+  - "Esta es la tienda, aqu\xED podr\xE1s adquirir nuevas cartas y equipamiento que
+    te permitan avanzar en tu aventura."
+  - "El n\xFAmero debajo de las cartas indica su coste en monedas. \xA1Si no tienes
+    suficientes monedas no podr\xE1s comprarlas!"
+  - "Hay tres tipos de cartas que puedes comprar: cartas de objeto, armas y cartas
+    <b>especiales</b>. Las cartas especiales son muy poderosas en batalla, pero cuentan
+    con <b>un \xFAnico uso</b>. Piensa bien cu\xE1ndo y c\xF3mo utilizarlas para
+    sacarles el m\xE1ximo partido."
+  - "A la izquierda aparecer\xE1n mejoras para las armas y armaduras que tengas.
+    Estas mejoras son muy importantes para que puedas avanzar correctamente en tu
+    aventura."
+  - "Puedes acceder a tu inventario de cartas y equipamiento a trav\xE9s de la mochila
+    en caso de que necesites revisar tus herramientas de batalla antes de tomar una
+    decisi\xF3n."
+  - "\xA1Las decisiones que tomes aqu\xED ser\xE1n determinantes para el devenir
+    del futuro de tu aventura, as\xED que t\xF3mate tu tiempo!"
+  x:
+  - 0
+  - 600
+  - 600
+  - -600
+  - -600
+  - 0
+  y:
+  - 0
+  - -400
+  - -400
+  - 400
+  - -400
+  - 0

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: ARM_042_EscarpeComun
   m_EditorClassIdentifier: 
   name: "Escarpe com\xFAn ++"
-  description: 
+  description: "Protege 3.<br>Sinergia con <color=#9B4633>Espada</color>: <color=#308a36>+2</color>
+    de da\xF1o con ataques de arma."
   artwork: {fileID: 21300000, guid: b87ec8cdaa7b1a040a72ee6cda3496f2, type: 3}
   cost: 0
+  money: 30
   defenseValue: 3
   damageBonus: 2
   extraDefence: 0
@@ -27,4 +29,5 @@ MonoBehaviour:
   synergy: 0
   upgradeLevel: 2
   improvedArmor: {fileID: 0}
+  previousArmor: {fileID: 11400000, guid: 51fe3b9e549aa8944be20f359e1d8d35, type: 2}
   armorId: 1

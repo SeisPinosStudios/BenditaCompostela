@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Invasi\xF3n"
   description: "Realiza 14 puntos de da\xF1o y aplica Aturdirx1 Sangradox2"
-  artwork: {fileID: 21300000, guid: b339e8f36a97232479d740afb0180d04, type: 3}
+  artwork: {fileID: 21300000, guid: f871329d048c9f74ea0ceae1ec9339f0, type: 3}
   cost: 0
-  damage: 14
-  alteredEffects: 0600000000000000
-  aEffectValues: 0100000002000000
+  money: 0
+  enemy: 1
+  damage: 12
+  alteredEffects: 06000000
+  aEffectValues: 02000000
   effects: 
   eValues: 
+  zone: 0

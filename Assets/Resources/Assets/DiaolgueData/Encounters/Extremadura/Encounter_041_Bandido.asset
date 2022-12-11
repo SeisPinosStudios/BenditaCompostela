@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Encounter_041_Bandido
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1Un placer hacer negocios!"
+  - "BANDIDO BANDERAS\n\xA1Un placer hacer negocios!"
+  - 'Has perdido <color=#99322b>10 puntos de vida</color>.
+
+    Has obtenido <color=#c49a16>20
+    monedas</color>.'
   responses: []
-  character: {fileID: 21300000, guid: 8b89400f7219445499d5e87c644615a6, type: 3}
+  character: {fileID: 21300000, guid: 4e8978448c353d04da05d559902139be, type: 3}

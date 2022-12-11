@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Podenco andaluz
   sprite: {fileID: 21300000, guid: 4ea3d437550bf5d4ba4644b1964ebbd9, type: 3}
-  HP: 20
+  enemyAnimatorController: {fileID: 22100000, guid: e4a0cb0af8408584fb4defa8c26c53e1, type: 2}
+  HP: 30
   energy: 99
   enemyAttacks:
   - {fileID: 11400000, guid: a94e9b42dc94068498b2bcc402eaaac8, type: 2}
-  boss: 0
-  resistances: 
+  passives: 
   reward: 5

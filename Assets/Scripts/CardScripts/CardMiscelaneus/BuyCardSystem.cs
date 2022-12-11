@@ -9,21 +9,17 @@ public class BuyCardSystem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     int cost;
     bool inCard;
     GameObject shopText;
+    public TextMeshProUGUI costText;
     private void Awake()
     {
+        costText.text = "x" + GetComponent<CardDisplay>().cardData.money.ToString();
         shopText = GameObject.Find("ShopTextSlot");
-        var card = GetComponent<CardDisplay>().cardData;
-
-        if (card.GetType() == typeof(Armor) || card.GetType() == typeof(Weapon)) cost = 5;
-
-        if (card.GetType() == typeof(ObjectCard)) cost = card.cost;
-
-        if (card.GetType() == typeof(Special)) cost = card.cost+2;
     }
     public void OnPointerClick(PointerEventData pointer) {
+        var card = GetComponent<CardDisplay>().cardData;
         if (pointer.button == PointerEventData.InputButton.Left)
         {
-            BuyCard(cost);
+            BuyCard(card.money);
         }
     }
     public void BuyCard(int price)
@@ -56,8 +52,9 @@ public class BuyCardSystem : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     }
     public void OnPointerEnter(PointerEventData pointerEvent)
     {
+        var card = GetComponent<CardDisplay>().cardData;
         if (inCard) return;
-        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa carta cuesta " + cost + " monedas de oro... ¿Tenemos trato?";
+        shopText.GetComponentInChildren<TextMeshProUGUI>().text = "Esa carta cuesta " + card.money + " monedas de oro... ¿Tenemos trato?";
         inCard = true;
     }
     public void OnPointerExit(PointerEventData pointerEvent)

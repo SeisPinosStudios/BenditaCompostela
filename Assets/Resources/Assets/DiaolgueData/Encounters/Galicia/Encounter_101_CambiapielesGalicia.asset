@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Encounter_101_CambiapielesGalicia
   m_EditorClassIdentifier: 
   dialogue:
-  - "Encantado de hacer negocios contigo chico. Ya sabes, t\xFA no me has visto."
+  - "OSO PARLANCH\xCDN\nEncantado de hacer negocios contigo chico. Ya sabes, t\xFA
+    no me has visto."
+  - 'Has perdido <color=#c28b38>2 cartas objeto aleatorias</color>.
+
+    Has recuperado
+    <color=#99322b>5 puntos de vida</color>.'
   responses: []
-  character: {fileID: 21300000, guid: 9967d189a362d07499b57868d4f7f1a0, type: 3}
+  character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}

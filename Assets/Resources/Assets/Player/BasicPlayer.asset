@@ -18,7 +18,6 @@ MonoBehaviour:
   coins: 10
   playerDeck: []
   inventory:
-  - {fileID: 11400000, guid: 99b8ebdf2dba15440a3375d70f1039e9, type: 2}
   - {fileID: 11400000, guid: 8ffbe4a1bec204a4c9f58804f5bd99b3, type: 2}
   - {fileID: 11400000, guid: 8b238346f9846fb4ca9f26a1d1e42ce9, type: 2}
   - {fileID: 11400000, guid: a4ccef38288e9174abbbf7ac5f1b410c, type: 2}
