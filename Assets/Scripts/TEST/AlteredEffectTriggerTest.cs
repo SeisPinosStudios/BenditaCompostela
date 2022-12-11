@@ -47,12 +47,16 @@ public class AlteredEffectTriggerTest : MonoBehaviour
         if (CharacterAnController == null) return;
         CharacterAnController.SetBool("isHealing", true);
     }
+
+    public float AnimationDelay() {
+        return CharacterAnController.GetCurrentAnimatorStateInfo(0).length;
+    }
     IEnumerator AnimationCancel(string AnBool) {
         CharacterAnController.SetBool(AnBool, false);
         yield return null;
         CharacterAnController.SetInteger("isDamagedIndex", Random.Range(0,7));
         CharacterAnController.SetBool(AnBool, true);
-        StartCoroutine(DelayedAnimation(AnBool, CharacterAnController.GetCurrentAnimatorStateInfo(0).length));
+        StartCoroutine(DelayedAnimation(AnBool, AnimationDelay()));
     }
 
     IEnumerator DelayedAnimation(string AnBool, float delay = 0) {

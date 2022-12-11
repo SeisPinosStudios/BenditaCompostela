@@ -13,13 +13,11 @@ public class CardBorderDisplay : MonoBehaviour
 
     public void CardActive() 
     {
-        Debug.Log("ACTIVE ANIMATION");
         cardAn.SetBool("isActive", true);
     }
 
     public void CardInactive()
     {
-        Debug.Log("INACTIVE ANIMATION");
         cardAn.SetBool("isActive", false);
     }
 

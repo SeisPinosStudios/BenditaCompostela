@@ -30,6 +30,11 @@ public class Entity : MonoBehaviour
     public GameObject passivePrefab;
     #endregion
 
+    #region Dead Fade Variables
+    public float fadeDuration;
+    public Image[] imageList;
+    #endregion
+
     #region Entity Setup
     public void SetupEntity()
     {
@@ -43,7 +48,7 @@ public class Entity : MonoBehaviour
         {
             Debug.Log(effect.Key + " - " + effect.Value);
         }
-    }
+    } 
     #endregion
 
     #region Basic Entity Logic Methods
@@ -88,7 +93,33 @@ public class Entity : MonoBehaviour
 
         if (this.GetType() == typeof(PlayerScript)) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
-        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
+        if (IsDead()) StartCoroutine(Fade());                    
+            
+    }
+    private IEnumerator Fade()
+    {        
+        Color[] initialColor = new Color[imageList.Length];
+        Color[] targetColor = new Color[imageList.Length];
+        for (int i = 0; i < imageList.Length; i++)
+        {
+            initialColor[i] = imageList[i].color;
+            targetColor[i] = new Color(initialColor[i].r, initialColor[i].g, initialColor[i].b, 0f);
+            if (imageList[i].gameObject.TryGetComponent(out Animator anController)) anController.enabled = false;
+        }       
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            for (int i = 0; i < imageList.Length; i++)
+            {                
+                imageList[i].color = Color.Lerp(initialColor[i], targetColor[i], elapsedTime / fadeDuration);
+                Debug.Log("IMAGEN EN FADE: " + imageList[i] + "  || COLOR: " + imageList[i].color);
+            }            
+            yield return null;
+        }
+        GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
     }
     public void SufferEffectDamage(int damage)
     {
@@ -99,7 +130,7 @@ public class Entity : MonoBehaviour
 
         if (IsPlayer()) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 
-        if (IsDead()) GameObject.Find("GameManager").GetComponent<GameManager>().BattleEnd(gameObject.GetComponent<Entity>());
+        if (IsDead()) StartCoroutine(Fade());
     }
     public void RestoreHealth(int healthRestored)
     {
@@ -113,8 +144,7 @@ public class Entity : MonoBehaviour
     }
     public bool IsDead()
     {
-        if (this.currentHP <= 0) return true;
-        else return false;
+        return this.currentHP <= 0;        
     }
     #endregion
 
@@ -223,26 +253,30 @@ public class Entity : MonoBehaviour
         poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, limit);
         var effectCharges = poisonTurns;
 
-        SufferEffectDamage(effectCharges);
-
         animationTrigger.Poisoned();
+        StartCoroutine(PoisonSufferEffectDamage(animationTrigger.AnimationDelay(), effectCharges));
 
+        
+    }
+
+    private IEnumerator PoisonSufferEffectDamage(float delay, int effectCharges)
+    {
+        yield return new WaitForSeconds(delay);
+        SufferEffectDamage(effectCharges);
         ReduceAlteredEffect(CardData.TAlteredEffects.POISON, 1);
-
         Debug.Log("EFFECT: Poison");
     }
     public void Burn()
     {
-        if (!Suffering(CardData.TAlteredEffects.BURN)) return;
+        if (!Suffering(CardData.TAlteredEffects.BURN)) return;        
+        animationTrigger.OnFire();        
+        StartCoroutine(BurnSufferEffectDamage(animationTrigger.AnimationDelay()));        
+    }
 
-        var effectCharges = alteredEffects[CardData.TAlteredEffects.BURN];
-
+    private IEnumerator BurnSufferEffectDamage(float delay) {        
+        yield return new WaitForSeconds(delay);        
         SufferEffectDamage((int)GetBurn());
-
-        animationTrigger.OnFire();
-
         RemoveAlteredEffect(CardData.TAlteredEffects.BURN);
-
         Debug.Log("EFFECT: Burn");
     }
     public bool Disarmed()

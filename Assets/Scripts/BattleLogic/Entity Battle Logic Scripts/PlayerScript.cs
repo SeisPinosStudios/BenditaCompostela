@@ -33,7 +33,7 @@ public class PlayerScript : Entity
         PlayerConfig();
         if (SceneManager.GetActiveScene().name == "BattleScene")
         {
-            GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));
+            GameObject.Find("TurnButton").GetComponent<Button>().onClick.AddListener(() => StartCoroutine(OnTurnEnd()));            
         }
     }
     public IEnumerator OnTurnBegin()
@@ -51,6 +51,9 @@ public class PlayerScript : Entity
         foreach (Transform child in GameObject.Find("HandPanel").transform) child.GetComponent<CardInspection>().canInspect = false;
         DeactivateCombatControl();
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DiscardCorroutine());
+        Burn();
+        if (Suffering(CardData.TAlteredEffects.BURN)) yield return new WaitForSeconds(1);
+        if (IsDead()) yield return new WaitForSeconds(2);
         GameObject.Find("TurnSystem").GetComponent<TurnSystemScript>().Turn();
     }
     public void PlayerConfig()
