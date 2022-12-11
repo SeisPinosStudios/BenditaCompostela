@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 92af0321f69976346bb42b48ca31d0e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 114ecc9a7cbda3f48bcc5f0f0512243b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1965,8 +1965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030994, y: 87.2668}
-  m_SizeDelta: {x: 563.6343, y: 129.2666}
+  m_AnchoredPosition: {x: 0.000030994, y: 56.111015}
+  m_SizeDelta: {x: 563.6343, y: 191.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732652689
 MonoBehaviour:
@@ -1988,17 +1988,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Se ha detectado una partida existente\n\n\xBFQu\xE9 quieres hacer?"
+  m_text: "Se ha detectado una partida existente\n\xBFQu\xE9 quieres hacer?\n<color=red>AVISO:
+    empezar nueva partida borrar\xE1 los datos guardados\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
-  m_sharedMaterial: {fileID: 7036187232626063927, guid: b060951bc345a2d438c8e948900f8b87, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292144373
+  m_fontColor: {r: 0.9607843, g: 0.9254902, b: 0.83137256, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2563,8 +2564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.23412, y: -86.78897}
-  m_SizeDelta: {x: 230.1966, y: 94.2218}
+  m_AnchoredPosition: {x: -150, y: -100}
+  m_SizeDelta: {x: 225, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829527078
 MonoBehaviour:
@@ -2654,8 +2655,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b12a1f43070dd4e498c7f4601351240f, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3213,8 +3214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171.7, y: -86.789}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 150, y: -100}
+  m_SizeDelta: {x: 225, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1263340524
 MonoBehaviour:
@@ -3304,8 +3305,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b12a1f43070dd4e498c7f4601351240f, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4127,8 +4128,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cargar datos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4152,10 +4153,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 32
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4188,7 +4189,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 8, y: 8, z: 8, w: 8}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4797,7 +4798,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 584168b6fb9018247ba8a0558748fa15, type: 3}
   shopMusic: {fileID: 8300000, guid: 6a4bed45e57abe04d8baf98608d9a796, type: 3}
   audioSource: {fileID: 0}
-  battleEndMusic: []
+  battleEndMusic:
+  - {fileID: 8300000, guid: 64d63efced602724f92a58432e22e779, type: 3}
+  - {fileID: 8300000, guid: 23633e33018039b41a94bcbf70e5b2f7, type: 3}
 --- !u!1 &1820426476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,10 +4859,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Borrar datos y empezar nueva partida
+  m_text: Nueva partida
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4883,10 +4886,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 32
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4919,7 +4922,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 8, y: 8, z: 8, w: 8}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -16,10 +16,9 @@ public class GameManager : MonoBehaviour
     #region Game Context And Map Nodes    
     public static List<int> completedNodes = new List<int>();
     public static int currentNode;
-
     public static bool auxInitialize = true;
-
     public static int gameProgressContext = 0;
+    public static bool firstTutorial = false;
     #endregion
 
     #region Tutorial
@@ -82,7 +81,7 @@ public class GameManager : MonoBehaviour
     }
     public void Update()
     {
-        GetBackground();
+        //GetBackground();
 
         if (SceneManager.GetActiveScene().name == "Cinematic_1" && GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Stop();
 
@@ -122,7 +121,6 @@ public class GameManager : MonoBehaviour
         musicManager.BattleMusic();
     }
     #endregion
-
 
     #region Game Data
     public static void SaveGame()
@@ -216,6 +214,8 @@ public class GameManager : MonoBehaviour
         GameManager.ActualRoute = PlayerPrefs.GetString("route");
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
 
+        firstTutorial = true;
+
         Debug.Log("Data loaded");
     }
     public static bool HasSavedData()
@@ -233,6 +233,7 @@ public class GameManager : MonoBehaviour
         ActualRoute = "Sevilla";
         completedNodes.Clear();
         gameProgressContext = 0;
+        firstTutorial = false;
     }
     #endregion
 
@@ -272,6 +273,10 @@ public class GameManager : MonoBehaviour
         }
 
         if (SceneManager.GetActiveScene().name == "BattleScene" && nextEnemy.name == "Santiago") activeBackground = backgrounds[4];
+    }
+    public static void SetActiveBackground(Sprite background)
+    {
+        activeBackground = background;
     }
     public void BattleEnd(Entity loser)
     {

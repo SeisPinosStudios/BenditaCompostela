@@ -26,6 +26,7 @@ public class TutorialManager : MonoBehaviour
 
     public static void ShowTutorial(string tutorialName)
     {
+        GameManager.firstTutorial = true;
         showingTutorial = true;
         if(text != null) Destroy(text);
         if (!tutorialDictionary.ContainsKey(tutorialName)) return;
@@ -50,6 +51,7 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && showingTutorial) ProgressTutorial();
+        if (!showingTutorial && !GameManager.firstTutorial && SceneManager.GetActiveScene().name == "Sevilla") ShowTutorial("map");
     }
 
     public static bool IsShowing()

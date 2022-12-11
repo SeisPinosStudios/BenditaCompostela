@@ -128,7 +128,7 @@ public class BattleWonScript : MonoBehaviour
                 GameManager.NewRoute();
                 break;
             case 3:
-                SceneManager.LoadScene("FinalScene");
+                SceneManager.LoadScene("FinalCinematic");
                 break;
         }
 

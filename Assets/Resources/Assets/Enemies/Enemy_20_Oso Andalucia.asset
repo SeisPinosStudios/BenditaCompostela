@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Oso
   sprite: {fileID: 21300000, guid: 9ef8b563c2c2e1b49a26245cb0c5d301, type: 3}
-  enemyAnimatorController: {fileID: 22100000, guid: 492545735be883647b3d218b13387c80, type: 2}
+  enemyAnimatorController: {fileID: 22100000, guid: 9e17acdbf4c303d4eb888a4b6b568a80, type: 2}
   HP: 50
   energy: 99
   enemyAttacks:

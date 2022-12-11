@@ -91,4 +91,9 @@ public class TurnSystemScript : MonoBehaviour
         dialogueIndex++;
         Tutorial();
     }
+
+    public void Update()
+    {
+        background.sprite = GameManager.activeBackground;
+    }
 }

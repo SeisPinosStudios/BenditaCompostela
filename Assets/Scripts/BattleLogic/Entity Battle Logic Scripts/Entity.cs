@@ -258,7 +258,6 @@ public class Entity : MonoBehaviour
 
         
     }
-
     private IEnumerator PoisonSufferEffectDamage(float delay, int effectCharges)
     {
         yield return new WaitForSeconds(delay);
@@ -272,7 +271,6 @@ public class Entity : MonoBehaviour
         animationTrigger.OnFire();        
         StartCoroutine(BurnSufferEffectDamage(animationTrigger.AnimationDelay()));        
     }
-
     private IEnumerator BurnSufferEffectDamage(float delay) {        
         yield return new WaitForSeconds(delay);        
         SufferEffectDamage((int)GetBurn());
@@ -288,7 +286,6 @@ public class Entity : MonoBehaviour
     }
     public int Vulnerable(int damage)
     {
- 
         if (!Suffering(CardData.TAlteredEffects.VULNERABLE)) return damage; 
 
         Debug.Log("EFFECT: Vulnerable");

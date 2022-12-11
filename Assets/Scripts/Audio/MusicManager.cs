@@ -9,58 +9,60 @@ public class MusicManager : MonoBehaviour
     public List<AudioClip> songs;
     public List<AudioClip> battleMusic;
     public AudioClip shopMusic;
-    public AudioSource audioSource;
     public List<AudioClip> battleEndMusic;
+    public AudioSource audioSource;
     string scene;
     float delay = 1.0f;
 
     public void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = songs[0];
-        audioSource.Play();
         audioSource.volume = GameManager.musicVolume;
         audioSource.loop = false;
+        PlayClip(songs[0]);
     }
 
     public void NextSong()
     {
-        audioSource.clip = songs[Random.Range(0, songs.Count)];
-        audioSource.PlayDelayed(delay);
+        Debug.Log("NEXT SONG");
+        PlayClip(songs[Random.Range(0, songs.Count)]);
     }
     public void ShopMusic()
     {
         audioSource.Stop();
-        audioSource.clip = shopMusic;
-        audioSource.PlayDelayed(delay);
+        StartCoroutine(PlayClip(shopMusic));
     }
     public void BattleMusic()
     {
         audioSource.Stop();
-        audioSource.clip = GameManager.nextEnemy.name == "Santiago" ? battleMusic[1] : battleMusic[0];
-        audioSource.PlayDelayed(delay);
+        PlayClip(GameManager.nextEnemy.name == "Santiago" ? battleMusic[1] : battleMusic[0]);
     }
     public void PlayBattleEnd(bool won)
     {
         audioSource.Stop();
-        audioSource.clip = won ? battleEndMusic[0] : battleEndMusic[1];
-        audioSource.PlayDelayed(delay);
+        PlayClip(won ? battleEndMusic[0] : battleEndMusic[1]);
     }
     public void StopSong()
     {
         audioSource.Stop();
     }
-
     public void SetVolume(float volume)
     {
         audioSource.volume = volume;
     }
+    IEnumerator PlayClip(AudioClip song)
+    {
+        Debug.Log("PLAYING CLIP" + song.name);
+        audioSource.clip = song;
+        yield return new WaitForSeconds(1.0f);
+        audioSource.Play();
+        yield return new WaitForSeconds(song.length);
+        NextSong();
+    }
 
     private void Update()
     {
-        if (audioSource.isPlaying) return;
-
-        if (SceneManager.GetActiveScene().name == "BattleScene") BattleMusic();
-        else NextSong();
+        if (SceneManager.GetActiveScene().name == "BattleScene" && !audioSource.isPlaying) BattleMusic();
+        else if (!audioSource.isPlaying) NextSong();
     }
 }

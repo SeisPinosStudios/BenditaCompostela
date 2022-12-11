@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Agricultor enfurecido
   sprite: {fileID: 21300000, guid: 7a1eff4a9825dc84fa4365b46458f5da, type: 3}
-  enemyAnimatorController: {fileID: 0}
+  enemyAnimatorController: {fileID: 22100000, guid: 55494e60a03763149a4eb24d5ca93b8b, type: 2}
   HP: 45
   energy: 99
   enemyAttacks:

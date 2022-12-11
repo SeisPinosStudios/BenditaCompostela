@@ -9,6 +9,7 @@ public class MapPathSelector : MonoBehaviour
     private void Start()
     {        
         UpdateMap();
+        GameObject.Find("GameManager").GetComponent<GameManager>().GetBackground();
     }
 
     public void ActivateNextNodes()
