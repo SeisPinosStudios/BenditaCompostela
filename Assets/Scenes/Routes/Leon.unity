@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: dd38741ea547f8e4d98ccf83dff5e60b, type: 2}
+      objectReference: {fileID: 11400000, guid: c1b3797f5d6da0c4ba4b9a850c29af85, type: 2}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
@@ -4695,7 +4695,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.33765563
+  m_Size: 0.33771822
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

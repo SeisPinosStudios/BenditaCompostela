@@ -92,10 +92,10 @@ public class Entity : MonoBehaviour
     }
     public void SufferEffectDamage(int damage)
     {
-        damage = Invulnerable(damage);
         if (passives.Contains(Enemy.Passive.SANTIAGO)) damage = Mathf.Clamp(damage - 2, 0, 99);
         if (BossDebuff(Enemy.Passive.SANTIAGO_2)) damage += 3;
-        this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+        damage = Invulnerable(damage);
+        currentHP = Mathf.Clamp(currentHP - damage, 0, HP);
 
         if (IsPlayer()) GameObject.Find("AudioManager").GetComponent<AudioManager>().PlaySound("CharacterDamage");
 

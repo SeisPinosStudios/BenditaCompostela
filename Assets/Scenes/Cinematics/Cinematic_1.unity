@@ -1035,7 +1035,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://seispinosstudios.github.io/BenditaCompostela_art/cinematica_ruta1.mp4
+  m_Url: https://seispinosstudios.github.io/BenditaCompostela_art/C_02_OpenWindow.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -1265,7 +1265,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://seispinosstudios.github.io/BenditaCompostela_art/cinematica2.mp4
+  m_Url: https://seispinosstudios.github.io/BenditaCompostela_art/C_02_OpenWindow.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1

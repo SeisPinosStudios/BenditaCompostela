@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyingObject: {fileID: 619096891399882603}
+  audioManager: {fileID: 0}
 --- !u!1 &619096891473799441
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,12 +709,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestArmor:
-  - {fileID: 21300000, guid: 3425a28d8b8739246822340540e3e653, type: 3}
-  - {fileID: 21300000, guid: 244ad7ddce1b4844cbb64101d4cef630, type: 3}
-  - {fileID: 21300000, guid: 5155129adb089ae4a8b707ce284c99e3, type: 3}
-  - {fileID: 21300000, guid: 91d89e1c05246074f9d364229302197b, type: 3}
-  - {fileID: 21300000, guid: 89cc59f19413e0342a11372f560256d1, type: 3}
-  - {fileID: 21300000, guid: 921681498548d8541b8b3cad7215f0ea, type: 3}
+  - {fileID: -1418711077, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
+  - {fileID: 35832405, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
+  - {fileID: 482537517, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
+  - {fileID: -1762178356, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
+  - {fileID: -960149315, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
+  - {fileID: -1356125637, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
   feetArmor:
   - {fileID: 21300000, guid: 6c23681cd42200841a050b141cfa4e4d, type: 3}
   - {fileID: 21300000, guid: 53400e40da2bc7d4892560e9adb54c80, type: 3}
@@ -1031,7 +1032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3425a28d8b8739246822340540e3e653, type: 3}
+  m_Sprite: {fileID: -1418711077, guid: ae9edf8c67edbfe4bb78a2a506972338, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

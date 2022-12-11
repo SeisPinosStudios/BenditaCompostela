@@ -114,7 +114,7 @@ public class CardDisplay : MonoBehaviour
     public void Cost()
     {
         var cardCost = cardData.cost;
-        if (InBattle() && user.Suffering(CardData.TAlteredEffects.CONFUSED)) cost.text = "<color=red>" + (cardCost.ToString()+1) + "</color>";
+        if (InBattle() && user.Suffering(CardData.TAlteredEffects.CONFUSED)) cost.text = "<color=red>" + (cardCost + 1).ToString() + "</color>";
         //if(InBattle()) cost.text = user.Suffering(CardData.TAlteredEffects.CONFUSED) ? (cardData.cost + 1).ToString() : cardData.cost.ToString();
         else cost.text = cardCost.ToString();
     }

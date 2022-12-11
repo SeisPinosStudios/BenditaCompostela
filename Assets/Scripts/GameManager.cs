@@ -137,14 +137,12 @@ public class GameManager : MonoBehaviour
         foreach (CardData card in playerData.inventory)
         {
             var cardData = CardDataFilter.allCards().Find(cardData => cardData.name == card.name);
-            Debug.Log(CardDataFilter.allCards().IndexOf(cardData));
             inventoryData.Append(CardDataFilter.allCards().IndexOf(cardData) + "\n");
         }
 
         foreach (CardData card in playerData.playerDeck)
         {
             var cardData = CardDataFilter.allCards().Find(cardData => cardData.name == card.name);
-            Debug.Log(CardDataFilter.allCards().IndexOf(cardData));
             playerDeckData.Append(CardDataFilter.allCards().IndexOf(cardData) + "\n");
         }
 
@@ -153,9 +151,7 @@ public class GameManager : MonoBehaviour
 
         foreach (int node in completedNodes)
         {
-            Debug.Log(node);
             completedNodesData.Append(node + "\n");
-            Debug.Log(completedNodesData.ToString());
         }
 
         PlayerPrefs.SetString("inventoryData", inventoryData.ToString());

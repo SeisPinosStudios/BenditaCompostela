@@ -21,10 +21,11 @@ public class DialogueActivator : MonoBehaviour, IInterctable
     }
     [SerializeField] public DialogueObject dialogueObject;
     public void Interact(DialogTriggerScript dialogTriggerScript) {
-        foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+        foreach (DialogueResponseEvents responseEvents in gameObject.GetComponents<DialogueResponseEvents>())
         {
             if (responseEvents.dialogueObject == dialogueObject)
             {
+
                 dialogTriggerScript.DialogueUI.AddResponseEvents(responseEvents.Events);
                 break;
             }

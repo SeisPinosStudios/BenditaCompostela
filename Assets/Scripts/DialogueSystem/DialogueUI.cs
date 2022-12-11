@@ -18,7 +18,7 @@ public class DialogueUI : MonoBehaviour
 
     public bool IsOpen { get; private set; }
 
-    private ResponseHandler responseHandler;
+    public ResponseHandler responseHandler;
     private TypeWriterEffect typeWriterEffect;
     private void Awake()
     {
@@ -97,7 +97,8 @@ public class DialogueUI : MonoBehaviour
         else
         {
             CloseDialogBox();
-            if (response != null) response.OnPickedResponse.Invoke();
+            Debug.Log(response.name);
+            if (response != null) response.onPickedResponse.Invoke();
         }
     }
 

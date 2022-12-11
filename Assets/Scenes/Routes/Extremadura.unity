@@ -1091,27 +1091,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970d2682a597bcd469568629833396cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme_1
-    clip: {fileID: 8300000, guid: ff645c7328c0ab348a13ceb083078f4c, type: 3}
-    volume: 0
-    pitch: 0
-    source: {fileID: 0}
-  audioSources: []
+  songs: []
   battleMusic:
-    name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    source: {fileID: 0}
-  battleSource: {fileID: 0}
-  shopMusic:
-    name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    source: {fileID: 0}
-  shopSource: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shopMusic: {fileID: 0}
+  audioSource: {fileID: 0}
+  battleEndMusic: []
 --- !u!114 &209201443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,7 +2975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 821.21313}
+  m_AnchoredPosition: {x: 0, y: 821.2131}
   m_SizeDelta: {x: 1663.961, y: 2722.426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -3483,11 +3472,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3511,7 +3500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveMoney
+      value: ToSlideRoute
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3527,7 +3516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: 7be4fc428ef4ce8438c0a9bbf2ac731d, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3898,7 +3887,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
   m_Value: -0.00000007432316
-  m_Size: 0.3967043
+  m_Size: 0.39667362
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5026,7 +5015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[1].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToBattleScene
+      value: TerratenienteRechazar
       objectReference: {fileID: 0}
     - target: {fileID: 6722202979871866506, guid: e9be9a42a877a9a4aa03f74e5018e1b9, type: 3}
       propertyPath: events.Array.data[0].onPickedResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

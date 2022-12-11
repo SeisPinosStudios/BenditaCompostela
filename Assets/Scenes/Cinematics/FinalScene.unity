@@ -423,10 +423,6 @@ MonoBehaviour:
   fadeSpeed: 0.3
   fade: {fileID: 696542167}
   credits:
-  - "Y con un \xFAltimo golpe de tu fiel arma..."
-  - ...consigues derrotar al poderoso Santiago.
-  - "Con esta \xFAltima victoria..."
-  - ...llegas al final de tu viaje.
   - <sprite index=0>
   - Un juego de:<br><b>Seis Pinos Studios</b>
   - Muchas gracias, sinceras, por jugar a nuestro juego.
@@ -534,8 +530,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite index=0>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
+  m_sharedMaterial: {fileID: 7033609198620453188, guid: 9fac07f84a72e3847b4841b71fc58211, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

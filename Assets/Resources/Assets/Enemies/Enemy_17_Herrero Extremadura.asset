@@ -28,5 +28,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c6c7aa70f2673a48a2728e7782aaf78, type: 2}
   - {fileID: 11400000, guid: 2c6c7aa70f2673a48a2728e7782aaf78, type: 2}
   - {fileID: 11400000, guid: 2c6c7aa70f2673a48a2728e7782aaf78, type: 2}
-  passives: 
+  passives: 06000000
   reward: 6

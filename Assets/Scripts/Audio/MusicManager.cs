@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour
         audioSource.clip = songs[0];
         audioSource.Play();
         audioSource.volume = GameManager.musicVolume;
+        audioSource.loop = false;
     }
 
     public void NextSong()

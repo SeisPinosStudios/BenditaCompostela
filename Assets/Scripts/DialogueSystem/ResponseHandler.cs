@@ -11,7 +11,7 @@ public class ResponseHandler : MonoBehaviour
     [SerializeField] private RectTransform responseContainer;
 
     private DialogueUI dialogueUI;
-    private List<ResponseEvent> responseEvents;
+    public List<ResponseEvent> responseEvents;
 
     List<GameObject> tempResponseButtons = new List<GameObject>();
 
@@ -59,13 +59,15 @@ public class ResponseHandler : MonoBehaviour
 
         //responseEvents = null;
         if (response.DialogueObject) {
+            Debug.Log("RESPONSE EVENTS LENGTH" + responseEvents.Count);
+            Debug.Log("RESPONSE PICKED" + responseEvents[responseIndex].name);
             dialogueUI.ShowResponseDialog(response.DialogueObject, responseEvents[responseIndex]);
         }
         else
         {
-            Debug.Log("Hola");
-            Debug.Log(responseEvents[responseIndex].OnPickedResponse);
-            responseEvents[responseIndex].OnPickedResponse?.Invoke();
+            Debug.Log("RESPONSE EVENTS LENGTH" + responseEvents.Count);
+            Debug.Log("RESPONSE PICKED" + responseEvents[responseIndex].name);
+            responseEvents[responseIndex].onPickedResponse.Invoke();
             dialogueUI.CloseDialogBox();
         }
     }

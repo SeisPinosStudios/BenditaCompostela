@@ -29,7 +29,7 @@ MonoBehaviour:
   - "AGRICULTOR AMABLE\nQue tengas suerte y ll\xE9vate esto, es lo m\xE1ximo que
     puedo ofrecerte como ayuda. "
   responses:
-  - responseText: "\xA1Gracias! Lo tendr\xE9 en cuenta. "
+  - responseText: "\xA1Gracias! Lo tendr\xE9 en cuenta."
     dialogueObject: {fileID: 11400000, guid: 9e528c8a7eefcde448055643493e4934, type: 2}
     conditions: 
     conditionsValue: 
