@@ -200,8 +200,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 525133928}
-  - component: {fileID: 525133929}
   - component: {fileID: 525133930}
+  - component: {fileID: 525133933}
+  - component: {fileID: 525133932}
+  - component: {fileID: 525133931}
   m_Layer: 5
   m_Name: CreditsObject
   m_TagString: Untagged
@@ -231,7 +233,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &525133929
+--- !u!114 &525133930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525133927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576dd6d3256a7564c80b7ec537546c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 0.4
+  fade: {fileID: 1918153916}
+  credits:
+  - <b> Bendita Compostela </b>
+  - Un juego por:<br><b>SeisPinos Studios</b>
+  - "Dise\xF1o de Juego<br>Violeta Trujillo Almeida"
+  - "Dise\xF1o de Niveles<br>Violeta Trujillo Almeida<br>Sergio L\xF3pez Elvira"
+  - "Dise\xF1o Narrativo\r\nSergio L\xF3pez Elvira"
+  - "Equipo de Programaci\xF3n<br>Diego Gonz\xE1lez Garc\xEDa<br>Edson V\xEDctor
+    Fern\xE1ndez Espinoza"
+  - "Dise\xF1o Visual<br>Eris Andaya Bernales (Arte Tradicional 2D)<br>Javier S\xE1nchez
+    Serna (Pixel Art)"
+  - "M\xFAsica y Efectos de Sonido<br>Pablo Ebohon Serna"
+  - 'Agradecimientos:
+
+    Juanito Juan, la PCE ganga al completo, Joselel, FlipperMan,
+    Abril, Davodo'
+  - "Agradecimientos:\nRicardo Trujillo Almeida\r, V\xEDctor Sanandr\xE9s\r, Manuel
+    V\xE1zquez\r, Alejandro V\xE1zquez\r, \xC1lvaro Garc\xEDa\r, Joan Toni Arquellada\r,
+    Diego Lucas\r"
+  - "Cr\xE9ditos Externos:\nBelisario Mart\xEDn\r, Miguel Blanco\r, Pedro Barquero\r,
+    Javier Jim\xE9nez\r, Javier Mayoral\r, Pablo Mart\xEDn, Jose Rodr\xEDguez"
+  - "Agradecimientos:<br>Jaime Herr\xE1ez Mart\xEDn, Adri\xE1n Mateos Contreras,
+    Mario Maroto Jim\xE9nez, Andrea Sanchez Serna, Yolanda Serna Fonseca, Yeni Serna
+    Fonseca"
+  - "Agradecimientos:\nSara S\xE1nchez-Ca\xF1ete Bernal, Jaime Herr\xE1ez Mart\xEDn,
+    Adri\xE1n Mateos Contreras"
+  - "Agradecimientos:\nMario Maroto Jim\xE9nez, Andrea Sanchez Serna, Yolanda Serna
+    Fonseca, Yeni Serna Fonseca"
+  - 'Agradecimientos:
+
+    Sonia Espinoza Maggino, Victor Fernandez Yujra, Karen
+    Fernandez Espinoza, Joel Medina Sanchez, Alejandro Alonso Plaza'
+  - 'Agradecimientos:
+
+    Sonia Espinoza Maggino, Victor Fernandez Yujra, Karen
+    Fernandez Espinoza, Joel Medina Sanchez, Alejandro Alonso Plaza, Alejandro Figueroa
+    Fernandez'
+  - "Cr\xE9ditos Externos:<br>Efectos de sonido sacados de zapslat<br>Efectos de
+    sonido sacados de fiftysounds<br>"
+  - "Cr\xE9ditos Externos:<br>\"Sardana\" Kevin MacLeod (incompetech.com)\r<br>Licensed
+    under Creative Commons: By Attribution 4.0 License\r<br>http://creativecommons.org/licenses/by/4.0/"
+  - "Cr\xE9ditos Externos:<br>Obra: Volviendo al Hogar\r<br>M\xFAsica de https://www.fiftysounds.com/es/"
+--- !u!114 &525133931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,11 +328,23 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 525133932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &525133930
+      m_Calls:
+      - m_Target: {fileID: 525133930}
+        m_TargetAssemblyTypeName: Credits, Assembly-CSharp
+        m_MethodName: Leave
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &525133932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,27 +353,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 525133927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 576dd6d3256a7564c80b7ec537546c38, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.4
-  fade: {fileID: 1918153916}
-  credits:
-  - <b> Bendita Compostela </b>
-  - Un juego por:<br><b>Seis Pinos Estudios</b>
-  - "Dise\xF1o de Juego<br>Violeta Trujillo Almeida"
-  - "Dise\xF1o de Niveles<br>Violeta Trujillo Almeida<br>Sergio L\xF3pez Elvira"
-  - "Equipo de Programaci\xF3n<br>Diego Gonz\xE1lez Garc\xEDa<br>Edson V\xEDctor
-    Fern\xE1ndez Espinoza"
-  - "Dise\xF1o Visual<br>Eris Andaya Bernales (Arte Tradicional 2D)<br>Javier S\xE1nchez
-    Serna (Pixel Art)"
-  - "M\xFAsica y Efectos de Sonido<br>Pablo Ebohon Serna"
-  - "Cr\xE9ditos Externos:<br>Efectos de sonido sacados de zapslat<br>Efectos de
-    sonido sacados de fiftysounds<br>"
-  - "Cr\xE9ditos Externos:<br>\"Sardana\" Kevin MacLeod (incompetech.com)\r<br>Licensed
-    under Creative Commons: By Attribution 4.0 License\r<br>http://creativecommons.org/licenses/by/4.0/"
-  - "Cr\xE9ditos Externos:<br>Obra: Volviendo al Hogar\r<br>M\xFAsica de https://www.fiftysounds.com/es/"
-  - 'Agradecimientos: la PCE ganga, Joselel, FlipperMan, Abril'
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &525133933
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525133927}
+  m_CullTransparentMesh: 1
 --- !u!1 &672837769
 GameObject:
   m_ObjectHideFlags: 0

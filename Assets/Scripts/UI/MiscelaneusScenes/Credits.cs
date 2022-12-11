@@ -16,7 +16,6 @@ public class Credits : MonoBehaviour
 
     public void Awake()
     {
-        GetComponent<Button>().onClick.AddListener(Fade);
         color = fade.GetComponent<Image>().color;
         StartCoroutine(FadeController());
     }
@@ -68,6 +67,11 @@ public class Credits : MonoBehaviour
             yield return StartCoroutine(FadeIn());
             yield return StartCoroutine(FadeOut());
         }
+    }
+
+    public void Leave(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     private void Update()

@@ -101,8 +101,10 @@ public class BattleWonScript : MonoBehaviour
     void BossReward()
     {
         var rewards = new int[] { 0, 0, 0 };
+        Debug.Log(GameManager.nextEnemy.name);
         switch (boss.IndexOf(GameManager.nextEnemy))
         {
+            
             case 0:
                 rewards[0] = 10;
                 rewards[1] = 3;
@@ -128,6 +130,8 @@ public class BattleWonScript : MonoBehaviour
                 GameManager.NewRoute();
                 break;
             case 3:
+                GameManager.StopSong();
+                GameManager.DumpSavedData();
                 SceneManager.LoadScene("FinalCinematic");
                 break;
         }

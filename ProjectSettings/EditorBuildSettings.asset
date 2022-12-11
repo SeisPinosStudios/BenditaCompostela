@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle/VictoryScene.unity
     guid: 1c3d541b33cb0cc47ab0ef82f668eec1
+  - enabled: 1
+    path: Assets/Scenes/Cinematics/FinalCinematic.unity
+    guid: f92eac64a78fd4d479583f6afda48296
   m_configObjects: {}

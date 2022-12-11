@@ -2828,7 +2828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74, y: -22}
+  m_AnchoredPosition: {x: -80, y: -45}
   m_SizeDelta: {x: 628.5714, y: 1085.7142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986970591
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c5ea9c98231f7ee4a84cdca24ae5d8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26df8bdd250327a43957911160f300fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3985,6 +3985,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1793441830}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StopSong
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1793441828}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1469328754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4797,10 +4821,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2f085603389f2c14180582482e6dec26, type: 3}
   - {fileID: 8300000, guid: 584168b6fb9018247ba8a0558748fa15, type: 3}
   shopMusic: {fileID: 8300000, guid: 6a4bed45e57abe04d8baf98608d9a796, type: 3}
-  audioSource: {fileID: 0}
   battleEndMusic:
   - {fileID: 8300000, guid: 64d63efced602724f92a58432e22e779, type: 3}
   - {fileID: 8300000, guid: 23633e33018039b41a94bcbf70e5b2f7, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &1820426476
 GameObject:
   m_ObjectHideFlags: 0

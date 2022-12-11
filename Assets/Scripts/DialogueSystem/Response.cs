@@ -22,7 +22,7 @@ public class Response
             switch (conditions[i])
             {
                 case Conditions.HAS_HP:
-                    if (GameManager.playerData.currentHP < conditionsValue[i]) return false;
+                    if (GameManager.playerData.currentHP < (conditionsValue[i]+1)) return false;
                     break;
                 case Conditions.HAS_COIN:
                     if (GameManager.playerData.coins < conditionsValue[i]) return false;

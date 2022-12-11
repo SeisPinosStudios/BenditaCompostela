@@ -19,13 +19,14 @@ public class MusicManager : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = GameManager.musicVolume;
         audioSource.loop = false;
-        PlayClip(songs[0]);
+        audioSource.Stop();
+        StartCoroutine(PlayClip(songs[0]));
     }
 
     public void NextSong()
     {
-        Debug.Log("NEXT SONG");
-        PlayClip(songs[Random.Range(0, songs.Count)]);
+        if (SceneManager.GetActiveScene().name == "Cinematic_1" || SceneManager.GetActiveScene().name == "FinalCinematic" || SceneManager.GetActiveScene().name == "FinalScene" || SceneManager.GetActiveScene().name == "Credits") return;
+        StartCoroutine(PlayClip(songs[Random.Range(0, songs.Count)]));
     }
     public void ShopMusic()
     {
@@ -35,12 +36,12 @@ public class MusicManager : MonoBehaviour
     public void BattleMusic()
     {
         audioSource.Stop();
-        PlayClip(GameManager.nextEnemy.name == "Santiago" ? battleMusic[1] : battleMusic[0]);
+        StartCoroutine(PlayClip(GameManager.nextEnemy.name == "Santiago" ? battleMusic[1] : battleMusic[0]));
     }
     public void PlayBattleEnd(bool won)
     {
         audioSource.Stop();
-        PlayClip(won ? battleEndMusic[0] : battleEndMusic[1]);
+        StartCoroutine(PlayClip(won ? battleEndMusic[0] : battleEndMusic[1]));
     }
     public void StopSong()
     {
@@ -52,10 +53,10 @@ public class MusicManager : MonoBehaviour
     }
     IEnumerator PlayClip(AudioClip song)
     {
+        audioSource.Stop();
         Debug.Log("PLAYING CLIP" + song.name);
         audioSource.clip = song;
-        yield return new WaitForSeconds(1.0f);
-        audioSource.Play();
+        audioSource.PlayDelayed(1.0f);
         yield return new WaitForSeconds(song.length);
         NextSong();
     }

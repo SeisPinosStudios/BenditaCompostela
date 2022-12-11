@@ -21,7 +21,9 @@ public class PlayerScript : Entity
      * synergies between the weapons and the equiped armor.
      * Pending future modifications */
     int tempDefence = 0;
+    int extraEnergy = 0;
     public static Armor.TSynergy activeSynergy;
+    public  Armor.TSynergy synergy;
     #endregion
 
     #region Other Variables
@@ -39,8 +41,7 @@ public class PlayerScript : Entity
     public IEnumerator OnTurnBegin()
     {
         DeactivateCombatControl();
-        currentEnergy = energy;
-        if (activeSynergy == Armor.TSynergy.ENERGY) currentEnergy += 1 * (chestArmor.upgradeLevel + 1);
+        currentEnergy = energy + extraEnergy;
         yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(5));
         this.Poison();
@@ -109,11 +110,13 @@ public class PlayerScript : Entity
         defense -= tempDefence;
         damageBoost = 0;
         extraHealing = 0;
+        extraEnergy = 0;
 
         ChestSynergy();
         FeetSynergy();
 
         defense += tempDefence;
+        synergy = activeSynergy;
     }
     public void ChestSynergy()
     {
@@ -162,6 +165,9 @@ public class PlayerScript : Entity
                         break;
                     case "HEALING":
                         extraHealing += (1+feetArmor.upgradeLevel);
+                        break;
+                    case "ENERGY":
+                        extraEnergy += (2 + feetArmor.upgradeLevel);
                         break;
                 }
             }

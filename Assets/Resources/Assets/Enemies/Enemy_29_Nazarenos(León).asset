@@ -29,4 +29,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d2c676d764a40044bf021e0f5695ec4, type: 2}
   - {fileID: 11400000, guid: 7d2c676d764a40044bf021e0f5695ec4, type: 2}
   passives: 07000000
-  reward: 0
+  reward: 7
