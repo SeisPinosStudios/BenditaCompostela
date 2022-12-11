@@ -25,7 +25,6 @@ public class MusicManager : MonoBehaviour
 
     public void NextSong()
     {
-        if (SceneManager.GetActiveScene().name == "BattleScene") { audioSource.Stop(); return; }
         audioSource.clip = songs[Random.Range(0, songs.Count)];
         audioSource.PlayDelayed(delay);
     }
@@ -64,41 +63,4 @@ public class MusicManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "BattleScene") BattleMusic();
         else NextSong();
     }
-
-    /*
-    public void NextSong(float delay)
-    {
-        Debug.Log("NEXT SONG");
-        if (battleSource.isPlaying) battleSource.Stop();
-        if (shopSource.isPlaying) shopSource.Stop();
-        audioSources[Random.Range(0, audioSources.Count)].Play();
-    }
-    
-    void MusicQueue()
-    {
-        if (scene == "Cinematic_1" || scene == "Credits" || scene == "DeathScene") { StopAllMusic(); return; }
-        foreach (AudioSource source in audioSources) if (source.isPlaying) return;
-        if (battleSource.isPlaying || shopSource.isPlaying) return;
-        NextSong(1.0f);
-    }
-    public void BattleMusic()
-    {
-        foreach(AudioSource source in audioSources) if (source.isPlaying) source.Stop();
-        battleSource.Play();
-    }
-    public void ShopMusic()
-    {
-        foreach (AudioSource source in audioSources) if (source.isPlaying) source.Stop();
-        shopSource.Play();
-    }
-    public void StopAllMusic()
-    {
-        foreach (AudioSource source in audioSources) if (source.isPlaying) source.Stop();
-    }
-
-    public void Update()
-    {
-        MusicQueue();
-        scene = SceneManager.GetActiveScene().name;
-    }*/
 }

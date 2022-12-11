@@ -536,16 +536,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d492164eee7687846a660227025fbed4, type: 2}
   - {fileID: 11400000, guid: 13262250a722f454eae222b17b505078, type: 2}
   - {fileID: 11400000, guid: 5868dfb0752fb934fa11a58d9d880ad0, type: 2}
-  - {fileID: 11400000, guid: 2a4ad62a07aba874586911335e2fe0f8, type: 2}
-  - {fileID: 11400000, guid: 18ee99fcdc45c404289120b555a55ab9, type: 2}
   - {fileID: 11400000, guid: eadc44046c1930646b91d93401f5e4c9, type: 2}
+  - {fileID: 11400000, guid: 18ee99fcdc45c404289120b555a55ab9, type: 2}
+  - {fileID: 11400000, guid: 2a4ad62a07aba874586911335e2fe0f8, type: 2}
   feetList:
   - {fileID: 21300000, guid: 6c23681cd42200841a050b141cfa4e4d, type: 3}
   - {fileID: 21300000, guid: 53400e40da2bc7d4892560e9adb54c80, type: 3}
   - {fileID: 21300000, guid: 9d2770b38b028ba4790c84eb60a4acf2, type: 3}
-  - {fileID: 21300000, guid: cc5db987328d18e4aabaf552435d31f6, type: 3}
-  - {fileID: 21300000, guid: 46bc8cf38a38a514297b5a857e563d8b, type: 3}
   - {fileID: 21300000, guid: 30973b60158b28b44a9ff119c3f6f930, type: 3}
+  - {fileID: 21300000, guid: 46bc8cf38a38a514297b5a857e563d8b, type: 3}
+  - {fileID: 21300000, guid: cc5db987328d18e4aabaf552435d31f6, type: 3}
   weaponList:
   - {fileID: 11400000, guid: 75e2d6c85a68ea54ebffdf328147c024, type: 2}
   - {fileID: 11400000, guid: a57575701e5c9864a8cb32a2e9a6b330, type: 2}
