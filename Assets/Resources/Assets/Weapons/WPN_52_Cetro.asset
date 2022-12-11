@@ -20,7 +20,7 @@ MonoBehaviour:
   enemy: 0
   weaponId: 4
   attackList:
-  - {fileID: 11400000, guid: c7fa866d651dfa5448088631f9015f80, type: 2}
+  - {fileID: 11400000, guid: b7a082083b521b3458f3b649d85d064f, type: 2}
   - {fileID: 11400000, guid: d5f83423c97377047aed1e1beb1f49db, type: 2}
   - {fileID: 11400000, guid: a0ea73cae3faaad4081a8cd2cd542805, type: 2}
   improvedWeapon: {fileID: 0}
