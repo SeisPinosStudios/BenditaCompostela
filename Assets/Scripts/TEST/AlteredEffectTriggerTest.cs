@@ -39,9 +39,14 @@ public class AlteredEffectTriggerTest : MonoBehaviour
     }
 
     public void Bleed() {
+        if (CharacterAnController == null) return;
         StartCoroutine(AnimationCancel("isBleeding"));
     }
 
+    public void Heal() {
+        if (CharacterAnController == null) return;
+        CharacterAnController.SetBool("isHealing", true);
+    }
     IEnumerator AnimationCancel(string AnBool) {
         CharacterAnController.SetBool(AnBool, false);
         yield return null;

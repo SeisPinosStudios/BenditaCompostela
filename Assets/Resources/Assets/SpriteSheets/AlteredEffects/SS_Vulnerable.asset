@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414c042ff5a0e564db327e8cc440e498, type: 3}
+  m_Name: SS_Vulnerable
+  m_EditorClassIdentifier: 
+  spriteList:
+  - {fileID: -1667503319, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -448224929, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: 1666264520, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -867844093, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -1584359967, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: 1119928664, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -451394303, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: 333164477, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: 1186715709, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -96507246, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: -819614206, guid: 863d5cb19de0e6449be35647f532ab66, type: 3}
+  - {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}
