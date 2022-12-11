@@ -825,8 +825,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000049591064, y: -23.536491}
-  m_SizeDelta: {x: 0, y: -47.07298}
+  m_AnchoredPosition: {x: 0.000049591064, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322396088
 MonoBehaviour:
@@ -907,7 +907,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4, y: 125}
-  m_SizeDelta: {x: 96, y: 160}
+  m_SizeDelta: {x: 112, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &366885266
 Animator:
@@ -950,55 +950,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 1019026272}
-  feet: {fileID: 1380219597}
-  weapon: {fileID: 1611558813}
-  alteredEffectDisplay: {fileID: 322396088}
-  chestIndex: 0
-  feetIndex: 0
-  weaponIndex: 0
-  slashIndex: 0
-  chestList:
+  feet: {fileID: 0}
+  weapon: {fileID: 0}
+  ChestList:
   - {fileID: 11400000, guid: d492164eee7687846a660227025fbed4, type: 2}
-  - {fileID: 11400000, guid: 13262250a722f454eae222b17b505078, type: 2}
-  - {fileID: 11400000, guid: 5868dfb0752fb934fa11a58d9d880ad0, type: 2}
-  - {fileID: 11400000, guid: 2a4ad62a07aba874586911335e2fe0f8, type: 2}
-  - {fileID: 11400000, guid: 18ee99fcdc45c404289120b555a55ab9, type: 2}
-  - {fileID: 11400000, guid: eadc44046c1930646b91d93401f5e4c9, type: 2}
-  feetList:
-  - {fileID: 21300000, guid: 6c23681cd42200841a050b141cfa4e4d, type: 3}
-  - {fileID: 21300000, guid: 53400e40da2bc7d4892560e9adb54c80, type: 3}
-  - {fileID: 21300000, guid: 9d2770b38b028ba4790c84eb60a4acf2, type: 3}
-  - {fileID: 21300000, guid: cc5db987328d18e4aabaf552435d31f6, type: 3}
-  - {fileID: 21300000, guid: 46bc8cf38a38a514297b5a857e563d8b, type: 3}
-  - {fileID: 21300000, guid: 30973b60158b28b44a9ff119c3f6f930, type: 3}
-  weaponList:
-  - {fileID: 11400000, guid: 75e2d6c85a68ea54ebffdf328147c024, type: 2}
-  - {fileID: 11400000, guid: a57575701e5c9864a8cb32a2e9a6b330, type: 2}
-  - {fileID: 11400000, guid: 5d6d911538c9df645b1050f3d4f769db, type: 2}
-  - {fileID: 11400000, guid: 03ce61c14b175464283e32ab756266a6, type: 2}
-  - {fileID: 11400000, guid: ff1e794cd4e2a884a94192ca6a71afc6, type: 2}
-  slashList:
-  - {fileID: 11400000, guid: acae7487b84e4c244ba112b4e9699e64, type: 2}
-  - {fileID: 11400000, guid: 5ce787661e7cd6b4a89e94e7cddaa7d0, type: 2}
-  - {fileID: 11400000, guid: 72cfe049bcacdcc43808f714c5026e91, type: 2}
-  - {fileID: 11400000, guid: bfafcf6223d9b664f85d2ce8590e1e83, type: 2}
-  - {fileID: 11400000, guid: ccf6ec3bc311b91469afa7358ead8d40, type: 2}
-  - {fileID: 11400000, guid: b3a79350d6b3f854d8abb81a7d7d2d12, type: 2}
-  - {fileID: 11400000, guid: 6dbeba1d3216870489f9674246804536, type: 2}
-  - {fileID: 11400000, guid: f8c60eed14cbb494ead7fe1e2b491754, type: 2}
-  bleedSlashList:
-  - {fileID: 11400000, guid: d13160bba91973e40b531618a78a2954, type: 2}
-  - {fileID: 11400000, guid: 90fd5072c30213e4ea39fa77df94459c, type: 2}
-  - {fileID: 11400000, guid: 313173a4c080cbe478ce0def8248e6cc, type: 2}
-  - {fileID: 11400000, guid: f8b7d9ea086f4b7469d3ab30cf6302fa, type: 2}
-  - {fileID: 11400000, guid: 2a24e300a8b716448a3a096779f6d183, type: 2}
-  - {fileID: 11400000, guid: 6300ac9f4b692a449b636be31b2036bd, type: 2}
-  - {fileID: 11400000, guid: 075aa02a83e114742b64aa91fa5422dc, type: 2}
-  - {fileID: 11400000, guid: e62cd3c6c9fec514692703e7618a42a4, type: 2}
-  poisonSpriteSheet: {fileID: 11400000, guid: be367d8c94eb0de45b5d186fd70b9e78, type: 2}
-  vulnerableSpriteSheet: {fileID: 11400000, guid: a3cb1890d8f82d24e9dcb173811dfa20, type: 2}
-  burnSpriteSheet: {fileID: 11400000, guid: 20539b708ea22604d9dedb928a050614, type: 2}
-  healingSpriteSheet: {fileID: 11400000, guid: 2ae51454749d40742ab0b76adcae9034, type: 2}
 --- !u!1 &398178127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -689, y: -265}
+  m_AnchoredPosition: {x: -689, y: -157}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &770834209
