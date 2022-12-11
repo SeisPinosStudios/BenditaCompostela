@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Encounter_092_Pastor
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1Ah! \xBFQue no te la vas a llevar? Pues entonces, ella se ir\xE1 contigo. "
+  - "PASTORA PAOLA\n\xA1Ah! \xBFQue no te la vas a llevar? Pues entonces, ella se
+    ir\xE1 contigo. "
   responses: []
   character: {fileID: 21300000, guid: d25b02b731154c54da0d1dc978bc278c, type: 3}

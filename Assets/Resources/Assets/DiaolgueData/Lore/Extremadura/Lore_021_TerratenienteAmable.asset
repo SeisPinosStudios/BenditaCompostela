@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lore_021_TerratenienteAmable
   m_EditorClassIdentifier: 
   dialogue:
-  - 'TERRATENIENTE
+  - 'TERRATENIENTE ROQUE
 
     ...'
   responses: []

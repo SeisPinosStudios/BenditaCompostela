@@ -40,7 +40,7 @@ public class PlayerScript : Entity
     {
         DeactivateCombatControl();
         currentEnergy = energy;
-        if (activeSynergy == Armor.TSynergy.ENERGY) currentEnergy += 3 * (chestArmor.upgradeLevel + 1);
+        if (activeSynergy == Armor.TSynergy.ENERGY) currentEnergy += 1 * (chestArmor.upgradeLevel + 1);
         yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(GameObject.Find("DefaultDeck").GetComponent<DefaultDeck>().DrawCardCorroutine(5));
         this.Poison();

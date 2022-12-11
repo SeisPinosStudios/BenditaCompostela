@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Encounter_072_Viey'alMonte
   m_EditorClassIdentifier: 
   dialogue:
-  - "\xA1No, espera! \xBFQu\xE9 est\xE1s haciendo? "
+  - "VIEYA'L MONTE\n\xA1No, espera! \xBFQu\xE9 est\xE1s haciendo? "
   responses: []
   character: {fileID: 21300000, guid: 2965ecea1e46664478fda02a284d36d3, type: 3}

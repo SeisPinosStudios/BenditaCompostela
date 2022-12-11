@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: Encounter_010_Juglar
   m_EditorClassIdentifier: 
   dialogue:
-  - 'JUGLAR
+  - 'JUGLAR JUAN
 
-    Bienaventurado muchacho. Dichosos los ojos de ver a alguien tan
-    joven merodeando por estos lares.  '
-  - "JUGLAR\nPor mi siempre noble pero mal valorada profesi\xF3n, grandes rutas debo
-    adentrarme a recorrer,"
-  - "JUGLAR\nexplorando los diferentes pueblos que hay por ver, entreteniendo a sus
-    gentes me hallar\xE9is. "
-  - "JUGLAR\nAhora bien muchacho, te ofrezco un trato. Un intercambio, algo m\xEDo
-    por algo tuyo. "
-  - 'Aceptar trato:  , obtienes <color=#308a36>Bolazo de la Giralda</color>'
+    Bienaventurado muchacho. Dichosos los ojos de ver a alguien
+    tan joven merodeando por estos lares.  '
+  - "JUGLAR JUAN\nPor mi siempre noble pero mal valorada profesi\xF3n, grandes rutas
+    debo adentrarme a recorrer,"
+  - "JUGLAR JUAN\nexplorando los diferentes pueblos que hay por ver, entreteniendo
+    a sus gentes me hallar\xE9is. "
+  - "JUGLAR JUAN\nAhora bien muchacho, te ofrezco un trato. Un intercambio, algo
+    m\xEDo por algo tuyo. "
+  - 'Aceptar trato: pagas <color=#c49a16>3 monedas</color>, obtienes <color=#308a36>Bolazo
+    de la Giralda</color>.
+
+    Rechazar trato: combate contra Juglar.'
   responses:
   - responseText: Me parece justo.
     dialogueObject: {fileID: 11400000, guid: c4826270cb751ba42be60f139777d29d, type: 2}

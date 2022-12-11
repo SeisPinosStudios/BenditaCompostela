@@ -13,20 +13,22 @@ MonoBehaviour:
   m_Name: Lore_030_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "AGRICULTOR\n\xBFQu\xE9 ven mis ojos? \xBFUn joven viajero? Est\xE1s en zona
-    de terratenientes, muchacho. Solo quieren aqu\xED a gente que trabaje para ellos,
-    si te ven, ordenar\xE1n darte caza. "
-  - "AGRICULTOR\nLos terratenientes son unos vividores, tras las batallas que aqu\xED
-    se dieron, estas tierras fueron expropiadas. Los terratenientes son solo los
-    se\xF1oritos que les toc\xF3 regentarlas."
-  - "AGRICULTOR\nNo parece que te vayas a detener aqu\xED. No. Vienes desde muy lejos.
-    Pues perm\xEDteme que te haga otra advertencia. "
-  - "AGRICULTOR\nEl mayor peligro de esta zona no son los terratenientes. A\xFAn
-    m\xE1s all\xE1, se conoce que hay un guerrero tir\xE1nico. Tiene a la zona aterrada,
-    es muy diestro en combate y letal en el cuerpo a cuerpo. "
-  - "AGRICULTOR\nProcura no cruzarte con \xE9l, poco m\xE1s te puedo decir, que la
-    fortuna te acompa\xF1e. "
+  - "AGRICULTOR ARTURO\n\xBFQu\xE9 ven mis ojos? \xBFUn joven viajero? Est\xE1s en
+    zona de terratenientes, muchacho. Solo quieren aqu\xED a gente que trabaje para
+    ellos, si te ven, ordenar\xE1n darte caza. "
+  - "AGRICULTOR ARTURO\nLos terratenientes son unos vividores, tras las batallas
+    que aqu\xED se dieron, estas tierras fueron expropiadas. Los terratenientes son
+    solo los se\xF1oritos que les toc\xF3 regentarlas."
+  - "AGRICULTOR ARTURO\nNo parece que te vayas a detener aqu\xED. No. Vienes desde
+    muy lejos. Pues perm\xEDteme que te haga otra advertencia. "
+  - "AGRICULTOR ARTURO\nEl mayor peligro de esta zona no son los terratenientes.
+    A\xFAn m\xE1s all\xE1, se conoce que hay un guerrero tir\xE1nico. Tiene a la
+    zona aterrada, es muy diestro en combate y letal en el cuerpo a cuerpo. "
+  - "AGRICULTOR ARTURO\nProcura no cruzarte con \xE9l, poco m\xE1s te puedo decir,
+    que la fortuna te acompa\xF1e. "
   responses:
   - responseText: "Gracias por la informaci\xF3n, buen hombre. "
     dialogueObject: {fileID: 11400000, guid: d769a304d9d59c54a84ccd83748e1308, type: 2}
+    conditions: 
+    conditionsValue: 
   character: {fileID: 21300000, guid: 4486221392d694b46a763da0a15a4374, type: 3}

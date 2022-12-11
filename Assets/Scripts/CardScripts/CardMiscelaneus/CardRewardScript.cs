@@ -13,6 +13,6 @@ public class CardRewardScript : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         GameManager.playerData.inventory.Add(GetComponent<CardDisplay>().cardData);
-        GameObject.Find("BattleWonUI(Clone)").GetComponent<BattleWonScript>().CleanRewards();
+        GameObject.Find("BattleWonUI").GetComponent<BattleWonScript>().CleanRewards();
     }
 }

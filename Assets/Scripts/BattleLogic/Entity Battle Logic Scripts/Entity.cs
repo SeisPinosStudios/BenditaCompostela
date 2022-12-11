@@ -73,11 +73,16 @@ public class Entity : MonoBehaviour
     }
     public void SufferDamage(int damage)
     {
-        damage = Vulnerable(damage);
-        damage = Guarded(damage);
         damage = Invulnerable(damage);
+
+        if (!Suffering(CardData.TAlteredEffects.INVULNERABLE))
+        {
+            damage = Vulnerable(damage);
+            damage = Guarded(damage);
+        }
+        
         damage = Mathf.Clamp(damage, 0, 99);
-        this.currentHP = Mathf.Clamp(this.currentHP - damage, 0, HP);
+        currentHP = Mathf.Clamp(currentHP - damage, 0, HP);
 
         if (damage > 0) animationTrigger.Damaged();
 
@@ -124,7 +129,7 @@ public class Entity : MonoBehaviour
     {
         if (ResistanceTo(alteredEffect)) return;
 
-        if (IsPlayer() && EnemyHasPassive(Enemy.Passive.rGUARDED)) return;
+        if (IsPlayer() && alteredEffect == CardData.TAlteredEffects.GUARDED && EnemyHasPassive(Enemy.Passive.rGUARDED)) return;
 
         switch (alteredEffect)
         {
@@ -187,7 +192,7 @@ public class Entity : MonoBehaviour
 
         alteredEffects[alteredEffect] = Mathf.Clamp(alteredEffects[alteredEffect] - charges, 0, 5);
 
-        if (alteredEffect == CardData.TAlteredEffects.POISON) poisonTurns = 0;
+        if (alteredEffect == CardData.TAlteredEffects.POISON && alteredEffects[alteredEffect] == 0) poisonTurns = 0;
 
         Debug.Log("REDUCED EFFECT: " + alteredEffect.ToString());
 
@@ -203,6 +208,8 @@ public class Entity : MonoBehaviour
 
         SufferEffectDamage(effectCharges);
 
+        animationTrigger.Bleed();
+
         ReduceAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
 
         Debug.Log("EFFECT: Bleed");
@@ -210,8 +217,10 @@ public class Entity : MonoBehaviour
     public void Poison()
     {
         if (!Suffering(CardData.TAlteredEffects.POISON)) { poisonTurns = 0; return; }
-        
-        poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, 6);
+
+        var limit = 6;
+        if (IsPlayer() && PlayerScript.activeSynergy == Armor.TSynergy.xPOISON) limit += (2 + GameManager.playerData.chestArmor.upgradeLevel);
+        poisonTurns = Mathf.Clamp(poisonTurns + 2, 0, limit);
         var effectCharges = poisonTurns;
 
         SufferEffectDamage(effectCharges);
@@ -262,7 +271,7 @@ public class Entity : MonoBehaviour
 
         Debug.Log("EFFECT: Guarded");
 
-        ReduceAlteredEffect(CardData.TAlteredEffects.GUARDED, 1);
+        RemoveAlteredEffect(CardData.TAlteredEffects.GUARDED);
 
         return damage -= Mathf.Clamp((int)Mathf.Round(damage * GetGuarded()),1,99);
     }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Lore_091_Santiago
   m_EditorClassIdentifier: 
   dialogue:
-  - Ahora, debes perecer.
+  - 'APOSTOL SANTIAGO
+
+    Ahora, debes perecer.'
   responses: []
   character: {fileID: 21300000, guid: f007248a3059dec498bd3c19fad5c59e, type: 3}

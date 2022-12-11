@@ -22,7 +22,6 @@ public class CharacterDisplay : MonoBehaviour
     {
 
     }
-
     private void Update()
     {
         chestImage.sprite = chestArmor[GameManager.playerData.chestArmor.armorId];
@@ -34,3 +33,4 @@ public class CharacterDisplay : MonoBehaviour
         else weaponImage.sprite = weapon[player.GetComponent<PlayerScript>().weapon.weaponId];
     }
 }
+

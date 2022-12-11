@@ -184,7 +184,7 @@ public class EncounterButton : MonoBehaviour
         ToBattleScene(enemy);
     }
 
-    public void HerreroGaliciaAceptar(CardData card)
+    public void HerreroGaliciaAceptar()
     {
         if(!TakeArmor()) return ;
         GiveMoney(12);

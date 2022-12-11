@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lore_041_Panes
   m_EditorClassIdentifier: 
   dialogue:
-  - (Has recuperado 5 de vida)
+  - Has recuperado <color=#99322b>3 puntos de vida</color>.
   responses: []
   character: {fileID: 0}

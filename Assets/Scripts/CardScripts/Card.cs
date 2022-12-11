@@ -40,7 +40,6 @@ public class Card : MonoBehaviour
 
         if (!self.ConsumeEnergy(energyCost)) return; /* If the card costs more than the remaining energy, it wont get used */
 
-        self.Bleeding();
         if(self.HasPassive(Enemy.Passive.HERNAN)) enemy.ApplyAlteredEffect(CardData.TAlteredEffects.BLEED, 1);
 
         switch (cardData.GetType().ToString())
@@ -50,12 +49,12 @@ public class Card : MonoBehaviour
                 EquipWeapon();
                 break;
             case "Attack":
-                self.animationTrigger.Attack();
+                if(!self.Suffering(CardData.TAlteredEffects.BLEED)) self.animationTrigger.Attack();
                 Attack();
                 break;
             case "Special":
                 Debug.Log("SELF: " + self.name);
-                self.animationTrigger.Attack();
+                if (!self.Suffering(CardData.TAlteredEffects.BLEED)) self.animationTrigger.Attack();
                 Special();
                 break;
             case "ObjectCard":
@@ -66,6 +65,8 @@ public class Card : MonoBehaviour
         }
 
         if (self.Suffering(CardData.TAlteredEffects.CONFUSED) && cardData.GetType() != typeof(Weapon)) self.ReduceAlteredEffect(CardData.TAlteredEffects.CONFUSED, 1);
+
+        self.Bleeding();
 
         Destroy(gameObject);
     }
@@ -79,7 +80,7 @@ public class Card : MonoBehaviour
     {
         Attack attack = (Attack)cardData;
 
-        if (attack.damage > 0) { enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost); audioManager.PlaySound("SwordHit"); }
+        if (attack.damage > 0) { audioManager.PlaySound("SwordHit"); enemy.SufferDamage(attack.damage - enemy.defense + self.damageBoost); }
         else if(attack.damage < 0) { self.RestoreHealth(-attack.damage); }
 
         if (attack.alteredEffects.Length > 0)
@@ -159,9 +160,5 @@ public class Card : MonoBehaviour
                 Debug.Log("Default.");
                 break;
         }
-    }
-    void Sound()
-    {
-        
     }
 }

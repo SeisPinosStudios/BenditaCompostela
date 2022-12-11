@@ -20,5 +20,6 @@ public class ShopButton : MonoBehaviour
         audioManager.PlaySound("Tienda");
         GameManager.currentNode = mapController.GetGoIndex(gameObject);
         GameObject.Find("Slide").GetComponent<RouteNavigator>().ToShop();
+        GameManager.ShopMusic();
     }
 }

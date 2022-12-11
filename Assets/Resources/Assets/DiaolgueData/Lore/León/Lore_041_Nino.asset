@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lore_041_Nino
   m_EditorClassIdentifier: 
   dialogue:
-  - "NI\xD1O\n\xA1Pero si soy menor que t\xFA!"
+  - "RAPAZ RA\xDAL\n\xA1Pero si soy menor que t\xFA!"
   responses: []
   character: {fileID: 21300000, guid: edf842c6c67d9cc48aa54185e8f23330, type: 3}

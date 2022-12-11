@@ -292,6 +292,19 @@ MonoBehaviour:
   credits:
   - <b> Bendita Compostela </b>
   - Un juego por:<br><b>Seis Pinos Estudios</b>
+  - "Dise\xF1o de Juego<br>Violeta Trujillo Almeida"
+  - "Dise\xF1o de Niveles<br>Violeta Trujillo Almeida<br>Sergio L\xF3pez Elvira"
+  - "Equipo de Programaci\xF3n<br>Diego Gonz\xE1lez Garc\xEDa<br>Edson V\xEDctor
+    Fern\xE1ndez Espinoza"
+  - "Dise\xF1o Visual<br>Eris Andaya Bernales (Arte Tradicional 2D)<br>Javier S\xE1nchez
+    Serna (Pixel Art)"
+  - "M\xFAsica y Efectos de Sonido<br>Pablo Ebohon Serna"
+  - "Cr\xE9ditos Externos:<br>Efectos de sonido sacados de zapslat<br>Efectos de
+    sonido sacados de fiftysounds<br>"
+  - "Cr\xE9ditos Externos:<br>\"Sardana\" Kevin MacLeod (incompetech.com)\r<br>Licensed
+    under Creative Commons: By Attribution 4.0 License\r<br>http://creativecommons.org/licenses/by/4.0/"
+  - "Cr\xE9ditos Externos:<br>Obra: Volviendo al Hogar\r<br>M\xFAsica de https://www.fiftysounds.com/es/"
+  - 'Agradecimientos: la PCE ganga, Joselel, FlipperMan, Abril'
 --- !u!1 &672837769
 GameObject:
   m_ObjectHideFlags: 0

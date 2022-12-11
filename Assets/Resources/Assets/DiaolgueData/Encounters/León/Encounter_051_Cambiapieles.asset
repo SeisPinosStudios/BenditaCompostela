@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: Encounter_051_Cambiapieles
   m_EditorClassIdentifier: 
   dialogue:
-  - "Si algo me caracteriza, es que puedo encajar las cr\xEDticas con humildad. Puedo
-    observar que este disfraz no ha sido el m\xE1s convincente."
-  - "Tampoco hace falta que me mires as\xED. Escucha, soy un cambiapieles, me disfrazo
-    de otros animales peludos para poder introducirme en sus comunidades y formar
-    parte de ellos."
-  - "Obviamente, no lo hago por gusto, todo esto lo hago con fines meramente acad\xE9micos.
-    Veo que no te hago cambiar de opini\xF3n. "
-  - "Tampoco me importa, muchos otros opinan que he perdido el juicio. \xA1JA! Ya
-    les gustar\xEDa, estoy completamente en mis cabales. "
-  - "Deb\xE9is entender, que alguien tiene que hacer este tipo de labores, estudiar
-    las diferentes especies de la zona. Solo que, cada uno tiene sus m\xE9todos."
-  - "Mira chico, si te doy esto \xBFTe ir\xE1s y dejar\xE1s de juzgarme? \xBFS\xED?
-    Pues anda toma, tampoco preguntes de d\xF3nde ha salido. "
+  - "OSO PARLANTE\nSi algo me caracteriza, es que puedo encajar las cr\xEDticas con
+    humildad. Puedo observar que este disfraz no ha sido el m\xE1s convincente."
+  - "OSO PARLANTE\nTampoco hace falta que me mires as\xED. Escucha, soy un cambiapieles,
+    me disfrazo de otros animales peludos para poder introducirme en sus comunidades
+    y formar parte de ellos."
+  - "OSO PARLANTE\nObviamente, no lo hago por gusto, todo esto lo hago con fines
+    meramente acad\xE9micos. Veo que no te hago cambiar de opini\xF3n. "
+  - "OSO PARLANTE\nTampoco me importa, muchos otros opinan que he perdido el juicio.
+    \xA1JA! Ya les gustar\xEDa, estoy completamente en mis cabales. "
+  - "OSO PARLANTE\nDeb\xE9is entender, que alguien tiene que hacer este tipo de labores,
+    estudiar las diferentes especies de la zona. Solo que, cada uno tiene sus m\xE9todos."
+  - "OSO PARLANTE\nMira chico, si te doy esto \xBFTe ir\xE1s y dejar\xE1s de juzgarme?
+    \xBFS\xED? Pues anda toma, tampoco preguntes de d\xF3nde ha salido. "
+  - Has obtenido la carta <color=#ebc934>Seta con regalo</color>.
   responses: []
   character: {fileID: 21300000, guid: 3332a23567def6a4681dec0b66f7ab82, type: 3}

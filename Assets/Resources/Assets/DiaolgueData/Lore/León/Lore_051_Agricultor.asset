@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lore_051_Agricultor
   m_EditorClassIdentifier: 
   dialogue:
-  - "AGRICULTOR\n\xA1YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!"
+  - "AGRICULTOR AURELIO\n\xA1YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!"
   responses: []
   character: {fileID: 21300000, guid: 4486221392d694b46a763da0a15a4374, type: 3}

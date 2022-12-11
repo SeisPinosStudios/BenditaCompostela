@@ -9,6 +9,7 @@ public class Credits : MonoBehaviour
 {
     public float fadeSpeed;
     public GameObject fade;
+    [TextArea(3,10)]
     public string[] credits;
     int progress;
     Color color;

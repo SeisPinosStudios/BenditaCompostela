@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy_33_BandidoGigante(Galicia)
   m_EditorClassIdentifier: 
   name: Bandido gigante
-  sprite: {fileID: -450495611, guid: cd680ce483b31f14fb88e92f9cd4ffa5, type: 3}
-  enemyAnimatorController: {fileID: 0}
+  sprite: {fileID: 199959029, guid: 609a46176fd2c7e4884f7cd7edb7e255, type: 3}
+  enemyAnimatorController: {fileID: 22100000, guid: 4dbaf291d8caf774eb93781944015e08, type: 2}
   HP: 130
   energy: 99
   enemyAttacks:

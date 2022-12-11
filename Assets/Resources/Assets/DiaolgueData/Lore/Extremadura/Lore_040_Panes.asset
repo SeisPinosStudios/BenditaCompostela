@@ -30,4 +30,6 @@ MonoBehaviour:
   responses:
   - responseText: "Ojal\xE1, en otra ocasi\xF3n ser\xE1. "
     dialogueObject: {fileID: 11400000, guid: 04cb364f425ed3642a9e2f575a23f8bc, type: 2}
-  character: {fileID: 0}
+    conditions: 
+    conditionsValue: 
+  character: {fileID: 1607641306, guid: 6c8695fd42ffbca439e157e3c924aa96, type: 3}
