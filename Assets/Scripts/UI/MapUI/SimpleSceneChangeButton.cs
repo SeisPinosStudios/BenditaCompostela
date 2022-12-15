@@ -24,6 +24,7 @@ public class SimpleSceneChangeButton : MonoBehaviour, IPointerEnterHandler, IPoi
         }
 
         GameManager.ActualRoute = SceneManager.GetActiveScene().name;
+        GameManager.StopSong();
         SceneManager.LoadScene(destination);
     }
 

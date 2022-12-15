@@ -18,6 +18,7 @@ public class cinematic_ruta1 : MonoBehaviour
 
     void Start()
     {
+        GameManager.StopSong();
         VideoHasEnded = false;
         firstCinematic.loopPointReached += startDialogue;
         secondCinematic.loopPointReached += ToRoute;

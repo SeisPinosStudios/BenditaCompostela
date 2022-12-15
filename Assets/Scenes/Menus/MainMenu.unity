@@ -3997,18 +3997,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1793441828}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1469328754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4822,9 +4810,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 584168b6fb9018247ba8a0558748fa15, type: 3}
   shopMusic: {fileID: 8300000, guid: 6a4bed45e57abe04d8baf98608d9a796, type: 3}
   battleEndMusic:
-  - {fileID: 8300000, guid: 64d63efced602724f92a58432e22e779, type: 3}
+  - {fileID: 8300000, guid: b1d8aa569597d044896aa7c0710fefc8, type: 3}
   - {fileID: 8300000, guid: 23633e33018039b41a94bcbf70e5b2f7, type: 3}
   audioSource: {fileID: 0}
+  scenes:
+  - Cinematic_1
+  - FinalCinematic
+  - FinalScene
+  - Credits
+  - VictoryScene
+  - DeathScene
+  boss:
+  - {fileID: 11400000, guid: 71d94fda04247a141990cecd02f4718d, type: 2}
+  - {fileID: 11400000, guid: a6160e526690de54687484d90c15b7db, type: 2}
+  - {fileID: 11400000, guid: 77e8a69418e67ff4289efb72d4537aca, type: 2}
+  - {fileID: 11400000, guid: fb7ef70b6b294ff429664b393fcf5ebf, type: 2}
 --- !u!1 &1820426476
 GameObject:
   m_ObjectHideFlags: 0

@@ -258,36 +258,27 @@ MonoBehaviour:
   - "Dise\xF1o Visual<br>Eris Andaya Bernales (Arte Tradicional 2D)<br>Javier S\xE1nchez
     Serna (Pixel Art)"
   - "M\xFAsica y Efectos de Sonido<br>Pablo Ebohon Serna"
-  - 'Agradecimientos:
+  - 'Agradecimientos
 
     Juanito Juan, la PCE ganga al completo, Joselel, FlipperMan,
-    Abril, Davodo'
-  - "Agradecimientos:\nRicardo Trujillo Almeida\r, V\xEDctor Sanandr\xE9s\r, Manuel
-    V\xE1zquez\r, Alejandro V\xE1zquez\r, \xC1lvaro Garc\xEDa\r, Joan Toni Arquellada\r,
-    Diego Lucas\r"
-  - "Cr\xE9ditos Externos:\nBelisario Mart\xEDn\r, Miguel Blanco\r, Pedro Barquero\r,
-    Javier Jim\xE9nez\r, Javier Mayoral\r, Pablo Mart\xEDn, Jose Rodr\xEDguez"
-  - "Agradecimientos:<br>Jaime Herr\xE1ez Mart\xEDn, Adri\xE1n Mateos Contreras,
-    Mario Maroto Jim\xE9nez, Andrea Sanchez Serna, Yolanda Serna Fonseca, Yeni Serna
-    Fonseca"
-  - "Agradecimientos:\nSara S\xE1nchez-Ca\xF1ete Bernal, Jaime Herr\xE1ez Mart\xEDn,
+    Adripekas, Abril, Davodo'
+  - "Agradecimientos<br>Ricardo Trujillo Almeida, Victor Sanandr\xE9s, Manuel V\xE1zquez,
+    Alejandro V\xE1zquez, Alvaro Garc\xEDa, Joan Toni Arquellada, Diego Lucas"
+  - "Agradecimientos<br>Belisario Mart\xEDn, Miguel Blanco, Pedro Barquero, Javier
+    Jim\xE9nez, Javier Mayoral, Pablo Mart\xEDn, Jos\xE9 Rodr\xEDguez"
+  - "Agradecimientos\nSara S\xE1nchez-Ca\xF1ete Bernal, Jaime Herr\xE1ez Mart\xEDn,
     Adri\xE1n Mateos Contreras"
-  - "Agradecimientos:\nMario Maroto Jim\xE9nez, Andrea Sanchez Serna, Yolanda Serna
-    Fonseca, Yeni Serna Fonseca"
-  - 'Agradecimientos:
+  - 'Agradecimientos
 
-    Sonia Espinoza Maggino, Victor Fernandez Yujra, Karen
-    Fernandez Espinoza, Joel Medina Sanchez, Alejandro Alonso Plaza'
-  - 'Agradecimientos:
-
-    Sonia Espinoza Maggino, Victor Fernandez Yujra, Karen
-    Fernandez Espinoza, Joel Medina Sanchez, Alejandro Alonso Plaza, Alejandro Figueroa
-    Fernandez'
-  - "Cr\xE9ditos Externos:<br>Efectos de sonido sacados de zapslat<br>Efectos de
-    sonido sacados de fiftysounds<br>"
-  - "Cr\xE9ditos Externos:<br>\"Sardana\" Kevin MacLeod (incompetech.com)\r<br>Licensed
-    under Creative Commons: By Attribution 4.0 License\r<br>http://creativecommons.org/licenses/by/4.0/"
-  - "Cr\xE9ditos Externos:<br>Obra: Volviendo al Hogar\r<br>M\xFAsica de https://www.fiftysounds.com/es/"
+    Sonia Espinoza Maggino, Victor Fernandez Yujra, Karen Fernandez
+    Espinoza, Joel Medina Sanchez, Alejandro Alonso Plaza, Alejandro Figueroa Fernandez, '
+  - "Agradecimientos\nAndrea Sanchez Serna, Yeni Serna Fern\xE1ndez, Yolanda Serna
+    Fern\xE1ndez, Rachel y Pelusa"
+  - "Cr\xE9ditos Externos<br>Efectos de sonido sacados de zapslat\r\nEfectos de sonido
+    sacados de fiftysounds"
+  - "Cr\xE9ditos Externos<br>\"Sardana\" Kevin MacLeod (incompetech.com)\r\nLicensed
+    under Creative Commons: By Attribution 4.0 License\r\nhttp://creativecommons.org/licenses/by/4.0/"
+  - "Cr\xE9ditos Externos<br>Obra: Volviendo al Hogar\r<br>M\xFAsica de https://www.fiftysounds.com/es/"
 --- !u!114 &525133931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +649,7 @@ MonoBehaviour:
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 72
+  m_fontSizeMin: 60
   m_fontSizeMax: 100
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -672,7 +663,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 3
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1

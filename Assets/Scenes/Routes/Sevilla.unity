@@ -676,10 +676,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2f085603389f2c14180582482e6dec26, type: 3}
   - {fileID: 8300000, guid: 584168b6fb9018247ba8a0558748fa15, type: 3}
   shopMusic: {fileID: 8300000, guid: 6a4bed45e57abe04d8baf98608d9a796, type: 3}
-  audioSource: {fileID: 0}
   battleEndMusic:
   - {fileID: 8300000, guid: b1d8aa569597d044896aa7c0710fefc8, type: 3}
   - {fileID: 8300000, guid: 23633e33018039b41a94bcbf70e5b2f7, type: 3}
+  audioSource: {fileID: 0}
+  scenes:
+  - Cinematic_1
+  - FinalCinematic
+  - FinalScene
+  - Credits
+  - VictoryScene
+  - DeathScene
 --- !u!1001 &223188347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -801,16 +808,48 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1046541167}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 209201439}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToRoute
       objectReference: {fileID: 0}
     - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StopSong
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RouteNavigator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757312597525477035, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4757312597607146320, guid: b0628da668a2c2948ab65d96b4f44262, type: 3}
       propertyPath: m_Pivot.x
@@ -2893,7 +2932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 699.8101}
+  m_AnchoredPosition: {x: 0, y: 699.8103}
   m_SizeDelta: {x: 1663.961, y: 2479.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033692426
@@ -3398,7 +3437,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 371345277}
   m_HandleRect: {fileID: 371345276}
   m_Direction: 2
-  m_Value: 0
+  m_Value: -0.0000001744335
   m_Size: 0.4355506
   m_NumberOfSteps: 0
   m_OnValueChanged:
