@@ -83,9 +83,9 @@ public class GameManager : MonoBehaviour
     {
         //GetBackground();
 
-        if (SceneManager.GetActiveScene().name == "Cinematic_1" && GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Stop();
+        //if (SceneManager.GetActiveScene().name == "Cinematic_1" && GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Stop();
 
-        if (SceneManager.GetActiveScene().name != "Cinematic_1" && !GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
+        //if (SceneManager.GetActiveScene().name != "Cinematic_1" && !GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
     }
 
     public static void SceneChange(string scene)
@@ -284,6 +284,7 @@ public class GameManager : MonoBehaviour
         {
             case "PlayerScript":
                 DumpSavedData();
+                PlayBattleEnd(false);
                 SceneManager.LoadScene("DeathScene");
                 //Instantiate(BattleCompletedUI[1], GameObject.Find("====CANVAS====").transform);
                 break;

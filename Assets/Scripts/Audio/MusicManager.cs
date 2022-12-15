@@ -11,9 +11,9 @@ public class MusicManager : MonoBehaviour
     public AudioClip shopMusic;
     public List<AudioClip> battleEndMusic;
     public AudioSource audioSource;
-    string scene;
-    float delay = 1.0f;
 
+    public List<string> scenes;
+    public List<Enemy> boss;
     public void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -25,27 +25,30 @@ public class MusicManager : MonoBehaviour
 
     public void NextSong()
     {
-        if (SceneManager.GetActiveScene().name == "Cinematic_1" || SceneManager.GetActiveScene().name == "FinalCinematic" || SceneManager.GetActiveScene().name == "FinalScene" || SceneManager.GetActiveScene().name == "Credits") return;
+        if (scenes.Contains(SceneManager.GetActiveScene().name)) return;
+        Debug.Log("NEXT SONG");
+        //if (SceneManager.GetActiveScene().name == "Cinematic_1" || SceneManager.GetActiveScene().name == "FinalCinematic" || SceneManager.GetActiveScene().name == "FinalScene" || SceneManager.GetActiveScene().name == "Credits") return;
         StartCoroutine(PlayClip(songs[Random.Range(0, songs.Count)]));
     }
     public void ShopMusic()
     {
-        audioSource.Stop();
+        StopSong();
         StartCoroutine(PlayClip(shopMusic));
     }
     public void BattleMusic()
     {
-        audioSource.Stop();
-        StartCoroutine(PlayClip(GameManager.nextEnemy.name == "Santiago" ? battleMusic[1] : battleMusic[0]));
+        StopSong();
+        StartCoroutine(PlayClip(boss.Contains(GameManager.nextEnemy) ? battleMusic[1] : battleMusic[0]));
     }
     public void PlayBattleEnd(bool won)
     {
-        audioSource.Stop();
+        StopSong();
         StartCoroutine(PlayClip(won ? battleEndMusic[0] : battleEndMusic[1]));
     }
     public void StopSong()
     {
         audioSource.Stop();
+        StopAllCoroutines();
     }
     public void SetVolume(float volume)
     {
@@ -53,11 +56,11 @@ public class MusicManager : MonoBehaviour
     }
     IEnumerator PlayClip(AudioClip song)
     {
-        audioSource.Stop();
         Debug.Log("PLAYING CLIP" + song.name);
         audioSource.clip = song;
         audioSource.PlayDelayed(1.0f);
         yield return new WaitForSeconds(song.length);
+        Debug.Log("EN COROUTINE");
         NextSong();
     }
 
